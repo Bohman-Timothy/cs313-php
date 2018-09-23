@@ -1,0 +1,13 @@
+body {
+    font-family: "lucida console", "courier new";
+    background-color: darkslateblue;
+}
+h1 {
+    color: tomato;
+}
+p {
+    color: lightseagreen;
+}
+mark {
+    background-color: lightseagreen;
+}
