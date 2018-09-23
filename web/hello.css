@@ -5,9 +5,18 @@ body {
 h1 {
     color: tomato;
 }
+h2 {
+    color: darkgrey;
+}
 p {
     color: lightseagreen;
 }
 mark {
     background-color: lightseagreen;
+}
+a {
+    color: mediumblue;
+}
+a:visited {
+    color: mediumvioletred;
 }
