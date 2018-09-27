@@ -1,6 +1,6 @@
 body {
     background-color: antiquewhite;
-    font-family: verdana;
+    font-family: verdana,tahoma;
     color: #202020;
 }
 
@@ -20,8 +20,9 @@ p.gapbelow {
     margin-bottom: 0.5em;
 }
 
-.floatleft {
-    float: left;
+#click_me {
+    display: block;
+    margin-below: 1em;
 }
 
 #custom_color_js {

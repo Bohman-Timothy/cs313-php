@@ -6,13 +6,6 @@ function customColorJS() {
     document.getElementById("custom_color_js").style.backgroundColor = userColor;
     return 0;
 }
-/*function customColorJQ() {
-	var userColor = $("#colorInputJQ").val();
-    alert("Value: " + $("#colorInputJQ").val());
-    $(document).ready(function(){
-	$("#").css("background-color", userColor);
-    });
-}*/
 
 $(document).ready(function() {
     var faded = false;
@@ -25,12 +18,12 @@ $(document).ready(function() {
 	if(!faded) {
 	    $("#fade").fadeOut("slow","linear");
 	    faded = true;
-	    $("#fadeButton").text("Fade In");
+	    $("#fadeButton").text("Fade in");
 	}
 	else {
 	    $("#fade").fadeIn("slow","linear");
 	    faded = false;
-	    $("#fadeButton").text("Fade Out");
+	    $("#fadeButton").text("Fade out");
 	}
     });
 });
