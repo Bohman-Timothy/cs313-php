@@ -1,0 +1,41 @@
+body {
+    background-color: antiquewhite;
+    font-family: verdana;
+    color: #202020;
+}
+
+h2 {
+    color: #601010;
+}
+
+div {
+    padding: 1em 2em 2em 2em;
+}
+
+div.button {
+    padding-top: 0.5em;
+}
+
+p.gapbelow {
+    margin-bottom: 0.5em;
+}
+
+.floatleft {
+    float: left;
+}
+
+#custom_color_js {
+    background-color: #0088bb;
+}
+
+#custom_color_jq {
+    background-color: mediumorchid;
+}
+
+#fade {
+    background-color: salmon;
+}
+
+.boldHover:hover {
+    font-weight: bold;
+}
