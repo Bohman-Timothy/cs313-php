@@ -2,8 +2,12 @@ body {
     background-color: mistyrose;
     font-family: Inconsolata,monospace;
     font-size: 2em;
-    text-align: center;
     color: #200040;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#about {
 }
 
 h1 {
@@ -11,13 +15,21 @@ h1 {
 }
 
 h2 {
+    font-size: 1.5em;
+}
+
+#assignments {
+    text-align: center;
+}
+ 
+#assignments h2 {
     text-decoration: underline;
     font-size: 1.75em;
     margin-bottom: 0em;
     padding-bottom: 0em;
 }
 
-#assignments div ul {
+ul.assignmentsOfWeek {
     background-color: antiquewhite;
     list-style: none;
     width: 50%;
@@ -28,7 +40,6 @@ h2 {
     padding-bottom: 0.5em;
 }
 
-#assignments div ul li{
+ul.assignmentsOfWeek li {
     margin-left: -1em;
 }
-
