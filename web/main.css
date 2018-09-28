@@ -1,0 +1,34 @@
+body {
+    background-color: mistyrose;
+    font-family: Inconsolata,monospace;
+    font-size: 2em;
+    text-align: center;
+    color: #200040;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    text-decoration: underline;
+    font-size: 1.75em;
+    margin-bottom: 0em;
+    padding-bottom: 0em;
+}
+
+#assignments div ul {
+    background-color: antiquewhite;
+    list-style: none;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #601010;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+#assignments div ul li{
+    margin-left: -1em;
+}
+
