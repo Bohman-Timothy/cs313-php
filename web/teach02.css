@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 body {
     background-color: antiquewhite;
     font-family: verdana,tahoma;
@@ -30,7 +32,6 @@ p {
 
 #click_me {
     display: block;
-    margin-below: 1em;
 }
 
 #custom_color_js {
