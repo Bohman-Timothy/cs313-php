@@ -47,6 +47,7 @@
 	<li><a href="https://www.w3schools.com/jsref/prop_img_width.asp">W3Schools - JavaScript, Image Width Property</a></li>
 	<li><a href="https://www.w3schools.com/jsref/event_onmouseover.asp">W3Schools - JavaScript onmouseover and onmouseout Events</a></li>
 	<li><a href="https://www.w3schools.com/tags/tag_figcaption.asp">W3Schools - figcaption Tag</a></li>
+	<li><a href="https://www.w3schools.com/Html/html_charset.asp">W3Schools - HTML Character Encoding</a></li>
       </ul>
     </div>
   </body>
