@@ -24,6 +24,10 @@ a {
     padding-right: 0.25em;
 }
 
+a:visited {
+    color: darkmagenta;
+}
+
 a:hover {
     background-color: #ffc7b3;
     color: #303030;

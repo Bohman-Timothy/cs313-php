@@ -33,7 +33,7 @@
 	<img src="https://images.blu-ray.com/news/upload/9914_tn.jpg" width="260" height="328" onmouseover="biggerSupermanImg(this)" onmouseout="smallerSupermanImg(this)">
 	<figcaption id="supermanFigCaption">Superman: The Movie 4K Ultra HD Blu-ray cover art</figcaption>
       </figure>
-      <p>After writing all that, I feel obligated to share something, at least. One of my top 3 favorite movies of all time is <i><a href="https://www.imdb.com/title/tt0078346/">Superman: The Movie</a></i>, and this year (2018) is the 40th anniversary of the movie and the 80th anniversary of Superman as a character. There will be a one-day screening of the first <i>Superman</i> film starring Christopher Reeve in select theaters on Sunday, November 25, and there will be a 4K Ultra HD Blu-ray of the film available on November 6. I feel that director Richard Donner's <i>Superman</i> set the standard for all superhero movies to follow, and none of those subsequent superhero films has been as epic, entertaining, and heroic as this masterpiece. You might think that someone with otherworldly powers could never be portrayed realistically, but the movie's portrayal of the Man of Steel is as realistic as it could be, with all stunts using physical props and actors rather than computer-generated 3d graphics. The crew who worked on the film pioneered techniques to get the action sequences and the special effects to look just right. The impact of the story, the characters, the action, and the heroics should be experienced by all movie lovers.</p>
+      <p>After writing all that, I feel obligated to share something, at least. One of my top 3 favorite movies of all time is <i><a href="https://www.imdb.com/title/tt0078346/">Superman: The Movie</a></i>, and this year (2018) is the 40th anniversary of the movie and the 80th anniversary of Superman as a character. There will be a one-day screening of the first <i>Superman</i> film starring Christopher Reeve in select theaters on Sunday, November 25, and there will be a 4K Ultra HD Blu-ray of the film available on November 6. I feel that director Richard Donner's <i>Superman</i> set the standard for all superhero movies to follow, and none of those subsequent superhero films has been as epic, entertaining, and heroic as this masterpiece. You might think that someone with otherworldly powers could never be portrayed realistically, but the movie's portrayal of the Man of Steel is as realistic as it could be, with all stunts using physical props and actors rather than computer-generated 3-D graphics. The crew who worked on the film pioneered techniques to get the action sequences and the special effects to look just right. The impact of the story, the characters, the action, and the heroics should be experienced by all movie lovers.</p>
     </div>
     <h2>Resources Used for Home Page and Assignments Page</h2>
     <ul>
@@ -45,7 +45,6 @@
       <li><a href="https://www.w3schools.com/jsref/prop_img_width.asp">W3Schools - JavaScript, Image Width Property</a></li>
       <li><a href="https://www.w3schools.com/jsref/event_onmouseover.asp">W3Schools - JavaScript onmouseover and onmouseout Events</a></li>
       <li><a href="https://www.w3schools.com/tags/tag_figcaption.asp">W3Schools - figcaption Tag</a></li>
-      <li><a href="#">Dummy link</a></li>
     </ul>
 </content>
 </body>
