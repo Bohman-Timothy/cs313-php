@@ -76,13 +76,13 @@ a:hover {
 .imgFloatLeft {
     float: left;
     margin-right: 1em;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.5em;
 }
 
 .imgFloatRight {
     float: right;
     margin-left: 1em;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.5em;
 }
 
 figcaption {
