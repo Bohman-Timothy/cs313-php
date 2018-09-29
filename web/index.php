@@ -12,7 +12,7 @@
 <!--  <nav class="navbar navbar-default">
       </nav> -->
 <ul id="navbar">
-  <li class="active"><a href="index.html">Home</a></li>
+  <li class="active"><a href="index.php">Home</a></li>
   <li><a href="assignments.html">Assignments</a></li>
 </ul>
 
