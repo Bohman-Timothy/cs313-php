@@ -1,5 +1,5 @@
 body {
-    background-color: mistyrose;
+    background-color: #fcf7e9;
     font-family: Inconsolata,monospace;
     font-size: 2.2em;
     color: #200040;
@@ -70,7 +70,16 @@ a:hover {
     font-style: italic;
 }
 
-#about {
+#content {
+    max-width: 1200px;
+    min-height: 100%;
+    background-color: mistyrose;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .imgFloatLeft {
@@ -108,8 +117,6 @@ figcaption {
 
 #assignments {
     text-align: center;
-    max-width: 50em;
-    margin-right: auto;
 }
  
 #assignments h2 {
