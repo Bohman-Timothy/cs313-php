@@ -6,8 +6,8 @@ function biggerSupermanImg(supermanImg) {
 }
 
 function smallerSupermanImg(supermanImg) {
-    supermanImg.width = "300";
-    supermanImg.height = "378";
-    document.getElementById("supermanFigCaption").style.width = "300";
+    supermanImg.width = "260";
+    supermanImg.height = "328";
+    document.getElementById("supermanFigCaption").style.width = "260";
     return 0;
 }
