@@ -148,12 +148,12 @@ ul.assignmentsOfWeek li a {
     padding-right: 0.5em;
 }
 
-.assignmentsOfWeek li.active a {
+ul.assignmentsOfWeek li.active a {
     /*background-color: #f4d1a4;*/
     color: grey;
     font-weight: bold;
 }
 
-.assignmentsOfWeek li.active a:hover {
+ul.assignmentsOfWeek li.active a:hover {
     font-style: italic;
 }
