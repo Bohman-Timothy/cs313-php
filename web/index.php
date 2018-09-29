@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html lang="en">
 <head>
   <title>Timothy's CS 313 Home Page</title>
     <!-- Bootstrap compiled CSS -->
@@ -16,12 +16,13 @@
   <li><a href="assignments.html">Assignments</a></li>
 </ul>
 
-  <h1>About</h1>
-  <p>By Timothy Bohman</p>
-
+<h1>Timothy's CS 313 Home Page</h1>
 <?php
-  echo "<p>Server Time: " . date("Y.m.d") . " " . date("h:i:sa") . "</p>";
+  echo "<p>Server Time: " . date("Y.m.d h:i:sa") . "</p>";
   ?>
+
+<h2>About</h2>
+  <p>By Timothy Bohman</p>
 
 <p><a href="assignments.html">List of Links to Assignments</a></p>
 <p><a href="#">Dummy link</a></p>
