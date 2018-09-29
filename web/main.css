@@ -35,23 +35,25 @@ a:hover {
 }
 
 
-#navbar ul {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    color: ;
+    overflow: hidden;
 }
 
 #navbar li {
-    display: inline;
+    float: left;
 }
 
 #navbar li a {
+    display: block;
+    text-align: center;
     text-decoration: none;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
     background-color: antiquewhite;
     color: #437070;
     border: 2px solid #601010;
@@ -114,6 +116,10 @@ figcaption {
     padding-right: 0.15em;
 }
 
+ul.resources {
+    list-style-type: disc;
+}
+
 
 /* Assignments page styles */
 
@@ -125,7 +131,7 @@ figcaption {
     text-decoration: underline;
     font-size: 1.75em;
     margin-bottom: 0em;
-    padding-bottom: 0em;
+    padding-bottom: 0.2em;
 }
 
 ul.assignmentsOfWeek {
@@ -137,10 +143,6 @@ ul.assignmentsOfWeek {
     padding-bottom: 0.5em;
 }
 
-ul.assignmentsOfWeek li {
-    margin-left: -2em;
-}
-
 ul.assignmentsOfWeek li a {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
@@ -149,7 +151,6 @@ ul.assignmentsOfWeek li a {
 }
 
 ul.assignmentsOfWeek li.active a {
-    /*background-color: #f4d1a4;*/
     color: grey;
     font-weight: bold;
 }
