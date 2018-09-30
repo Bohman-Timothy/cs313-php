@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/inconsolata" type="text/css"/>
     <link rel="stylesheet" href="main.css">
-    <script src="main.js"></script>
+    <script src="main.js" charset="UTF-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body id="home_page">
@@ -48,6 +48,7 @@
 	<li><a href="https://www.w3schools.com/jsref/event_onmouseover.asp">W3Schools - JavaScript onmouseover and onmouseout Events</a></li>
 	<li><a href="https://www.w3schools.com/tags/tag_figcaption.asp">W3Schools - figcaption Tag</a></li>
 	<li><a href="https://www.w3schools.com/Html/html_charset.asp">W3Schools - HTML Character Encoding</a></li>
+	<li><a href="https://www.w3schools.com/tags/att_script_charset.asp">W3Schools - script charset Attribute</a></li>
       </ul>
     </div>
   </body>
