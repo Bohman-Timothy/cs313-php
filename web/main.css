@@ -5,6 +5,7 @@ body {
     font-family: Inconsolata,monospace;
     font-size: 2.2em;
     color: #200040;
+    height: 100%;
 }
 
 h1 {
@@ -78,7 +79,7 @@ ul {
 
 #content {
     max-width: 1200px;
-    min-height: 100%;
+    height: 100%;
     background-color: mistyrose;
     padding-left: 1em;
     padding-right: 1em;
