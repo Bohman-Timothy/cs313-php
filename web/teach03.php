@@ -20,17 +20,10 @@ function clean_input($data) {
    $data = htmlspecialchars($data);
    return $data;
 }
-
-echo "<h2>Input Submitted:</h2>";
-echo "Name: " . $name . $_POST["name"] . "<br>";
-echo "Email: " . $email . "<br>";
-echo "Major: " . $major . "<br>";
-echo "Comments: " . $comments . "<br><br>";
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<!-- </form>
-<form method="post" action="<?php echo htmlspecialchars(teach03_submit.php);?>"> -->
+<!-- <form method="post" action="<?php echo htmlspecialchars(teach03_submit.php);?>"> -->
 <h2>Please enter the following data:</h2>
 <b>Name:</b> <input type="text" name="name" value="<?php echo $name;?>"><br>
 <b>Email:</b> <input type="text" name="email" value="<?php echo $email;?>"><br><br>
