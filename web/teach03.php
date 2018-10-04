@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $email = clean_input($_POST["email"]);
    $major = clean_input($_POST["major"]);
    $comments = clean_input($_POST["comments"]);
+   $continents = clean_input($_POST["continents"]);
 }
 
 function clean_input($data) {
@@ -35,6 +36,13 @@ function clean_input($data) {
 <b>Comments:</b><br>
 <textarea name="comments" rows="5" cols="40"><?php echo $comments?></textarea><br>
 <input type="submit"><br><br>
+<input type="checkbox" name="continents" value="North America">
+<input type="checkbox" name="continents" value="South America">
+<input type="checkbox" name="continents" value="Europe">
+<input type="checkbox" name="continents" value="Asia">
+<input type="checkbox" name="continents" value="Australia">
+<input type="checkbox" name="continents" value="Africa">
+<input type="checkbox" name="continents" value="Antarctica">
 </form>
 
 <?php
