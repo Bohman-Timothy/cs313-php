@@ -20,6 +20,12 @@ function clean_input($data) {
    $data = htmlspecialchars($data);
    return $data;
 }
+
+echo "<h2>Input Submitted:</h2>";
+echo "Name: " . $name . "<br>";
+echo "Email: " . $email . "<br>";
+echo "Major: " . $major . "<br>";
+echo "Comments: " . $comments . "<br>";
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -39,10 +45,10 @@ function clean_input($data) {
 
 <?php
 echo "<h2>Input Submitted:</h2>";
-echo $name . "<br>";
-echo $email . "<br>";
-echo $major . "<br>";
-echo $comments . "<br>";
+echo "Name: " . $name . "<br>";
+echo "Email: " . $email . "<br>";
+echo "Major: " . $major . "<br>";
+echo "Comments: " . $comments . "<br>";
 ?>
 </body>
 </html>
