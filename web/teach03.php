@@ -6,7 +6,7 @@
 <body>
 <?php
 $name = $email = $major = $comments = $continents = "";
-$majors[] = "Computer Science", "Web Design and Development", "Computer information Technology", "Computer Engineering";
+//$majors[] = "Computer Science", "Web Design and Development", "Computer information Technology", "Computer Engineering";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $name = clean_input($_POST["name"]);
