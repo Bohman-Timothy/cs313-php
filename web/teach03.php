@@ -6,7 +6,7 @@
 <body>
 <?php
 $name = $email = $major = $comments = $continents = "";
-//$majors[] = "Computer Science", "Web Design and Development", "Computer information Technology", "Computer Engineering";
+$majors = array("Computer Science", "Web Design and Development", "Computer information Technology", "Computer Engineering");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $name = clean_input($_POST["name"]);
@@ -35,16 +35,17 @@ function clean_input($data) {
 <b>Name:</b> <input type="text" name="name" value="<?php echo $name;?>"><br>
 <b>Email:</b> <input type="text" name="email" value="<?php echo $email;?>"><br><br>
 <b>Major:</b><br>
-<!-- <$php
+<$php
 foreach ($majors as $majorss=>$value) {
 	echo "<input type=\"radio\" name=\"major\" value=\"" . $value . "\">Web Design and Development<br>";
 
 }
-?> -->
-<input type="radio" name="major" value="Computer Science">Computer Science<br>
+?>
+<!-- <input type="radio" name="major" value="Computer Science">Computer Science<br>
 <input type="radio" name="major" value="Web Design and Development">Web Design and Development<br>
 <input type="radio" name="major" value="Computer Information Technology">Computer Information Technology<br>
 <input type="radio" name="major" value="Computer Engineering">Computer Engineering<br><br>
+ -->
 <b>Comments:</b><br>
 <textarea name="comments" rows="5" cols="40"><?php echo $comments?></textarea><br>
 <input type="checkbox" name="continents[]" value="North America">North America<br>
