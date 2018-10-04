@@ -37,7 +37,7 @@ function clean_input($data) {
 <b>Major:</b><br>
 <?php
 foreach ($majors as $majorss=>$value) {
-	echo "<input type=\"radio\" name=\"major\" value=\"" . $value . "\">Web Design and Development<br>";
+	echo "<input type=\"radio\" name=\"major\" value=\"" . $majors[$value] . "\">Web Design and Development<br>";
 
 }
 ?>
