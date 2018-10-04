@@ -20,9 +20,9 @@ function clean_input($data) {
 }
 ?>
 
-<!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-</form> -->
-<form method="post" action="<?php echo htmlspecialchars(teach03_submit.php);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+</form>
+<!-- <form method="post" action="<?php echo htmlspecialchars(teach03_submit.php);?>"> -->
 <b>Name:</b> <input type="text" name="name"><br>
 <b>Email:</b> <input type="text" name="email"><br><br>
 <b>Major:</b><br>
@@ -39,7 +39,7 @@ function clean_input($data) {
 echo "<h2>Input Submitted:</h2>";
 echo $name . "<br>";
 echo $email . "<br>";
-echo $major . "br>";
+echo $major . "<br>";
 echo $comments . "<br>";
 ?>
 </body>
