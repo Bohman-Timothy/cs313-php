@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $continents = $_POST["continents"];
    foreach ($continents as $continentss=>$value) {
    	   echo "1. " . $value;
-   	   $continentss=>$value = clean_input($_POST["name"]);
+   	   $continentss[$value] = clean_input($_POST["name"]);
    	   echo "<br>2. " . $value;
 	   }
 }
