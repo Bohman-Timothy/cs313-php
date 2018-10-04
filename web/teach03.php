@@ -35,13 +35,13 @@ function clean_input($data) {
 <input type="radio" name="major" value="Computer Engineering">Computer Engineering<br><br>
 <b>Comments:</b><br>
 <textarea name="comments" rows="5" cols="40"><?php echo $comments?></textarea><br>
-<input type="checkbox" name="continents" value="North America">North America<br>
-<input type="checkbox" name="continents" value="South America">South America<br>
-<input type="checkbox" name="continents" value="Europe">Europe<br>
-<input type="checkbox" name="continents" value="Asia">Asia<br>
-<input type="checkbox" name="continents" value="Australia">Australia<br>
-<input type="checkbox" name="continents" value="Africa">Africa<br>
-<input type="checkbox" name="continents" value="Antarctica">Antarctica<br>
+<input type="checkbox" name="continents[]" value="North America">North America<br>
+<input type="checkbox" name="continents[]" value="South America">South America<br>
+<input type="checkbox" name="continents[]" value="Europe">Europe<br>
+<input type="checkbox" name="continents[]" value="Asia">Asia<br>
+<input type="checkbox" name="continents[]" value="Australia">Australia<br>
+<input type="checkbox" name="continents[]" value="Africa">Africa<br>
+<input type="checkbox" name="continents[]" value="Antarctica">Antarctica<br>
 <input type="submit"><br><br>
 </form>
 
@@ -51,7 +51,10 @@ echo "Name: " . $name . "<br>";
 echo "Email: " . $email . "<br>";
 echo "Major: " . $major . "<br>";
 echo "Comments: " . $comments . "<br>";
-echo "Continents: " . $continents . "<br>";
+echo "Continents: " . "<br>";
+foreach ($continent as $continent=>$value) {
+	echo $value . "<br>";
+}
 ?>
 </body>
 </html>
