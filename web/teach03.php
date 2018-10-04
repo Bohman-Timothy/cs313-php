@@ -41,13 +41,15 @@ foreach ($majors as $majorss=>$value) {
 
 }
 ?>
+<br>
 <!-- <input type="radio" name="major" value="Computer Science">Computer Science<br>
 <input type="radio" name="major" value="Web Design and Development">Web Design and Development<br>
 <input type="radio" name="major" value="Computer Information Technology">Computer Information Technology<br>
 <input type="radio" name="major" value="Computer Engineering">Computer Engineering<br><br>
  -->
 <b>Comments:</b><br>
-<textarea name="comments" rows="5" cols="40"><?php echo $comments?></textarea><br>
+<textarea name="comments" rows="5" cols="40"><?php echo $comments?></textarea><br><br>
+<b>Continents Visited:</b><br>
 <input type="checkbox" name="continents[]" value="North America">North America<br>
 <input type="checkbox" name="continents[]" value="South America">South America<br>
 <input type="checkbox" name="continents[]" value="Europe">Europe<br>
