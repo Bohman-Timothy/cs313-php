@@ -52,7 +52,7 @@ echo "Email: " . $email . "<br>";
 echo "Major: " . $major . "<br>";
 echo "Comments: " . $comments . "<br>";
 echo "Continents: " . "<br>";
-foreach ($continent as $continent=>$value) {
+foreach ($continents as $continents=>$value) {
 	echo $value . "<br>";
 }
 ?>
