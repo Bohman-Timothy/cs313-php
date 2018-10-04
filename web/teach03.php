@@ -79,9 +79,9 @@ echo "Email: " . $email . "<br>";
 echo "Major: " . $major . "<br>";
 echo "Comments: " . $comments . "<br>";
 echo "Continents: " . "<br>";
-<!-- foreach ($continents as $continents=>$value) {
+/* foreach ($continents as $continents=>$value) {
 	echo $value . "<br>";
-} -->
+} */
 foreach ($continents as $continents=>$value) {
 	echo $continentsMap[$value] . "<br>";
 }
