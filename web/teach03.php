@@ -75,7 +75,7 @@ foreach ($majors as $majorss=>$value) {
 <?php
 echo "<h2>Input Submitted:</h2>";
 echo "Name: " . $name . "<br>";
-echo "Email: " . $email . "<br>";
+echo "Email: <a href=\"mailto:" . $email . "\">" . $email . "</a><br>";
 echo "Major: " . $major . "<br>";
 echo "Comments: " . $comments . "<br>";
 echo "Continents: " . "<br>";
