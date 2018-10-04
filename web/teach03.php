@@ -6,7 +6,7 @@
 <body>
 <?php
 $name = $email = $major = $comments = $continents = "";
-$majors = array("Computer Science", "Web Design and Development", "Computer information Technology", "Computer Engineering");
+$majors = array("Computer Science (CS)", "Web Design and Development (WDD)", "Computer Information Technology (CIT)", "Computer Engineering CE");
 $continentsMap = array("na"=>"North America","sa"=>"South America","eu"=>"Europe","as"=>"Asia","au"=>"Australia","af"=>"Africa","an"=>"Antarctica");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
