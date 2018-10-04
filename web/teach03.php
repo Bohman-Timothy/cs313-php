@@ -37,14 +37,14 @@ function clean_input($data) {
 <b>Email:</b> <input type="text" name="email" value="<?php echo $email;?>"><br><br>
 <b>Major:</b><br>
 <!--
-<input type="radio" name="major" value="cs">Computer Science<br>
-<input type="radio" name="major" value="wdd">Web Design and Development<br>
-<input type="radio" name="major" value="cit">Computer Information Technology<br>
-<input type="radio" name="major" value="ce">Computer Engineering<br><br>
+<input type="radio" name="major" value="Computer Science">Computer Science<br>
+<input type="radio" name="major" value="Web Design and Development">Web Design and Development<br>
+<input type="radio" name="major" value="Computer Information Technology">Computer Information Technology<br>
+<input type="radio" name="major" value="Computer Engineering">Computer Engineering<br><br>
  -->
 <?php
-foreach ($majors as $majorss=>$value) {
-	echo "<input type=\"radio\" name=\"major\" value=\"" . $value . "\">" . $value . "<br>";
+foreach ($majors as $majorAbbr=>$value) {
+	echo "<input type=\"radio\" name=\"major\" value=\"" . $majorAbbr . "\">" . $value . "<br>";
 
 }
 ?>
