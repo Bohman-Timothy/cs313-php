@@ -6,7 +6,7 @@
 <body>
 <?php
 $name = $email = $major = $comments = $continents = "";
-$majors = array("Computer Science (CS)", "Web Design and Development (WDD)", "Computer Information Technology (CIT)", "Computer Engineering (CE)");
+$majors = array("cs"=>"Computer Science (CS)", "wdd"=>"Web Design and Development (WDD)", "cit"=>"Computer Information Technology (CIT)", "ce"=>"Computer Engineering (CE)");
 $continentsMap = array("na"=>"North America","sa"=>"South America","eu"=>"Europe","as"=>"Asia","au"=>"Australia","af"=>"Africa","an"=>"Antarctica");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -37,10 +37,10 @@ function clean_input($data) {
 <b>Email:</b> <input type="text" name="email" value="<?php echo $email;?>"><br><br>
 <b>Major:</b><br>
 <!--
-<input type="radio" name="major" value="Computer Science">Computer Science<br>
-<input type="radio" name="major" value="Web Design and Development">Web Design and Development<br>
-<input type="radio" name="major" value="Computer Information Technology">Computer Information Technology<br>
-<input type="radio" name="major" value="Computer Engineering">Computer Engineering<br><br>
+<input type="radio" name="major" value="cs">Computer Science<br>
+<input type="radio" name="major" value="wdd">Web Design and Development<br>
+<input type="radio" name="major" value="cit">Computer Information Technology<br>
+<input type="radio" name="major" value="ce">Computer Engineering<br><br>
  -->
 <?php
 foreach ($majors as $majorss=>$value) {
@@ -77,7 +77,8 @@ foreach ($majors as $majorss=>$value) {
 echo "<h2>Input Submitted:</h2>";
 echo "<b>Name:</b> " . $name . "<br>";
 echo "<b>Email:</b> <a href=\"mailto:" . $email . "\">" . $email . "</a><br>";
-echo "<b>Major:</b> " . $major . "<br>";
+/* echo "<b>Major:</b> " . $major . "<br>"; */
+echo "<b>Major:</b> " . $majors[$major] . "<br>";
 echo "<b>Comments:</b> " . $comments . "<br>";
 echo "<b>Continents:</b> " . "<br>";
 /* foreach ($continents as $continents=>$value) {
