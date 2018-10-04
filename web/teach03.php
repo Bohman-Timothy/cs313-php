@@ -5,6 +5,8 @@
 </head>
 <body>
 <?php
+$name = $email = $major = $comments = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $name = clean_input($_POST["name"]);
    $email = clean_input($_POST["email"]);
