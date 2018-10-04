@@ -22,24 +22,25 @@ function clean_input($data) {
 }
 
 echo "<h2>Input Submitted:</h2>";
-echo "Name: " . $name . "<br>";
+echo "Name: " . $name . $_POST["name"] . "<br>";
 echo "Email: " . $email . "<br>";
 echo "Major: " . $major . "<br>";
-echo "Comments: " . $comments . "<br>";
+echo "Comments: " . $comments . "<br><br>";
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 </form>
 <!-- <form method="post" action="<?php echo htmlspecialchars(teach03_submit.php);?>"> -->
-<b>Name:</b> <input type="text" name="name"><br>
-<b>Email:</b> <input type="text" name="email"><br><br>
+<h2>Please enter the following data:</h2>
+<b>Name:</b> <input type="text" name="name" value="<?php echo $name;?>"><br>
+<b>Email:</b> <input type="text" name="email" value="<?php echo $email;?>"><br><br>
 <b>Major:</b><br>
 <input type="radio" name="major" value="Computer Science">Computer Science<br>
 <input type="radio" name="major" value="Web Design and Development">Web Design and Development<br>
 <input type="radio" name="major" value="Computer Information Technology">Computer Information Technology<br>
 <input type="radio" name="major" value="Computer Engineering">Computer Engineering<br><br>
 <b>Comments:</b><br>
-<textarea name="comments" rows="5" cols="40"></textarea><br>
+<textarea name="comments" rows="5" cols="40"><?php echo $comments?></textarea><br>
 <input type="submit"><br><br>
 </form>
 
