@@ -35,7 +35,7 @@ function clean_input($data) {
 <b>Name:</b> <input type="text" name="name" value="<?php echo $name;?>"><br>
 <b>Email:</b> <input type="text" name="email" value="<?php echo $email;?>"><br><br>
 <b>Major:</b><br>
-<$php
+<?php
 foreach ($majors as $majorss=>$value) {
 	echo "<input type=\"radio\" name=\"major\" value=\"" . $value . "\">Web Design and Development<br>";
 
