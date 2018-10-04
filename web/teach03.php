@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $major = clean_input($_POST["major"]);
    $comments = clean_input($_POST["comments"]);
    foreach ($continents as $continents=>$value) {
-   	   $value = clean_input($_POST["$value"]);
+   	   $continents=>$value = clean_input($_POST["continents=>$value"]);
    }
 }
 
