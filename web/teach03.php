@@ -74,11 +74,11 @@ foreach ($majors as $majorss=>$value) {
 
 <?php
 echo "<h2>Input Submitted:</h2>";
-echo "Name: " . $name . "<br>";
-echo "Email: <a href=\"mailto:" . $email . "\">" . $email . "</a><br>";
-echo "Major: " . $major . "<br>";
-echo "Comments: " . $comments . "<br>";
-echo "Continents: " . "<br>";
+echo "<b>Name:</b> " . $name . "<br>";
+echo "<b>Email:</b> <a href=\"mailto:" . $email . "\">" . $email . "</a><br>";
+echo "<b>Major:</b> " . $major . "<br>";
+echo "<b>Comments:</b> " . $comments . "<br>";
+echo "<b>Continents:</b> " . "<br>";
 /* foreach ($continents as $continents=>$value) {
 	echo $value . "<br>";
 } */
