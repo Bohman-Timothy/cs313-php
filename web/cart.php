@@ -28,7 +28,7 @@ $musicMap = array("beatles_1"=>"The Beatles: 1",
 
 <h1>Shopping Cart</h1>
 <?php
-foreach ($musicAlbums as $musicAlbums=>$value) {
+foreach ($musicAlbums as $musicAlbumss=>$value) {
 	echo $musicMap[$value] . "<br>";
 }
 ?>
