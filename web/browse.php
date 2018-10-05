@@ -12,11 +12,13 @@ function displayCount() {
 	 echo '<h2>Beatles 1 #: ' . $_SESSION['beatles_1'] . '</h2>';
 }
 
+function addToCartSession() {
+	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
+}
 
 ?>
 <script>
 function addToCartB() {
-	 
 	 alert("<?php displayCount(); ?>");
 	 /* <?php displayCount(); ?>
 	 alert("Added to cart!"); */
