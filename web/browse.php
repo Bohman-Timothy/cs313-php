@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$musicAlbums = "";
+$musicAlbum = "";
 
 if (!isset($_SESSION["a-ha_hunting"])) {
       $_SESSION["a-ha_hunting"] = 0;
@@ -95,7 +95,10 @@ function clean_input($data) {
 <!-- <input type="submit" value="Add to cart"><br /><br /> -->
 </form>
 <br />
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<button type="submit">Add to cart</button>
 <input type="checkbox" name="musicAlbums[]" id="michelleb_hotel" value="michelleb_hotel"> <label for="michelleb_hotel">Michelle Branch: <i>Hotel Paper</i></label><br />
+</form>
 <!-- <input type="checkbox" name="musicAlbums[]" id="belindac_runaway" value="belindac_runaway"> <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="kellyc_allwanted" value="kellyc_allwanted"> <label for="kellyc_allwanted">Kelly Clarkson: <i>All I Ever Wanted</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="celined_decade" value="celined_decade"> <label for="celined_decade">Celine Dion: <i>All the Way... A Decade of Song</i></label><br />
