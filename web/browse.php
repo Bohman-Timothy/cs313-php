@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Browse Music</title>
 </head>
 <body>
@@ -8,7 +9,7 @@
 <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 <input type="checkbox" name="musicAlbums[]" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="belindac_runaway" value="belindac_runaway"> <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label><br />
-<input type="checkbox" name="musicAlbums[]" id="shakira_ladrones" value="shakira_ladrones"> <label for="shakira_ladrones">Shakira: <i>Dónde Están Los Ladrones?</i></label><br />
+<input type="checkbox" name="musicAlbums[]" id="shakira_ladrones" value="shakira_ladrones"> <label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="michelleb_hotel" value="michelleb_hotel"> <label for="michelleb_hotel">Michelle Branch: <i>Hotel Paper</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="lindsey_stirling" value="lindsey_stirling"> <label for="lindsey_stirling">Lindsey Stirling: <i>Lindsey Stirling</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="kellyc_allwanted" value="kellyc_wanted"> <label for="kellyc_wanted">Kelly Clarkson: <i>All I Ever Wanted</i></label><br />
@@ -22,5 +23,8 @@
 <input type="submit" value="Add to cart"><br /><br />
 </form>
 
+<h2>References</h2>
+https://www.w3schools.com/html/html_symbols.asp
+https://www.w3schools.com/html/html_charset.asp
 </body>
 </html>
