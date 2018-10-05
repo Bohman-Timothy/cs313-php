@@ -48,7 +48,7 @@ function addToCartB() {
 <!-- <form method="post" action="<?php echo htmlspecialchars("cart.php");?>"> --
 >
 <form method="post" action="<?php echo htmlspecialchars("$_SERVER["PHP_SELF"]");?>">
-<input type="checkbox" name="musicAlbums[]" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label>
+<input type="checkbox" name="musicAlbums" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label>
 <input type="submit" value="Add to cart"><br /><br />
 </form>
 <br />
