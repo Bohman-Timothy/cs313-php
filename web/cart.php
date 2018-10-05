@@ -39,7 +39,7 @@ foreach ($musicAlbums as $musicAlbums=>$value) {
 echo "</ul>";
 <h2>Items in cart (session):</h2>
 //print_r($_SESSION);
-echo $_SESSION["beatles_1"];
+echo $_SESSION["inCart"];
 ?>
 </body>
 </html>
