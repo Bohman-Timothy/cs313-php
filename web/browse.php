@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$musicAlbums = "";
+
 if (!isset($_SESSION['beatles_1'])) {
       $_SESSION['beatles_1'] = 0;
 }
