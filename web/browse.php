@@ -12,7 +12,7 @@
 <input type="checkbox" name="musicAlbums[]" id="shakira_ladrones" value="shakira_ladrones"> <label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="michelleb_hotel" value="michelleb_hotel"> <label for="michelleb_hotel">Michelle Branch: <i>Hotel Paper</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="lindsey_stirling" value="lindsey_stirling"> <label for="lindsey_stirling">Lindsey Stirling: <i>Lindsey Stirling</i></label><br />
-<input type="checkbox" name="musicAlbums[]" id="kellyc_allwanted" value="kellyc_wanted"> <label for="kellyc_wanted">Kelly Clarkson: <i>All I Ever Wanted</i></label><br />
+<input type="checkbox" name="musicAlbums[]" id="kellyc_allwanted" value="kellyc_allwanted"> <label for="kellyc_allwanted">Kelly Clarkson: <i>All I Ever Wanted</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="enya_shepherd" value="enya_shepherd"> <label for="enya_shepherd">Enya: <i>Shepherd Moons</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="celined_decade" value="celined_decade"> <label for="celined_decade">Celine Dion: <i>All the Way... A Decade of Song</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="a-ha_hunting" value="a-ha_hunting"> <label for="a-ha_hunting">A-ha: <i>Hunting High and Low</i></label><br />
