@@ -3,8 +3,10 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
-   addToCartSession($musicAlbums);
-   displayCount($musicAlbums);
+   if (isset($musicAlbums)) {
+      addToCartSession($musicAlbums);
+      displayCount($musicAlbums);
+   }
 }
 
 if (!isset($_SESSION['beatles_1'])) {
