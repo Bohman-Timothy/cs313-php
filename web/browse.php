@@ -9,10 +9,10 @@ if (!isset($_SESSION['beatles_1'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
-   if (isset($musicAlbums)) {
+   //if (isset($musicAlbums)) {
       addToCartSession($musicAlbums);
       displayCount($musicAlbums);
-   }
+   //}
 }
 
 function displayCount($musicAlbums) {
