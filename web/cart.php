@@ -38,7 +38,7 @@
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {
    //$musicAlbums = $_POST["musicAlbums"];
 //}
-?>
+
 -->
 <h1>Shopping Cart</h1>
 <?php
