@@ -10,13 +10,14 @@ function displayCount() {
 	 echo '<h2>Beatles 1 #: ' . $_SESSION['beatles_1'] . '</h2>';
 }
 
-function addToCartSession() {
-	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
+function addToCartSession($musicAlbums) {
+	$_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
+	echo "Added " . $musicAlbums . " to cart.";
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
-   echo "Added " . $musicAlbums . " to cart.";
+   addToCartSession($musicAlbums);
 }
 
 ?>
