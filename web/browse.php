@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Browse Music</h1>
-<form method="post" action="<?php echo htmlspecialchars(cart.php);?>">
+<form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 <input type="checkbox" name="musicAlbums[]" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="belindac_runaway" value="belindac_runaway"> <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="shakira_ladrones" value="shakira_ladrones"> <label for="shakira_ladrones">Shakira: <i>Dónde Están Los Ladrones?</i></label><br />
