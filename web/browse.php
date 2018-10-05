@@ -14,10 +14,10 @@ function addToCartSession() {
 	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
 }
 
-/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
    echo "Added " . $musicAlbums . " to cart.";
-}*/
+}
 
 ?>
 <script>
