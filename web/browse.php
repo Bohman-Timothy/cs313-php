@@ -42,7 +42,7 @@ function addToCartB() {
 <h1>Browse and Select Music to Buy</h1>
 <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 <input type="checkbox" name="musicAlbums[]" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label>
-<button class="btn" type="button" onclick="addToCart();">Add to cart</button>
+<button class="btn" type="button" onclick="addToCartB();">Add to cart</button>
 <br />
 <input type="checkbox" name="musicAlbums[]" id="belindac_runaway" value="belindac_runaway"> <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="shakira_ladrones" value="shakira_ladrones"> <label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label><br />
