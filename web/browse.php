@@ -3,9 +3,32 @@ session_start();
 
 $musicAlbums = "";
 
-if (!isset($_SESSION['beatles_1'])) {
-      $_SESSION['beatles_1'] = 0;
-}
+if (!isset($_SESSION["a-ha_hunting"])) {
+      $_SESSION["a-ha_hunting"] = 0;
+if (!isset($_SESSION["sarabar_kaleidoscope"])) {
+      $_SESSION["sarabar_kaleidoscope"] = 0;
+if (!isset($_SESSION["beatles_1"])) {
+      $_SESSION["beatles_1"] = 0;
+if (!isset($_SESSION["michelleb_hotel"])) {
+      $_SESSION["michelleb_hotel"] = 0;
+if (!isset($_SESSION["belindac_runaway"])) {
+      $_SESSION["belindac_runaway"] = 0;
+if (!isset($_SESSION["kellyc_allwanted"])) {
+      $_SESSION["kellyc_allwanted"] = 0;
+if (!isset($_SESSION["celined_decade"])) {
+      $_SESSION["celined_decade"] = 0;
+if (!isset($_SESSION["enya_shepherd"])) {
+      $_SESSION["enya_shepherd"] = 0;
+if (!isset($_SESSION["mamaspapas_leaves"])) {
+      $_SESSION["mamaspapas_leaves"] = 0;
+if (!isset($_SESSION["shakira_ladrones"])) {
+      $_SESSION["shakira_ladrones"] = 0;
+if (!isset($_SESSION["shania_comeover"])) {
+      $_SESSION["shania_comeover"] = 0;
+if (!isset($_SESSION["lindsey_stirling"])) {
+      $_SESSION["lindsey_stirling"] = 0;
+if (!isset($_SESSION["tmbgiants_flood"])) {
+      $_SESSION["tmbgiants_flood"] = 0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbum = clean_input($_POST["musicAlbum"]);
