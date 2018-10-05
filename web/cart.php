@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--
-<?php
+
 //$name = $email = $major = $comments = $continents = "";
 /*$musicMap = array("beatles_1"=>"The Beatles: 1",
 "belindac_runaway"=>"Belinda Carlisle: Runaway Horses",
@@ -38,18 +38,18 @@
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {
    //$musicAlbums = $_POST["musicAlbums"];
 //}
-?>
+
 -->
 <h1>Shopping Cart</h1>
 <!--
-<?php
+
 echo "<ul>"
 /*foreach ($musicAlbums as $musicAlbumss=>$value) {
 	echo "<li>" . $musicMap[$value] . "</li>";
 }*/
 //echo "<li>$_POST["test_text"</li>";
 echo "</ul>"
-?>
+
 -->
 </body>
 </html>
