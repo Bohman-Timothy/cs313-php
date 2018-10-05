@@ -8,6 +8,7 @@ if (!isset($_SESSION['beatles_1'])) {
 	 echo 'Beatles 1 #: ' . $_SESSION['beatles_1'];
 
 function displayCount() {
+	 echo '<h2>Beatles 1 #: ' . $_SESSION['beatles_1'] . '</h2>';
 }
 
 ?>
