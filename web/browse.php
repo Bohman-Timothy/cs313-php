@@ -18,7 +18,7 @@ function displayCount($musicAlbums) {
 }
 
 function addToCartSession($musicAlbums) {
-	$_SESSION[$musicAlbums] = $_SESSION['beatles_1'] + 1;
+	$_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
 	echo "Added " . $musicAlbums . " to cart.<br />";
 }
 
