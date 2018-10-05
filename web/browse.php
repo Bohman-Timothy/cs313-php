@@ -8,20 +8,27 @@ if (!isset($_SESSION['beatles_1'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $musicAlbums = $_POST["musicAlbums"];
-   //if (isset($musicAlbums)) {
-      addToCartSession($musicAlbums);
-      displayCount($musicAlbums);
+   $musicAlbum = clean_input($_POST["musicAlbum"]);
+   //if (isset($musicAlbum)) {
+      addToCartSession($musicAlbum);
+      displayCount($musicAlbum);
    //}
 }
 
-function displayCount($musicAlbums) {
-	 echo $musicAlbums . ' #: ' . $_SESSION['beatles_1'] . "<br />";
+function displayCount($musicAlbum) {
+	 echo $musicAlbum . ' #: ' . $_SESSION['beatles_1'] . "<br />";
 }
 
-function addToCartSession($musicAlbums) {
+function addToCartSession($musicAlbum) {
 	$_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
-	echo "Added " . $musicAlbums . " to cart.<br />";
+	echo "Added " . $musicAlbum . " to cart.<br />";
+}
+
+function clean_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
 }
 
 ?>
@@ -42,8 +49,9 @@ function addToCartSession($musicAlbums) {
 <!-- <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 -->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<input type="checkbox" name="musicAlbums" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label>
-<input type="submit" value="Add to cart"><br /><br />
+<input type="checkbox" name="musicAlbum" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label><
+<!-- <input type="submit" value="Add to cart"><br /><br /> -->
+<button type="submit">Add to cart</button><br /><br />
 </form>
 <br />
 <!-- <input type="checkbox" name="musicAlbums[]" id="belindac_runaway" value="belindac_runaway"> <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label><br />
