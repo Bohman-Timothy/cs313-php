@@ -52,11 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function displayCount($musicAlbum) {
-	 echo $musicAlbum . ' #: ' . $_SESSION['$musicAlbum'] . "<br />";
+	 echo $musicAlbum . ' #: ' . $_SESSION[$musicAlbum] . "<br />";
 }
 
 function addToCartSession($musicAlbum) {
-	$_SESSION['$musicAlbum'] = $_SESSION['$musicAlbum'] + 1;
+	$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
 	echo "Added " . $musicAlbum . " to cart.<br />";
 }
 
