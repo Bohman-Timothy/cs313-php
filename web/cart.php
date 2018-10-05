@@ -21,16 +21,18 @@ $musicMap = array("beatles_1"=>"The Beatles: 1",
 "tmbgiants_flood"=>"They Might Be Giants: Flood",
 "shania_comeover"=>"Shania Twain: Come on Over");
 
-/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $musicAlbums = clean_input($_POST["musicAlbums"]);
-}*/
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $musicAlbums = $_POST["musicAlbums"];
+}
 ?>
 
 <h1>Shopping Cart</h1>
 <?php
+echo "<ul>"
 foreach ($musicAlbums as $musicAlbumss=>$value) {
-	echo $musicMap[$value] . "<br>";
+	echo "<li>" . $musicMap[$value] . "</li>";
 }
+echo "</ul>"
 ?>
 </body>
 </html>
