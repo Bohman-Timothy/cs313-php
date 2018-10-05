@@ -1,11 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['beatles_1'])) {
    $_SESSION['beatles_1'] = 0;
+}
 	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
 	 echo 'Beatles 1 #: ' . $_SESSION['beatles_1'];
-if (!isset($_SESSION['beatles_1'])) {
-}
 
 function displayCount() {
 }
