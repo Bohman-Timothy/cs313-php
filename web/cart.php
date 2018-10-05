@@ -50,7 +50,6 @@ echo "<ul>";
 foreach ($musicAlbums as $musicAlbums=>$value) {
 	echo "<li>" . $musicMap[$value] . "</li>";
 }
-echo "<li>$_POST["test_text"</li>";
 echo "<li>" . $test_text . "</li>";
 echo "</ul>";
 ?>
