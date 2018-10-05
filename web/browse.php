@@ -4,6 +4,12 @@ session_start();
 if (!isset($_SESSION['beatles_1'])) {
    $_SESSION['beatles_1'] = 0;
 }
+
+function displayCount() {
+	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
+	 echo 'Beatles 1 #: ' . $_SESSION['beatles_1'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +24,7 @@ if (!isset($_SESSION['beatles_1'])) {
 <h1>Browse and Select Music to Buy</h1>
 <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 <input type="checkbox" name="musicAlbums[]" id="beatles_1" value="beatles_1"> <label for="beatles_1">The Beatles: <i>1</i></label>
-<button class="btn" type="button" onclick="<?php $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1; echo 'Beatles 1 #: ' . $_SESSION['beatles_1']; ?>">Add to cart</button>
+<button class="btn" type="button" onclick="<?php displayCount(); ?>">Add to cart</button>
 <br />
 <input type="checkbox" name="musicAlbums[]" id="belindac_runaway" value="belindac_runaway"> <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="shakira_ladrones" value="shakira_ladrones"> <label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label><br />
@@ -40,5 +46,6 @@ https://www.w3schools.com/html/html_symbols.asp
 https://www.w3schools.com/html/html_charset.asp
 https://www.w3schools.com/php/php_sessions.asp
 https://www.tutorialspoint.com/php/php_sessions.htm
+https://www.w3schools.com/Php/php_functions.asp
 </body>
 </html>
