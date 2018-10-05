@@ -21,9 +21,9 @@ function addToCartB() {
 	 /* <?php displayCount(); ?>
 	 alert("Added to cart!"); */
 	 var invisibleDiv = document.createElement('div');
-	 invisibleDiv.className = "hide";
 	 invisibleDiv.innerHTML = "<?php displayCount(); ?>";
 	 document.body.appendChild(invisibleDiv);
+	 invisibleDiv.className = "hide";
 }
 </script>
 
