@@ -8,6 +8,7 @@ if (!isset($_SESSION['beatles_1'])) {
 	 echo 'Beatles 1 #: ' . $_SESSION['beatles_1'];
 
 function displayCount() {
+	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
 	 echo '<h2>Beatles 1 #: ' . $_SESSION['beatles_1'] . '</h2>';
 }
 
@@ -20,7 +21,8 @@ function addToCartB() {
 	 /* <?php displayCount(); ?>
 	 alert("Added to cart!"); */
 	 var invisibleDiv = document.createElement('div');
-	 invisibleDiv.innerHTML = "<h2>Hi</h2><?php displayCount(); ?>";
+	 invisibleDiv.class = "hide";
+	 invisibleDiv.innerHTML = "<?php displayCount(); ?>";
 	 document.body.appendChild(invisibleDiv);
 }
 </script>
@@ -61,5 +63,6 @@ https://www.w3schools.com/html/html_charset.asp
 https://www.w3schools.com/php/php_sessions.asp
 https://www.tutorialspoint.com/php/php_sessions.htm
 https://www.w3schools.com/Php/php_functions.asp
+https://stackoverflow.com/questions/15741006/adding-div-element-to-body-or-document-in-javascript
 </body>
 </html>
