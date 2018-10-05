@@ -44,12 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 -->
 <h1>Shopping Cart</h1>
-<!--
-
+<?php
 echo "<ul>"
 echo "<li>$_POST["test_text"</li>";
 echo "</ul>"
-
--->
+?>
 </body>
 </html>
