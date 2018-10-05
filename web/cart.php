@@ -12,6 +12,10 @@ $musicMap = array("beatles_1"=>"The Beatles: <i>1</i>",
 "mamaspapas_leaves"=>"The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i>",
 "tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>",
 "shania_comeover"=>"Shania Twain: <i>Come on Over</i>");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $musicAlbums = $_POST["musicAlbums"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,9 +41,6 @@ $musicMap = array("beatles_1"=>"The Beatles: <i>1</i>",
 "tmbgiants_flood"=>"They Might Be Giants: Flood",
 "shania_comeover"=>"Shania Twain: Come on Over");*/
 
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   //$musicAlbums = $_POST["musicAlbums"];
-//}
 
 -->
 <h1>Shopping Cart</h1>
