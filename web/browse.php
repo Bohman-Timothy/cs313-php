@@ -45,7 +45,7 @@ if (!isset($_SESSION["tmbgiants_flood"])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbum = clean_input($_POST["musicAlbum"]);
-   if (isset($musicAlbum)) {
+   if (isset($musicAlbum) && ($musicAlbum != "")) {
       addToCartSession($musicAlbum);
       displayCount($musicAlbum);
    }
