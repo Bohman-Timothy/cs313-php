@@ -16,10 +16,6 @@ $musicMap = array("beatles_1"=>"The Beatles: <i>1</i>",
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
 }
-
-echo "<ul>"
-echo "<li>$_POST["test_text"</li>";
-echo "</ul>"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,5 +44,8 @@ echo "</ul>"
 
 -->
 <h1>Shopping Cart</h1>
+echo "<ul>"
+echo "<li>" . $musicAlbums . "</li>";
+echo "</ul>"
 </body>
 </html>
