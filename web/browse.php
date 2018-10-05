@@ -49,7 +49,7 @@ function clean_input($data) {
 <!-- <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 -->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<button type="submit">Add to cart</button><br /><br />
+<button type="submit">Add to cart</button>
 <input type="checkbox" name="musicAlbum" id="beatles_1" value="beatles 1">
 <label for="beatles_1">The Beatles: <i>1</i></label>
 <!-- <input type="submit" value="Add to cart"><br /><br /> -->
