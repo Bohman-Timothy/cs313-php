@@ -20,6 +20,7 @@
 <input type="checkbox" name="musicAlbums[]" id="mamaspapas_leaves" value="mamaspapas_leaves"> <label for="mamaspapas_leaves">The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="tmbgiants_flood" value="tmbgiants_flood"> <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label><br />
 <input type="checkbox" name="musicAlbums[]" id="shania_comeover" value="shania_comeover"> <label for="shania_comeover">Shania Twain: <i>Come on Over</i></label><br /><br />
+<input type="text" name="test_text" value="This"><br />
 <input type="submit" value="Add to cart"><br /><br />
 </form>
 
