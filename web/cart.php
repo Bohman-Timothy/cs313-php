@@ -5,6 +5,7 @@
 <title>Shopping Cart</title>
 </head>
 <body>
+<!--
 <?php
 //$name = $email = $major = $comments = $continents = "";
 /*$musicMap = array("beatles_1"=>"The Beatles: 1",
@@ -38,7 +39,7 @@
    //$musicAlbums = $_POST["musicAlbums"];
 //}
 ?>
-
+-->
 <h1>Shopping Cart</h1>
 <?php
 echo "<ul>"
