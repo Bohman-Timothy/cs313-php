@@ -75,8 +75,8 @@ function clean_input($data) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <link rel="stylesheet" href="shopping.css"> -->
-    <script src="shopping.js" charset="UTF-8"></script>
+    <!-- <link rel="stylesheet" href="shopping.css">
+    <script src="shopping.js" charset="UTF-8"></script> -->
 
 <title>Browse and Select Music to Buy</title>
 </head>
@@ -84,10 +84,17 @@ function clean_input($data) {
 <h1>Browse and Select Music to Buy</h1>
 <!-- <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 -->
-<!--
-<input type="checkbox" name="musicAlbum" id="a-ha_hunting" value="a-ha_hunting"> <label for="a-ha_hunting">A-ha: <i>Hunting High and Low</i></label><br />
-<input type="checkbox" name="musicAlbum" id="sarabar_kaleidoscope" value="sarabar_kaleidoscope"> <label for="sarabar_kaleidoscope">Sara Bareilles: <i>Kaleidoscope Heart</i></label><br />
--->
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
+<input type="checkbox" name="musicAlbum" id="a-ha_hunting" value="a-ha_hunting">
+<label for="a-ha_hunting">A-ha: <i>Hunting High and Low</i></label><br />
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
+<input type="checkbox" name="musicAlbum" id="sarabar_kaleidoscope" value="sarabar_kaleidoscope">
+<label for="sarabar_kaleidoscope">Sara Bareilles: <i>Kaleidoscope Heart</i></label><br />
+</form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
