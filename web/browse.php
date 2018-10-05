@@ -4,13 +4,6 @@ session_start();
 if (!isset($_SESSION['beatles_1'])) {
    $_SESSION['beatles_1'] = 0;
 }
-	 //$_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
-	 echo 'Beatles 1 #: ' . $_SESSION['beatles_1'];
-
-function displayCount() {
-	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
-	 echo '<h2>Beatles 1 #: ' . $_SESSION['beatles_1'] . '</h2>';
-}
 
 function addToCartSession() {
 	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
