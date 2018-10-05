@@ -1,23 +1,23 @@
 <?php
 session_start();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $musicAlbums = $_POST["musicAlbums"];
+   addToCartSession($musicAlbums);
+   displayCount($musicAlbums);
+}
+
 if (!isset($_SESSION['beatles_1'])) {
    $_SESSION['beatles_1'] = 0;
 }
-	 echo $musicAlbums . " #: ' . $_SESSION['beatles_1'];
 
-function displayCount() {
-	 echo '<h2>Beatles 1 #: ' . $_SESSION['beatles_1'] . '</h2>';
+function displayCount($musicAlbums) {
+	 echo $musicAlbums . " #: ' . $_SESSION['beatles_1'] . "<br />";
 }
 
 function addToCartSession($musicAlbums) {
 	$_SESSION[$musicAlbums] = $_SESSION['beatles_1'] + 1;
-	echo "Added " . $musicAlbums . " to cart.";
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $musicAlbums = $_POST["musicAlbums"];
-   addToCartSession($musicAlbums);
+	echo "Added " . $musicAlbums . " to cart.<br />";
 }
 
 ?>
