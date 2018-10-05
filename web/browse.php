@@ -19,9 +19,9 @@ function addToCartB() {
 	 alert("<?php displayCount(); ?>");
 	 /* <?php displayCount(); ?>
 	 alert("Added to cart!"); */
-	 var elem = document.createElement('div');
-	 elem.innerHTML = "<h2>Hi</h2>";
-	 document.body.appendChild(elem);
+	 var invisibleDiv = document.createElement('div');
+	 invisibleDiv.innerHTML = "<h2>Hi</h2><?php displayCount(); ?>";
+	 document.body.appendChild(invisibleDiv);
 }
 </script>
 
