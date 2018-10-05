@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function displayCount($musicAlbums) {
-	 echo $musicAlbums . " #: ' . $_SESSION['beatles_1'] . "<br />";
+	 echo $musicAlbums . ' #: ' . $_SESSION['beatles_1'] . "<br />";
 }
 
 function addToCartSession($musicAlbums) {
