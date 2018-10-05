@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 echo "<ul>"
-echo "<li>" . $test_text . "</li>";
+echo "<li>" . "</li>";
 echo "</ul>"
 ?>
 <!DOCTYPE html>
