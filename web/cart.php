@@ -44,8 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 -->
 <h1>Shopping Cart</h1>
+<?php
 echo "<ul>"
 echo "<li>" . $musicAlbums . "</li>";
 echo "</ul>"
+?>
 </body>
 </html>
