@@ -9,18 +9,18 @@ if (!isset($_SESSION['beatles_1'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbum = clean_input($_POST["musicAlbum"]);
-   //if (isset($musicAlbum)) {
+   if (isset($musicAlbum)) {
       addToCartSession($musicAlbum);
       displayCount($musicAlbum);
-   //}
+   }
 }
 
 function displayCount($musicAlbum) {
-	 echo $musicAlbum . ' #: ' . $_SESSION['beatles_1'] . "<br />";
+	 echo $musicAlbum . ' #: ' . $_SESSION['$musicAlbum'] . "<br />";
 }
 
 function addToCartSession($musicAlbum) {
-	$_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
+	$_SESSION['$musicAlbum'] = $_SESSION['$musicAlbum'] + 1;
 	echo "Added " . $musicAlbum . " to cart.<br />";
 }
 
@@ -50,7 +50,7 @@ function clean_input($data) {
 -->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <button type="submit">Add to cart</button>
-<input type="checkbox" name="musicAlbum" id="beatles_1" value="beatles 1">
+<input type="checkbox" name="musicAlbum" id="beatles_1" value="beatles_1">
 <label for="beatles_1">The Beatles: <i>1</i></label>
 <!-- <input type="submit" value="Add to cart"><br /><br /> -->
 </form>
