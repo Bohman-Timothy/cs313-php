@@ -20,8 +20,8 @@ function addToCartB() {
 	 /* <?php displayCount(); ?>
 	 alert("Added to cart!"); */
 	 var elem = document.createElement('div');
+	 elem.innerHTML = "<h2>Hi</h2>";
 	 document.body.appendChild(elem);
-	 document.elem.innerHTML = "<h2>Hi</h2>";
 }
 </script>
 
