@@ -21,7 +21,7 @@ function addToCartB() {
 	 /* <?php displayCount(); ?>
 	 alert("Added to cart!"); */
 	 var invisibleDiv = document.createElement('div');
-	 invisibleDiv.class = "hide";
+	 invisibleDiv.className = "hide";
 	 invisibleDiv.innerHTML = "<?php displayCount(); ?>";
 	 document.body.appendChild(invisibleDiv);
 }
@@ -64,5 +64,6 @@ https://www.w3schools.com/php/php_sessions.asp
 https://www.tutorialspoint.com/php/php_sessions.htm
 https://www.w3schools.com/Php/php_functions.asp
 https://stackoverflow.com/questions/15741006/adding-div-element-to-body-or-document-in-javascript
+https://www.w3schools.com/jsref/prop_html_classname.asp
 </body>
 </html>
