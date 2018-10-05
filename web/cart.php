@@ -47,6 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h1>Shopping Cart</h1>
 <?php
 echo "<ul>";
+foreach ($musicAlbums as $musicAlbumss=>$value) {
+	echo "<li>" . $musicMap[$value] . "</li>";
+}
+echo "<li>$_POST["test_text"</li>";
 echo "<li>" . $test_text . "</li>";
 echo "</ul>";
 ?>
