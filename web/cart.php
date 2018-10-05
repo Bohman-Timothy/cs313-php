@@ -1,7 +1,11 @@
 <?php
+session_start();
+?>
+<?php
+$musicAlbums = "";
 $musicMap = array("beatles_1"=>"The Beatles: <i>1</i>",
 "belindac_runaway"=>"Belinda Carlisle: <i>Runaway Horses</i>",
-"shakira_ladrones"=>"Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?",
+"shakira_ladrones"=>"Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i>",
 "michelleb_hotel"=>"Michelle Branch: <i>Hotel Paper</i>",
 "lindsey_stirling"=>"Lindsey Stirling: <i>Lindsey Stirling</i>",
 "kellyc_allwanted"=>"Kelly Clarkson: <i>All I Ever Wanted",
@@ -25,33 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <title>Shopping Cart</title>
 </head>
 <body>
-<!--
-
-//$name = $email = $major = $comments = $continents = "";
-/*$musicMap = array("beatles_1"=>"The Beatles: 1",
-"belindac_runaway"=>"Belinda Carlisle: Runaway Horses",
-"shakira_ladrones"=>"Shakira: D&#243;nde Est&#225;n Los Ladrones?",
-"michelleb_hotel"=>"Michelle Branch: Hotel Paper",
-"lindsey_stirling"=>"Lindsey Stirling: Lindsey Stirling",
-"kellyc_allwanted"=>"Kelly Clarkson: All I Ever Wanted",
-"enya_shepherd"=>"Enya: Shepherd Moons",
-"celined_decade"=>"Celine Dion: All the Way... A Decade of Song",
-"a-ha_hunting"=>"A-ha: Hunting High and Low",
-"sarabar_kaleidoscope"=>"Sara Bareilles: Kaleidoscope Heart",
-"mamaspapas_leaves"=>"The Mamas and the Papas: All The Leaves Are Brown: The Golden Era Collection",
-"tmbgiants_flood"=>"They Might Be Giants: Flood",
-"shania_comeover"=>"Shania Twain: Come on Over");*/
-
-
--->
 <h1>Shopping Cart</h1>
+<h2>Items in your cart:</h2>
 <?php
 echo "<ul>";
 foreach ($musicAlbums as $musicAlbums=>$value) {
 	echo "<li>" . $musicMap[$value] . "</li>";
 }
-echo "<li>" . $test_text . "</li>";
 echo "</ul>";
+<h2>Items in cart (session):</h2>
+print_r($_SESSION);
 ?>
 </body>
 </html>
