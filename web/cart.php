@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-$name = $email = $major = $comments = $continents = "";
+//$name = $email = $major = $comments = $continents = "";
 $musicMap = array("beatles_1"=>"The Beatles: 1",
 "belindac_runaway"=>"Belinda Carlisle: Runaway Horses",
 "shakira_ladrones"=>"Shakira: D&#243;nde Est&#225;n Los Ladrones?",
@@ -21,9 +21,9 @@ $musicMap = array("beatles_1"=>"The Beatles: 1",
 "tmbgiants_flood"=>"They Might Be Giants: Flood",
 "shania_comeover"=>"Shania Twain: Come on Over");
 
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $musicAlbums = $_POST["musicAlbums"];
-//}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   //$musicAlbums = $_POST["musicAlbums"];
+}
 ?>
 
 <h1>Shopping Cart</h1>
