@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['beatles_1'])) {
    $_SESSION['beatles_1'] = 0;
 }
-	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
+	 //$_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
 	 echo 'Beatles 1 #: ' . $_SESSION['beatles_1'];
 
 function displayCount() {
@@ -16,10 +16,10 @@ function addToCartSession() {
 	 $_SESSION['beatles_1'] = $_SESSION['beatles_1'] + 1;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
    echo "Added " . $musicAlbums . " to cart.";
-}
+}*/
 
 ?>
 <script>
