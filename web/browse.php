@@ -1,16 +1,16 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['beatles_1'])) {
+      $_SESSION['beatles_1'] = 0;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
    if (isset($musicAlbums)) {
       addToCartSession($musicAlbums);
       displayCount($musicAlbums);
    }
-}
-
-if (!isset($_SESSION['beatles_1'])) {
-   $_SESSION['beatles_1'] = 0;
 }
 
 function displayCount($musicAlbums) {
