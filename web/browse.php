@@ -17,6 +17,8 @@ function displayCount() {
 function addToCartB() {
 	 
 	 alert("<?php displayCount(); ?>");
+	 /* <?php displayCount(); ?>
+	 alert("Added to cart!"); */
 }
 </script>
 
