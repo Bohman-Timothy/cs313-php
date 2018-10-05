@@ -89,12 +89,11 @@ function clean_input($data) {
 <input type="checkbox" name="musicAlbum" id="sarabar_kaleidoscope" value="sarabar_kaleidoscope"> <label for="sarabar_kaleidoscope">Sara Bareilles: <i>Kaleidoscope Heart</i></label><br />
 -->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<button type="submit">Add to cart</button>
+<!-- <button type="submit">Add to cart</button> -->
+<input type="submit" value="Add to cart">
 <input type="checkbox" name="musicAlbum" id="beatles_1" value="beatles_1">
 <label for="beatles_1">The Beatles: <i>1</i></label>
-<!-- <input type="submit" value="Add to cart"><br /><br /> -->
 </form>
-<br />
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
