@@ -21,9 +21,9 @@ $musicMap = array("beatles_1"=>"The Beatles: 1",
 "tmbgiants_flood"=>"They Might Be Giants: Flood",
 "shania_comeover"=>"Shania Twain: Come on Over");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = clean_input($_POST["musicAlbums"]);
-}
+}*/
 ?>
 
 <h1>Shopping Cart</h1>
