@@ -8,7 +8,7 @@ if (!isset($_SESSION['musicAlbums'])) {
 function addToCartSession() {
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (($_SERVER["REQUEST_METHOD"] == "POST") && (isset($_POST["musicAlbums"]))) {
    $musicAlbums = $_POST["musicAlbums"];
    $_SESSION['musicAlbums'] = $_SESSION['musicAlbums'] + 1;
    echo "Added " . $musicAlbums . " to cart.";
