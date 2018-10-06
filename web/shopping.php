@@ -18,8 +18,8 @@ $musicMap = array("a-ha_hunting"=>"A-ha: <i>Hunting High and Low</i>",
 "shakira_ladrones"=>"Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i>",
 "shania_comeover"=>"Shania Twain: <i>Come on Over</i>",
 "lindsey_stirling"=>"Lindsey Stirling: <i>Lindsey Stirling</i>",
-"tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>"),
-"nobuo_ffvi"=>"Nobuo Uematsu: <i>Final Fantasy VI Original Soundtrack Remaster Version</i>";
+"tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>",
+"nobuo_ffvi"=>"Nobuo Uematsu: <i>Final Fantasy VI Original Soundtrack Remaster Version</i>");
 
 function initializeQuantities() {
 	foreach ($musicMap as $albumKey=>$fullName) {
