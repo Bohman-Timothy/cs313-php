@@ -3,6 +3,7 @@ session_start();
 
 $maxQuantity = 99;
 $minQuantity = 0;
+$albumPrice = 10;
 $musicAlbum = "";
 $albumQuantity = 0;
 
@@ -46,6 +47,7 @@ foreach ($musicMap as $albumKey=>$fullName) {
 }
 echo "</ul>";*/
 
+$totalQuantity = 0;
 foreach ($musicMap as $albumKey=>$fullName) {
 	$quantity = $_SESSION[$albumKey];
 	if ($quantity > 0) {
@@ -55,8 +57,14 @@ foreach ($musicMap as $albumKey=>$fullName) {
 		echo '<label for="albumQuantity">' . $fullName . '</label>';
 		echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
 		echo '</form>';
+		$totalQuantity += 1;
 	}
 }
+$_SESSION["totalQuantity"] = $totalQuantity;
+$_SESSION["totalCost"] = $totalCost = $totalQuantity * $albumPrice;
+echo "Total Quantity: " . $totalQuantity . "<br />";
+echo "Price per album: $" . $albumPrice . "<br />";
+echo "Total Cost: $" . $totalCost . "<br />";
 echo "<br />";
 ?>
 

@@ -11,6 +11,11 @@ session_start();
 </head>
 <body>
 <h1>Checkout</h1>
+
+<?php
+echo "Total cost of purchase: " . $_SESSION["totalCost"];
+?>
+
 <h2>Please enter your shipping address</h2>
 <form method="post" action="<?php echo htmlspecialchars("confirmation.php");?>">
 <label for="street">Street</label>

@@ -31,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 	}
 	echo "</ul>";
+	echo "Total Quantity: " . $_SESSION["totalQuantity"] . "<br />";
+	echo "Total cost of purchase: " . $_SESSION["totalCost"];
 	echo "<h2>Shipping Address:</h2>";
 	echo $street . "<br />";
 	echo $city . "<br />";

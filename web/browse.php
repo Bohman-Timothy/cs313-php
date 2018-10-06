@@ -3,6 +3,7 @@ session_start();
 
 include 'shopping.php';
 
+$albumPrice = 10;
 $musicAlbum = "";
 
 if (!isset($_SESSION["a-ha_hunting"])) {
@@ -82,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	   echo "</p>";
    }
 }
+echo "<p>Each album costs $" . $albumPrice . "</p>";
 ?>
 <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 <input type="submit" value="View cart">
