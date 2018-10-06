@@ -10,3 +10,16 @@ session_start();
    $test_text = $_POST["test_text"];
 }*/
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shopping Cart</title>
+</head>
+<body>
+<h1>Shopping Cart</h1>
+<h2>Items in your cart:</h2>
+
+</body>
+</html>
