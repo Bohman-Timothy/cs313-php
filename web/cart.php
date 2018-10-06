@@ -57,6 +57,7 @@ foreach ($musicMap as $albumKey=>$fullName) {
 		echo '</form>';
 	}
 }
+echo "<br />";
 ?>
 
 

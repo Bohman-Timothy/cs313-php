@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo "<h1>Purchase Confirmed</h1>";
+	echo "<h2>Items Purchased:</h2>";
 	echo "<ul class='itemsPurchased'>";
 	foreach ($musicMap as $albumKey=>$fullName) {
 		$quantity = clean_input($_SESSION[$albumKey]);
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 	}
 	echo "</ul>";
-	echo "Shipping Address:";
+	echo "<h2>Shipping Address:</h2>";
 	echo $street . "<br />";
 	echo $city . "<br />";
 	echo $state . ", " . $zipCode . "<br />";
