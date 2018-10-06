@@ -14,13 +14,13 @@ session_start();
 <h2>Please enter your shipping address</h2>
 <form method="post" action="<?php echo htmlspecialchars("confirmation.php");?>">
 <label for="street">Street</label>
-<input type="text" name="street"><br />
+<input type="text" name="street" value=""><br />
 <label for="city">City</label>
-<input type="text" name="city"><br />
+<input type="text" name="city" value=""><br />
 <label for="state">State</label>
-<input type="text" name="state">
+<input type="text" name="state" value="">
 <label for="zipCode">Zip Code</label>
-<input type="text" name="zipCode"><br />
+<input type="text" name="zipCode" value=""><br />
 <input type="submit" value="Confirm purchase">
 </form>
 </body>
