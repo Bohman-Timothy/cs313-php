@@ -23,7 +23,7 @@ body {
 	float: left
 }
 
-.albumAddForm {
+.albumAddForm, .albumQuantityUpdateForm {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
