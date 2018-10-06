@@ -47,17 +47,13 @@ if (!isset($_SESSION["tmbgiants_flood"])) {
 
 initializeQuantities();
 
-$maxQuantity = 99;
-$minQuantity = 0;
-
-
 function addToCartSession($musicAlbum) {
-	if ($_SESSION[$musicAlbum] < $maxQuantity) {
+	if ($_SESSION[$musicAlbum] < 99) {
 		$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
 		echo "Added <span class='artistAndAlbum'>" . $musicAlbum . "</span> to cart.<br />";
 	}
 	else {
-		echo "Maximum allowed is " . $maxQuantity . ".<br />";
+		echo "Maximum allowed is " . 99 . ".<br />";
 	}
 }
 
