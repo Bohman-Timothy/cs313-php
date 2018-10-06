@@ -73,13 +73,12 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span><br />";
 echo "<br />";
 ?>
 
+<form method="post" action="<?php echo htmlspecialchars("checkout.php");?>" class="floatLeft">
+<input type="submit" value="Continue to checkout" id="continueToCheckoutBtn" class="btn btn-primary">
+</form>
 
 <form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
 <input type="submit" value="Return to browsing" id="returnToBrowsingBtn" class="btn btn-info">
-</form>
-
-<form method="post" action="<?php echo htmlspecialchars("checkout.php");?>">
-<input type="submit" value="Continue to checkout" id="continueToCheckoutBtn" class="btn btn-primary">
 </form>
 
 <?php

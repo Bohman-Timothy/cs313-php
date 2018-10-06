@@ -10,15 +10,18 @@ body {
 	font-size: 1em;
 }
 
-#viewCartBtn, #continueToCheckoutBtn {
-	
+.floatLeft {
+	float: left
 }
 
-#returnToBrowsingBtn, #returnToCartBtn, #continueBrowingBtn {
-	
+#viewCartBtn {
 }
 
-#confirmPurchaseBtn {
+#returnToCartBtn {
+		margin-top: 5px;
+}
+
+#continueToCheckoutBtn, #returnToBrowsingBtn, #continueBrowingBtn, #confirmPurchaseBtn {
 	
 }
 
