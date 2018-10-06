@@ -49,7 +49,7 @@ initializeQuantities();
 
 function addToCartSession($musicAlbum) {
 	$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
-	echo "Added " . $musicAlbum . " to cart.<br />";
+	echo "Added <span class='artistAndAlbum'>" . $musicAlbum . "</span> to cart.<br />";
 }
 
 ?>
