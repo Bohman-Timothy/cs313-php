@@ -22,5 +22,5 @@ function clean_input($data) {
 }
 
 echo "Shopping.php test<br />";
-
+echo $musicMap["enya_shepherd"];
 ?>
