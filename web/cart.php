@@ -56,12 +56,12 @@ $totalQuantity = 0;
 foreach ($musicMap as $albumKey=>$fullName) {
 	$quantity = $_SESSION[$albumKey];
 	if ($quantity > 0) {
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" class="albumQuantityUpdateForm">\n';
-		echo '<input type="submit" value="Update quantity">\n';
-		echo '<input type="number" min="' . $minQuantity . '" max="' . $maxQuantity . '" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">\n';
-		echo '<label for="albumQuantity">' . $fullName . '</label>\n';
-		echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">\n';
-		echo '</form>\n';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" class="albumQuantityUpdateForm">';
+		echo '<input type="submit" value="Update quantity">';
+		echo ' <input type="number" min="' . $minQuantity . '" max="' . $maxQuantity . '" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
+		echo ' <label for="albumQuantity">' . $fullName . '</label>';
+		echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
+		echo '</form>';
 		$totalQuantity += $quantity;
 	}
 }
