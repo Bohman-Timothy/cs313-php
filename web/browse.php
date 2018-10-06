@@ -89,63 +89,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="sarabar_kaleidoscope" value="sarabar_kaleidoscope">
+<input type="text" name="musicAlbum" id="sarabar_kaleidoscope" value="sarabar_kaleidoscope" class="hide">
 <label for="sarabar_kaleidoscope">Sara Bareilles: <i>Kaleidoscope Heart</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="beatles_1" value="beatles_1">
+<input type="text" name="musicAlbum" id="beatles_1" value="beatles_1" class="hide">
 <label for="beatles_1">The Beatles: <i>1</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="michelleb_hotel" value="michelleb_hotel"> <label for="michelleb_hotel">Michelle Branch: <i>Hotel Paper</i></label>
+<input type="text" name="musicAlbum" id="michelleb_hotel" value="michelleb_hotel" class="hide">
+<label for="michelleb_hotel">Michelle Branch: <i>Hotel Paper</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="belindac_runaway" value="belindac_runaway">
+<input type="text" name="musicAlbum" id="belindac_runaway" value="belindac_runaway" class="hide">
 <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="kellyc_allwanted" value="kellyc_allwanted">
+<input type="text" name="musicAlbum" id="kellyc_allwanted" value="kellyc_allwanted" class="hide">
 <label for="kellyc_allwanted">Kelly Clarkson: <i>All I Ever Wanted</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="celined_decade" value="celined_decade">
+<input type="text" name="musicAlbum" id="celined_decade" value="celined_decade" class="hide">
 <label for="celined_decade">Celine Dion: <i>All the Way... A Decade of Song</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="enya_shepherd" value="enya_shepherd">
+<input type="text" name="musicAlbum" id="enya_shepherd" value="enya_shepherd" class="hide">
 <label for="enya_shepherd">Enya: <i>Shepherd Moons</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="mamaspapas_leaves" value="mamaspapas_leaves">
+<input type="text" name="musicAlbum" id="mamaspapas_leaves" value="mamaspapas_leaves" class="hide">
 <label for="mamaspapas_leaves">The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="shakira_ladrones" value="shakira_ladrones">
+<input type="text" name="musicAlbum" id="shakira_ladrones" value="shakira_ladrones" class="hide">
 <label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="shania_comeover" value="shania_comeover">
+<input type="text" name="musicAlbum" id="shania_comeover" value="shania_comeover" class="hide">
 <label for="shania_comeover">Shania Twain: <i>Come on Over</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="lindsey_stirling" value="lindsey_stirling">
+<input type="text" name="musicAlbum" id="lindsey_stirling" value="lindsey_stirling" class="hide">
 <label for="lindsey_stirling">Lindsey Stirling: <i>Lindsey Stirling</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood">
+<input type="text" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood">
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
 </form>
 
