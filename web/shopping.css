@@ -7,3 +7,6 @@
 	font-weight: bold;
 	color: teal;
 }
+.itemsInCart {
+	list-style: none;
+}
