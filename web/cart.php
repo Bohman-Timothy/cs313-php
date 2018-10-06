@@ -3,7 +3,7 @@ session_start();
 
 //$musicAlbums = "";
 
-//include 'shopping.php';
+include 'shopping.php';
 
 /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
