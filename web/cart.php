@@ -32,6 +32,7 @@ function updateQuantity($musicAlbum, $albumQuantity) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="shopping.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Shopping Cart</title>
 </head>
 <body>

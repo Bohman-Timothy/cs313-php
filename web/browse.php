@@ -90,8 +90,8 @@ function addToCartSession($musicAlbum) {
 
     <link rel="stylesheet" href="shopping.css">
     <!-- <script src="shopping.js" charset="UTF-8"></script> -->
-
-<title>Browse and Select Music to Buy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Browse and Select Music to Buy</title>
 </head>
 <body>
 <h1>Browse and Select Music to Buy</h1>
