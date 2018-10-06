@@ -17,11 +17,15 @@ body {
 #viewCartBtn {
 }
 
-#returnToCartBtn {
-		margin-top: 5px;
+#returnToCartBtn, #confirmPurchaseBtn {
+	margin-top: 0.5em;
 }
 
-#continueToCheckoutBtn, #returnToBrowsingBtn, #continueBrowingBtn, #confirmPurchaseBtn {
+#returnToBrowsingBtn {
+	margin-left: 0.5em;
+}
+
+#continueToCheckoutBtn, #continueBrowingBtn {
 	
 }
 

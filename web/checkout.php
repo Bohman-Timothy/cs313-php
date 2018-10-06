@@ -33,7 +33,7 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 <input type="text" name="state" value="">
 <label for="zipCode">Zip Code</label>
 <input type="text" name="zipCode" value=""><br />
-<input type="submit" value="Confirm purchase" id="confirmPurchaseBtn" class="btn btn-success">
+<input type="submit" value="Confirm purchase" id="confirmPurchaseBtn" class="btn btn-success floatLeft">
 </form>
 
 <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
