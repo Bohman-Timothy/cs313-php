@@ -48,7 +48,8 @@ foreach ($musicMap as $albumKey=>$fullName) {
 		echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
 		echo '<input type="submit" value="Update quantity">';
 		echo '<input type="number" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
-		echo '<label for="albumQuantity" name="albumName" value="' . $albumKey . '">' . $fullName . '</label>';
+		echo '<label for="albumQuantity">' . $fullName . '</label>';
+		echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
 		echo '</form>';
 	}
 }
