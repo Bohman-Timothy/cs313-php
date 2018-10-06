@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function displayCount($musicAlbum) {
-	 echo $musicMap[$musicAlbum] . ' #: ' . $_SESSION[$musicAlbum] . "<br />";
+	 echo $musicMap['beatles_1'] . ' #: ' . $_SESSION[$musicAlbum] . "<br />";
 }
 
 function addToCartSession($musicAlbum) {
