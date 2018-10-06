@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <?php
-echo "<h1>Purchase Confirmed</h1>";
+/*echo "<h1>Purchase Confirmed</h1>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo "<ul class="itemsPurchased">";
@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo "Shipping Address:";
 	echo $street;
 	echo $city;
-	echo $state . " " . $zipCode;
-}
+	echo $state . ", " . $zipCode;
+}*/
 ?>
 </body>
 </html>
