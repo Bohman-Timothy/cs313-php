@@ -28,6 +28,10 @@ body {
 	background-color: forestgreen;
 }
 
+#confirmPurchaseBtn:hover {
+	background-color: green;
+}
+
 #continueToCheckoutBtn, #continueBrowingBtn {
 	
 }
