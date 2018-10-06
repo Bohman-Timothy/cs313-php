@@ -111,29 +111,29 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <input type="submit" value="View cart" id="viewCartBtn" class="btn btn-primary">
 </form>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="a-ha_hunting" value="a-ha_hunting" class="hide">
 <label for="a-ha_hunting">A-ha: <i>Hunting High and Low</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="sarabar_kaleidoscope" value="sarabar_kaleidoscope" class="hide">
 <label for="sarabar_kaleidoscope">Sara Bareilles: <i>Kaleidoscope Heart</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="beatles_1" value="beatles_1" class="hide">
 <label for="beatles_1">The Beatles: <i>1</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="michelleb_hotel" value="michelleb_hotel" class="hide">
 <label for="michelleb_hotel">Michelle Branch: <i>Hotel Paper</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="belindac_runaway" value="belindac_runaway" class="hide">
 <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label>
