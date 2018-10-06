@@ -13,11 +13,11 @@ body {
 
 .btn-return {
 	background-color: skyblue;
-	color: white;
 }
 
 .btn-return:hover {
 	background-color: #51b8e1;
+	color: white;
 }
 
 .floatLeft {
