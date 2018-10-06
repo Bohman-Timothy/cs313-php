@@ -48,8 +48,14 @@ if (!isset($_SESSION["tmbgiants_flood"])) {
 initializeQuantities();
 
 function addToCartSession($musicAlbum) {
-	$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
-	echo "Added <span class='artistAndAlbum'>" . $musicAlbum . "</span> to cart.<br />";
+	if ($_SESSION[$musicAlbum] < 100) {
+		$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
+		echo "Added <span class='artistAndAlbum'>" . $musicAlbum . "</span> to cart.<br />";
+	}
+	else {
+		echo "Maximum allowed is 99";
+	}
+		
 }
 
 ?>
@@ -151,13 +157,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 <h2>References</h2>
-https://www.w3schools.com/html/html_symbols.asp
-https://www.w3schools.com/html/html_charset.asp
-https://www.w3schools.com/php/php_sessions.asp
-https://www.tutorialspoint.com/php/php_sessions.htm
-https://www.w3schools.com/Php/php_functions.asp
-https://stackoverflow.com/questions/15741006/adding-div-element-to-body-or-document-in-javascript
-https://www.w3schools.com/jsref/prop_html_classname.asp
-https://www.w3schools.com/php/php_includes.asp
+<ul>
+<li>https://www.w3schools.com/html/html_symbols.asp</li>
+<li>https://www.w3schools.com/html/html_charset.asp</li>
+<li>https://www.w3schools.com/php/php_sessions.asp</li>
+<li>https://www.tutorialspoint.com/php/php_sessions.htm</li>
+<li>https://www.w3schools.com/Php/php_functions.asp</li>
+<li>https://stackoverflow.com/questions/15741006/adding-div-element-to-body-or-document-in-javascript</li>
+<li>https://www.w3schools.com/jsref/prop_html_classname.asp</li>
+<li>https://www.w3schools.com/php/php_includes.asp</li>
+<li><a href="https://stackoverflow.com/questions/3792936/how-to-send-data-with-form-label-element">Stack Overflow - name attribute on label</a></li>
+<li><a href="https://www.w3schools.com/tags/att_input_type_number.asp">W3Schools - input type number</a></li>
+</ul>
 </body>
 </html>
