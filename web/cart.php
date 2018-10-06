@@ -34,7 +34,6 @@ foreach ($musicMap as $albumKey=>$fullName) {
 	}
 }
 echo "</ul>";
-?>
 
 foreach ($musicMap as $albumKey=>$fullName) {
 	$quantity = $_SESSION[$albumKey];
@@ -46,6 +45,7 @@ foreach ($musicMap as $albumKey=>$fullName) {
 		echo '</form>';
 	}
 }
+?>
 <?php
 echo "<h2>Items in cart (session):</h2>";
 print_r($_SESSION);
