@@ -51,27 +51,25 @@ foreach ($musicMap as $albumKey=>$fullName) {
 }
 echo "</ul>";*/
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$totalQuantity = 0;
-	foreach ($musicMap as $albumKey=>$fullName) {
-		$quantity = $_SESSION[$albumKey];
-		if ($quantity > 0) {
-			echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
-			echo '<input type="submit" value="Update quantity">';
-			echo '<input type="number" min="' . $minQuantity . '" max="' . $maxQuantity . '" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
-			echo '<label for="albumQuantity">' . $fullName . '</label>';
-			echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
-			echo '</form>';
-			$totalQuantity += 1;
-		}
+$totalQuantity = 0;
+foreach ($musicMap as $albumKey=>$fullName) {
+	$quantity = $_SESSION[$albumKey];
+	if ($quantity > 0) {
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
+		echo '<input type="submit" value="Update quantity">';
+		echo '<input type="number" min="' . $minQuantity . '" max="' . $maxQuantity . '" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
+		echo '<label for="albumQuantity">' . $fullName . '</label>';
+		echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
+		echo '</form>';
+		$totalQuantity += $quantity;
 	}
-	$_SESSION["totalQuantity"] = $totalQuantity;
-	$_SESSION["totalCost"] = $totalCost = $totalQuantity * $albumPrice;
-	echo "Total Quantity: " . $totalQuantity . "<br />";
-	echo "Price per album: $" . $albumPrice . "<br />";
-	echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span><br />";
-	echo "<br />";
 }
+$_SESSION["totalQuantity"] = $totalQuantity;
+$_SESSION["totalCost"] = $totalCost = $totalQuantity * $albumPrice;
+echo "Total Quantity: " . $totalQuantity . "<br />";
+echo "Price per album: $" . $albumPrice . "<br />";
+echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span><br />";
+echo "<br />";
 ?>
 
 
