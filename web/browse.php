@@ -45,15 +45,7 @@ if (!isset($_SESSION["tmbgiants_flood"])) {
       $_SESSION["tmbgiants_flood"] = 0;
 }
 
-//initializeQuantities();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $musicAlbum = clean_input($_POST["musicAlbum"]);
-   if (isset($musicAlbum) && ($musicAlbum != "")) {
-      addToCartSession($musicAlbum);
-      displayCount($musicAlbum);
-   }
-}
+initializeQuantities();
 
 function addToCartSession($musicAlbum) {
 	$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
@@ -75,6 +67,15 @@ function addToCartSession($musicAlbum) {
 </head>
 <body>
 <h1>Browse and Select Music to Buy</h1>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $musicAlbum = clean_input($_POST["musicAlbum"]);
+   if (isset($musicAlbum) && ($musicAlbum != "")) {
+      addToCartSession($musicAlbum);
+      displayCount($musicAlbum);
+   }
+}
+?>
 <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
 <input type="submit" value="View cart">
 </form>
@@ -145,9 +146,6 @@ function addToCartSession($musicAlbum) {
 <input type="checkbox" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood">
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
 </form>
-<!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<input type="submit" value="Add to cart">
-</form> -->
 
 <h2>References</h2>
 https://www.w3schools.com/html/html_symbols.asp
