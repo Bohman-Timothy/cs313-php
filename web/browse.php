@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function displayCount($musicAlbum) {
-	 echo $musicMap["beatles_1"] . ' #: ' . $_SESSION[$musicAlbum] . "<br />";
+	 echo $musicMap["enya_shepherd"] . ' #: ' . $_SESSION[$musicAlbum] . "<br />";
 	 echo "<ul>";
 	 foreach ($musicMap as $albumNameMap=>$album) {
 		 echo "<li>" . $album . "</li>";
