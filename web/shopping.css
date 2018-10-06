@@ -1,5 +1,6 @@
 .quantity {
-	color: darkviolet;
+	font-weight: bold;
+	color: purple;
 }
 
 .artistAndAlbum {
