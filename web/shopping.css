@@ -6,9 +6,12 @@ body {
 	font-size: 2em;
 }
 
+.btn {
+	font-size: 2em;
+}
 
 #viewCartBtn, #continueToCheckoutBtn {
-	background-color: blue;
+	
 }
 
 #returnToBrowsingBtn, #returnToCartBtn, #continueBrowingBtn {
