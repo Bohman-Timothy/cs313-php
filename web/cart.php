@@ -27,8 +27,12 @@ function updateQuantity($musicAlbum, $albumQuantity) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="shopping.css">
-<title>Shopping Cart</title>
+
+    <!-- Bootstrap compiled CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="shopping.css">
+	<title>Shopping Cart</title>
 </head>
 <body>
 <h1>Shopping Cart</h1>
@@ -47,25 +51,27 @@ foreach ($musicMap as $albumKey=>$fullName) {
 }
 echo "</ul>";*/
 
-$totalQuantity = 0;
-foreach ($musicMap as $albumKey=>$fullName) {
-	$quantity = $_SESSION[$albumKey];
-	if ($quantity > 0) {
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
-		echo '<input type="submit" value="Update quantity">';
-		echo '<input type="number" min="' . $minQuantity . '" max="' . $maxQuantity . '" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
-		echo '<label for="albumQuantity">' . $fullName . '</label>';
-		echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
-		echo '</form>';
-		$totalQuantity += 1;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$totalQuantity = 0;
+	foreach ($musicMap as $albumKey=>$fullName) {
+		$quantity = $_SESSION[$albumKey];
+		if ($quantity > 0) {
+			echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
+			echo '<input type="submit" value="Update quantity">';
+			echo '<input type="number" min="' . $minQuantity . '" max="' . $maxQuantity . '" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
+			echo '<label for="albumQuantity">' . $fullName . '</label>';
+			echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
+			echo '</form>';
+			$totalQuantity += 1;
+		}
 	}
+	$_SESSION["totalQuantity"] = $totalQuantity;
+	$_SESSION["totalCost"] = $totalCost = $totalQuantity * $albumPrice;
+	echo "Total Quantity: " . $totalQuantity . "<br />";
+	echo "Price per album: $" . $albumPrice . "<br />";
+	echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span><br />";
+	echo "<br />";
 }
-$_SESSION["totalQuantity"] = $totalQuantity;
-$_SESSION["totalCost"] = $totalCost = $totalQuantity * $albumPrice;
-echo "Total Quantity: " . $totalQuantity . "<br />";
-echo "Price per album: $" . $albumPrice . "<br />";
-echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span><br />";
-echo "<br />";
 ?>
 
 
