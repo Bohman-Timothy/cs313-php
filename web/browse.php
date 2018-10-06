@@ -136,6 +136,11 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
+<input type="text" name="musicAlbum" id="vanessac_harmonium" value="vanessac_harmonium" class="hide">
+<label for="vanessac_harmonium">Vanessa Carlton: <i>Harmonium</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="kellyc_allwanted" value="kellyc_allwanted" class="hide">
 <label for="kellyc_allwanted">Kelly Clarkson: <i>All I Ever Wanted</i></label>
 </form>
@@ -151,8 +156,33 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
+<input type="text" name="musicAlbum" id="evanescence_fallen" value="evanescence_fallen" class="hide">
+<label for="evanescence_fallen">Evanescence: <i>Fallen</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
+<input type="text" name="musicAlbum" id="gogos_greatest" value="gogos_greatest" class="hide">
+<label for="gogos_greatest">The Go-Go's: <i>Greatest</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
+<input type="text" name="musicAlbum" id="avrillav_underskin" value="avrillav_underskin" class="hide">
+<label for="avrillav_underskin">Avril Lavigne: <i>Under My Skin</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="mamaspapas_leaves" value="mamaspapas_leaves" class="hide">
 <label for="mamaspapas_leaves">The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
+<input type="text" name="musicAlbum" id="petshop_discog" value="petshop_discog" class="hide">
+<label for="petshop_discog">Pet Shop Boys: <i>Discography</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
+<input type="text" name="musicAlbum" id="monkees_bestof" value="monkees_bestof" class="hide">
+<label for="monkees_bestof">The Monkees: <i>The Best of the Monkees</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
@@ -173,6 +203,11 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood" class="hide">
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<input type="submit" value="Add to cart">
+<input type="text" name="musicAlbum" id="nobuo_ffvi" value="nobuo_ffvi" class="hide">
+<label for="nobuo_ffvi">Nobuo Uematsu: <i>Final Fantasy VI Original Soundtrack Remaster Version</i></label>
 </form>
 
 <h2>References</h2>
