@@ -4,10 +4,10 @@ session_start();
 include 'shopping.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$street = clean_input($_SESSION['street']);
-	$city = clean_input($_SESSION['city']);
-	$state = clean_input($_SESSION['state']);
-	$zipCode = clean_input($_SESSION['zipCode']);
+	$street = clean_input($_SESSION["street"]);
+	$city = clean_input($_SESSION["city"]);
+	$state = clean_input($_SESSION["state"]);
+	$zipCode = clean_input($_SESSION["zipCode"]);
 }
 ?>
 
@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <?php
-echo $musicMap['beatles_1'] . "<br />";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo "<h1>Purchase Confirmed</h1>";
 	echo "<ul class='itemsPurchased'>";
