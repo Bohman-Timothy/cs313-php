@@ -138,77 +138,77 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <input type="text" name="musicAlbum" id="belindac_runaway" value="belindac_runaway" class="hide">
 <label for="belindac_runaway">Belinda Carlisle: <i>Runaway Horses</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="vanessac_harmonium" value="vanessac_harmonium" class="hide">
 <label for="vanessac_harmonium">Vanessa Carlton: <i>Harmonium</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="kellyc_allwanted" value="kellyc_allwanted" class="hide">
 <label for="kellyc_allwanted">Kelly Clarkson: <i>All I Ever Wanted</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="celined_decade" value="celined_decade" class="hide">
 <label for="celined_decade">Celine Dion: <i>All the Way... A Decade of Song</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="enya_shepherd" value="enya_shepherd" class="hide">
 <label for="enya_shepherd">Enya: <i>Shepherd Moons</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="evanescence_fallen" value="evanescence_fallen" class="hide">
 <label for="evanescence_fallen">Evanescence: <i>Fallen</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="gogos_greatest" value="gogos_greatest" class="hide">
 <label for="gogos_greatest">The Go-Go's: <i>Greatest</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="avrillav_underskin" value="avrillav_underskin" class="hide">
 <label for="avrillav_underskin">Avril Lavigne: <i>Under My Skin</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="mamaspapas_leaves" value="mamaspapas_leaves" class="hide">
 <label for="mamaspapas_leaves">The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="petshop_discog" value="petshop_discog" class="hide">
 <label for="petshop_discog">Pet Shop Boys: <i>Discography</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="monkees_bestof" value="monkees_bestof" class="hide">
 <label for="monkees_bestof">The Monkees: <i>The Best of the Monkees</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="shakira_ladrones" value="shakira_ladrones" class="hide">
 <label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="shania_comeover" value="shania_comeover" class="hide">
 <label for="shania_comeover">Shania Twain: <i>Come on Over</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="lindsey_stirling" value="lindsey_stirling" class="hide">
 <label for="lindsey_stirling">Lindsey Stirling: <i>Lindsey Stirling</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood" class="hide">
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="nobuo_ffvi" value="nobuo_ffvi" class="hide">
 <label for="nobuo_ffvi">Nobuo Uematsu: <i>Final Fantasy VI Original Soundtrack Remaster Version</i></label>
