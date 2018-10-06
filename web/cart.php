@@ -20,6 +20,7 @@ session_start();
 <body>
 <h1>Shopping Cart</h1>
 <h2>Items in your cart:</h2>
-
+<?php
+?>
 </body>
 </html>
