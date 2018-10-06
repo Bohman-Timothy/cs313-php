@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$totalCost = $_SESSION["totalCost"];
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,7 @@ session_start();
 <h1>Checkout</h1>
 
 <?php
-echo "Total cost of purchase: " . $_SESSION["totalCost"];
+echo "Total Cost: $" . $totalCost;
 ?>
 
 <h2>Please enter your shipping address</h2>

@@ -64,7 +64,7 @@ $_SESSION["totalQuantity"] = $totalQuantity;
 $_SESSION["totalCost"] = $totalCost = $totalQuantity * $albumPrice;
 echo "Total Quantity: " . $totalQuantity . "<br />";
 echo "Price per album: $" . $albumPrice . "<br />";
-echo "Total Cost: $" . $totalCost . "<br />";
+echo "<b>Total Cost: $" . $totalCost . "</b><br />";
 echo "<br />";
 ?>
 

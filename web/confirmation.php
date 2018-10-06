@@ -9,6 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$state = clean_input($_POST["state"]);
 	$zipCode = clean_input($_POST["zipCode"]);
 }
+
+$totalQuantity = $_SESSION["totalQuantity"];
+$totalCost = $_SESSION["totalCost"];
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 	}
 	echo "</ul>";
-	echo "Total Quantity: " . $_SESSION["totalQuantity"] . "<br />";
-	echo "Total cost of purchase: " . $_SESSION["totalCost"];
+	echo "Total Quantity: " . $totalQuantity . "<br />";
+	echo "<b>Total Cost: " . $totalCost . "</b>";
 	echo "<h2>Shipping Address:</h2>";
 	echo $street . "<br />";
 	echo $city . "<br />";
