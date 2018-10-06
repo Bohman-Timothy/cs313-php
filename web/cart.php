@@ -1,14 +1,19 @@
 <?php
 session_start();
 
-//$musicAlbums = "";
+$musicAlbum = "";
 
 include 'shopping.php';
 
-/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $musicAlbums = $_POST["musicAlbums"];
-   $test_text = $_POST["test_text"];
-}*/
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$musicAlbum = clean_input($_POST["albumName"]);
+	$albumQuantity = clean_input($_POST["quantity"]);
+	updateQuantity($musicAlbum, $albumQuantity);
+}
+
+updateQuantity($musicAlbum, $albumQuantity) {
+	$_SESSION[$musicAlbum] = $albumQuantity;
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +45,8 @@ foreach ($musicMap as $albumKey=>$fullName) {
 	if ($quantity > 0) {
 		echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
 		echo '<input type="submit" value="Update quantity">';
-		echo '<input type="number" name="' . $albumKey . 'Quantity" id="' . $albumKey . 'Quantity" value="' . $quantity . '">';
-		echo '<label for="' . $albumKey . 'Quantity">' . $fullName . '</label>';
+		echo '<input type="number" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
+		echo '<label for="albumQuantity" name="albumName" value="' . $albumKey . '">' . $fullName . '</label>';
 		echo '</form>';
 	}
 }
