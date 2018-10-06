@@ -5,14 +5,21 @@ $musicMap = array("a-ha_hunting"=>"A-ha: <i>Hunting High and Low</i>",
 "beatles_1"=>"The Beatles: <i>1</i>",
 "michelleb_hotel"=>"Michelle Branch: <i>Hotel Paper</i>",
 "belindac_runaway"=>"Belinda Carlisle: <i>Runaway Horses</i>",
+"vanessac_harmonium"=>"Vanessa Carlton: <i>Harmonium</i>",
 "kellyc_allwanted"=>"Kelly Clarkson: <i>All I Ever Wanted</i>",
 "celined_decade"=>"Celine Dion: <i>All the Way... A Decade of Song</i>",
 "enya_shepherd"=>"Enya: <i>Shepherd Moons</i>",
+"evanescence_fallen"=>"Evanescence: <i>Fallen</i>",
+"gogos_greatest"=>"The Go-Go's: <i>Greatest</i>",
+"avrillav_underskin"=>"Avril Lavigne: <i>Under My Skin</i>",
 "mamaspapas_leaves"=>"The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i>",
+"petshop_discog"=>"Pet Shop Boys: <i>Discography</i>",
+"monkees_bestof"=>"The Monkees: <i>The Best of the Monkees</i>",
 "shakira_ladrones"=>"Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i>",
 "shania_comeover"=>"Shania Twain: <i>Come on Over</i>",
 "lindsey_stirling"=>"Lindsey Stirling: <i>Lindsey Stirling</i>",
-"tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>");
+"tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>"),
+"nobuo_ffvi"=>"Nobuo Uematsu: <i>Final Fantasy VI Original Soundtrack Remaster Version</i>";
 
 function initializeQuantities() {
 	foreach ($musicMap as $albumKey=>$fullName) {

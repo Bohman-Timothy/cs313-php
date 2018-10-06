@@ -21,6 +21,9 @@ if (!isset($_SESSION["michelleb_hotel"])) {
 if (!isset($_SESSION["belindac_runaway"])) {
       $_SESSION["belindac_runaway"] = 0;
 }
+if (!isset($_SESSION["vanessac_harmonium"])) {
+      $_SESSION["vanessac_harmonium"] = 0;
+}
 if (!isset($_SESSION["kellyc_allwanted"])) {
       $_SESSION["kellyc_allwanted"] = 0;
 }
@@ -30,8 +33,20 @@ if (!isset($_SESSION["celined_decade"])) {
 if (!isset($_SESSION["enya_shepherd"])) {
       $_SESSION["enya_shepherd"] = 0;
 }
+if (!isset($_SESSION["gogos_greatest"])) {
+      $_SESSION["gogos_greatest"] = 0;
+}
+if (!isset($_SESSION["avrillav_underskin"])) {
+      $_SESSION["avrillav_underskin"] = 0;
+}
 if (!isset($_SESSION["mamaspapas_leaves"])) {
       $_SESSION["mamaspapas_leaves"] = 0;
+}
+if (!isset($_SESSION["monkees_bestof"])) {
+      $_SESSION["monkees_bestof"] = 0;
+}
+if (!isset($_SESSION["petshop_discog"])) {
+      $_SESSION["petshop_discog"] = 0;
 }
 if (!isset($_SESSION["shakira_ladrones"])) {
       $_SESSION["shakira_ladrones"] = 0;
@@ -45,13 +60,16 @@ if (!isset($_SESSION["lindsey_stirling"])) {
 if (!isset($_SESSION["tmbgiants_flood"])) {
       $_SESSION["tmbgiants_flood"] = 0;
 }
+if (!isset($_SESSION["nobuo_ffvi"])) {
+      $_SESSION["nobuo_ffvi"] = 0;
+}
 
 initializeQuantities();
 
 function addToCartSession($musicAlbum) {
 	if ($_SESSION[$musicAlbum] < 99) {
 		$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
-		echo 'Added <span class="artistAndAlbum">' . $musicAlbum . '</span> to cart.<br />';
+		echo 'Added [code:] <span class="artistAndAlbum">' . $musicAlbum . '</span> to cart.<br />';
 	}
 	else {
 		echo "Maximum allowed is " . 99 . ".<br />";
