@@ -39,18 +39,6 @@ function updateQuantity($musicAlbum, $albumQuantity) {
 <h1>Shopping Cart</h1>
 <h2>Items in your cart:</h2>
 <?php
-/*echo "<ul>";
-foreach ($musicAlbums as $musicAlbums=>$value) {
-	echo "<li>" . $musicMap[$value] . "</li>";
-}
-echo "</ul>";*/
-/*echo "<ul class="itemsInCart">";
-foreach ($musicMap as $albumKey=>$fullName) {
-	if ($_SESSION[$albumKey] > 0) {
-		echo "<li><span class='quantity'>" . $_SESSION[$albumKey] . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
-	}
-}
-echo "</ul>";*/
 
 $totalQuantity = 0;
 foreach ($musicMap as $albumKey=>$fullName) {
@@ -82,9 +70,9 @@ echo "<br />";
 </form>
 
 <?php
-echo "<h2>Items in cart (session):</h2>";
+/*echo "<h2>Items in cart (session):</h2>";
 print_r($_SESSION);
-echo $_SESSION["inCart"];
+echo $_SESSION["inCart"];*/
 ?>
 </body>
 </html>

@@ -122,13 +122,11 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <label for="sarabar_kaleidoscope">Sara Bareilles: <i>Kaleidoscope Heart</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
-<!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="beatles_1" value="beatles_1" class="hide">
 <label for="beatles_1">The Beatles: <i>1</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
-<!-- <button type="submit">Add to cart</button> -->
 <input type="submit" value="Add to cart">
 <input type="text" name="musicAlbum" id="michelleb_hotel" value="michelleb_hotel" class="hide">
 <label for="michelleb_hotel">Michelle Branch: <i>Hotel Paper</i></label>
@@ -174,7 +172,7 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <label for="avrillav_underskin">Avril Lavigne: <i>Under My Skin</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
-<input type="submit" value="Add to cart">
+<input type="submit" value="Add to cart" class="floatLeft">
 <input type="text" name="musicAlbum" id="mamaspapas_leaves" value="mamaspapas_leaves" class="hide">
 <label for="mamaspapas_leaves">The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i></label>
 </form>
@@ -209,7 +207,7 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
-<input type="submit" value="Add to cart">
+<input type="submit" value="Add to cart" class="floatLeft">
 <input type="text" name="musicAlbum" id="nobuo_ffvi" value="nobuo_ffvi" class="hide">
 <label for="nobuo_ffvi">Nobuo Uematsu: <i>Final Fantasy VI Original Soundtrack Remaster Version</i></label>
 </form>
