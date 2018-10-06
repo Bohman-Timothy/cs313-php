@@ -18,7 +18,11 @@ $totalCost = $_SESSION["totalCost"];
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="shopping.css">
+
+    <!-- Bootstrap compiled CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="shopping.css">
 <title>Purchase Confirmed</title>
 </head>
 <body>
