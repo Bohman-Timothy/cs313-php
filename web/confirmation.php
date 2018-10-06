@@ -48,5 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo "<h2 class='thanks'>Thanks for shopping with us!</h2>";
 }
 ?>
+
+<form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
+<input type="submit" value="Continue browsing" id="continueBrowsingBtn">
+</form>
 </body>
 </html>

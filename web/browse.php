@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 echo "<p>Each album costs $" . $albumPrice . "</p>";
 ?>
 <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
-<input type="submit" value="View cart">
+<input type="submit" value="View cart" id="viewCartBtn">
 </form>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

@@ -75,11 +75,11 @@ echo "<br />";
 
 
 <form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
-<input type="submit" value="Return to browsing">
+<input type="submit" value="Return to browsing" id="returnToBrowsingBtn">
 </form>
 
 <form method="post" action="<?php echo htmlspecialchars("checkout.php");?>">
-<input type="submit" value="Continue to checkout">
+<input type="submit" value="Continue to checkout" id="continueToCheckoutBtn">
 </form>
 
 <?php

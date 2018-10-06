@@ -6,6 +6,19 @@ body {
 	font-size: 2em;
 }
 
+
+#viewCartBtn, #continueToCheckoutBtn {
+	background-color: blue;
+}
+
+#returnToBrowsingBtn, #returnToCartBtn, #continueBrowingBtn {
+	background-color: yellow;
+}
+
+#confirmPurchaseBtn {
+	background-color: green;
+}
+
 .quantity {
 	font-weight: bold;
 	color: purple;
