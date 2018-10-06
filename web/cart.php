@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-$musicAlbums = "";
+//$musicAlbums = "";
 
-include 'shopping.php';
+//include 'shopping.php';
 
 /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbums = $_POST["musicAlbums"];
