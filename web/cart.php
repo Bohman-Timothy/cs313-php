@@ -15,6 +15,7 @@ include 'shopping.php';
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="shopping.css">
 <title>Shopping Cart</title>
 </head>
 <body>
@@ -28,7 +29,7 @@ foreach ($musicAlbums as $musicAlbums=>$value) {
 echo "</ul>";*/
 echo "<ul>";
 foreach ($musicMap as $albumKey=>$fullName) {
-	echo "<li>" . $_SESSION[$albumKey] . " of " . $fullName . "</li>";
+	echo "<li><span class='quantity'>" . $_SESSION[$albumKey] . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
 }
 echo "</ul>";
 echo "<h2>Items in cart (session):</h2>";
