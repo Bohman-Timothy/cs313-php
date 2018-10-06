@@ -49,7 +49,7 @@ foreach ($musicMap as $albumKey=>$fullName) {
 	if ($quantity > 0) {
 		echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
 		echo '<input type="submit" value="Update quantity">';
-		echo '<input type="number" min="0" max="99" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
+		echo '<input type="number" min="' . $minQuantity . '" max="' . $maxQuantity . '" name="quantity" id="' . $albumKey . '_quantity" value="' . $quantity . '">';
 		echo '<label for="albumQuantity">' . $fullName . '</label>';
 		echo '<input type="text" name="albumName" value="' . $albumKey . '" class="hide">';
 		echo '</form>';
