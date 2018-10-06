@@ -1,7 +1,6 @@
 <?php
 session_start();
-?>
-<?php
+
 $musicAlbums = "";
 
 include 'shopping.php';
@@ -27,7 +26,7 @@ foreach ($musicAlbums as $musicAlbums=>$value) {
 }
 echo "</ul>";*/
 <h2>Items in cart (session):</h2>
-print_r($_SESSION);
+//print_r($_SESSION);
 //echo $_SESSION["inCart"];
 ?>
 </body>
