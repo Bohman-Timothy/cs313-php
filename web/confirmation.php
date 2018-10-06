@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			echo "<li><span class='quantity'>" . $quantity . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
 		}
 	}
+	echo "</ul>";
 	echo "Shipping Address:";
 	echo $street . "<br />";
 	echo $city . "<br />";
