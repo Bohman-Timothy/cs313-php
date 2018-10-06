@@ -28,6 +28,10 @@ body {
 	margin-bottom: 0.5em;
 }
 
+.addToCart {
+	display: inline;
+}
+
 #viewCartBtn {
 }
 
