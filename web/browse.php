@@ -82,8 +82,9 @@ function addToCartSession($musicAlbum) {
 </head>
 <body>
 <h1>Browse and Select Music to Buy</h1>
-<!-- <form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
--->
+<form method="post" action="<?php echo htmlspecialchars("cart.php");?>">
+<input type="submit" value="View cart">
+</form>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
