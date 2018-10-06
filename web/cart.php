@@ -27,7 +27,7 @@ foreach ($musicAlbums as $musicAlbums=>$value) {
 }
 echo "</ul>";*/
 echo "<ul>";
-foreach ($musicMap as $musicAlbums=>$value) {
+foreach ($musicMap[] as $musicAlbums[]=>$value) {
 	echo "<li>" . $_SESSION[$value] . " of " $musicMap[$value]. "</li>";
 }
 echo "</ul>";
