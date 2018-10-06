@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$maxQuantity = 99;
+$minQuantity = 0;
 $musicAlbum = "";
 $albumQuantity = 0;
 

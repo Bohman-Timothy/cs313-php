@@ -47,6 +47,10 @@ if (!isset($_SESSION["tmbgiants_flood"])) {
 
 initializeQuantities();
 
+$maxQuantity = 99;
+$minQuantity = 0;
+
+
 function addToCartSession($musicAlbum) {
 	if ($_SESSION[$musicAlbum] < $maxQuantity) {
 		$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
