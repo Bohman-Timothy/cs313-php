@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$musicMap = array("nothing_key"=>"nothing_value");
+
 include 'shopping.php';
 
 $musicAlbum = "";
