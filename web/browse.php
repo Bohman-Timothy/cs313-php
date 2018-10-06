@@ -71,8 +71,10 @@ function addToCartSession($musicAlbum) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbum = clean_input($_POST["musicAlbum"]);
    if (isset($musicAlbum) && ($musicAlbum != "")) {
-      addToCartSession($musicAlbum);
-      displayCount($musicAlbum);
+	   echo "<p>";
+	   addToCartSession($musicAlbum);
+	   displayCount($musicAlbum);
+	   echo "</p>";
    }
 }
 ?>

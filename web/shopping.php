@@ -14,7 +14,7 @@ $musicMap = array("a-ha_hunting"=>"A-ha: <i>Hunting High and Low</i>",
 "lindsey_stirling"=>"Lindsey Stirling: <i>Lindsey Stirling</i>",
 "tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>");
 
-function initializeQuantities () {
+function initializeQuantities() {
 	foreach ($musicMap as $albumKey=>$fullName) {
 		if (!isset($_SESSION[$albumKey])) {
 			$_SESSION[$albumKey] = 8;
