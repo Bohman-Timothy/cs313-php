@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="text" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood">
+<input type="text" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood" class="hide">
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
 </form>
 
