@@ -21,6 +21,6 @@ function clean_input($data) {
    return $data;
 }
 
-echo "Shopping.php test"
+echo "Shopping.php test";
 
 ?>
