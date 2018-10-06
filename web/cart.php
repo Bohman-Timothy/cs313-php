@@ -29,7 +29,9 @@ foreach ($musicAlbums as $musicAlbums=>$value) {
 echo "</ul>";*/
 echo "<ul>";
 foreach ($musicMap as $albumKey=>$fullName) {
-	echo "<li><span class='quantity'>" . $_SESSION[$albumKey] . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
+	if ($_SESSION[$albumKey] > 0) {
+		echo "<li><span class='quantity'>" . $_SESSION[$albumKey] . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
+	}
 }
 echo "</ul>";
 echo "<h2>Items in cart (session):</h2>";
