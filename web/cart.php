@@ -2,6 +2,7 @@
 session_start();
 
 $musicAlbum = "";
+$albumQuantity = 0;
 
 include 'shopping.php';
 
