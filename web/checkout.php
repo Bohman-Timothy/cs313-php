@@ -15,7 +15,7 @@ $totalCost = $_SESSION["totalCost"];
 <h1>Checkout</h1>
 
 <?php
-echo "Total Cost: $" . $totalCost;
+echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 ?>
 
 <h2>Please enter your shipping address</h2>

@@ -15,3 +15,8 @@
 .hide {
 	display: none;
 }
+
+.totalCost {
+		font-weight: bold;
+		color: purple;
+}

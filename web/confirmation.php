@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 	echo "</ul>";
 	echo "Total Quantity: " . $totalQuantity . "<br />";
-	echo "<b>Total Cost: " . $totalCost . "</b>";
+	echo "<span class='totalCost'>Total Cost: " . $totalCost . "</span>";
 	echo "<h2>Shipping Address:</h2>";
 	echo $street . "<br />";
 	echo $city . "<br />";
