@@ -45,7 +45,7 @@ if (!isset($_SESSION["tmbgiants_flood"])) {
       $_SESSION["tmbgiants_flood"] = 0;
 }
 
-initializeQuantities();
+//initializeQuantities();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbum = clean_input($_POST["musicAlbum"]);
