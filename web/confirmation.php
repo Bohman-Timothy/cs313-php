@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <?php
-echo "<h1>Purchase Confirmed</h1>";
-
+echo $musicMap['beatles_1'] . "<br />";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	echo "<h1>Purchase Confirmed</h1>";
 	echo "<ul class='itemsPurchased'>";
 	foreach ($musicMap as $albumKey=>$fullName) {
 		$quantity = clean_input($_SESSION[$albumKey]);
@@ -31,9 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 	}
 	echo "Shipping Address:";
-	echo $street;
-	echo $city;
-	echo $state . ", " . $zipCode;
+	echo $street . "<br />";
+	echo $city . "<br />";
+	echo $state . ", " . $zipCode . "<br />";
+	echo "<h2 class='thanks'>Thanks for shopping with us!</h2>";
 }
 ?>
 </body>
