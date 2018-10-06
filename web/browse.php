@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function displayCount($musicAlbum) {
-	 echo $_SESSION[$musicAlbum] . " of <b>" $musicAlbum . "</b> in cart<br />";
+	 echo $_SESSION[$musicAlbum] . " of <b>" . $musicAlbum . "</b> in cart<br />";
 	 /*echo "<ul>";
 	 foreach ($musicMap as $albumNameMap=>$album) {
 		 echo "<li>" . $album . "</li>";
