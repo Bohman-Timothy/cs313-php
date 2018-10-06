@@ -15,11 +15,11 @@ body {
 }
 
 #returnToBrowsingBtn, #returnToCartBtn, #continueBrowingBtn {
-	background-color: yellow;
+	
 }
 
 #confirmPurchaseBtn {
-	background-color: green;
+	
 }
 
 .quantity {
