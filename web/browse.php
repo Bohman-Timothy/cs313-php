@@ -45,6 +45,12 @@ if (!isset($_SESSION["tmbgiants_flood"])) {
       $_SESSION["tmbgiants_flood"] = 0;
 }
 
+foreach ($musicMap as $albumKey=>$fullName) {
+	if (!isset($_SESSION[$albumKey])) {
+		$_SESSION[$albumKey] = 8;
+	}
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $musicAlbum = clean_input($_POST["musicAlbum"]);
    if (isset($musicAlbum) && ($musicAlbum != "")) {
