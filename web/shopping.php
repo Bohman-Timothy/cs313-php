@@ -22,7 +22,7 @@ function clean_input($data) {
 }
 
 function displayCount($musicAlbum) {
-	 echo "<span class="quantity">" . $_SESSION[$musicAlbum] . "</span>" . " of <span class="artistAndAlbum">" . $musicAlbum . "</span> in cart<br />";
+	 echo "<span class='quantity'>" . $_SESSION[$musicAlbum] . "</span>" . " of <span class='artistAndAlbum'>" . $musicAlbum . "</span> in cart<br />";
 	 /*echo "<ul>";
 	 foreach ($musicMap as $albumNameMap=>$album) {
 		 echo "<li>" . $album . "</li>";
