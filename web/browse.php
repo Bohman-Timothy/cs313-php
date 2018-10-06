@@ -53,15 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    }
 }
 
-function displayCount($musicAlbum) {
-	 echo $_SESSION[$musicAlbum] . " of <b>" . $musicAlbum . "</b> in cart<br />";
-	 /*echo "<ul>";
-	 foreach ($musicMap as $albumNameMap=>$album) {
-		 echo "<li>" . $album . "</li>";
-	 }
-	 echo "</ul>";*/
-}
-
 function addToCartSession($musicAlbum) {
 	$_SESSION[$musicAlbum] = $_SESSION[$musicAlbum] + 1;
 	echo "Added " . $musicAlbum . " to cart.<br />";

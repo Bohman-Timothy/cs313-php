@@ -5,7 +5,7 @@ $musicMap = array("a-ha_hunting"=>"A-ha: <i>Hunting High and Low</i>",
 "beatles_1"=>"The Beatles: <i>1</i>",
 "michelleb_hotel"=>"Michelle Branch: <i>Hotel Paper</i>",
 "belindac_runaway"=>"Belinda Carlisle: <i>Runaway Horses</i>",
-"kellyc_allwanted"=>"Kelly Clarkson: <i>All I Ever Wanted",
+"kellyc_allwanted"=>"Kelly Clarkson: <i>All I Ever Wanted</i>",
 "celined_decade"=>"Celine Dion: <i>All the Way... A Decade of Song</i>",
 "enya_shepherd"=>"Enya: <i>Shepherd Moons</i>",
 "mamaspapas_leaves"=>"The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i>",
@@ -19,6 +19,15 @@ function clean_input($data) {
    $data = stripslashes($data);
    $data = htmlspecialchars($data);
    return $data;
+}
+
+function displayCount($musicAlbum) {
+	 echo "<span class="quantity">" . $_SESSION[$musicAlbum] . "</span>" . " of <span class="artistAndAlbum">" . $musicAlbum . "</span> in cart<br />";
+	 /*echo "<ul>";
+	 foreach ($musicMap as $albumNameMap=>$album) {
+		 echo "<li>" . $album . "</li>";
+	 }
+	 echo "</ul>";*/
 }
 
 /*echo "Shopping.php test<br />";
