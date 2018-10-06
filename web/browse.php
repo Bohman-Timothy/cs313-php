@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-<input type="checkbox" name="musicAlbum" id="a-ha_hunting" value="a-ha_hunting">
+<input type="text" name="musicAlbum" id="a-ha_hunting" value="a-ha_hunting" class="hide">
 <label for="a-ha_hunting">A-ha: <i>Hunting High and Low</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
