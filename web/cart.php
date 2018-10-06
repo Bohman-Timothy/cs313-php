@@ -21,6 +21,11 @@ session_start();
 <h1>Shopping Cart</h1>
 <h2>Items in your cart:</h2>
 <?php
+/*echo "<ul>";
+foreach ($musicAlbums as $musicAlbums=>$value) {
+	echo "<li>" . $musicMap[$value] . "</li>";
+}
+echo "</ul>";*/
 ?>
 </body>
 </html>
