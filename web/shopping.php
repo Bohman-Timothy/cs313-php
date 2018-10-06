@@ -14,4 +14,13 @@ $musicMap = array("a-ha_hunting"=>"A-ha: <i>Hunting High and Low</i>",
 "lindsey_stirling"=>"Lindsey Stirling: <i>Lindsey Stirling</i>",
 "tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>");
 
+function clean_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+
+echo "Shopping.php test"
+
 ?>

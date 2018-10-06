@@ -153,9 +153,9 @@ function clean_input($data) {
 <input type="checkbox" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood">
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
 </form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <input type="submit" value="Add to cart">
-</form>
+</form> -->
 
 <h2>References</h2>
 https://www.w3schools.com/html/html_symbols.asp
