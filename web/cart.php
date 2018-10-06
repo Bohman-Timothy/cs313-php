@@ -13,8 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function updateQuantity($musicAlbum, $albumQuantity) {
+	if ($albumQuantity < 0) {
+		$albumQuantity = 0;
+	}
 	$_SESSION[$musicAlbum] = $albumQuantity;
-	return $_SESSION[$musicAlbum];
 }
 ?>
 
