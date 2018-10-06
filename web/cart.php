@@ -78,7 +78,7 @@ echo "<br />";
 </form>
 
 <form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
-<input type="submit" value="Return to browsing" id="returnToBrowsingBtn" class="btn btn-info">
+<input type="submit" value="Return to browsing" id="returnToBrowsingBtn" class="btn btn-return">
 </form>
 
 <?php

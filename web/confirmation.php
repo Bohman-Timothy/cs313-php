@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 	echo "</ul>";
 	echo "Total Quantity: " . $totalQuantity . "<br />";
-	echo "<span class='totalCost'>Total Cost: " . $totalCost . "</span>";
+	echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 	echo "<h2>Shipping Address:</h2>";
 	echo $street . "<br />";
 	echo $city . "<br />";
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
-<input type="submit" value="Continue browsing" id="continueBrowsingBtn" class="btn btn-info">
+<input type="submit" value="Continue browsing" id="continueBrowsingBtn" class="btn btn-return">
 </form>
 </body>
 </html>
