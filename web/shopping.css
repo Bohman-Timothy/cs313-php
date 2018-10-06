@@ -17,12 +17,15 @@ body {
 #viewCartBtn {
 }
 
+#returnToBrowsingBtn, #returnToCartBtn {
+	margin-left: 0.5em;
+}
+
 #returnToCartBtn, #confirmPurchaseBtn {
 	margin-top: 0.5em;
 }
-
-#returnToBrowsingBtn {
-	margin-left: 0.5em;
+#confirmPurchaseBtn {
+	background-color: forestgreen;
 }
 
 #continueToCheckoutBtn, #continueBrowingBtn {
