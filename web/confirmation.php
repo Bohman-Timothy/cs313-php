@@ -4,10 +4,10 @@ session_start();
 include 'shopping.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$street = clean_input($_SESSION["street"]);
-	$city = clean_input($_SESSION["city"]);
-	$state = clean_input($_SESSION["state"]);
-	$zipCode = clean_input($_SESSION["zipCode"]);
+	$street = clean_input($POST["street"]);
+	$city = clean_input($POST["city"]);
+	$state = clean_input($POST["state"]);
+	$zipCode = clean_input($POST["zipCode"]);
 }
 ?>
 
