@@ -55,7 +55,18 @@ foreach ($musicMap as $albumKey=>$fullName) {
 		echo '</form>';
 	}
 }
+?>
 
+
+<form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
+<input type="submit" value="Return to browsing">
+</form>
+
+<form method="post" action="<?php echo htmlspecialchars("checkout.php");?>">
+<input type="submit" value="Continue to checkout">
+</form>
+
+<?php
 echo "<h2>Items in cart (session):</h2>";
 print_r($_SESSION);
 echo $_SESSION["inCart"];
