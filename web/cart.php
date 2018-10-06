@@ -36,14 +36,14 @@ foreach ($musicMap as $albumKey=>$fullName) {
 echo "</ul>";*/
 
 foreach ($musicMap as $albumKey=>$fullName) {
-	/*$quantity = $_SESSION[$albumKey];
+	$quantity = $_SESSION[$albumKey];
 	if ($quantity > 0) {
 		echo '<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">';
 		echo '<input type="submit" value="Update quantity">';
 		echo '<input type="number" name="' . $albumKey . 'Quantity" id="'$albumKey . 'Quantity" value="' . $quantity . '">';
 		echo '<label for="' . $albumKey . 'Quantity">' . $fullName . '</label>';
 		echo '</form>';
-	}*/
+	}
 }
 ?>
 <?php
