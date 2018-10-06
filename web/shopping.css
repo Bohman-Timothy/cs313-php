@@ -13,6 +13,7 @@ body {
 
 .btn-return {
 	background-color: skyblue;
+	color: white;
 }
 
 .btn-return:hover {
