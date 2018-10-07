@@ -94,7 +94,7 @@ h1 {
 	color: teal;
 }
 
-.itemsInCart, .itemsPurchased {
+.itemsInCart, .itemsPurchased, .confirmItemsToPurchase {
 	list-style: none;
 }
 

@@ -49,12 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h2>Confirm Items and Total Cost</h2>
 <?php
+echo "<ul class='confirmItemsToPurchase'>";
 foreach ($musicMap as $albumKey=>$fullName) {
 	$quantity = clean_input($_SESSION[$albumKey]);
 	if ($quantity > 0) {
 		echo "<li><span class='quantity'>" . $quantity . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
 	}
 }
+echo "</ul>";
 echo "<p><span class='totalCost'>Total Cost: $" . $totalCost . "</span></p><br />";
 ?>
 
