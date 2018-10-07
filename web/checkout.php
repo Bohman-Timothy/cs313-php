@@ -55,7 +55,7 @@ foreach ($musicMap as $albumKey=>$fullName) {
 		echo "<li><span class='quantity'>" . $quantity . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
 	}
 }
-echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
+echo "<p><span class='totalCost'>Total Cost: $" . $totalCost . "</span></p><br />";
 ?>
 
 <input type="submit" value="Confirm purchase" id="confirmPurchaseBtn" class="btn btn-primary floatLeft">
