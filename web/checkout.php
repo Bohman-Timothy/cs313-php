@@ -35,14 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <h1>Checkout</h1>
-
-<?php
-echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
-?>
-
+<form method="post" action="<?php echo htmlspecialchars("confirmation.php");?>">
 <h2>Please enter your shipping address</h2>
 <p>All fields are required.</p>
-<form method="post" action="<?php echo htmlspecialchars("confirmation.php");?>">
 <label for="street">Street</label>
 <input type="text" name="street" pattern="[0-9]{1,}[ ]{1}[A-Za-z]{1,}[ A-Za-z]{0,}" title="Must contain digits followed by street name" value="<?php echo $street ?>"><br />
 <label for="city">City</label>
@@ -51,6 +46,18 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 <input type="text" name="state" pattern="[A-Za-z]{2,}[ A-Za-z]{0,}" title="Must contain letters (at least 2 letters) and spaces only" value="<?php echo $state ?>">
 <label for="zipCode">Zip Code (5 digits)</label>
 <input type="text" name="zipCode" pattern="[0-9]{5}" title="Must contain exactly 5 digits" value="<?php echo $zipCode ?>" class="zipCode"><br />
+
+<h2>Confirm Items and Total Cost</h2>
+<?php
+foreach ($musicMap as $albumKey=>$fullName) {
+	$quantity = clean_input($_SESSION[$albumKey]);
+	if ($quantity > 0) {
+		echo "<li><span class='quantity'>" . $quantity . "</span> of <span class='artistAndAlbum'>" . $fullName . "</span></li>";
+	}
+}
+echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
+?>
+
 <input type="submit" value="Confirm purchase" id="confirmPurchaseBtn" class="btn btn-primary floatLeft">
 </form>
 

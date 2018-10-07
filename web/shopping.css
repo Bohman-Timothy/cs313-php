@@ -10,6 +10,7 @@ body {
 h1 {
 	font-weight: bold;
 	color: #333399;
+	font-size: 1.5em;
 }
 .btn {
 	font-size: 1em;
@@ -75,7 +76,7 @@ h1 {
 
 #purchaseConfirmed {
 	font-size: 2em;
-	color: #00b33b;
+	color: #009933;
 	font-weight: bold;
 }
 
