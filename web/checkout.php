@@ -44,7 +44,7 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 <p>All fields are required.</p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <label for="street">Street</label>
-<input type="text" name="street" pattern="[0-9]{*}[A-Za-z]{*}" value="<?php echo $street ?>"><br />
+<input type="text" name="street" pattern="[0-9]{1,}[ A-Za-z]{1,}" title="digits followed by street name" value="<?php echo $street ?>"><br />
 <label for="city">City</label>
 <input type="text" name="city" value="<?php echo $city ?>"><br />
 <label for="state">State</label>
