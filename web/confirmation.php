@@ -31,7 +31,7 @@ $totalCost = $_SESSION["totalCost"];
 <body>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	echo "<h1>Purchase Confirmed</h1>";
+	echo "<h1 id='purchaseConfirmed'>Purchase Confirmed</h1>";
 	echo "<h2>Items Purchased:</h2>";
 	echo "<ul class='itemsPurchased'>";
 	foreach ($musicMap as $albumKey=>$fullName) {

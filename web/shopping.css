@@ -69,6 +69,11 @@ body {
 	margin-top: 1em;
 }
 
+#purchaseConfirmed {
+	font-size: 2em;
+	color: #b3003b;
+}
+
 .hide {
 	display: none;
 }
