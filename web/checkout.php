@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include 'shopping.php';
+
 $totalCost = $_SESSION["totalCost"];
 $street = $city = $state = $zipCode = "";
 
