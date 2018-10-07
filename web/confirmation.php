@@ -3,6 +3,8 @@ session_start();
 
 include 'shopping.php';
 
+$street = $city = $state = $zipCode = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$street = clean_input($_POST["street"]);
 	$city = clean_input($_POST["city"]);

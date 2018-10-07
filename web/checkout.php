@@ -12,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$state = clean_input($_POST["state"]);
 	$zipCode = clean_input($_POST["zipCode"]);
 
-	if ((isset($street)) && ($street != "") &&
+	/*if ((isset($street)) && ($street != "") &&
 		(isset($city)) && ($city != "") &&
 		(isset($state)) && ($state != "") &&
 		(isset($zipCode)) && ($zipCode != "")) {
 		header("Location: " . htmlspecialchars('confirmation.php'));
-	}
+	}*/
 }
 ?>
 
