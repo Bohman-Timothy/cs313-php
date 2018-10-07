@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		(isset($city)) && ($city != "") &&
 		(isset($state)) && ($state != "") &&
 		(isset($zipCode)) && ($zipCode != "")) {
-		header("Location: confirmation.php");
+		header("Location: " . htmlspecialchars('confirmation.php'));
 	}
 }
 ?>
@@ -44,13 +44,13 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 <p>All fields are required.</p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <label for="street">Street</label>
-<input type="text" name="street" value="<?php echo $street ?>"><br />
+<input type="text" name="street" pattern="[0-9]{*}[A-Za-z]{*}" value="<?php echo $street ?>"><br />
 <label for="city">City</label>
 <input type="text" name="city" value="<?php echo $city ?>"><br />
 <label for="state">State</label>
 <input type="text" name="state" value="<?php echo $state ?>">
 <label for="zipCode">Zip Code (5 digits)</label>
-<input type="text" name="zipCode" pattern="[0-9]{5}" value="<?php echo $zipCode ?>" class="zipCode"><br />
+<input type="text" name="zipCode" pattern="[0-9]{5}" title="Must contain exactly 5 digits" value="<?php echo $zipCode ?>" class="zipCode"><br />
 <input type="submit" value="Confirm purchase" id="confirmPurchaseBtn" class="btn btn-primary floatLeft">
 </form>
 
