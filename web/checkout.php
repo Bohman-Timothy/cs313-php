@@ -15,7 +15,7 @@ if ((isset($street)) && ($street != "") &&
 	(isset($city)) && ($city != "")
 	(isset($state)) && ($state != "")
 	(isset($zipCode)) && ($zipCode != "")) {
-	header(Location:"confirmation.php");
+	header("Location:confirmation.php");
 	exit();
 }
 ?>
