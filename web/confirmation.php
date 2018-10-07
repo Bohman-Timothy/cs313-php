@@ -44,9 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo "Total Quantity: " . $totalQuantity . "<br />";
 	echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 	echo "<h2>Shipping Address:</h2>";
+	echo "<div class='streetAddress'>";
 	echo $street . "<br />";
 	echo $city . "<br />";
-	echo $state . ", " . $zipCode . "<br />";
+	echo $state . ", " . $zipCode . "</div><br />";
 	echo "<h2 class='thanks'>Thanks for shopping with us!</h2>";
 }
 ?>
