@@ -178,23 +178,18 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
-<input type="text" name="musicAlbum" id="petshop_discog" value="petshop_discog" class="hide">
-<label for="petshop_discog">Pet Shop Boys: <i>Discography</i></label>
-</form>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
-<input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
 <input type="text" name="musicAlbum" id="monkees_bestof" value="monkees_bestof" class="hide">
 <label for="monkees_bestof">The Monkees: <i>The Best of the Monkees</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
-<input type="text" name="musicAlbum" id="shakira_ladrones" value="shakira_ladrones" class="hide">
-<label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label>
+<input type="text" name="musicAlbum" id="petshop_discog" value="petshop_discog" class="hide">
+<label for="petshop_discog">Pet Shop Boys: <i>Discography</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
-<input type="text" name="musicAlbum" id="shania_comeover" value="shania_comeover" class="hide">
-<label for="shania_comeover">Shania Twain: <i>Come on Over</i></label>
+<input type="text" name="musicAlbum" id="shakira_ladrones" value="shakira_ladrones" class="hide">
+<label for="shakira_ladrones">Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
@@ -205,6 +200,11 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
 <input type="text" name="musicAlbum" id="tmbgiants_flood" value="tmbgiants_flood" class="hide">
 <label for="tmbgiants_flood">They Might Be Giants: <i>Flood</i></label>
+</form>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
+<input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
+<input type="text" name="musicAlbum" id="shania_comeover" value="shania_comeover" class="hide">
+<label for="shania_comeover">Shania Twain: <i>Come on Over</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">

@@ -48,7 +48,7 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 <label for="city">City</label>
 <input type="text" name="city" pattern="[A-Za-z]{1,}[ A-Za-z]{0,}" title="Must contain letters and spaces only" value="<?php echo $city ?>"><br />
 <label for="state">State</label>
-<input type="text" name="state" pattern="[A-Za-z]{2,}[ A-Za-z]{0,}" title="Must contain letters and spaces only" value="<?php echo $state ?>">
+<input type="text" name="state" pattern="[A-Za-z]{2,}[ A-Za-z]{0,}" title="Must contain letters (at least 2 letters) and spaces only" value="<?php echo $state ?>">
 <label for="zipCode">Zip Code (5 digits)</label>
 <input type="text" name="zipCode" pattern="[0-9]{5}" title="Must contain exactly 5 digits" value="<?php echo $zipCode ?>" class="zipCode"><br />
 <input type="submit" value="Confirm purchase" id="confirmPurchaseBtn" class="btn btn-primary floatLeft">

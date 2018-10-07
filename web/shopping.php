@@ -13,12 +13,12 @@ $musicMap = array("a-ha_hunting"=>"A-ha: <i>Hunting High and Low</i>",
 "gogos_greatest"=>"The Go-Go's: <i>Greatest</i>",
 "avrillav_underskin"=>"Avril Lavigne: <i>Under My Skin</i>",
 "mamaspapas_leaves"=>"The Mamas and the Papas: <i>All The Leaves Are Brown: The Golden Era Collection</i>",
-"petshop_discog"=>"Pet Shop Boys: <i>Discography</i>",
 "monkees_bestof"=>"The Monkees: <i>The Best of the Monkees</i>",
+"petshop_discog"=>"Pet Shop Boys: <i>Discography</i>",
 "shakira_ladrones"=>"Shakira: <i>D&#243;nde Est&#225;n Los Ladrones?</i>",
-"shania_comeover"=>"Shania Twain: <i>Come on Over</i>",
 "lindsey_stirling"=>"Lindsey Stirling: <i>Lindsey Stirling</i>",
 "tmbgiants_flood"=>"They Might Be Giants: <i>Flood</i>",
+"shania_comeover"=>"Shania Twain: <i>Come on Over</i>",
 "nobuo_ffvi"=>"Nobuo Uematsu: <i>Final Fantasy VI Original Soundtrack Remaster Version</i>");
 
 function initializeQuantities() {
