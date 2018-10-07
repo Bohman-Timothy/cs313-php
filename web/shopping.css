@@ -33,6 +33,10 @@ body {
 	padding-bottom: 0em;
 }
 
+.albumToAdd {
+	padding-top: 0.2em;
+}
+
 .numberInput {
 	width: 2.5em;
 }
