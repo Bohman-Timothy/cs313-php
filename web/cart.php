@@ -59,12 +59,13 @@ echo "Total Quantity: " . $totalQuantity . "<br />";
 echo "Price per album: $" . $albumPrice . "<br />";
 echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span><br />";
 echo "<br />";
-?>
+
 if ($totalQuantity > 0) {
-	<form method="post" action="<?php echo htmlspecialchars("checkout.php");?>" class="floatLeft">
-	<input type="submit" value="Continue to checkout" id="continueToCheckoutBtn" class="btn btn-primary">
-	</form>
+	echo '<form method="post" action="' . htmlspecialchars("checkout.php") . '" class="floatLeft">';
+	echo '<input type="submit" value="Continue to checkout" id="continueToCheckoutBtn" class="btn btn-primary">';
+	echo '</form>';
 }
+?>
 
 <form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
 <input type="submit" value="Return to browsing" id="returnToBrowsingBtn" class="btn btn-return">
