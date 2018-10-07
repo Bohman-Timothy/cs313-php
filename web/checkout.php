@@ -42,7 +42,7 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 
 <h2>Please enter your shipping address</h2>
 <p>All fields are required.</p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars("confirmation.php");?>">
 <label for="street">Street</label>
 <input type="text" name="street" pattern="[0-9]{1,}[ ]{1}[A-Za-z]{1,}[ A-Za-z]{0,}" title="Must contain digits followed by street name" value="<?php echo $street ?>"><br />
 <label for="city">City</label>
