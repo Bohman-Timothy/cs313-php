@@ -225,6 +225,8 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <li><a href="https://stackoverflow.com/questions/3792936/how-to-send-data-with-form-label-element">Stack Overflow - name attribute on label</a></li>
 <li><a href="https://www.w3schools.com/tags/att_input_type_number.asp">W3Schools - input type number</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number">Mozilla Developer Network Web Docs - Set width of number input</a></li>
+<li><a href="https://stackoverflow.com/questions/23676778/what-html5-form-attribute-should-be-used-for-a-zipcode">Stack Overflow - Form Attribute to Use with Zip Code</a></li>
+<li><a href="https://www.w3schools.com/php/php_form_required.asp">W3Schools - PHP Forms - Required Fields</a></li>
 </ul>
 </body>
 </html>
