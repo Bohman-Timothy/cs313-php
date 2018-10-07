@@ -71,7 +71,8 @@ body {
 
 #purchaseConfirmed {
 	font-size: 2em;
-	color: #b3003b;
+	color: #00b33b;
+	font-weight: bold;
 }
 
 .hide {
