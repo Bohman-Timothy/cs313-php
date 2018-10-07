@@ -29,7 +29,10 @@ body {
 }
 
 .addToCartBtn {
-	display: inline;
+}
+
+.numberInput {
+	width: 3em;
 }
 
 #viewCartBtn {
