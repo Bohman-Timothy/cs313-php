@@ -57,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 <?php
-include 'resetshopsession.php';
+/*include 'resetshopsession.php';*/
+initializeQuantities();
 ?>
 </body>
 </html>

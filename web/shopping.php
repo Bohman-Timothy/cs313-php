@@ -24,7 +24,7 @@ $musicMap = array("a-ha_hunting"=>"A-ha: <i>Hunting High and Low</i>",
 function initializeQuantities() {
 	foreach ($musicMap as $albumKey=>$fullName) {
 		if (!isset($_SESSION[$albumKey])) {
-			$_SESSION[$albumKey] = 8;
+			$_SESSION[$albumKey] = 0;
 		}
 	}
 }
