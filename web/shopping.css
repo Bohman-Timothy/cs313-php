@@ -32,13 +32,17 @@ body {
 }
 
 .numberInput {
-	width: 3em;
+	width: 2em;
 }
 
 #viewCartBtn {
 }
 
-#returnToBrowsingBtn, #returnToCartBtn {
+#returnToBrowsingBtn {
+	margin-left: 0.5em;
+}
+
+#returnToCartBtn {
 	margin-left: 0.5em;
 	margin-top: 0.5em;
 }
@@ -50,11 +54,15 @@ body {
 	background-color: #239023;
 }
 
+#continueToCheckoutBtn, #confirmPurchaseBtn {
+	margin-bottom: 0.5em;
+}
+
 #confirmPurchaseBtn:hover {
 	background-color: #196719;
 }
 
-#continueToCheckoutBtn, #continueBrowingBtn {
+#continueBrowingBtn {
 	
 }
 
