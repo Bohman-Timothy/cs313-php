@@ -124,7 +124,7 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
 <input type="text" name="musicAlbum" id="beatles_1" value="beatles_1" class="hide">
-<label for="beatles_1" class="albumToAdd">The Beatles: <i>1</i></label>
+<label for="beatles_1" class="artistAndAlbum">The Beatles: <i>1</i></label>
 </form>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="albumAddForm">
 <input type="submit" value="Add to cart" class="btn btn-default addToCartBtn">
