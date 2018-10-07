@@ -216,7 +216,7 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 <ul>
 <li><a href="https://www.w3schools.com/html/html_symbols.asp">W3Schools - HTML Symbols</a></li>
 <li><a href="https://www.w3schools.com/html/html_charset.asp">W3Schools - HTML Character Set</a></li>
-<li><a href="https://www.w3schools.com/php/php_sessions.asp">W3Schools - </a></li>
+<li><a href="https://www.w3schools.com/php/php_sessions.asp">W3Schools - PHP Sessions</a></li>
 <li><a href="https://www.tutorialspoint.com/php/php_sessions.htm">Tutorials Point - PHP Sessions</a></li>
 <li><a href="https://www.w3schools.com/Php/php_functions.asp">W3Schools - PHP Functions</a></li>
 <li><a href="https://www.w3schools.com/php/php_includes.asp">W3Schools - PHP Include Files</a></li>
