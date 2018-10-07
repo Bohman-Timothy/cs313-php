@@ -55,5 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form method="post" action="<?php echo htmlspecialchars("browse.php");?>">
 <input type="submit" value="Continue browsing" id="continueBrowsingBtn" class="btn btn-return">
 </form>
+
+<?php
+include 'resetshopsession.php';
+?>
 </body>
 </html>
