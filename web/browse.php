@@ -214,14 +214,12 @@ echo "<p>Each album costs $" . $albumPrice . "</p>";
 
 <h2>References</h2>
 <ul>
-<li>https://www.w3schools.com/html/html_symbols.asp</li>
-<li>https://www.w3schools.com/html/html_charset.asp</li>
-<li>https://www.w3schools.com/php/php_sessions.asp</li>
-<li>https://www.tutorialspoint.com/php/php_sessions.htm</li>
-<li>https://www.w3schools.com/Php/php_functions.asp</li>
-<li>https://stackoverflow.com/questions/15741006/adding-div-element-to-body-or-document-in-javascript</li>
-<li>https://www.w3schools.com/jsref/prop_html_classname.asp</li>
-<li>https://www.w3schools.com/php/php_includes.asp</li>
+<li><a href="https://www.w3schools.com/html/html_symbols.asp">W3Schools - HTML Symbols</a></li>
+<li><a href="https://www.w3schools.com/html/html_charset.asp">W3Schools - HTML Character Set</a></li>
+<li><a href="https://www.w3schools.com/php/php_sessions.asp">W3Schools - </a></li>
+<li><a href="https://www.tutorialspoint.com/php/php_sessions.htm">Tutorials Point - PHP Sessions</a></li>
+<li><a href="https://www.w3schools.com/Php/php_functions.asp">W3Schools - PHP Functions</a></li>
+<li><a href="https://www.w3schools.com/php/php_includes.asp">W3Schools - PHP Include Files</a></li>
 <li><a href="https://stackoverflow.com/questions/3792936/how-to-send-data-with-form-label-element">Stack Overflow - name attribute on label</a></li>
 <li><a href="https://www.w3schools.com/tags/att_input_type_number.asp">W3Schools - input type number</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number">Mozilla Developer Network Web Docs - Set width of number input</a></li>
