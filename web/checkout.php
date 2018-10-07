@@ -32,7 +32,7 @@ echo "<span class='totalCost'>Total Cost: $" . $totalCost . "</span>";
 <label for="state">State</label>
 <input type="text" name="state" value="">
 <label for="zipCode">Zip Code</label>
-<input type="text" name="zipCode" value=""><br />
+<input type="text" name="zipCode" pattern="[0-9]{5}" value=""><br />
 <input type="submit" value="Confirm purchase" id="confirmPurchaseBtn" class="btn btn-primary floatLeft">
 </form>
 
