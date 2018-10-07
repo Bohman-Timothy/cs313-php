@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		(isset($state)) && ($state != "") &&
 		(isset($zipCode)) && ($zipCode != "")) {
 		header("Location: confirmation.php");
-		exit();
 	}
 }
 ?>
