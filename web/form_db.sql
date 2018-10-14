@@ -162,7 +162,7 @@ create view loan_view as
 
 
 create view storage_location_view as
-	select storage_location.location, feature.feature_title, feature.feature_year, physical_format.format, feature.format_year
+	select storage_location.id, storage_location.location, feature.feature_title, feature.feature_year, physical_format.format, feature.format_year
 		from storage_location, feature, physical_format
 		where feature.fk_storage_location = storage_location.id and feature.fk_physical_format = physical_format.id;
 
