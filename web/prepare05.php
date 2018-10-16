@@ -27,3 +27,4 @@ foreach ($db->query('SELECT username, password FROM note_user') as $row)
 	echo ' password: ' . $row['password'];
 	echo '<br/>';
 }
+?>
