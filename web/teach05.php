@@ -57,8 +57,8 @@ $search_book = '';
 		echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
 		echo '&quot;' . $row['content'] . '&quot;';
 		echo '<br/>';
-	}*/
-}
+	}
+}*/
 
 ?>
 
