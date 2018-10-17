@@ -31,6 +31,8 @@ foreach ($db->query('SELECT book, chapter, verse, content FROM scripture') as $r
 	echo '<br/>';
 }
 
+$search_book = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search_book = clean_input($_POST["search_book"]);
 
