@@ -31,4 +31,27 @@ foreach ($db->query('SELECT book, chapter, verse, content FROM scripture') as $r
 	echo '<br/>';
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$search_book = clean_input($_POST["search_book"]);
+
+$statement = $db->query('SELECT book, chapter, verse, content FROM scripture WHERE book=:book');
+$statement->bindValue(':book', $search_book, PDO::PARAM_STR);
+$statement->execute();
+
+
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+		echo '<strong>' . $row['book'] . ' ';
+echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
+	echo '&quot;' . $row['content'] . '&quot;';
+		echo '<br/>';
+}
+}
+
 ?>
+
+<form method="post" action="<?php echo htmlspecialchars("$_SERVER["PHP_SELF"]");?>">
+<label for="search_book">Search for book</label>
+<input type="text" name="search_book" title="Must use the full book name" value="<?php echo $search_book ?>">
+<input type="submit" value="Search">
+</form>
