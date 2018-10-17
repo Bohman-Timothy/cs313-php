@@ -36,7 +36,7 @@ $search_book = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search_book = clean_input($_POST["search_book"]);
 
-$statement = $db->query('SELECT book, chapter, verse, content FROM scripture WHERE book=:book');
+$statement = $db->prepare('SELECT book, chapter, verse, content FROM scripture WHERE book=:book');
 $statement->bindValue(':book', $search_book, PDO::PARAM_STR);
 $statement->execute();
 
