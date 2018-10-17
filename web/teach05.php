@@ -34,16 +34,16 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	echo '<br/>';
 }
 
-/*function clean_input($data) {
+function clean_input($data) {
    $data = trim($data);
    $data = stripslashes($data);
    $data = htmlspecialchars($data);
    return $data;
-}*/
+}
 
 $search_book = '';
 
-/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search_book = clean_input($_POST["search_book"]);
 
 	$statement = $db->prepare('SELECT book, chapter, verse, content FROM scripture WHERE book=:book');
@@ -58,7 +58,7 @@ $search_book = '';
 		echo '&quot;' . $row['content'] . '&quot;';
 		echo '<br/>';
 	}
-}*/
+}
 
 ?>
 
