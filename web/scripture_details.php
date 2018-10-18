@@ -1,5 +1,5 @@
 <?php
-include 'teach05_functions.php';
+include 'scripture_functions.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	$search_book_id = cleanInput($_GET["id"]);

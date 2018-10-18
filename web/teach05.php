@@ -1,6 +1,6 @@
 <?php
 
-include 'teach05_functions.php';
+include 'scripture_functions.php';
 
 $statement = '';
 $search_book_scripture_text = '';
