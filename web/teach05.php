@@ -26,9 +26,9 @@ catch (PDOException $ex)
 
 echo '<h1>Scripture Resources</h1>';
 
-$statement = $db->query('SELECT book, chapter, verse, content FROM scripture');
+$statement_original = $db->query('SELECT book, chapter, verse, content FROM scripture');
 
-showAllResultsScriptures($statement);
+showAllResultsScriptures($statement_original);
 
 $search_book_scripture_text = '';
 $search_book_scripture_ref = '';
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$search_book = $search_book_scripture_ref;
 	}
 	
-	$statement = $db->prepare('SELECT book, chapter, verse, content FROM scripture WHERE book=:book');
+	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture WHERE book=:book');
 	$statement->bindValue(':book', $search_book, PDO::PARAM_STR);
 	$statement->execute();
 }
