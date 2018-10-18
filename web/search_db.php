@@ -35,12 +35,16 @@ function showFullListOfFeatures($statement) {
 	echo '<ul class="featureResults">';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<li>' . $row['feature_title'] . ' | ' . $row['feature_year'];
-		echo ' | ' . $row['format'] . ' | ' . $row['format_year'];
+		echo '<li><span class="id">' . $row['id'] . '</span>';
+		echo ' | <span class="featureTitle">' . $row['feature_title'] . '</span>';
+		echo ' | <span class="featureYear">' . $row['feature_year'] . '</span>';
+		echo ' | <span class="format">' . $row['format'] . '</span>';
+		echo ' | <span class="formatYear">' . $row['format_year'] . '</span>';
 		if ($row['feature_set_title'] != '') {
-			echo ' | ' . $row['feature_set_title'];
+			echo ' | <span class="featureSetTitle">' . $row['feature_set_title'] . '</span>';
 		}
-		echo ' | ' . $row['location'] . ' | ' . $row['existing_loan'] . '</li>';
+		echo ' | <span class="location">' . $row['location'] . '</span>';
+		echo ' | <span class="existingLoan">' . $row['existing_loan'] . '</span></li>';
 	}
 	echo '</ul>';
 }
@@ -58,6 +62,8 @@ function cleanInput($data) {
 <head>
 	<title>Search the Feature Database</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/inconsolata" type="text/css"/>
+    <link rel="stylesheet" href="project1_db.css">
 </head>
 <body>
 	<h1>Search the Feature Database</h1>
