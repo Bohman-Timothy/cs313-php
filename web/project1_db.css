@@ -6,11 +6,29 @@ body {
     font-size: 1.2em;
     color: #282851;
     height: 100%;
-	min-width: 200px;
+	min-width: 250px;
+}
+
+form input {
+	font-size: 1em;
+	font-family: InconsolataRegular, "Source Code Pro", monospace;
+}
+
+ul.featureResults {
+	list-style-type: none;
+}
+
+ul.featureResults {
+	margin-left: 0;
 }
 
 .featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
+}
+
+
+.featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
+	font-size: 0.8em;
 }
 
 .featureTitle {
@@ -24,13 +42,4 @@ body {
 
 .format {
 	width: 4em;
-}
-
-form input {
-	font-size: 1em;
-	font-family: InconsolataRegular, "Source Code Pro", monospace;
-}
-
-ul.featureResults {
-	list-style-type: none;
 }
