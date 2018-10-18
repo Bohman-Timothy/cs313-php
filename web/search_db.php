@@ -35,9 +35,12 @@ function showFullListOfFeatures($statement) {
 	echo '<ul class="featureResults">';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<li>' . $row['feature_title'] . ' | ' . $row['feature_year'] . ' | ' . $row['format'];
-		echo ' | ' . $row['format_year'] . ' | ' . $row['feature_set_title'] . ' | ' . $row['location'];
-		echo ' | ' . $row['existing_loan'] . '</li>';
+		echo '<li>' . $row['feature_title'] . ' | ' . $row['feature_year'];
+		echo ' | ' . $row['format'] . ' | ' . $row['format_year'] . ' | ';
+		if ($row['feature_set_title'] != '') {
+			echo ' | ' . $row['feature_set_title'];
+		}
+		echo ' | ' . $row['location'] . ' | ' . $row['existing_loan'] . '</li>';
 	}
 	echo '</ul>';
 }
