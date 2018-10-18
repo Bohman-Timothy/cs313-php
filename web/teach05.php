@@ -2,13 +2,24 @@
 
 include 'teach05_functions.php';
 
-$statement_original = $db->query('SELECT book, chapter, verse, content FROM scripture');
-
-showAllResultsScriptures($statement_original);
-
 $statement = '';
 $search_book_scripture_text = '';
 $search_book_scripture_ref = '';
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Scripture Resources</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>Scripture Resources</h1>
+
+<?php
+$statement_original = $db->query('SELECT book, chapter, verse, content FROM scripture');
+showAllResultsScriptures($statement_original);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search_book_scripture_text = cleanInput($_POST["search_book_scripture_text"]);
@@ -25,17 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement->bindValue(':book', $search_book, PDO::PARAM_INT);
 	$statement->execute();
 }
-
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Scripture Resources</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<h1>Scripture Resources</h1>
 
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<label for="search_book_scripture_text">Search for book (display scripture on page):</label>

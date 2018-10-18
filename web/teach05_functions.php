@@ -25,19 +25,25 @@ catch (PDOException $ex)
 function showAllResultsScriptures($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<strong>' . $row['book'] . ' ';
+		echo '<p><strong>' . $row['book'] . ' ';
 		echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
-		echo '&quot;' . $row['content'] . '&quot;';
-		echo '<br/>';
+		echo '&quot;' . $row['content'] . '&quot;</p>';
 	}
 }
 
 function showAllResultsScriptureReferences($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<a href ="scripture_details.php?id=' . $row['id'] . '"><strong>' . $row['book'] . ' ';
-		echo $row['chapter']. ':' . $row['verse'] . '</strong></a>';
-		echo '<br/>';
+		echo '<p><a href ="scripture_details.php?id=' . $row['id'] . '"><strong>' . $row['book'] . ' ';
+		echo $row['chapter']. ':' . $row['verse'] . '</strong></a></p>';
+	}
+}
+
+function showScriptureDetails($statement) {
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<h1>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</h1>';
+		echo '<p>&quot;' . $row['content'] . '&quot;</p>';
 	}
 }
 
