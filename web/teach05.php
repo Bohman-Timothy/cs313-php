@@ -30,6 +30,7 @@ $statement_original = $db->query('SELECT book, chapter, verse, content FROM scri
 
 showAllResultsScriptures($statement_original);
 
+$statement = '';
 $search_book_scripture_text = '';
 $search_book_scripture_ref = '';
 
@@ -45,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 	
 	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture WHERE book=:book');
-	$statement->bindValue(':book', $search_book, PDO::PARAM_STR);
+	$statement->bindValue(':book', $search_book, PDO::PARAM_INT);
 	$statement->execute();
 }
 
