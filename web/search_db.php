@@ -48,7 +48,10 @@ function showFullListOfFeatures($statement) {
 	}
 	echo '</ul>';*/
 	
-	echo '<table class="featureResults"> . <title></title>';
+	echo '<table class="featureResults"> <thead><caption>Features Matching Search: ';
+	echo $search . '</caption></thead>';
+	echo '<tr><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
+	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
