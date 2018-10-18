@@ -3,7 +3,7 @@
 body {
     background-color: #e1f0f0;
     font-family: "Times New Roman", Verdana, serif;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #282851;
     height: 100%;
 }
@@ -26,10 +26,9 @@ ul.featureResults {
 	display: inline-block;
 }
 
-
-.featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
+/*.featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	font-size: 0.8em;
-}
+}*/
 
 .featureTitle {
 	width: 30%;
