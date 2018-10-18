@@ -6,7 +6,6 @@ body {
     font-size: 1.2em;
     color: #282851;
     height: 100%;
-	min-width: 500px;
 }
 
 form input {
@@ -20,6 +19,7 @@ ul.featureResults {
 
 ul.featureResults {
 	margin-left: 0;
+	padding-left: 0;
 }
 
 .featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
