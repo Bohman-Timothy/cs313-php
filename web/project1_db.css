@@ -2,16 +2,16 @@
 
 body {
     background-color: #e1f0f0;
-    font-family: InconsolataRegular, "Source Code Pro", monospace;
+    font-family: "Times New Roman", Verdana, serif;
     font-size: 1.2em;
     color: #282851;
     height: 100%;
-	min-width: 250px;
+	min-width: 320px;
 }
 
 form input {
 	font-size: 1em;
-	font-family: InconsolataRegular, "Source Code Pro", monospace;
+	font-family: "Times New Roman", Verdana, serif;
 }
 
 ul.featureResults {
