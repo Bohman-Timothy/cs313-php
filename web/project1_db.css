@@ -6,6 +6,7 @@ body {
     font-size: 1.2em;
     color: #282851;
     height: 100%;
+	width: 800px;
 }
 
 .featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
@@ -13,12 +14,12 @@ body {
 }
 
 .featureTitle {
-	min-width: 12em;
+	width: 14em;
 	font-weight: bold;
 }
 
 .featureSetTitle {
-	max-width: 10em;
+	width: 14em;
 }
 
 form input {
