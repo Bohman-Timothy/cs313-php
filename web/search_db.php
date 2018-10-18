@@ -25,6 +25,22 @@ $search = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search = cleanInput($_POST["search"]);
+
+	$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
+	$statement->bindValue(':feature_title', $search, PDO::PARAM_INT);
+	$statement->execute();
+	
+	showFullListOfFeatures($statement);
+}
+
+function showFullListOfFeatures($statement) {
+	echo '<ul class="featureResults">';
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<li>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'];
+		echo '<p>&quot;' . $row['content'] . '&quot;</li>';
+	}
+	echo '</ul>';
 }
 
 function cleanInput($data) {
