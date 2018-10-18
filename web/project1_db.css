@@ -14,15 +14,23 @@ body {
 }
 
 .featureTitle {
-	width: 14em;
+	width: 10em;
 	font-weight: bold;
 }
 
 .featureSetTitle {
-	width: 14em;
+	width: 10em;
+}
+
+.format {
+	width: 4em;
 }
 
 form input {
 	font-size: 1em;
 	font-family: InconsolataRegular, "Source Code Pro", monospace;
+}
+
+ul .featureResults {
+	list-style-type: none;
 }
