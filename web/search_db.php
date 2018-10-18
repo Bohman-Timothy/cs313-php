@@ -36,7 +36,7 @@ function showFullListOfFeatures($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<li>' . $row['feature_title'] . ' | ' . $row['feature_year'];
-		echo ' | ' . $row['format'] . ' | ' . $row['format_year'] . ' | ';
+		echo ' | ' . $row['format'] . ' | ' . $row['format_year'];
 		if ($row['feature_set_title'] != '') {
 			echo ' | ' . $row['feature_set_title'];
 		}
