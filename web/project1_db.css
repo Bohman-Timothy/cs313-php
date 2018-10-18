@@ -8,10 +8,17 @@ body {
     height: 100%;
 }
 
-.featureTitle {
+.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
-	min-width: 20em;
+}
+
+.featureTitle {
+	min-width: 12em;
 	font-weight: bold;
+}
+
+.featureSetTitle {
+	max-width: 10em;
 }
 
 form input {
