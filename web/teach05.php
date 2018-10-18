@@ -62,8 +62,8 @@ if ($search_book_scripture_text != '') {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($search_book_scripture_ref != '') {
-	showAllResultsScriptureReferences($statement);
-}
+		showAllResultsScriptureReferences($statement);
+	}
 }
 ?>
 
