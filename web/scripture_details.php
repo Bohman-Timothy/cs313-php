@@ -1,7 +1,7 @@
 <?php
 include 'teach05_functions.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	$search_book_id = cleanInput($_GET["id"]);
 
 	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture WHERE id=:id');
