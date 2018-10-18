@@ -21,7 +21,7 @@ catch (PDOException $ex)
 	die();
 }
 
-$search = ''
+$search = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search = cleanInput($_POST["search"]);
