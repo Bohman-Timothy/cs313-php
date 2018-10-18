@@ -2,7 +2,7 @@
 
 body {
     background-color: #e1f0f0;
-    font-family: "Times New Roman", InconsolataRegular, "Source Code Pro", monospace;
+    font-family: InconsolataRegular, "Source Code Pro", monospace;
     font-size: 1.2em;
     color: #282851;
     height: 100%;
@@ -10,6 +10,7 @@ body {
 
 .featureTitle {
 	min-width: 60px;
+	font-weight: bold;
 }
 
 form input {
