@@ -42,7 +42,7 @@ function showAllResultsScriptureReferences($statement) {
 function showScriptureDetails($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<h1>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</h1>';
+		echo '<h2>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</h2>';
 		echo '<p>&quot;' . $row['content'] . '&quot;</p>';
 	}
 }

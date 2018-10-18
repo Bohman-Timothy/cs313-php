@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<h1>Scripture Details</h1>
 <?php
 showScriptureDetails($statement);
 ?>
