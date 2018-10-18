@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement->execute();
 }
 ?>
-
+	<br />
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<label for="search_book_scripture_text">Search for book (display scripture on page):</label>
 	<input type="text" name="search_book_scripture_text" title="Must use the full book name" value="<?php echo $search_book_scripture_text ?>">
@@ -52,6 +52,7 @@ if ($search_book_scripture_text != '') {
 }
 ?>
 
+	<br />
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<label for="search_book_scripture_ref">Search for book (display link to separate page):</label>
 	<input type="text" name="search_book_scripture_ref" title="Must use the full book name" value="<?php echo $search_book_scripture_ref ?>">
