@@ -12,6 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+	<title>Scripture Resources - Scripture Text</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <body>
 <?php
 showAllResultsScriptures($statement);

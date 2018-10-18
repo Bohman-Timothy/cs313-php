@@ -2,8 +2,6 @@
 
 include 'teach05_functions.php';
 
-echo '<h1>Scripture Resources</h1>';
-
 $statement_original = $db->query('SELECT book, chapter, verse, content FROM scripture');
 
 showAllResultsScriptures($statement_original);
@@ -32,7 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+	<title>Scripture Resources</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <body>
+<h1>Scripture Resources</h1>
+
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<label for="search_book_scripture_text">Search for book (display scripture on page):</label>
 	<input type="text" name="search_book_scripture_text" title="Must use the full book name" value="<?php echo $search_book_scripture_text ?>">
