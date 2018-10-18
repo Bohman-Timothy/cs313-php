@@ -62,7 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	showAllResultsScriptures($statement);
+if ($search_book_scripture_text != '') {
+		showAllResultsScriptures($statement);
+	}
 }
 ?>
 
@@ -71,5 +73,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<input type="text" name="search_book_scripture_ref" title="Must use the full book name" value="<?php echo $search_book_scripture_ref ?>">
 	<input type="submit" value="Search">
 	</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if ($search_book_scripture_ref != '') {
+	showAllResultsScriptureReferences($statement);
+}
+}
+?>
+
 </body>
 </html>
