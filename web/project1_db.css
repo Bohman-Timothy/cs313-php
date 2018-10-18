@@ -3,11 +3,16 @@
 body {
     background-color: #e1f0f0;
     font-family: "Times New Roman", InconsolataRegular, "Source Code Pro", monospace;
-    font-size: 2.2em;
+    font-size: 1.2em;
     color: #282851;
     height: 100%;
 }
 
 .featureTitle {
-	width: 60em;
+	min-width: 60em;
+}
+
+form input {
+	font-size: 1.2em;
+	font-family: InconsolataRegular, "Source Code Pro", monospace;
 }
