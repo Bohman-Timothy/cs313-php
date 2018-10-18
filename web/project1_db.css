@@ -6,7 +6,7 @@ body {
     font-size: 1.2em;
     color: #282851;
     height: 100%;
-	width: 1200px;
+	min-width: 200px;
 }
 
 .featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
@@ -31,6 +31,6 @@ form input {
 	font-family: InconsolataRegular, "Source Code Pro", monospace;
 }
 
-ul .featureResults {
+ul.featureResults {
 	list-style-type: none;
 }
