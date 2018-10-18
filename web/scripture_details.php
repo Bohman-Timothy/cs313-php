@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 </head>
 <body>
 <?php
-showAllResultsScriptures($statement);
+showScriptureDetails($statement);
 ?>
 </body>
 </html>
