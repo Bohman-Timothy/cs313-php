@@ -22,15 +22,20 @@ ul.featureResults {
 	padding-left: 0;
 }
 
-.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
-	display: inline-block;
+table.featureResults {
+	border: none;
+	/*border-collapse: collapse;*/
 }
+
+/*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
+	display: inline-block;
+}*/
 
 /*.featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	font-size: 0.8em;
 }*/
 
-.featureTitle {
+/*.featureTitle {
 	width: 30%;
 	font-weight: bold;
 }
@@ -41,4 +46,4 @@ ul.featureResults {
 
 .format {
 	width: 4em;
-}
+}*/
