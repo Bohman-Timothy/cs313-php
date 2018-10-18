@@ -29,16 +29,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
 	$statement->bindValue(':feature_title', $search, PDO::PARAM_INT);
 	$statement->execute();
-	
-	showFullListOfFeatures($statement);
 }
 
 function showFullListOfFeatures($statement) {
 	echo '<ul class="featureResults">';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<li>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'];
-		echo '<p>&quot;' . $row['content'] . '&quot;</li>';
+		echo '<li>' . $row['feature_title'] . ' | ' . $row['feature_year'] . ' | ' . $row['format'];
+		echo ' | ' . $row['format_year'] . ' | ' . $row['feature_set_title'] . ' | ' . $row['location'];
+		echo ' | ' . $row['existing_loan'] . '</li>';
 	}
 	echo '</ul>';
 }
@@ -64,5 +63,10 @@ function cleanInput($data) {
 	<input type="text" name="search" title="Text must match exactly" value="<?php echo $search ?>">
 	<input type="submit" value="Search">
 	</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	showFullListOfFeatures($statement);
+}
+?>
 </body>
 </html>
