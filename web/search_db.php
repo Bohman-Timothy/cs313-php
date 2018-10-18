@@ -52,15 +52,15 @@ function showFullListOfFeatures($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
-		echo ' | <td class="featureTitle">' . $row['feature_title'] . '</td>';
-		echo ' | <td class="featureYear">' . $row['feature_year'] . '</td>';
-		echo ' | <td class="format">' . $row['format'] . '</td>';
-		echo ' | <td class="formatYear">' . $row['format_year'] . '</td>';
+		echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
+		echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
+		echo '<td class="format">' . $row['format'] . '</td>';
+		echo '<td class="formatYear">' . $row['format_year'] . '</td>';
 		if ($row['feature_set_title'] != '') {
-			echo ' | <td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
+			echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
 		}
-		echo ' | <td class="location">' . $row['location'] . '</td>';
-		echo ' | <td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
+		echo '<td class="location">' . $row['location'] . '</td>';
+		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
 	}
 	echo '</table>';
 }
@@ -95,7 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <h2>References</h2>
-https://stackoverflow.com/questions/2491068/does-height-and-width-not-apply-to-span/37876264
-https://stackoverflow.com/questions/5684144/how-to-completely-remove-borders-from-html-table
+<ul>
+<li>https://stackoverflow.com/questions/2491068/does-height-and-width-not-apply-to-span/37876264</li>
+<li>https://stackoverflow.com/questions/5684144/how-to-completely-remove-borders-from-html-table</li>
+</ul>
 </body>
 </html>
