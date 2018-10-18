@@ -10,7 +10,7 @@ body {
 
 .featureTitle {
 	display: inline-block;
-	min-width: 60em;
+	min-width: 20em;
 	font-weight: bold;
 }
 
