@@ -9,7 +9,8 @@ body {
 }
 
 .featureTitle {
-	min-width: 60px;
+	display: inline-block;
+	min-width: 60em;
 	font-weight: bold;
 }
 
