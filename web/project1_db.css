@@ -28,7 +28,7 @@ table.featureResults {
 }
 
 table.featureResults td, table.featureResults th {
-	padding-right: 2em;
+	padding-right: 1em;
 }
 
 .searchResultsHeaderRow {
