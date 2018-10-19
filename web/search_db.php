@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement->bindValue(':feature_title', $search, PDO::PARAM_INT);
 	$statement->execute();
 
-	$statement_regex = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'[ A-Za-z:\-]{0,}:feature_title[ A-Za-z:\-]{0,}\'');
+	$statement_regex = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* "[ A-Za-z:\-]{0,}:feature_title[ A-Za-z:\-]{0,}"');
 	$statement_regex->bindValue(':feature_title', $search, PDO::PARAM_INT);
 	$statement_regex->execute();
 }
@@ -70,7 +70,7 @@ function showFullListOfFeatures($statement) {
 	echo '</table>';
 }
 
-function showFullListOfFeaturesRegex($statement_regex) {	
+/*function showFullListOfFeaturesRegex($statement_regex) {	
 	echo '<table class="featureResults"> <thead><caption>Features Matching Search: ';
 	echo $search . '</caption></thead>';
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
@@ -87,7 +87,7 @@ function showFullListOfFeaturesRegex($statement_regex) {
 		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
 	}
 	echo '</table>';
-}
+}*/
 
 function cleanInput($data) {
    $data = trim($data);
@@ -115,7 +115,7 @@ function cleanInput($data) {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	showFullListOfFeatures($statement);
-	showFullListOfFeaturesRegex($statement);
+	showFullListOfFeatures($statement_regex);
 }
 ?>
 
