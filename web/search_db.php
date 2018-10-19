@@ -21,7 +21,7 @@ catch (PDOException $ex)
 	die();
 }
 
-$search = $statement = $statement_regex = '';
+$search = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search = cleanInput($_POST["search"]);
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement->bindValue(':feature_title', $search, PDO::PARAM_INT);
 	$statement->execute();
 
-	$statement_regex = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* "[ A-Za-z:\-]{0,}:feature_title[ A-Za-z:\-]{0,}"');
+	$statement_regex = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* "[ A-Za-z:\-]{0,}Superman[ A-Za-z:\-]{0,}"');
 	$statement_regex->bindValue(':feature_title', $search, PDO::PARAM_INT);
 	$statement_regex->execute();
 }
