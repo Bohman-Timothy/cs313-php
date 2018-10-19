@@ -27,6 +27,10 @@ table.featureResults {
 	/*border-collapse: collapse;*/
 }
 
+table.featureResults td, table.featureResults th {
+	margin-right: 2em;
+}
+
 .searchResultsHeaderRow {
 	text-align: left;
 }
