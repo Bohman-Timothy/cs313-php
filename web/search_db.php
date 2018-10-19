@@ -70,7 +70,7 @@ function showFullListOfFeatures($statement) {
 	echo '</table>';
 }
 
-/*function showFullListOfFeaturesRegex($statement_regex) {	
+function showFullListOfFeaturesRegex($statement_regex) {	
 	echo '<table class="featureResults"> <thead><caption>Features Matching Search: ';
 	echo $search . '</caption></thead>';
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
@@ -87,7 +87,7 @@ function showFullListOfFeatures($statement) {
 		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
 	}
 	echo '</table>';
-}*/
+}
 
 function cleanInput($data) {
    $data = trim($data);
