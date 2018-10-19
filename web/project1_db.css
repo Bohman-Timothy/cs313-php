@@ -27,6 +27,10 @@ table.featureResults {
 	/*border-collapse: collapse;*/
 }
 
+.searchResultsHeaderRow {
+	text-align: left;
+}
+
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
 }*/
