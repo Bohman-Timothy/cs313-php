@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement->execute();
 
 	$statement_regexp = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'[ A-Za-z:\-]{0,}:feature_title_exp[ A-Za-z:\-]{0,}\'');
-	$statement_regexp->bindValue(':feature_title_exp', $search, PDO::PARAM_STR);
+	$statement_regexp->bindValue(':feature_title_exp', $search, PDO::PARAM_INT);
 	$statement_regexp->execute();
 }
 
@@ -125,6 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <li>https://stackoverflow.com/questions/5684144/how-to-completely-remove-borders-from-html-table</li>
 <li><a href="https://stackoverflow.com/questions/35787892/default-value-in-select-query-for-null-values-in-postgres">Default value if null and cast data to another type</a></li>
 <li>https://www.rapidtables.com/web/html/html-codes.html</li>
+<li>https://www.regular-expressions.info/postgresql.html</li>
 </ul>
 </body>
 </html>
