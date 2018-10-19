@@ -23,6 +23,7 @@ ul.featureResults {
 }
 
 table.featureResults {
+	margin-top: 1em;
 	/*border: none;*/
 	/*border-collapse: collapse;*/
 }

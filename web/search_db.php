@@ -35,25 +35,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement_regexp->execute();
 }
 
+function showExactMatchResults($statement) {
+	echo '<table class="featureResults">';
+	echo '<thead><caption>Results Matching Search Exactly</caption></thead>';
+	showFullListOfFeatures($statement);
+}
+
+function showRegExpResults($statement) {
+	echo '<table class="featureResults">';
+	echo '<thead><caption>Results at Least Partially Matching Search</caption></thead>';
+	showFullListOfFeatures($statement);
+}
+
 function showFullListOfFeatures($statement) {
-	/*echo '<ul class="featureResults">';
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-	{
-		echo '<li><span class="id">' . $row['id'] . '</span>';
-		echo ' | <span class="featureTitle">' . $row['feature_title'] . '</span>';
-		echo ' | <span class="featureYear">' . $row['feature_year'] . '</span>';
-		echo ' | <span class="format">' . $row['format'] . '</span>';
-		echo ' | <span class="formatYear">' . $row['format_year'] . '</span>';
-		if ($row['feature_set_title'] != '') {
-			echo ' | <span class="featureSetTitle">' . $row['feature_set_title'] . '</span>';
-		}
-		echo ' | <span class="location">' . $row['location'] . '</span>';
-		echo ' | <span class="existingLoan">' . $row['existing_loan'] . '</span></li>';
-	}
-	echo '</ul>';*/
-	
-	echo '<table class="featureResults"> <thead><caption>Features Matching Search: ';
-	echo $search . '</caption></thead>';
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
 	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -114,8 +108,8 @@ function cleanInput($data) {
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	showFullListOfFeatures($statement);
-	showFullListOfFeatures($statement_regexp);
+	showExactMatchResults($statement);
+	showRegExpResults($statement_regexp);
 }
 ?>
 
