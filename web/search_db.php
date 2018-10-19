@@ -21,7 +21,7 @@ catch (PDOException $ex)
 	die();
 }
 
-$search = '';
+$search = $statement = $statement_regex = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$search = cleanInput($_POST["search"]);
@@ -29,6 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
 	$statement->bindValue(':feature_title', $search, PDO::PARAM_INT);
 	$statement->execute();
+
+	$statement_regex = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'[ A-Za-z:\-]{0,}:feature_title[ A-Za-z:\-]{0,}\'');
+	$statement_regex->bindValue(':feature_title', $search, PDO::PARAM_INT);
+	$statement_regex->execute();
 }
 
 function showFullListOfFeatures($statement) {
@@ -48,6 +52,25 @@ function showFullListOfFeatures($statement) {
 	}
 	echo '</ul>';*/
 	
+	echo '<table class="featureResults"> <thead><caption>Features Matching Search: ';
+	echo $search . '</caption></thead>';
+	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
+	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<tr><td class="id">' . $row['id'] . '</td>';
+		echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
+		echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
+		echo '<td class="format">' . $row['format'] . '</td>';
+		echo '<td class="formatYear">' . $row['format_year'] . '</td>';
+		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
+		echo '<td class="location">' . $row['location'] . '</td>';
+		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
+	}
+	echo '</table>';
+}
+
+function showFullListOfFeaturesRegex($statement_regex) {	
 	echo '<table class="featureResults"> <thead><caption>Features Matching Search: ';
 	echo $search . '</caption></thead>';
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
@@ -92,6 +115,7 @@ function cleanInput($data) {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	showFullListOfFeatures($statement);
+	showFullListOfFeaturesRegex($statement);
 }
 ?>
 
