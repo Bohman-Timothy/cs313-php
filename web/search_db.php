@@ -30,9 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$statement->bindValue(':feature_title', $search, PDO::PARAM_INT);
 	$statement->execute();
 
-	$statement_regexp = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'[ A-Za-z:\-]{0,}:feature_title_exp[ A-Za-z:\-]{0,}\'');
-	$statement_regexp->bindValue(':feature_title_exp', $search, PDO::PARAM_STR);
-	/*$statement_regexp->execute();*/
+	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'[ A-Za-z:\-]{0,}' . $search . '[ A-Za-z:\-]{0,}\'';
+
+	/*$statement_regexp = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'[ A-Za-z:\-]{0,}:feature_title_exp[ A-Za-z:\-]{0,}\'');
+	$statement_regexp->bindValue(':feature_title_exp', $search, PDO::PARAM_INT);
+	$statement_regexp->execute();*/
+
+	$statement_regexp = $db->prepare($db_expression);
+	$statement_regexp->execute();
 }
 
 function showFullListOfFeatures($statement) {
