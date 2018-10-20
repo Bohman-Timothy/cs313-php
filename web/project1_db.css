@@ -84,6 +84,21 @@ table.featureResults, table.patronResults {
 	font-style: italic;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#navbar li {
+    float: right;
+}
+
+#navbar li a {
+    display: block;
+}
+
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
 }*/
