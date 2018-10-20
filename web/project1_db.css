@@ -40,7 +40,7 @@ table.featureResults td, table.featureResults th {
 	margin-top: 1em;
 }
 
-.searchTypeOptions input {
+.searchTypeOptions {
 	margin-left: 4em;
 }
 
