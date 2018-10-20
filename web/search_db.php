@@ -43,39 +43,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$db_expression_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
 	$statement_regexp = $db->prepare($db_expression_regexp);
 	$statement_regexp->execute();
-	
-	/*searchFeatureExact($searchInput, $searchTargetColumn);
-	searchRegExp($searchInput, $searchTargetColumn);*/
-}
-
-function searchFeatureExact (/*$searchInput, $searchTargetColumn*/) {
-	/*$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title = ' . $searchInput . '\';';
-	$statement_regexp = $db->prepare($db_expression);
-	$statement_regexp->execute();*/
-	/*$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
-	$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);
-	$statement->execute();*/
-	/*$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title = \'Jumanji\';';
-	$statement = $db->prepare($db_expression);*/
-	/*$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);*/
-	/*$statement->execute();*/
-}
-
-function searchRegExp ($searchInput, $searchTargetColumn) {
-	/*$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
-	$statement_regexp = $db->prepare($db_expression);
-	$statement_regexp->execute();*/
 }
 
 function showExactMatchResults($statement) {
 	echo '<table class="featureResults">';
-	echo '<thead><caption>Results Matching Search Exactly</caption></thead>';
+	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
 	showFullListOfFeatures($statement);
 }
 
 function showRegExpResults ($statement) {
 	echo '<table class="featureResults">';
-	echo '<thead><caption>Results at Least Partially Matching Search</caption></thead>';
+	echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 	showFullListOfFeatures($statement);
 }
 
@@ -159,6 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.regular-expressions.info/postgresql.html</li>
 		<li>https://www.regular-expressions.info/numericranges.html</li>
 		<li>https://www.w3schools.com/html/html_forms.asp</li>
+		<li>https://www.w3schools.com/cssref/pr_font_font-style.asp</li>
 	</ul>
 </body>
 </html>
