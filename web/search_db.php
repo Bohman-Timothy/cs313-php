@@ -226,11 +226,16 @@ function cleanInput($data) {
 		<input type="text" name="searchInput" title="Enter text for exact match or matching part of a title or name" value="<?php echo $searchInput ?>"><br />
 		<label for="searchType">Search Type:</label><br />
 		<div class="searchTypeOptions">
-			<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
-			<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
-			<input type="radio" name="searchType" value="featureYear">Feature Year<br />
-			<input type="radio" name="searchType" value="format">Format<br />
-			<input type="radio" name="searchType" value="patron">Patron<br />
+			<label for="featureTitleOption_id">Feature Title</label>
+			<input type="radio" name="searchType" value="featureTitle" id="featureTitleOption_id" checked><br />
+			<label for="featureSetTitleOption_id">Feature Set Title</label>
+			<input type="radio" name="searchType" value="featureSetTitle" id="featureSetTitleOption_id"><br />
+			<label for="featureYearOption_id">Feature Year</label>
+			<input type="radio" name="searchType" value="featureYear" id="featureYearOption_id"><br />
+			<label for="formatOption_id">Format</label>
+			<input type="radio" name="searchType" value="format" id="formatOption_id"><br />
+			<label for="patronOption_id">Patron</label>
+			<input type="radio" name="searchType" value="patron" id="patronOption_id"><br />
 			<label for="searchLoans_id">Search Loans</label>
 			<input type="checkbox" name="searchLoans" id="searchLoans_id"><br />
 		</div>
