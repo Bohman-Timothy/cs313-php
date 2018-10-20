@@ -148,6 +148,7 @@ function showFullListOfFeatures ($statement, $searchType) {
 	/*}*/
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
+		if ($row['id'] != '') {
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
 		echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
 		echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
@@ -156,28 +157,13 @@ function showFullListOfFeatures ($statement, $searchType) {
 		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
 		echo '<td class="location">' . $row['location'] . '</td>';
 		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
+		}
+		else {
+			echo '<tr><td class="noResults">No results</td></tr>'
+		}
 	}
 	echo '</table>';
 }
-
-/*function showFullListOfFeaturesRegexp($statement_regexp) {	
-	echo '<table class="featureResults"> <thead><caption>Features Matching Search: ';
-	echo $search . '</caption></thead>';
-	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
-	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-	{
-		echo '<tr><td class="id">' . $row['id'] . '</td>';
-		echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
-		echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
-		echo '<td class="format">' . $row['format'] . '</td>';
-		echo '<td class="formatYear">' . $row['format_year'] . '</td>';
-		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
-		echo '<td class="location">' . $row['location'] . '</td>';
-		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
-	}
-	echo '</table>';
-}*/
 
 function showFullListOfPatrons($statement) {
 	/*echo '<table class="results">';
@@ -185,9 +171,14 @@ function showFullListOfPatrons($statement) {
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Username</th><th>Full Name</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<tr><td class="id">' . $row['id'] . '</td>';
-		echo '<td class="username">' . $row['username'] . '</td>';
-		echo '<td class="fullName">' . $row['full_name'] . '</td></tr>';
+		if ($row['id'] != '') {
+			echo '<tr><td class="id">' . $row['id'] . '</td>';
+			echo '<td class="username">' . $row['username'] . '</td>';
+			echo '<td class="fullName">' . $row['full_name'] . '</td></tr>';
+		}
+		else {
+			echo '<tr><td class="noResults">No results</td></tr>'
+		}
 	}
 	echo '</table>';
 }
@@ -196,16 +187,21 @@ function showFullListOfLoans($statement) {
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Loan Date</th><th>Return Date</th><th>Username</th><th>Full Name</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th><th>Feature Set Title</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		echo '<tr><td class="id">' . $row['id'] . '</td>';
-		echo '<td class="loanDate">' . $row['loan_date'] . '</td>';
-		echo '<td class="returnDate">' . $row['return_date'] . '</td>';
-		echo '<td class="username">' . $row['username'] . '</td>';
-		echo '<td class="fullName">' . $row['full_name'] . '</td>';
-		echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
-		echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
-		echo '<td class="format">' . $row['format'] . '</td>';
-		echo '<td class="formatYear">' . $row['format_year'] . '</td>';
-		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
+		if ($row['id'] != '') {
+			echo '<tr><td class="id">' . $row['id'] . '</td>';
+			echo '<td class="loanDate">' . $row['loan_date'] . '</td>';
+			echo '<td class="returnDate">' . $row['return_date'] . '</td>';
+			echo '<td class="username">' . $row['username'] . '</td>';
+			echo '<td class="fullName">' . $row['full_name'] . '</td>';
+			echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
+			echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
+			echo '<td class="format">' . $row['format'] . '</td>';
+			echo '<td class="formatYear">' . $row['format_year'] . '</td>';
+			echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
+		}
+		else {
+			echo '<tr><td class="noResults">No results</td></tr>'
+		}
 	}
 	echo '</table>';
 }
