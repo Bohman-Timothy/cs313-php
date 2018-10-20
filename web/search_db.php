@@ -38,6 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function searchFeatureExact ($searchInput, $searchTargetColumn) {
+	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'.*' . $searchInput . '.*\'';
+	$statement_regexp = $db->prepare($db_expression);
+	$statement_regexp->execute();
 	/*$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
 	$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);
 	$statement->execute();*/
