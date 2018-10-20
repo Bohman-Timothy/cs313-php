@@ -51,46 +51,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$statement_regexp->execute();
 	/*}
 	else*/ /*if ($searchType == 'patron') {*/
-		$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
+		/*$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
 		$patron_statement_exact = $db->prepare($db_patron_query_exact);
 		$patron_statement_exact->execute();
 		
 		$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . $searchInput . '.*\' OR full_name ~* \'.*' . $searchInput . '.*\';';
 		$patron_statement_regexp = $db->prepare($db_patron_query_regexp);
-		$patron_statement_regexp->execute();
+		$patron_statement_regexp->execute();*/
 	/*}*/
 }
 
 function showExactMatchResults($statement, $searchType) {
-	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		echo '<table class="featureResults">';
-	/*}
+	}
 	else if ($searchType == 'patron') {
 		echo '<table class="patronResults">';
-	}*/
+	}
 	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
-	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		showFullListOfFeatures($statement);
-	/*}
+	}
 	else if ($searchType == 'patron') {
 		showFullListOfPatrons($statement);
-	}*/
+	}
 }
 
 function showRegExpResults ($statement, $searchType) {
-	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		echo '<table class="featureResults">';
-	/*}
+	}
 	else if ($searchType == 'patron') {
 		echo '<table class="patronResults">';
-	}*/
+	}
 	echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		showFullListOfFeatures($statement);
-	/*}
+	}
 	else if ($searchType == 'patron') {
 		showFullListOfPatrons($statement);
-	}*/
+	}
 }
 
 function showFullListOfFeatures ($statement, $searchType) {
