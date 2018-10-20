@@ -1,8 +1,3 @@
-/*var searchTypeRadio = document.forms["search"].elements["searchType"];
-for (var i = 0, max = searchTypeRadio.length; i < max; i++) {
-	searchTypeRadio[i].onclick = showScope();
-}*/
-
 /*document.forms["search"].elements["searchType"].addEventListener("click", showScope);
 document.forms["search"].elements["searchLoans"].addEventListener("click", showScope);*/
 
@@ -18,7 +13,7 @@ function showCurrentLoansOption() {
 	}
 }
 
-function showScope() {
+/*function showScope() {
 	var patronOption = document.getElementById("patronOption_id");
 	var searchAllFeatures = document.getElementById("searchAllFeatures_id");
 	var searchLoansCheckbox = document.getElementById("searchLoans_id");
@@ -29,7 +24,7 @@ function showScope() {
 	else {
 		searchAllFeatures.style.display = "block";
 	}
-}
+}*/
 
 function showReferences() {
 	var referencesList = document.getElementById("referencesList_id");

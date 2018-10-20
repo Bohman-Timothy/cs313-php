@@ -250,7 +250,7 @@ function cleanInput($data) {
 			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoans_id" checked>
 			<label for="searchCurrentLoans_id">Current Loans Only</label><br />
 		</div> -->
-		<p id="searchAllFeatures_id">Will search all features or all patrons or all loans</p>
+		<p id="searchAllFeatures_id">Searches all features or all patrons or all loans</p>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
