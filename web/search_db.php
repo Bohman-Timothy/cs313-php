@@ -91,7 +91,7 @@ function showExactMatchResults($statement, $searchType) {
 			break;
 		default:
 			echo '<table class="featureResults">';
-			echo '<thead><caption class="exactResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+			echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
 			showFullListOfFeatures($statement, $searchType);
 	}
 }
