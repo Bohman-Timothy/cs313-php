@@ -143,6 +143,7 @@ function showRegExpResults ($statement, $searchType) {
 			echo '<table class="loanResults">';
 			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfLoans($statement);
+			break;
 		default:
 	switch ($searchType) {
 		case 'patron':
