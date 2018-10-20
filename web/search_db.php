@@ -27,14 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
 	
-	/*if ($searchType = 'featureTitle') {
+	if ($searchType = 'featureTitle') {
 		$searchTargetColumn = 'feature_title';
 	}
-	else ($searchType = 'featureSetTitle') {
+	else if ($searchType = 'featureSetTitle') {
 		$searchTargetColumn = 'feature_set_title';
 	}
 	searchFeatureExact($searchInput, $searchTargetColumn);
-	searchFeatureRegExp($searchInput, $searchTargetColumn);*/
+	searchFeatureRegExp($searchInput, $searchTargetColumn);
 }
 
 function searchFeatureExact ($searchInput, $searchTargetColumn) {
