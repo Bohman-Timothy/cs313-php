@@ -30,11 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($searchType == 'featureTitle') {
 		$searchTargetColumn = 'feature_title';
 	}
-	else if ($searchType == 'featureSetTitle') {
+	/*else if ($searchType == 'featureSetTitle') {
 		$searchTargetColumn = 'feature_set_title';
 	}
 	searchFeatureExact($searchInput, $searchTargetColumn);
-	searchFeatureRegExp($searchInput, $searchTargetColumn);
+	searchRegExp($searchInput, $searchTargetColumn);*/
 }
 
 function searchFeatureExact ($searchInput, $searchTargetColumn) {
@@ -43,7 +43,7 @@ function searchFeatureExact ($searchInput, $searchTargetColumn) {
 	$statement->execute();
 }
 
-function searchFeatureRegExp ($searchInput, $searchTargetColumn) {
+function searchRegExp ($searchInput, $searchTargetColumn) {
 	/*$db_expression = 'SELECT id, feature_title, feature_year, format,
 		format_year, feature_set_title, location, existing_loan
 		FROM feature_view
