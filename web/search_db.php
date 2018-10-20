@@ -190,7 +190,7 @@ function showFullListOfLoans($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
-		echo '<td class="loanDate">' . to_char($row['loan_date']) . '</td>';
+		echo '<td class="loanDate">' . $row['loan_date'] . '</td>';
 		echo '<td class="returnDate">' . $row['return_date'] . '</td>';
 		echo '<td class="username">' . $row['username'] . '</td>';
 		echo '<td class="fullName">' . $row['full_name'] . '</td>';
@@ -231,8 +231,8 @@ function cleanInput($data) {
 			<input type="radio" name="searchType" value="featureYear">Feature Year<br />
 			<input type="radio" name="searchType" value="format">Format<br />
 			<input type="radio" name="searchType" value="patron">Patron<br />
-			<label for="searchLoans">Search Loans
-			<input type="checkbox" name="searchLoans"></label><br />
+			<label for="searchLoans_id">Search Loans</label>
+			<input type="checkbox" name="searchLoans" id="searchLoans_id"><br />
 		</div>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
