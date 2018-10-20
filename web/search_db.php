@@ -50,26 +50,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$patron_statement_regexp->execute();
 			break;
 		default:
+			if ($searchType == 'featureTitle') {
+				$searchTargetColumn = 'feature_title';
+			}
+			else if ($searchType == 'featureSetTitle') {
+				$searchTargetColumn = 'feature_set_title';
+			}
+			else if ($searchType == 'featureYear') {
+				$searchTargetColumn = 'feature_year';
+			}
+			else if ($searchType == 'format') {
+				$searchTargetColumn = 'format';
+			}
 			switch ($searchLoans) {
 				case true:
-					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\';';
+					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\';';
 
-					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
+					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
 					break;
 				default:
-					if ($searchType == 'featureTitle') {
-						$searchTargetColumn = 'feature_title';
-					}
-					else if ($searchType == 'featureSetTitle') {
-						$searchTargetColumn = 'feature_set_title';
-					}
-					else if ($searchType == 'featureYear') {
-						$searchTargetColumn = 'feature_year';
-					}
-					else if ($searchType == 'format') {
-						$searchTargetColumn = 'format';
-					}
-
 					switch ($searchType) {
 						case 'featureYear':
 							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
