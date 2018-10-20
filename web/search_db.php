@@ -126,11 +126,11 @@ function cleanInput($data) {
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<label for="searchInput">Search Value:</label>
 		<input type="text" name="searchInput" title="Text must match exactly" value="<?php echo $searchInput ?>"><br />
-		<label for="searchType">Search Type:</label><br />
+		<!-- <label for="searchType">Search Type:</label><br />
 		<div class="searchTypeOptions">
 			<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
 			<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
-		</div>
+		</div> -->
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
