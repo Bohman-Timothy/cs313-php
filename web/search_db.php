@@ -99,7 +99,7 @@ function showRegExpResults ($statement, $searchType) {
 	showFullListOfFeatures($statement);
 }
 
-function showFullListOfFeatures ($statement, $searchType) {
+function showFullListOfFeatures ($statement) {
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
 	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
