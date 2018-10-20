@@ -140,9 +140,8 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
 }
 
 function showFullListOfFeatures ($statement, $searchType) {
-		echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
-		echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
-
+	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
+	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
 	$counter = 0;
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
@@ -154,7 +153,7 @@ function showFullListOfFeatures ($statement, $searchType) {
 		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
 		echo '<td class="location">' . $row['location'] . '</td>';
 		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
-		$counter = $counter + 1;
+		$counter++;
 	}
 	if ($counter == 0) {
 		echo '</table> <p class=\'noResults\'>No results</p>';
@@ -166,20 +165,25 @@ function showFullListOfFeatures ($statement, $searchType) {
 
 function showFullListOfPatrons($statement) {
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Username</th><th>Full Name</th></tr>';
+	$counter = 0;
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-			echo '<tr><td class="id">' . $row['id'] . '</td>';
-			echo '<td class="username">' . $row['username'] . '</td>';
-			echo '<td class="fullName">' . $row['full_name'] . '</td></tr>';
+		echo '<tr><td class="id">' . $row['id'] . '</td>';
+		echo '<td class="username">' . $row['username'] . '</td>';
+		echo '<td class="fullName">' . $row['full_name'] . '</td></tr>';
+		$counter++;
 	}
-	/*else {
-		echo '<tr><td class=\'noResults\'>No results</td></tr>';
-	}*/
-	echo '</table>';
+	if ($counter == 0) {
+		echo '</table> <p class=\'noResults\'>No results</p>';
+	}
+	else {
+		echo '</table>';
+	}
 }
 
 function showFullListOfLoans($statement) {
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Loan Date</th><th>Return Date</th><th>Username</th><th>Full Name</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th><th>Feature Set Title</th></tr>';
+	$counter = 0;
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
@@ -192,11 +196,14 @@ function showFullListOfLoans($statement) {
 		echo '<td class="format">' . $row['format'] . '</td>';
 		echo '<td class="formatYear">' . $row['format_year'] . '</td>';
 		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
+		$counter++;
 	}
-	/*else {
-		echo '<tr><td class=\'noResults\'>No results</td></tr>';
-	}*/
-	echo '</table>';
+	if ($counter == 0) {
+		echo '</table> <p class=\'noResults\'>No results</p>';
+	}
+	else {
+		echo '</table>';
+	}
 }
 
 function cleanInput($data) {
