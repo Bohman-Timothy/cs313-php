@@ -154,7 +154,7 @@ function showFullListOfFeatures ($statement, $searchType) {
 		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
 		echo '<td class="location">' . $row['location'] . '</td>';
 		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
-		$counter++;
+		$counter = $counter + 1;
 		}
 	}
 	if ($counter == 0) {
