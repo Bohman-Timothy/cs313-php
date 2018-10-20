@@ -18,6 +18,9 @@ function showScope() {
 	if ((patronOption.checked == true) || (searchLoansCheckbox.checked == true)) {
 		searchAllFeatures.style.display = "none";
 	}
+	else {
+		searchAllFeatures.style.display = "block";
+	}
 }
 
 function showReferences() {
