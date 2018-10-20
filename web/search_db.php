@@ -231,8 +231,8 @@ function cleanInput($data) {
 			<input type="radio" name="searchType" value="featureYear">Feature Year<br />
 			<input type="radio" name="searchType" value="format">Format<br />
 			<input type="radio" name="searchType" value="patron">Patron<br />
-			<label for="searchLoans">Search Loans</label>
-			<input type="checkbox" name="searchLoans"><br />
+			<label for="searchLoans">Search Loans
+			<input type="checkbox" name="searchLoans"></label><br />
 		</div>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
