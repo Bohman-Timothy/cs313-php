@@ -24,7 +24,7 @@ catch (PDOException $ex)
 $searchInput = $searchType = $statement = $statement_regexp = $searchTargetColumn = '';
 
 /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$searchInput = cleanInput($_POST["search"]);
+	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
 	
 	if ($searchType = 'featureTitle') {
@@ -119,12 +119,12 @@ function cleanInput($data) {
 <body>
 	<h1>Search the Feature Database</h1>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-		<label for="search">Search:</label>
-		<input type="text" name="search" title="Text must match exactly" value="<?php echo $search ?>">
-		<input type="submit" value="Search"><br />
-		<label for="searchType">Search Type:</label>
+		<label for="searchInput">Search Value:</label>
+		<input type="text" name="searchInput" title="Text must match exactly" value="<?php echo $search ?>"><br />
+		<label for="searchType">Search Type:</label><br />
 		<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
 		<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
+		<input type="submit" value="Search">
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
