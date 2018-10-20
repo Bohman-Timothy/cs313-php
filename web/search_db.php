@@ -21,7 +21,7 @@ catch (PDOException $ex)
 	die();
 }
 
-$searchInput = $searchType = '';
+$searchInput = $searchType = $searchLoans = '';
 $statement_exact = $statement_regexp = '';
 $searchTargetColumn = '';
 
@@ -113,7 +113,7 @@ function showExactMatchResults($statement, $searchType) {
 	}
 }
 
-function showRegExpResults ($statement, $searchType) {
+function showRegExpResults ($statement, $searchType, $searchLoans) {
 	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		echo '<table class="featureResults">';
 	}
@@ -145,19 +145,19 @@ function showRegExpResults ($statement, $searchType) {
 			showFullListOfLoans($statement);
 			break;
 		default:
-	switch ($searchType) {
-		case 'patron':
-			echo '<table class="patronResults">';
-			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-			showFullListOfPatrons($statement);
-			break;
-		case 'featureYear':
-			break;
-		default:
-			echo '<table class="featureResults">';
-			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-			showFullListOfFeatures($statement, $searchType);
-	}
+			switch ($searchType) {
+				case 'patron':
+					echo '<table class="patronResults">';
+					echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+					showFullListOfPatrons($statement);
+					break;
+				case 'featureYear':
+					break;
+				default:
+					echo '<table class="featureResults">';
+					echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+					showFullListOfFeatures($statement, $searchType);
+			}
 	}
 }
 
@@ -204,7 +204,7 @@ function showFullListOfFeatures ($statement, $searchType) {
 function showFullListOfPatrons($statement) {
 	/*echo '<table class="results">';
 	echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';*/
-	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>username</th><th>Full Name</th></tr>';
+	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Username</th><th>Full Name</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
@@ -215,9 +215,7 @@ function showFullListOfPatrons($statement) {
 }
 
 function showFullListOfLoans($statement) {
-	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
-	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
-	/*}*/
+	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Loan Date</th><th>Return Date</th><th>Username</th><th>Full Name</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th><th>Feature Set Title</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
@@ -272,11 +270,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	switch ($searchType) {
 		case 'patron':
 			showExactMatchResults($patron_statement_exact, $searchType);
-			showRegExpResults($patron_statement_regexp, $searchType);
+			showRegExpResults($patron_statement_regexp, $searchType, $searchLoans);
 			break;
 		default:
 			showExactMatchResults($statement_exact, $searchType);
-			showRegExpResults($statement_regexp, $searchType);
+			showRegExpResults($statement_regexp, $searchType, $searchLoans);
 	}
 }
 ?>
