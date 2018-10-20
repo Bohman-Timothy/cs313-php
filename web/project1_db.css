@@ -28,10 +28,10 @@ table.featureResults {
 	/*border-collapse: collapse;*/
 }
 
-table.featureResults caption.resultsTableCaption,
-table.patronResults caption.resultsTableCaption
-/*table.featureResults caption.exactResultsTableCaption,
-table.featureResults caption.regExpResultsTableCaption*/ {
+/*table.featureResults caption.resultsTableCaption,
+table.patronResults caption.resultsTableCaption*/
+table caption.exactResultsTableCaption,
+table caption.regExpResultsTableCaption {
 	font-size: 1.2em;
 	font-weight: bold;
 	font-style: italic;
