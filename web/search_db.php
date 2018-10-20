@@ -27,7 +27,7 @@ $searchTargetColumn = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
-	$searchType = cleanInput($_POST["searchType"]);
+	/*$searchType = cleanInput($_POST["searchType"]);*/
 	
 	if ($searchType == 'featureTitle') {
 		$searchTargetColumn = 'feature_title';
@@ -46,7 +46,8 @@ function searchFeatureExact ($searchInput/*, $searchTargetColumn*/) {
 	/*$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
 	$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);
 	$statement->execute();*/
-	$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title = \'Jumanji\'');
+	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title = \'Jumanji\';';
+	$statement = $db->prepare($db_expression);
 	/*$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);*/
 	/*$statement->execute();*/
 }
