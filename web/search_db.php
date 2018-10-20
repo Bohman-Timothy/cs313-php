@@ -125,6 +125,8 @@ function showRegExpResults ($statement, $searchType) {
 			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfPatrons($statement);
 			break;
+		case 'featureYear':
+			break;
 		default:
 			echo '<table class="featureResults">';
 			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
