@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . $searchInput . '.*\' OR full_name ~* \'.*' . $searchInput . '.*\';';
 		$patron_statement_regexp = $db->prepare($db_patron_query_regexp);
 		$patron_statement_regexp->execute();
-	}
+	/*}*/
 }
 
 function showExactMatchResults($statement, $searchType) {
@@ -176,8 +176,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		showRegExpResults($patron_statement_regexp, $searchType);
 	}
 	else {
-	showExactMatchResults($statement_exact, $searchType);
-	showRegExpResults($statement_regexp, $searchType);
+		showExactMatchResults($statement_exact, $searchType);
+		showRegExpResults($statement_regexp, $searchType);
 	}
 }
 ?>
