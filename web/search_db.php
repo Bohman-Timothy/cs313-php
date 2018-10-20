@@ -218,6 +218,7 @@ function cleanInput($data) {
 	<title>Search the Feature Database</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="project1_db.css">
+    <script src="project1.js" charset="UTF-8"></script>
 </head>
 <body>
 	<h1>Search the Feature Database</h1>
@@ -239,6 +240,10 @@ function cleanInput($data) {
 		</div>
 		<input type="checkbox" name="searchLoans" id="searchLoans_id">
 		<label for="searchLoans_id">Search Loans Only</label><br />
+		<div id="currentLoans_id">
+			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoans_id" checked>
+			<label for="searchCurrentLoans_id">Current Loans Only</label><br />
+		</div>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
@@ -268,6 +273,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://dev.w3.org/html5/html-author/charref</li>
 		<li>https://www.w3schools.com/php/php_switch.asp</li>
 		<li>https://stackoverflow.com/questions/8529656/how-do-i-convert-a-string-to-a-number-in-php/8529687</li>
+		<li>https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp</li>
 	</ul>
 </body>
 </html>
