@@ -155,7 +155,6 @@ function showFullListOfFeatures ($statement, $searchType) {
 		echo '<td class="location">' . $row['location'] . '</td>';
 		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
 		$counter = $counter + 1;
-		}
 	}
 	if ($counter == 0) {
 		echo '</table> <p class=\'noResults\'>No results</p>';
