@@ -36,12 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$searchTargetColumn = 'feature_set_title';
 	}
 	
-	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
-	$statement = $db->prepare($db_expression);
+	$db_expression_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
+	$statement = $db->prepare($db_expression_exact);
 	$statement->execute();
 	
-	searchFeatureExact(/*$searchInput, $searchTargetColumn*/);
-	searchRegExp($searchInput, $searchTargetColumn);
+	$db_expression_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
+	$statement_regexp = $db->prepare($db_expression_regexp);
+	$statement_regexp->execute();
+	
+	/*searchFeatureExact($searchInput, $searchTargetColumn);
+	searchRegExp($searchInput, $searchTargetColumn);*/
 }
 
 function searchFeatureExact (/*$searchInput, $searchTargetColumn*/) {
@@ -142,7 +146,7 @@ function cleanInput($data) {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	showExactMatchResults($statement);
-	/*showRegExpResults($statement_regexp);*/
+	showRegExpResults($statement_regexp);
 }
 ?>
 
