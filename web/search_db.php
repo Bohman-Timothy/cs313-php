@@ -33,6 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
 		if ($searchType == 'featureTitle') {
 			$searchTargetColumn = 'feature_title';
+			
+			$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
+			
+			$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
 		}
 		else if ($searchType == 'featureSetTitle') {
 			$searchTargetColumn = 'feature_set_title';
@@ -46,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$statement_regexp = $db->prepare($db_query_regexp);
 		$statement_regexp->execute();
 	/*}
-	else*/ if ($searchType == 'patron') {		
+	else*/ /*if ($searchType == 'patron') {		
 		$db_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
 		$patron_statement_exact = $db->prepare($db_query_exact);
 		$patron_statement_exact->execute();
@@ -54,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$db_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . $searchInput . '.*\' OR full_name ~* \'.*' . $searchInput . '.*\';';;
 		$patron_statement_regexp = $db->prepare($db_query_regexp);
 		$patron_statement_regexp->execute();
-	}
+	}*/
 }
 
 function showExactMatchResults($statement, $searchType) {
