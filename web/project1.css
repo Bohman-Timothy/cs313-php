@@ -91,7 +91,7 @@ ul {
     overflow: hidden;
 }
 
-#navbar ul, #navbar li {
+ul#navbar, #navbar li {
     float: right;
 }
 
