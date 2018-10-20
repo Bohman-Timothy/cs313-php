@@ -22,7 +22,7 @@ ul.featureResults {
 	padding-left: 0;
 }
 
-table.featureResults {
+table.featureResults, table.patronResults, table.loanResults {
 	margin-top: 1em;
 	/*border: none;*/
 	/*border-collapse: collapse;*/
@@ -38,7 +38,8 @@ table caption.regExpResultsTableCaption {
 }
 
 table.featureResults td, table.featureResults th,
-table.patronResults td, table.patronResults th {
+table.patronResults td, table.patronResults th,
+table.loanResults td, table.loanResults th {
 	padding-right: 1em;
 }
 
