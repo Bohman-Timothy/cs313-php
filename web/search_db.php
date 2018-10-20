@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 		else if ($searchType == 'format') {
 			$searchTargetColumn = 'format';
+			$searchInput = (int)$searchInput;
 		}
 
 		/*$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';*/
