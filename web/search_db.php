@@ -230,15 +230,15 @@ function cleanInput($data) {
 			<label for="featureTitleOption_id">Feature Title</label><br />
 			<input type="radio" name="searchType" value="featureSetTitle" id="featureSetTitleOption_id">
 			<label for="featureSetTitleOption_id">Feature Set Title</label><br />
-			<input type="radio" name="searchType" value="featureYear" id="featureYearOption_id"><br />
-			<label for="featureYearOption_id">Feature Year</label>
+			<input type="radio" name="searchType" value="featureYear" id="featureYearOption_id">
+			<label for="featureYearOption_id">Feature Year</label><br />
 			<input type="radio" name="searchType" value="format" id="formatOption_id">
 			<label for="formatOption_id">Format</label><br />
 			<input type="radio" name="searchType" value="patron" id="patronOption_id">
 			<label for="patronOption_id">Patron</label><br />
-			<input type="checkbox" name="searchLoans" id="searchLoans_id">
-			<label for="searchLoans_id">Search Loans</label><br />
 		</div>
+		<input type="checkbox" name="searchLoans" id="searchLoans_id">
+		<label for="searchLoans_id">Search Loans</label><br />
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
