@@ -75,7 +75,7 @@ function showExactMatchResults($statement) {
 	}
 }
 
-function showRegExpResults ($statement) {
+function showRegExpResults ($statement, $searchType) {
 	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		echo '<table class="featureResults">';
 	}
@@ -91,7 +91,7 @@ function showRegExpResults ($statement) {
 	}
 }
 
-function showFullListOfFeatures ($statement) {
+function showFullListOfFeatures ($statement, $searchType) {
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
 	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -169,8 +169,8 @@ function cleanInput($data) {
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	showExactMatchResults($statement_exact);
-	showRegExpResults($statement_regexp);
+	showExactMatchResults($statement_exact, $searchType);
+	showRegExpResults($statement_regexp, $searchType);
 }
 ?>
 
