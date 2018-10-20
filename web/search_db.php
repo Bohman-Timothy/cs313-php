@@ -21,7 +21,7 @@ catch (PDOException $ex)
 	die();
 }
 
-$search = $statement = $statement_regexp = '';
+$searchInput = $searchType = $statement = $statement_regexp = $searchTargetColumn = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["search"]);
