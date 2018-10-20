@@ -28,6 +28,7 @@ $searchTargetColumn = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
+	$db_copy = $db;
 	
 	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		if ($searchType == 'featureTitle') {
@@ -38,11 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 
 		$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
-		$statement_exact = $db->prepare($db_query_exact);
+		$statement_exact = $db_copy->prepare($db_query_exact);
 		$statement_exact->execute();
 		
 		$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
-		$statement_regexp = $db->prepare($db_query_regexp);
+		$statement_regexp = $db_copy->prepare($db_query_regexp);
 		$statement_regexp->execute();
 	}
 	else if ($searchType == 'patron') {
