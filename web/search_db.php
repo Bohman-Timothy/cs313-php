@@ -77,7 +77,13 @@ function showExactMatchResults($statement, $searchType) {
 	}*/
 	/*echo '<table class="featureResults">';
 	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';*/
-	showFullListOfFeatures($statement, $searchType);
+	switch ($searchType) {
+		case 'patron':
+			showFullListOfPatrons($statement);
+			break;
+		default:
+			showFullListOfFeatures($statement, $searchType);
+	}
 }
 
 function showRegExpResults ($statement, $searchType) {
@@ -142,6 +148,8 @@ function showFullListOfFeatures ($statement, $searchType) {
 }*/
 
 function showFullListOfPatrons($statement) {
+	echo '<table class="patronResults">';
+	echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>username</th><th>Full Name</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
@@ -205,6 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.w3schools.com/html/html_forms.asp</li>
 		<li>https://www.w3schools.com/cssref/pr_font_font-style.asp</li>
 		<li>https://dev.w3.org/html5/html-author/charref</li>
+		<li>https://www.w3schools.com/php/php_switch.asp</li>
 	</ul>
 </body>
 </html>
