@@ -195,10 +195,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		showExactMatchResults($patron_statement_exact, $searchType);
 		showRegExpResults($patron_statement_regexp, $searchType);
 	}
-	else {*/
+	else {
 		showExactMatchResults($statement_exact, $searchType);
 		showRegExpResults($statement_regexp, $searchType);
-	/*}*/
+	}*/
+	switch ($searchType) {
+		case 'patron':
+			showFullListOfPatrons($patron_statement_regexp);
+			break;
+		default:
+			showFullListOfFeatures($statement_regexp, $searchType);
+	}
 }
 ?>
 
