@@ -51,7 +51,7 @@ table.loanResults td, table.loanResults th {
 	margin-top: 1em;
 }
 
-.searchTypeOptions, #searchAllFeatures_id {
+.searchTypeOptions {
 	margin-left: 4em;
 }
 

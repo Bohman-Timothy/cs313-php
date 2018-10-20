@@ -31,6 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchLoans = cleanInput($_POST["searchLoans"]);
 	$searchCurrentLoans = cleanInput($_POST["searchCurrentLoans"]);
 
+	/* Hidden feature to allow viewing all rows at once */
+	if ($searchInput == '_ALL') {
+		$searchInput = '';
+	}
+
 	switch ($searchType) {
 		case 'patron':
 			switch ($searchLoans) {
@@ -236,16 +241,16 @@ function cleanInput($data) {
 			<label for="featureYearOption_id">Feature Year</label><br />
 			<input type="radio" name="searchType" value="format" id="formatOption_id">
 			<label for="formatOption_id">Format</label><br />
-			<input type="radio" name="searchType" value="patron" id="patronOption_id"> <!-- onclick="showScope()"> -->
+			<input type="radio" name="searchType" value="patron" id="patronOption_id">
 			<label for="patronOption_id">Patron</label><br />
 		</div>
-		<p id="searchAllFeatures_id">Will Search All Features Or All Patrons Or All Loans</p>
-		<input type="checkbox" name="searchLoans" id="searchLoans_id" onclick="showCurrentLoansOption()">
+		<input type="checkbox" name="searchLoans" id="searchLoans_id"> <!-- onclick="showCurrentLoansOption()" -->
 		<label for="searchLoansOnly_id">Search Loans Only</label><br />
-		<div id="currentLoans_id">
+		<!-- <div id="currentLoans_id">
 			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoans_id" checked>
 			<label for="searchCurrentLoans_id">Current Loans Only</label><br />
-		</div>
+		</div> -->
+		<p id="searchAllFeatures_id">Will search all features or all patrons or all loans</p>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
