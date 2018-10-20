@@ -25,7 +25,7 @@ $searchInput = $searchType = $statement = $statement_regexp = $searchTargetColum
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
-	$searchType = cleanInput($_POST["searchType"]);
+	/*$searchType = cleanInput($_POST["searchType"]);
 	
 	if ($searchType = 'featureTitle') {
 		$searchTargetColumn = 'feature_title';
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$searchTargetColumn = 'feature_set_title';
 	}
 	searchFeatureExact($searchInput, $searchTargetColumn);
-	searchFeatureRegExp($searchInput, $searchTargetColumn);
+	searchFeatureRegExp($searchInput, $searchTargetColumn);*/
 }
 
 function searchFeatureExact ($searchInput, $searchTargetColumn) {
@@ -44,12 +44,12 @@ function searchFeatureExact ($searchInput, $searchTargetColumn) {
 }
 
 function searchFeatureRegExp ($searchInput, $searchTargetColumn) {
-/*	$db_expression = 'SELECT id, feature_title, feature_year, format,
+	$db_expression = 'SELECT id, feature_title, feature_year, format,
 		format_year, feature_set_title, location, existing_loan
 		FROM feature_view
 		WHERE ' . $searchTargetColumn .' ~* \'.*' . $searchInput . '.*\'';
 	$statement_regexp = $db->prepare($db_expression);
-	$statement_regexp->execute();*/
+	$statement_regexp->execute();
 }
 
 function showExactMatchResults($statement) {
