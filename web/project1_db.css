@@ -63,6 +63,14 @@ table.loanResults td, table.loanResults th {
 	display: none;
 }
 
+#references_id {
+	display: none;
+}
+
+#clickToExpand_id {
+	font-style: italic;
+}
+
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
 }*/

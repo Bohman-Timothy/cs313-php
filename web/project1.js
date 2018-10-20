@@ -19,3 +19,17 @@ function showScope() {
 		searchAllFeatures.style.display = "none";
 	}
 }
+
+function showReferences() {
+	var references = document.getElementById("references_id");
+	var clickToExpand = document.getElementById("clickToExpand_id");
+
+	if (references.style.display == "none") {
+		references.style.display = "block";
+		clickToExpand.content = "Click to hide";
+	}
+	else {
+		references.style.display = "none";
+		clickToExpand.content = "Click to expand";
+	}
+}

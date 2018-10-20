@@ -21,7 +21,7 @@ catch (PDOException $ex)
 	die();
 }
 
-$searchInput = $searchType = $searchLoans = '';
+$searchInput = $searchType = $searchLoans = $searchCurrentLoans = '';
 $statement_exact = $statement_regexp = '';
 $searchTargetColumn = '';
 
@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
 	$searchLoans = cleanInput($_POST["searchLoans"]);
+	$searchCurrentLoans = cleanInput($_POST["searchCurrentLoans"]);
 
 	switch ($searchType) {
 		case 'patron':
@@ -87,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 
-function showExactMatchResults($statement, $searchType, $searchLoans) {
+function showExactMatchResults($statement, $searchType, $searchLoans, $searchCurrentLoans) {
 	switch ($searchLoans) {
 		case true:
 			echo '<table class="loanResults">';
@@ -109,7 +110,7 @@ function showExactMatchResults($statement, $searchType, $searchLoans) {
 	}
 }
 
-function showRegExpResults ($statement, $searchType, $searchLoans) {
+function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurrentLoans) {
 	switch ($searchLoans) {
 		case true:
 			echo '<table class="loanResults">';
@@ -251,17 +252,19 @@ function cleanInput($data) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	switch ($searchType) {
 		case 'patron':
-			showExactMatchResults($patron_statement_exact, $searchType, $searchLoans);
-			showRegExpResults($patron_statement_regexp, $searchType, $searchLoans);
+			showExactMatchResults($patron_statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
+			showRegExpResults($patron_statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
 			break;
 		default:
-			showExactMatchResults($statement_exact, $searchType, $searchLoans);
-			showRegExpResults($statement_regexp, $searchType, $searchLoans);
+			showExactMatchResults($statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
+			showRegExpResults($statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
 	}
 }
 ?>
 
 	<h2>References</h2>
+	<p id="clickToExpand_id" onclick="showReferences()">Click to expand</p>
+	<div id="references_id">
 	<ul>
 		<li>https://stackoverflow.com/questions/2491068/does-height-and-width-not-apply-to-span/37876264</li>
 		<li>https://stackoverflow.com/questions/5684144/how-to-completely-remove-borders-from-html-table</li>
@@ -275,6 +278,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.w3schools.com/php/php_switch.asp</li>
 		<li>https://stackoverflow.com/questions/8529656/how-do-i-convert-a-string-to-a-number-in-php/8529687</li>
 		<li>https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp</li>
+		<li>https://www.w3schools.com/sql/sql_and_or.asp</li>
 	</ul>
+	</div>
 </body>
 </html>
