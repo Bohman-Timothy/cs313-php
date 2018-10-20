@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($searchType == 'featureTitle') {
 		$searchTargetColumn = 'feature_title';
 	}
-	/*else if ($searchType == 'featureSetTitle') {
+	else if ($searchType == 'featureSetTitle') {
 		$searchTargetColumn = 'feature_set_title';
-	}*/
+	}
 	searchFeatureExact($searchInput, $searchTargetColumn);
 	searchRegExp($searchInput, $searchTargetColumn);
 }
@@ -120,7 +120,7 @@ function cleanInput($data) {
 	<h1>Search the Feature Database</h1>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<label for="searchInput">Search Value:</label>
-		<input type="text" name="searchInput" title="Text must match exactly" value="<?php echo $search ?>"><br />
+		<input type="text" name="searchInput" title="Text must match exactly" value="<?php echo $searchInput ?>"><br />
 		<label for="searchType">Search Type:</label><br />
 		<div class="searchTypeOptions">
 			<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
