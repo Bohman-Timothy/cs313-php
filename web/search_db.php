@@ -122,9 +122,11 @@ function cleanInput($data) {
 		<label for="searchInput">Search Value:</label>
 		<input type="text" name="searchInput" title="Text must match exactly" value="<?php echo $search ?>"><br />
 		<label for="searchType">Search Type:</label><br />
-		<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
-		<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
-		<input type="submit" value="Search">
+		<div class="searchTypeOptions">
+			<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
+			<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
+		</div>
+		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -36,6 +36,14 @@ table.featureResults td, table.featureResults th {
 	text-align: left;
 }
 
+.submitButton {
+	margin-top: 1em;
+}
+
+.searchTypeOptions {
+	margin-left: 4em;
+}
+
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
 }*/
