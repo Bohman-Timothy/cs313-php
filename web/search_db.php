@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 
-function showExactMatchResults($statement) {
+function showExactMatchResults($statement, $searchType) {
 	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		echo '<table class="featureResults">';
 	}

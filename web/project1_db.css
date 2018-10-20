@@ -35,7 +35,8 @@ table.featureResults caption.regExpResultsTableCaption {
 	font-style: italic;
 }
 
-table.featureResults td, table.featureResults th {
+table.featureResults td, table.featureResults th,
+table.patronResults td, table.patronResults th {
 	padding-right: 1em;
 }
 
