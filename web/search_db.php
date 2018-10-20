@@ -77,7 +77,7 @@ function showExactMatchResults($statement, $searchType) {
 	}*/
 	/*echo '<table class="featureResults">';
 	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';*/
-	showFullListOfFeatures($statement);
+	showFullListOfFeatures($statement, $searchType);
 }
 
 function showRegExpResults ($statement, $searchType) {
@@ -96,7 +96,7 @@ function showRegExpResults ($statement, $searchType) {
 	}*/
 	/*echo '<table class="featureResults">';
 	echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';*/
-	showFullListOfFeatures($statement);
+	showFullListOfFeatures($statement, $searchType);
 }
 
 function showFullListOfFeatures ($statement, $searchType) {
