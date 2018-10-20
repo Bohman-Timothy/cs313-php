@@ -59,8 +59,12 @@ table.loanResults td, table.loanResults th {
 	margin-left: 1em;
 }
 
-#currentLoans_id, #searchAllFeatures_id {
+#currentLoans_id {
 	display: none;
+}
+
+#searchAllFeatures_id {
+	display: block;
 }
 
 #referencesHeading_id {

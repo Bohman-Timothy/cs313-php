@@ -223,7 +223,7 @@ function cleanInput($data) {
 </head>
 <body>
 	<h1>Search the Feature Database</h1>
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="search">
 		<label for="searchInput">Search Value:</label>
 		<input type="text" name="searchInput" title="Enter text for exact match or matching part of a title or name" required value="<?php echo $searchInput ?>"><br />
 		<label for="searchType">Search Type:</label><br />
@@ -236,7 +236,7 @@ function cleanInput($data) {
 			<label for="featureYearOption_id">Feature Year</label><br />
 			<input type="radio" name="searchType" value="format" id="formatOption_id">
 			<label for="formatOption_id">Format</label><br />
-			<input type="radio" name="searchType" value="patron" id="patronOption_id" onclick="showScope()">
+			<input type="radio" name="searchType" value="patron" id="patronOption_id" <!-- onclick="showScope()" -->>
 			<label for="patronOption_id">Patron</label><br />
 		</div>
 		<p id="searchAllFeatures_id">Will Search All Features</p>
@@ -279,6 +279,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://stackoverflow.com/questions/8529656/how-do-i-convert-a-string-to-a-number-in-php/8529687</li>
 		<li>https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp</li>
 		<li>https://www.w3schools.com/sql/sql_and_or.asp</li>
+		<li>https://stackoverflow.com/questions/8922002/attach-event-listener-through-javascript-to-radio-button</li>
 	</ul>
 	</div>
 </body>
