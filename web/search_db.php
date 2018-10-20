@@ -86,12 +86,12 @@ function showExactMatchResults($statement, $searchType) {
 	switch ($searchType) {
 		case 'patron':
 			echo '<table class="patronResults">';
-			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+			echo '<thead><caption class="exactResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfPatrons($statement);
 			break;
 		default:
 			echo '<table class="featureResults">';
-			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+			echo '<thead><caption class="exactResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfFeatures($statement, $searchType);
 	}
 }
