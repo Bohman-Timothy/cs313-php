@@ -158,7 +158,7 @@ function showFullListOfFeatures ($statement, $searchType) {
 		}
 	}
 	if ($counter == 0) {
-		echo '</table> <p class="noResults">No results</p>';
+		echo '</table> <p class=\'noResults\'>No results</p>';
 	}
 	else {
 		echo '</table>';
@@ -175,7 +175,7 @@ function showFullListOfPatrons($statement) {
 			echo '<td class="fullName">' . $row['full_name'] . '</td></tr>';
 		}
 		else {
-			echo '<tr><td class="noResults">No results</td></tr>';
+			echo '<tr><td class=\'noResults\'>No results</td></tr>';
 		}
 	}
 	echo '</table>';
@@ -198,7 +198,7 @@ function showFullListOfLoans($statement) {
 			echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
 		}
 		else {
-			echo '<tr><td class="noResults">No results</td></tr>';
+			echo '<tr><td class=\'noResults\'>No results</td></tr>';
 		}
 	}
 	echo '</table>';
