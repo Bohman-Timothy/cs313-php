@@ -37,20 +37,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	searchFeatureRegExp($searchInput, $searchTargetColumn);
 }
 
-/*function searchFeatureExact ($searchInput, $searchTargetColumn) {
+function searchFeatureExact ($searchInput, $searchTargetColumn) {
 	$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
 	$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);
 	$statement->execute();
 }
 
 function searchFeatureRegExp ($searchInput, $searchTargetColumn) {
-	$db_expression = 'SELECT id, feature_title, feature_year, format,
+/*	$db_expression = 'SELECT id, feature_title, feature_year, format,
 		format_year, feature_set_title, location, existing_loan
 		FROM feature_view
 		WHERE ' . $searchTargetColumn .' ~* \'.*' . $searchInput . '.*\'';
 	$statement_regexp = $db->prepare($db_expression);
-	$statement_regexp->execute();
-}*/
+	$statement_regexp->execute();*/
+}
 
 function showExactMatchResults($statement) {
 	echo '<table class="featureResults">';
