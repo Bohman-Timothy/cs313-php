@@ -60,15 +60,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function showExactMatchResults($statement) {
-	echo '<table class="featureResults">';
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+		echo '<table class="featureResults">';
+	}
+	else if ($searchType == 'patron') {
+		echo '<table class="patronResults">';
+	}
 	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
-	showFullListOfFeatures($statement);
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+		showFullListOfFeatures($statement);
+	}
+	else if ($searchType == 'patron') {
+		showFullListOfPatrons($statement);
+	}
 }
 
 function showRegExpResults ($statement) {
-	echo '<table class="featureResults">';
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+		echo '<table class="featureResults">';
+	}
+	else if ($searchType == 'patron') {
+		echo '<table class="patronResults">';
+	}
 	echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-	showFullListOfFeatures($statement);
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+		showFullListOfFeatures($statement);
+	}
+	else if ($searchType == 'patron') {
+		showFullListOfPatrons($statement);
+	}
 }
 
 function showFullListOfFeatures ($statement) {
@@ -106,6 +126,17 @@ function showFullListOfFeatures ($statement) {
 	}
 	echo '</table>';
 }*/
+
+function showFullListOfPatrons($statement) {
+	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>username</th><th>Full Name</th></tr>';
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<tr><td class="id">' . $row['id'] . '</td>';
+		echo '<td class="username">' . $row['username'] . '</td>';
+		echo '<td class="fullName">' . $row['full_name'] . '</td></tr>';
+	}
+	echo '</table>';
+}
 
 function cleanInput($data) {
    $data = trim($data);
