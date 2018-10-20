@@ -69,6 +69,7 @@ table.loanResults td, table.loanResults th {
 
 #clickToExpand_id {
 	font-style: italic;
+	text-decoration: underline;
 }
 
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {

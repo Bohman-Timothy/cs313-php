@@ -26,10 +26,10 @@ function showReferences() {
 
 	if (references.style.display == "none") {
 		references.style.display = "block";
-		clickToExpand.content = "Click to hide";
+		clickToExpand.textContent = "Click heading to hide references";
 	}
 	else {
 		references.style.display = "none";
-		clickToExpand.content = "Click to expand";
+		clickToExpand.textContent = "Click heading to expand references";
 	}
 }

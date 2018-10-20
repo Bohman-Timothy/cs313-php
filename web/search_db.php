@@ -262,8 +262,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-	<h2>References</h2>
-	<p id="clickToExpand_id" onclick="showReferences()">Click to expand</p>
+	<h2 onclick="showReferences()">References</h2>
+	<p id="clickToExpand_id">Click heading to expand references</p>
 	<div id="references_id">
 	<ul>
 		<li>https://stackoverflow.com/questions/2491068/does-height-and-width-not-apply-to-span/37876264</li>
