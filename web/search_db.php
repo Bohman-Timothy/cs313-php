@@ -27,7 +27,7 @@ $searchTargetColumn = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
-	/*$searchType = cleanInput($_POST["searchType"]);*/
+	$searchType = cleanInput($_POST["searchType"]);
 	
 	if ($searchType == 'featureTitle') {
 		$searchTargetColumn = 'feature_title';
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$searchTargetColumn = 'feature_set_title';
 	}
 	
-	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title = \'Jumanji\';';
+	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
 	$statement = $db->prepare($db_expression);
 	$statement->execute();
 	
@@ -132,11 +132,11 @@ function cleanInput($data) {
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<label for="searchInput">Search Value:</label>
 		<input type="text" name="searchInput" title="Text must match exactly" value="<?php echo $searchInput ?>"><br />
-		<!-- <label for="searchType">Search Type:</label><br />
+		<label for="searchType">Search Type:</label><br />
 		<div class="searchTypeOptions">
 			<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
 			<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
-		</div> -->
+		</div>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
