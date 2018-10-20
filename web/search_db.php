@@ -226,7 +226,7 @@ function cleanInput($data) {
 <head>
 	<title>Search the Feature Database</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="project1_db.css">
+    <link rel="stylesheet" href="project1.css">
     <script src="project1.js" charset="UTF-8"></script>
 </head>
 <body>
