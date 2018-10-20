@@ -29,20 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
 	$searchLoans = cleanInput($_POST["searchLoans"]);
-	switch ($searchLoans) {
-		case true:
-			echo '<p>Searching loans</p>';
-			break;
-		default:
-	}
 
 	switch ($searchType) {
 		case 'patron':
 			switch ($searchLoans) {
 				case true:
-					$db_patron_query_exact = 'SELECT id, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\';';
+					$db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\';';
 
-					$db_patron_query_regexp = 'SELECT id, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
+					$db_patron_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
 					break;
 				default:
 					$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . preg_quote($searchInput) . '\' OR full_name ~* \'' . preg_quote($searchInput) . '\';';
@@ -56,27 +50,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$patron_statement_regexp->execute();
 			break;
 		default:
-			if ($searchType == 'featureTitle') {
-				$searchTargetColumn = 'feature_title';
-			}
-			else if ($searchType == 'featureSetTitle') {
-				$searchTargetColumn = 'feature_set_title';
-			}
-			else if ($searchType == 'featureYear') {
-				$searchTargetColumn = 'feature_year';
-			}
-			else if ($searchType == 'format') {
-				$searchTargetColumn = 'format';
-			}
+			switch ($searchLoans) {
+				case true:
+					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\';';
 
-			switch ($searchType) {
-				case 'featureYear':
-					$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
+					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
 					break;
 				default:
-					$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
+					if ($searchType == 'featureTitle') {
+						$searchTargetColumn = 'feature_title';
+					}
+					else if ($searchType == 'featureSetTitle') {
+						$searchTargetColumn = 'feature_set_title';
+					}
+					else if ($searchType == 'featureYear') {
+						$searchTargetColumn = 'feature_year';
+					}
+					else if ($searchType == 'format') {
+						$searchTargetColumn = 'format';
+					}
 
-					$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\';';
+					switch ($searchType) {
+						case 'featureYear':
+							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
+							break;
+						default:
+							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
+
+							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\';';
+					}
 			}
 			$statement_exact = $db->prepare($db_query_exact);
 			$statement_exact->execute();
@@ -216,7 +218,6 @@ function cleanInput($data) {
 <head>
 	<title>Search the Feature Database</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/inconsolata" type="text/css"/>
     <link rel="stylesheet" href="project1_db.css">
 </head>
 <body>
@@ -238,7 +239,7 @@ function cleanInput($data) {
 			<label for="patronOption_id">Patron</label><br />
 		</div>
 		<input type="checkbox" name="searchLoans" id="searchLoans_id">
-		<label for="searchLoans_id">Search Loans</label><br />
+		<label for="searchLoans_id">Search Loans Only</label><br />
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
