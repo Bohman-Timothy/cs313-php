@@ -33,23 +33,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	else if ($searchType == 'featureSetTitle') {
 		$searchTargetColumn = 'feature_set_title';
 	}
-	searchFeatureExact($searchInput, $searchTargetColumn);
+	searchFeatureExact($searchInput/*, $searchTargetColumn*/);
 	searchRegExp($searchInput, $searchTargetColumn);
 }
 
-function searchFeatureExact ($searchInput, $searchTargetColumn) {
+function searchFeatureExact ($searchInput/*, $searchTargetColumn*/) {
 	/*$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title = ' . $searchInput . '\';';
 	$statement_regexp = $db->prepare($db_expression);
-	$statement_regexp->execute();
-	/*$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
+	$statement_regexp->execute();*/
+	$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
 	$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);
-	$statement->execute();*/
+	$statement->execute();
 }
 
 function searchRegExp ($searchInput, $searchTargetColumn) {
-	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn .' ~* \'.*' . $searchInput . '.*\'';
+	/*$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
 	$statement_regexp = $db->prepare($db_expression);
-	$statement_regexp->execute();
+	$statement_regexp->execute();*/
 }
 
 function showExactMatchResults($statement) {
@@ -130,8 +130,8 @@ function cleanInput($data) {
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	/*showExactMatchResults($statement);*/
-	showRegExpResults($statement_regexp);
+	showExactMatchResults($statement);
+	/*showRegExpResults($statement_regexp);*/
 }
 ?>
 
