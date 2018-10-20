@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function showExactMatchResults($statement, $searchType) {
-	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		echo '<table class="featureResults">';
 	}
 	else if ($searchType == 'patron') {
@@ -74,11 +74,14 @@ function showExactMatchResults($statement, $searchType) {
 	}
 	else if ($searchType == 'patron') {
 		showFullListOfPatrons($statement);
-	}
+	}*/
+	echo '<table class="featureResults">';
+	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
+	showFullListOfFeatures($statement);
 }
 
 function showRegExpResults ($statement, $searchType) {
-	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
 		echo '<table class="featureResults">';
 	}
 	else if ($searchType == 'patron') {
@@ -90,7 +93,10 @@ function showRegExpResults ($statement, $searchType) {
 	}
 	else if ($searchType == 'patron') {
 		showFullListOfPatrons($statement);
-	}
+	}*/
+	echo '<table class="featureResults">';
+	echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+	showFullListOfFeatures($statement);
 }
 
 function showFullListOfFeatures ($statement, $searchType) {
