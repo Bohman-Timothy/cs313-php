@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 
-function showExactMatchResults($statement, $searchType) {
+function showExactMatchResults($statement, $searchType, $searchLoans) {
 	switch ($searchLoans) {
 		case true:
 			echo '<table class="loanResults">';
@@ -240,11 +240,11 @@ function cleanInput($data) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	switch ($searchType) {
 		case 'patron':
-			showExactMatchResults($patron_statement_exact, $searchType);
+			showExactMatchResults($patron_statement_exact, $searchType, $searchLoans);
 			showRegExpResults($patron_statement_regexp, $searchType, $searchLoans);
 			break;
 		default:
-			showExactMatchResults($statement_exact, $searchType);
+			showExactMatchResults($statement_exact, $searchType, $searchLoans);
 			showRegExpResults($statement_regexp, $searchType, $searchLoans);
 	}
 }
