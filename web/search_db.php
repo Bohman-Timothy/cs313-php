@@ -255,6 +255,7 @@ function cleanInput($data) {
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	echo '<p>Searched for: ' . $searchInput . '</p>';
 	switch ($searchType) {
 		case 'patron':
 			showExactMatchResults($patron_statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
