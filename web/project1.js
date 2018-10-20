@@ -15,12 +15,12 @@ function showScope() {
 	var searchAllFeatures = document.getElementById("searchAllFeatures_id");
 	var searchLoansCheckbox = document.getElementById("searchLoans_id");
 	
-	if ((patronOption.checked == true) || (searchLoansCheckbox.checked == true)) {
+	/*if ((patronOption.checked == true) || (searchLoansCheckbox.checked == true)) {
 		searchAllFeatures.style.display = "none";
 	}
-	else {
+	else {*/
 		searchAllFeatures.style.display = "block";
-	}
+	/*}*/
 }
 
 function showReferences() {
