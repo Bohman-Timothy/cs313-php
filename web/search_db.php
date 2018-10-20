@@ -51,13 +51,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$statement_regexp->execute();
 	/*}
 	else*/ /*if ($searchType == 'patron') {*/
-		/*$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
+		$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
 		$patron_statement_exact = $db->prepare($db_patron_query_exact);
 		$patron_statement_exact->execute();
 		
 		$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . $searchInput . '.*\' OR full_name ~* \'.*' . $searchInput . '.*\';';
 		$patron_statement_regexp = $db->prepare($db_patron_query_regexp);
-		$patron_statement_regexp->execute();*/
+		$patron_statement_regexp->execute();
 	/*}*/
 }
 
