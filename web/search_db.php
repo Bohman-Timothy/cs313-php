@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if ($searchType == 'featureTitle') {
 			$searchTargetColumn = 'feature_title';
 		}
-		else if ($searchType == 'featureSetTitle') {
+		else /*($searchType == 'featureSetTitle')*/ {
 			$searchTargetColumn = 'feature_set_title';
 		}
 
