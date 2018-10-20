@@ -35,8 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	else if ($searchType == 'featureSetTitle') {
 		$searchTargetColumn = 'feature_set_title';
 	}
+	
 	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title = \'Jumanji\';';
 	$statement = $db->prepare($db_expression);
+	$statement_regexp->execute();
+	
 	searchFeatureExact(/*$searchInput, $searchTargetColumn*/);
 	searchRegExp($searchInput, $searchTargetColumn);
 }
