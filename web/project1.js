@@ -13,6 +13,7 @@ function showCurrentLoansOption() {
 function showScope() {
 	var patronOption = document.getElementById("patronOption_id");
 	var searchAllFeatures = document.getElementById("searchAllFeatures_id");
+	var searchLoansCheckbox = document.getElementById("searchLoans_id");
 	
 	if ((patronOption.checked == true) || (searchLoansCheckbox.checked == true)) {
 		searchAllFeatures.style.display = "none";
