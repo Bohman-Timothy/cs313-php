@@ -22,14 +22,14 @@ function showScope() {
 
 function showReferences() {
 	var referencesList = document.getElementById("referencesList_id");
-	var clickToExpand = document.getElementById("clickToExpand_id");
+	var clickToShowReferences = document.getElementById("clickToShowReferences_id");
 
 	if (referencesList.style.display == "none") {
 		referencesList.style.display = "block";
-		clickToExpand.textContent = "Click heading to hide references";
+		clickToShowReferences.textContent = "Click heading to hide references";
 	}
 	else {
 		referencesList.style.display = "none";
-		clickToExpand.textContent = "Click heading to expand references";
+		clickToShowReferences.textContent = "Click heading to show references";
 	}
 }
