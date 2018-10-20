@@ -21,15 +21,15 @@ function showScope() {
 }
 
 function showReferences() {
-	var references = document.getElementById("references_id");
+	var referencesList = document.getElementById("referencesList_id");
 	var clickToExpand = document.getElementById("clickToExpand_id");
 
-	if (references.style.display == "none") {
-		references.style.display = "block";
+	if (referencesList.style.display == "none") {
+		referencesList.style.display = "block";
 		clickToExpand.textContent = "Click heading to hide references";
 	}
 	else {
-		references.style.display = "none";
+		referencesList.style.display = "none";
 		clickToExpand.textContent = "Click heading to expand references";
 	}
 }

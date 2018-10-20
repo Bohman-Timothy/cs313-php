@@ -262,9 +262,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-	<h2 onclick="showReferences()">References</h2>
+	<h2 id="referencesHeading_id" onclick="showReferences()">References</h2>
 	<p id="clickToExpand_id">Click heading to expand references</p>
-	<div id="references_id">
+	<div id="referencesList_id">
 	<ul>
 		<li>https://stackoverflow.com/questions/2491068/does-height-and-width-not-apply-to-span/37876264</li>
 		<li>https://stackoverflow.com/questions/5684144/how-to-completely-remove-borders-from-html-table</li>

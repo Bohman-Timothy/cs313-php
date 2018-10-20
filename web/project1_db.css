@@ -63,13 +63,16 @@ table.loanResults td, table.loanResults th {
 	display: none;
 }
 
-#references_id {
+#referencesHeading_id {
+	text-decoration: underline;
+}
+
+#referencesList_id {
 	display: none;
 }
 
 #clickToExpand_id {
 	font-style: italic;
-	text-decoration: underline;
 }
 
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
