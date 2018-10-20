@@ -29,35 +29,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
 	/*$db_copy = $db;*/
-	
+
+	switch ($searchType) {
+		case 'patron':
+			$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . preg_quote($searchInput) . '\' OR full_name ~* \'' . preg_quote($searchInput) . '\';';
+			$patron_statement_exact = $db->prepare($db_patron_query_exact);
+			$patron_statement_exact->execute();
+
+			$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
+			$patron_statement_regexp = $db->prepare($db_patron_query_regexp);
+			$patron_statement_regexp->execute();
+			break;
+		default:
 	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
 		if ($searchType == 'featureTitle') {
 			$searchTargetColumn = 'feature_title';
 		}
-		else /*($searchType == 'featureSetTitle')*/ {
+		else if ($searchType == 'featureSetTitle') {
 			$searchTargetColumn = 'feature_set_title';
 		}
+		else if ($searchType == 'featureYear') {
+			$searchTargetColumn = 'feature_year';
+		}
+		else if ($searchType == 'format') {
+			$searchTargetColumn = 'format';
+		}
 
-		$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
-			
-		$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\';';
-		
 		/*$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';*/
+		$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
 		$statement_exact = $db->prepare($db_query_exact);
 		$statement_exact->execute();
 		
 		/*$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';*/
+		$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\';';
 		$statement_regexp = $db->prepare($db_query_regexp);
 		$statement_regexp->execute();
-	/*}
-	else*/ /*if ($searchType == 'patron') {*/
-		$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . preg_quote($searchInput) . '\' OR full_name ~* \'' . preg_quote($searchInput) . '\';';
-		$patron_statement_exact = $db->prepare($db_patron_query_exact);
-		$patron_statement_exact->execute();
-		
-		$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
-		$patron_statement_regexp = $db->prepare($db_patron_query_regexp);
-		$patron_statement_regexp->execute();
+	}
+	/*else*/ /*if ($searchType == 'patron') {*/
 	/*}*/
 }
 
@@ -75,13 +83,15 @@ function showExactMatchResults($statement, $searchType) {
 	else if ($searchType == 'patron') {
 		showFullListOfPatrons($statement);
 	}*/
-	echo '<table class="results">';
-	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
 	switch ($searchType) {
 		case 'patron':
+			echo '<table class="patronResults">';
+			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfPatrons($statement);
 			break;
 		default:
+			echo '<table class="featureResults">';
+			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfFeatures($statement, $searchType);
 	}
 }
@@ -100,13 +110,15 @@ function showRegExpResults ($statement, $searchType) {
 	else if ($searchType == 'patron') {
 		showFullListOfPatrons($statement);
 	}*/
-	echo '<table class="results">';
-	echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 	switch ($searchType) {
 		case 'patron':
+			echo '<table class="patronResults">';
+			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfPatrons($statement);
 			break;
 		default:
+			echo '<table class="featureResults">';
+			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfFeatures($statement, $searchType);
 	}
 }
@@ -154,8 +166,8 @@ function showFullListOfFeatures ($statement, $searchType) {
 }*/
 
 function showFullListOfPatrons($statement) {
-	echo '<table class="results">';
-	echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+	/*echo '<table class="results">';
+	echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';*/
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>username</th><th>Full Name</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
@@ -191,6 +203,8 @@ function cleanInput($data) {
 		<div class="searchTypeOptions">
 			<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
 			<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
+			<input type="radio" name="searchType" value="featureYear">Feature Year<br />
+			<input type="radio" name="searchType" value="format">Format<br />
 			<input type="radio" name="searchType" value="patron">Patron<br />
 		</div>
 		<input type="submit" value="Search" class="submitButton">
