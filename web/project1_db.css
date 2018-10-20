@@ -45,7 +45,7 @@ table.patronResults td, table.patronResults th {
 	text-align: left;
 }
 
-.submitButton {
+.submitButton, table.featureResults, table.patronResults {
 	margin-top: 1em;
 }
 
