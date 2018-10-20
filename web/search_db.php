@@ -107,7 +107,7 @@ function showRegExpResults ($statement, $searchType) {
 
 function showFullListOfFeatures ($statement, $searchType) {
 	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
-		echo '<table class="featureResults">';
+		echo '<table class="results">';
 		echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 		echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
 		echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
@@ -148,7 +148,7 @@ function showFullListOfFeatures ($statement, $searchType) {
 }*/
 
 function showFullListOfPatrons($statement) {
-	echo '<table class="patronResults">';
+	echo '<table class="results">';
 	echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>username</th><th>Full Name</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
