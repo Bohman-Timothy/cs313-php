@@ -50,10 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 		else if ($searchType == 'featureYear') {
 			$searchTargetColumn = 'feature_year';
+			$searchInput = (int)$searchInput;
 		}
 		else if ($searchType == 'format') {
 			$searchTargetColumn = 'format';
-			$searchInput = (int)$searchInput;
 		}
 
 		/*$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';*/
@@ -251,6 +251,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.w3schools.com/cssref/pr_font_font-style.asp</li>
 		<li>https://dev.w3.org/html5/html-author/charref</li>
 		<li>https://www.w3schools.com/php/php_switch.asp</li>
+		<li>https://stackoverflow.com/questions/8529656/how-do-i-convert-a-string-to-a-number-in-php/8529687</li>
 	</ul>
 </body>
 </html>
