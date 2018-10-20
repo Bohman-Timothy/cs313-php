@@ -87,59 +87,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function showExactMatchResults($statement, $searchType) {
-	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
-		echo '<table class="featureResults">';
-	}
-	else if ($searchType == 'patron') {
-		echo '<table class="patronResults">';
-	}
-	echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
-	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
-		showFullListOfFeatures($statement);
-	}
-	else if ($searchType == 'patron') {
-		showFullListOfPatrons($statement);
-	}*/
-	switch ($searchType) {
-		case 'patron':
-			echo '<table class="patronResults">';
+	switch ($searchLoans) {
+		case true:
+			echo '<table class="loanResults">';
 			echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
-			showFullListOfPatrons($statement);
+			showFullListOfLoans($statement);
 			break;
 		default:
-			echo '<table class="featureResults">';
-			echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
-			showFullListOfFeatures($statement, $searchType);
+			switch ($searchType) {
+				case 'patron':
+					echo '<table class="patronResults">';
+					echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
+					showFullListOfPatrons($statement);
+					break;
+				default:
+					echo '<table class="featureResults">';
+					echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
+					showFullListOfFeatures($statement, $searchType);
+			}
 	}
 }
 
 function showRegExpResults ($statement, $searchType, $searchLoans) {
-	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
-		echo '<table class="featureResults">';
-	}
-	else if ($searchType == 'patron') {
-		echo '<table class="patronResults">';
-	}
-	echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
-		showFullListOfFeatures($statement);
-	}
-	else if ($searchType == 'patron') {
-		showFullListOfPatrons($statement);
-	}*/
 	switch ($searchLoans) {
 		case true:
-			/*switch ($searchType) {
-				case 'patron':
-					echo '<table class="loanResults">';
-					echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-					showFullListOfPatrons($statement);
-					break;
-				default:
-					echo '<table class="loanResults">';
-					echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-					showFullListOfFeatures($statement, $searchType);
-			}*/
 			echo '<table class="loanResults">';
 			echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
 			showFullListOfLoans($statement);
