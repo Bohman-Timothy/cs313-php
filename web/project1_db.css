@@ -51,7 +51,7 @@ table.loanResults td, table.loanResults th {
 	margin-top: 1em;
 }
 
-.searchTypeOptions {
+.searchTypeOptions, #searchAllFeatures_id {
 	margin-left: 4em;
 }
 
@@ -59,7 +59,7 @@ table.loanResults td, table.loanResults th {
 	margin-left: 1em;
 }
 
-#currentLoans_id {
+#currentLoans_id, #searchAllFeatures_id {
 	display: none;
 }
 
