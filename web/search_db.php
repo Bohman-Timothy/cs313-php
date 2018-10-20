@@ -225,7 +225,7 @@ function cleanInput($data) {
 	<h1>Search the Feature Database</h1>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<label for="searchInput">Search Value:</label>
-		<input type="text" name="searchInput" title="Enter text for exact match or matching part of a title or name" value="<?php echo $searchInput ?>"><br />
+		<input type="text" name="searchInput" title="Enter text for exact match or matching part of a title or name" required value="<?php echo $searchInput ?>"><br />
 		<label for="searchType">Search Type:</label><br />
 		<div class="searchTypeOptions">
 			<input type="radio" name="searchType" value="featureTitle" id="featureTitleOption_id" checked>
