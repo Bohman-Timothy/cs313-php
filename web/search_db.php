@@ -28,7 +28,7 @@ $searchTargetColumn = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
-	$db_copy = $db;
+	/*$db_copy = $db;*/
 	
 	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
 		if ($searchType == 'featureTitle') {
@@ -48,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	/*}
 	else*/ if ($searchType == 'patron') {		
 		$db_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
-		$statement_exact = $db->prepare($db_query_exact);
-		$statement_exact->execute();
+		$patron_statement_exact = $db->prepare($db_query_exact);
+		$patron_statement_exact->execute();
 		
 		$db_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . $searchInput . '.*\' OR full_name ~* \'.*' . $searchInput . '.*\';';;
-		$statement_regexp = $db->prepare($db_query_regexp);
-		$statement_regexp->execute();
+		$patron_statement_regexp = $db->prepare($db_query_regexp);
+		$patron_statement_regexp->execute();
 	}
 }
 
@@ -167,8 +167,14 @@ function cleanInput($data) {
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if ($searchType == 'patron') {
+		showExactMatchResults($patron_statement_exact, $searchType);
+		showRegExpResults($patron_statement_regexp, $searchType);
+	}
+	else {
 	showExactMatchResults($statement_exact, $searchType);
 	showRegExpResults($statement_regexp, $searchType);
+	}
 }
 ?>
 
