@@ -86,7 +86,7 @@ function showExactMatchResults($statement, $searchType) {
 	switch ($searchType) {
 		case 'patron':
 			echo '<table class="patronResults">';
-			echo '<thead><caption class="exactResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+			echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
 			showFullListOfPatrons($statement);
 			break;
 		default:
@@ -132,16 +132,14 @@ function showFullListOfFeatures ($statement, $searchType) {
 	/*}*/
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
-			echo '<tr><td class="id">' . $row['id'] . '</td>';
-			echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
-			echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
-			echo '<td class="format">' . $row['format'] . '</td>';
-			echo '<td class="formatYear">' . $row['format_year'] . '</td>';
-			echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
-			echo '<td class="location">' . $row['location'] . '</td>';
-			echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
-		}
+		echo '<tr><td class="id">' . $row['id'] . '</td>';
+		echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
+		echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
+		echo '<td class="format">' . $row['format'] . '</td>';
+		echo '<td class="formatYear">' . $row['format_year'] . '</td>';
+		echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
+		echo '<td class="location">' . $row['location'] . '</td>';
+		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
 	}
 	echo '</table>';
 }
