@@ -32,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 	/*else if ($searchType == 'featureSetTitle') {
 		$searchTargetColumn = 'feature_set_title';
-	}
+	}*/
 	searchFeatureExact($searchInput, $searchTargetColumn);
-	searchRegExp($searchInput, $searchTargetColumn);*/
+	searchRegExp($searchInput, $searchTargetColumn);
 }
 
 function searchFeatureExact ($searchInput, $searchTargetColumn) {
