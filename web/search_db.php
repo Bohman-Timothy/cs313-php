@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchType = cleanInput($_POST["searchType"]);
 	$db_copy = $db;
 	
-	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {*/
 		if ($searchType == 'featureTitle') {
 			$searchTargetColumn = 'feature_title';
 		}
@@ -39,17 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 
 		$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
-		$statement_exact = $db_copy->prepare($db_query_exact);
+		$statement_exact = $db->prepare($db_query_exact);
 		$statement_exact->execute();
 		
 		$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
-		$statement_regexp = $db_copy->prepare($db_query_regexp);
+		$statement_regexp = $db->prepare($db_query_regexp);
 		$statement_regexp->execute();
-	}
-	else if ($searchType == 'patron') {
-		$username = 'username';
-		$fullName = 'full_name';
-		
+	/*}
+	else*/ if ($searchType == 'patron') {		
 		$db_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
 		$statement_exact = $db->prepare($db_query_exact);
 		$statement_exact->execute();
