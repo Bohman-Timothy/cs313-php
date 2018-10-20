@@ -28,7 +28,8 @@ table.featureResults {
 	/*border-collapse: collapse;*/
 }
 
-table.results caption.resultsTableCaption
+table.featureResults caption.resultsTableCaption,
+table.patronResults caption.resultsTableCaption
 /*table.featureResults caption.exactResultsTableCaption,
 table.featureResults caption.regExpResultsTableCaption*/ {
 	font-size: 1.2em;
