@@ -238,7 +238,7 @@ function cleanInput($data) {
 			<input type="radio" name="searchType" value="patron" id="patronOption_id">
 			<label for="patronOption_id">Patron</label><br />
 		</div>
-		<input type="checkbox" name="searchLoans" id="searchLoans_id">
+		<input type="checkbox" name="searchLoans" id="searchLoans_id" onclick="showCurrentLoansOption()">
 		<label for="searchLoans_id">Search Loans Only</label><br />
 		<div id="currentLoans_id">
 			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoans_id" checked>

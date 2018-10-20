@@ -59,6 +59,10 @@ table.loanResults td, table.loanResults th {
 	margin-left: 1em;
 }
 
+#currentLoans_id {
+	display: none;
+}
+
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
 }*/
