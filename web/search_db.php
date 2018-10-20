@@ -177,14 +177,14 @@ function cleanInput($data) {
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	if ($searchType == 'patron') {
+	/*if ($searchType == 'patron') {
 		showExactMatchResults($patron_statement_exact, $searchType);
 		showRegExpResults($patron_statement_regexp, $searchType);
 	}
-	else {
+	else {*/
 		showExactMatchResults($statement_exact, $searchType);
 		showRegExpResults($statement_regexp, $searchType);
-	}
+	/*}*/
 }
 ?>
 
