@@ -190,7 +190,7 @@ function showFullListOfLoans($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
-		echo '<td class="loanDate">' . $row['loan_date'] . '</td>';
+		echo '<td class="loanDate">' . date_format($row['loan_date'], "Y/m/d") . '</td>';
 		echo '<td class="returnDate">' . $row['return_date'] . '</td>';
 		echo '<td class="username">' . $row['username'] . '</td>';
 		echo '<td class="fullName">' . $row['full_name'] . '</td>';
