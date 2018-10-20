@@ -65,6 +65,7 @@ table.loanResults td, table.loanResults th {
 
 #searchAllFeatures_id {
 	display: block;
+	font-style: italic;
 }
 
 #referencesHeading_id {

@@ -3,8 +3,8 @@ for (var i = 0, max = searchTypeRadio.length; i < max; i++) {
 	searchTypeRadio[i].onclick = showScope();
 }*/
 
-document.forms["search"].elements["searchType"].addEventListener("click", showScope);
-document.forms["search"].elements["searchLoans"].addEventListener("click", showScope);
+/*document.forms["search"].elements["searchType"].addEventListener("click", showScope);
+document.forms["search"].elements["searchLoans"].addEventListener("click", showScope);*/
 
 function showCurrentLoansOption() {
 	var searchLoansCheckbox = document.getElementById("searchLoans_id");

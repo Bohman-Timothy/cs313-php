@@ -236,10 +236,10 @@ function cleanInput($data) {
 			<label for="featureYearOption_id">Feature Year</label><br />
 			<input type="radio" name="searchType" value="format" id="formatOption_id">
 			<label for="formatOption_id">Format</label><br />
-			<input type="radio" name="searchType" value="patron" id="patronOption_id" <!-- onclick="showScope()" -->>
+			<input type="radio" name="searchType" value="patron" id="patronOption_id"> <!-- onclick="showScope()"> -->
 			<label for="patronOption_id">Patron</label><br />
 		</div>
-		<p id="searchAllFeatures_id">Will Search All Features</p>
+		<p id="searchAllFeatures_id">Will Search All Features Or All Patrons Or All Loans</p>
 		<input type="checkbox" name="searchLoans" id="searchLoans_id" onclick="showCurrentLoansOption()">
 		<label for="searchLoansOnly_id">Search Loans Only</label><br />
 		<div id="currentLoans_id">
