@@ -23,7 +23,7 @@ catch (PDOException $ex)
 
 $searchInput = $searchType = $statement = $statement_regexp = $searchTargetColumn = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["search"]);
 	$searchType = cleanInput($_POST["searchType"]);
 	
@@ -50,7 +50,7 @@ function searchFeatureRegExp ($searchInput, $searchTargetColumn) {
 		WHERE ' . $searchTargetColumn .' ~* \'.*' . $searchInput . '.*\'';
 	$statement_regexp = $db->prepare($db_expression);
 	$statement_regexp->execute();
-}
+}*/
 
 function showExactMatchResults($statement) {
 	echo '<table class="featureResults">';
