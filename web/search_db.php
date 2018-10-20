@@ -38,9 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$searchTargetColumn = 'feature_set_title';
 		}
 
-		$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
+		$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
 			
-		$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
+		$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\';';
 		
 		/*$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';*/
 		$statement_exact = $db->prepare($db_query_exact);
@@ -51,11 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$statement_regexp->execute();
 	/*}
 	else*/ /*if ($searchType == 'patron') {*/
-		$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
+		$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . preg_quote($searchInput) . '\' OR full_name ~* \'' . preg_quote($searchInput) . '\';';
 		$patron_statement_exact = $db->prepare($db_patron_query_exact);
 		$patron_statement_exact->execute();
 		
-		$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . $searchInput . '.*\' OR full_name ~* \'.*' . $searchInput . '.*\';';
+		$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\';';
 		$patron_statement_regexp = $db->prepare($db_patron_query_regexp);
 		$patron_statement_regexp->execute();
 	/*}*/
