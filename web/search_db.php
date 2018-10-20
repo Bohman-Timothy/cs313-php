@@ -140,12 +140,8 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
 }
 
 function showFullListOfFeatures ($statement, $searchType) {
-	/*if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
-		echo '<table class="results">';
-		echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';*/
 		echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
 		echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
-	/*}*/
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		if ($row['id'] != '') {
@@ -159,15 +155,13 @@ function showFullListOfFeatures ($statement, $searchType) {
 		echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
 		}
 		else {
-			echo '<tr><td class="noResults">No results</td></tr>'
+			echo '<tr><td class="noResults">No results</td></tr>';
 		}
 	}
 	echo '</table>';
 }
 
 function showFullListOfPatrons($statement) {
-	/*echo '<table class="results">';
-	echo '<thead><caption class="resultsTableCaption">Results at Least Partially Matching Search</caption></thead>';*/
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Username</th><th>Full Name</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
@@ -177,7 +171,7 @@ function showFullListOfPatrons($statement) {
 			echo '<td class="fullName">' . $row['full_name'] . '</td></tr>';
 		}
 		else {
-			echo '<tr><td class="noResults">No results</td></tr>'
+			echo '<tr><td class="noResults">No results</td></tr>';
 		}
 	}
 	echo '</table>';
@@ -200,7 +194,7 @@ function showFullListOfLoans($statement) {
 			echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
 		}
 		else {
-			echo '<tr><td class="noResults">No results</td></tr>'
+			echo '<tr><td class="noResults">No results</td></tr>';
 		}
 	}
 	echo '</table>';
