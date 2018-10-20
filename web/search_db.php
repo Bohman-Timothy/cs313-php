@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			else if ($searchType == 'format') {
 				$searchTargetColumn = 'format';
 			}
-			$orderBy = 'order by ' . $searchTargetColumn . ' asc';
+			$orderBy = 'ORDER BY ' . $searchTargetColumn . ' ASC';
 			switch ($searchLoans) {
 				case true:
 					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\'' . $orderBy . ';';
@@ -247,7 +247,7 @@ function cleanInput($data) {
 			<input type="radio" name="searchType" value="patron" id="patronOption_id">
 			<label for="patronOption_id">Patron</label><br />
 		</div>
-		<input type="checkbox" name="searchLoans" id="searchLoans_id"> <!-- onclick="showCurrentLoansOption()" -->
+		<input type="checkbox" name="searchLoans" id="searchLoansOnly_id"> <!-- onclick="showCurrentLoansOption()" -->
 		<label for="searchLoansOnly_id">Search Loans Only</label><br />
 		<!-- <div id="currentLoans_id">
 			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoans_id" checked>
