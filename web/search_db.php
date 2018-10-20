@@ -22,27 +22,41 @@ catch (PDOException $ex)
 }
 
 $searchInput = $searchType = '';
-$statement = $statement_regexp = '';
+$statement_exact = $statement_regexp = '';
 $searchTargetColumn = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
 	$searchType = cleanInput($_POST["searchType"]);
 	
-	if ($searchType == 'featureTitle') {
-		$searchTargetColumn = 'feature_title';
+	if (($searchType == 'featureTitle') || ($searchType == 'featureSetTitle')) {
+		if ($searchType == 'featureTitle') {
+			$searchTargetColumn = 'feature_title';
+		}
+		else if ($searchType == 'featureSetTitle') {
+			$searchTargetColumn = 'feature_set_title';
+		}
+
+		$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
+		$statement_exact = $db->prepare($db_query_exact);
+		$statement_exact->execute();
+		
+		$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
+		$statement_regexp = $db->prepare($db_query_regexp);
+		$statement_regexp->execute();
 	}
-	else if ($searchType == 'featureSetTitle') {
-		$searchTargetColumn = 'feature_set_title';
+	else if ($searchType == 'patron') {
+		$username = 'username';
+		$fullName = 'full_name';
+		
+		$db_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . $searchInput . '\' OR full_name ~* \'' . $searchInput . '\';';
+		$statement_exact = $db->prepare($db_query_exact);
+		$statement_exact->execute();
+		
+		$db_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . $searchInput . '.*\' OR full_name ~* \'.*' . $searchInput . '.*\';';;
+		$statement_regexp = $db->prepare($db_query_regexp);
+		$statement_regexp->execute();
 	}
-	
-	$db_expression_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\';';
-	$statement = $db->prepare($db_expression_exact);
-	$statement->execute();
-	
-	$db_expression_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . $searchInput . '.*\';';
-	$statement_regexp = $db->prepare($db_expression_regexp);
-	$statement_regexp->execute();
 }
 
 function showExactMatchResults($statement) {
@@ -118,12 +132,13 @@ function cleanInput($data) {
 		<div class="searchTypeOptions">
 			<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
 			<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
+			<input type="radio" name="searchType" value="patron">Patron<br />
 		</div>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	showExactMatchResults($statement);
+	showExactMatchResults($statement_exact);
 	showRegExpResults($statement_regexp);
 }
 ?>
@@ -138,6 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.regular-expressions.info/numericranges.html</li>
 		<li>https://www.w3schools.com/html/html_forms.asp</li>
 		<li>https://www.w3schools.com/cssref/pr_font_font-style.asp</li>
+		<li>https://dev.w3.org/html5/html-author/charref</li>
 	</ul>
 </body>
 </html>
