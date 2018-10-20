@@ -24,13 +24,30 @@ catch (PDOException $ex)
 $search = $statement = $statement_regexp = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$search = cleanInput($_POST["search"]);
+	$searchInput = cleanInput($_POST["search"]);
+	$searchType = cleanInput($_POST["searchType"]);
+	
+	if ($searchType = 'featureTitle') {
+		$searchTargetColumn = 'feature_title';
+	}
+	else ($searchType = 'featureSetTitle') {
+		$searchTargetColumn = 'feature_set_title';
+	}
+	searchFeatureExact($searchInput);
+	searchFeatureRegExp($searchInput);
+}
 
+function searchFeatureExact ($searchInput) {
 	$statement = $db->prepare('SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title=:feature_title');
-	$statement->bindValue(':feature_title', $search, PDO::PARAM_INT);
+	$statement->bindValue(':feature_title', $searchInput, PDO::PARAM_INT);
 	$statement->execute();
+}
 
-	$db_expression = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE feature_title ~* \'[ A-Za-z:\-]{0,}' . $search . '[ A-Za-z:\-]{0,}\'';
+function searchFeatureRegExp ($searchInput) {
+	$db_expression = 'SELECT id, feature_title, feature_year, format,
+		format_year, feature_set_title, location, existing_loan
+		FROM feature_view
+		WHERE ' . $searchTargetColumn .' ~* \'.*' . $searchInput . '.*\'';
 	$statement_regexp = $db->prepare($db_expression);
 	$statement_regexp->execute();
 }
@@ -41,13 +58,13 @@ function showExactMatchResults($statement) {
 	showFullListOfFeatures($statement);
 }
 
-function showRegExpResults($statement) {
+function showRegExpResults ($statement) {
 	echo '<table class="featureResults">';
 	echo '<thead><caption>Results at Least Partially Matching Search</caption></thead>';
 	showFullListOfFeatures($statement);
 }
 
-function showFullListOfFeatures($statement) {
+function showFullListOfFeatures ($statement) {
 	echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
 	echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -102,9 +119,12 @@ function cleanInput($data) {
 <body>
 	<h1>Search the Feature Database</h1>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<label for="search">Search:</label>
-	<input type="text" name="search" title="Text must match exactly" value="<?php echo $search ?>">
-	<input type="submit" value="Search">
+		<label for="search">Search:</label>
+		<input type="text" name="search" title="Text must match exactly" value="<?php echo $search ?>">
+		<input type="submit" value="Search"><br />
+		<label for="searchType">Search Type:</label>
+		<input type="radio" name="searchType" value="featureTitle" checked>Feature Title<br />
+		<input type="radio" name="searchType" value="featureSetTitle">Feature Set Title<br />
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -113,13 +133,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<h2>References</h2>
-<ul>
-<li>https://stackoverflow.com/questions/2491068/does-height-and-width-not-apply-to-span/37876264</li>
-<li>https://stackoverflow.com/questions/5684144/how-to-completely-remove-borders-from-html-table</li>
-<li><a href="https://stackoverflow.com/questions/35787892/default-value-in-select-query-for-null-values-in-postgres">Default value if null and cast data to another type</a></li>
-<li>https://www.rapidtables.com/web/html/html-codes.html</li>
-<li>https://www.regular-expressions.info/postgresql.html</li>
-</ul>
+	<h2>References</h2>
+	<ul>
+		<li>https://stackoverflow.com/questions/2491068/does-height-and-width-not-apply-to-span/37876264</li>
+		<li>https://stackoverflow.com/questions/5684144/how-to-completely-remove-borders-from-html-table</li>
+		<li><a href="https://stackoverflow.com/questions/35787892/default-value-in-select-query-for-null-values-in-postgres">Default value if null and cast data to another type</a></li>
+		<li>https://www.rapidtables.com/web/html/html-codes.html</li>
+		<li>https://www.regular-expressions.info/postgresql.html</li>
+		<li>https://www.regular-expressions.info/numericranges.html</li>
+	</ul>
 </body>
 </html>
