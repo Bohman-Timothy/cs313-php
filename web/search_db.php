@@ -23,7 +23,7 @@ catch (PDOException $ex)
 
 $searchInput = $searchType = $searchLoans = $searchCurrentLoans = '';
 $statement_exact = $statement_regexp = '';
-$searchTargetColumn = '';
+$searchTargetColumn = $searchOrder = $orderBy = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
@@ -35,6 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($searchInput == '_ALL') {
 		$searchInput = '';
 	}
+
+	/*$searchOrder = 'feature_title';
+
+	if (true) {
+		$orderBy = 'order by ' . $searchOrder . ' asc';
+	}*/
 
 	switch ($searchType) {
 		case 'patron':
@@ -68,11 +74,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			else if ($searchType == 'format') {
 				$searchTargetColumn = 'format';
 			}
+			$orderBy = 'order by ' . $searchTargetColumn . ' asc';
 			switch ($searchLoans) {
 				case true:
-					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
+					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\'' . $orderBy . ';';
 
-					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\';';
+					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\'' . $orderBy . ';';
 					break;
 				default:
 					switch ($searchType) {
