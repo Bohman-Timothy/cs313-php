@@ -201,9 +201,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}*/
 	switch ($searchType) {
 		case 'patron':
+			showFullListOfPatrons($patron_statement_exact);
 			showFullListOfPatrons($patron_statement_regexp);
 			break;
 		default:
+			showFullListOfFeatures($statement_exact, $searchType);
 			showFullListOfFeatures($statement_regexp, $searchType);
 	}
 }
