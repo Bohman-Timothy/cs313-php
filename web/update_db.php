@@ -19,27 +19,27 @@
 		<label for="updateFeature_id">Update a feature instead of inserting a new one</label><br />
 		<div id="enterFeatureIdArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
-			<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter text for exact match or matching part of a title or name" value=""><br />
+			<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
 		</div>
 		<label for="addFeatureTitle_id">Feature Title:</label>
-		<input type="text" name="addFeatureTitle" id="addFeatureTitle_id" title="Enter text for exact match or matching part of a title or name" required value=""><br />
+		<input type="text" name="addFeatureTitle" id="addFeatureTitle_id" title="Enter exact title of the feature" required value=""><br />
 		<label for="addFeatureYear_id">Feature Year:</label>
-		<input type="text" name="addFeatureYear" id="addFeatureYear_id" title="Enter text for exact match or matching part of a title or name" required value=""><br />
+		<input type="text" name="addFeatureYear" id="addFeatureYear_id" title="Enter a four-digit number" required value=""><br />
 		<label for="addFormat">Format:</label>
 		<div class="addFormatOptions">
 			<input type="radio" name="addFormat" value="ultraHd" id="ultraHdOption_id">
 			<label for="ultraHdOption_id">4K Ultra HD Blu-ray</label><br />
 			<input type="radio" name="addFormat" value="bluray" id="blurayOption_id">
 			<label for="blurayOption_id">Blu-ray</label><br />
-			<input type="radio" name="addFormat" value="dvd" id="dvdOption_id">
+			<input type="radio" name="addFormat" value="dvd" id="dvdOption_id" checked>
 			<label for="dvdOption_id">DVD</label><br />
 			<input type="radio" name="addFormat" value="vhs" id="vhsOption_id">
 			<label for="vhsOption_id">VHS</label><br />
 		</div>
 		<label for="addFormatYear_id">FormatYear:</label>
-		<input type="text" name="addFormatYear" id="addFormatYear_id" title="Enter text for exact match or matching part of a title or name" required value=""><br />
-		<label for="addFeatureTitle_id">Feature Title:</label>
-		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter text for exact match or matching part of a title or name" required value=""><br />
+		<input type="text" name="addFormatYear" id="addFormatYear_id" title="Enter a four-digit number" required value=""><br />
+		<label for="addFeatureTitle_id">Feature Set Title:</label>
+		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter exact title of the feature" required value=""><br />
 		<label for="addLocation">Location:</label>
 		<div class="addLocationOptions">
 			<input type="radio" name="addLocation" value="bedroom" id="bedroomOption_id" checked>
