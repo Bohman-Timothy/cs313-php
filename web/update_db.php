@@ -53,7 +53,7 @@
 			<input type="radio" name="addLocation" value="livingRoom" id="livingRoomOption_id">
 			<label for="livingRoomOption_id">Living Room</label><br />
 		</div>
-		<input type="submit" value="Search" class="submitButton">
+		<input type="submit" value="Add or Update" class="submitButton">
 	</form>
 </body>
 </html>

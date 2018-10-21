@@ -294,6 +294,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp</li>
 		<li>https://www.w3schools.com/sql/sql_and_or.asp</li>
 		<li>https://stackoverflow.com/questions/8922002/attach-event-listener-through-javascript-to-radio-button</li>
+		<li>https://www.lifewire.com/display-none-vs-visibility-hidden-3466884</li>
+		<li>https://stackoverflow.com/questions/17630945/is-there-an-opposite-to-displaynone</li>
 	</ul>
 	</div>
 </body>

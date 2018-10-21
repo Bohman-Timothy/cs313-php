@@ -109,7 +109,7 @@ table.featureResults, table.patronResults {
 }
 
 #enterFeatureId_id {
-	display: none;
+	visibility: hidden;
 }
 
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
