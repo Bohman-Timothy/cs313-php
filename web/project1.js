@@ -6,10 +6,10 @@ function showFeatureIdInputField() {
 	var enterFeatureIdArea = document.getElementById("enterFeatureIdArea_id");
 	
 	if (updateFeatureCheckbox.checked == true) {
-		enterFeatureIdArea.style.visibility = "block";
+		enterFeatureIdArea.style.visibility = "visible";
 	}
 	else {
-		enterFeatureIdArea.style.visibility = "visible";
+		enterFeatureIdArea.style.visibility = "hidden";
 	}
 }
 

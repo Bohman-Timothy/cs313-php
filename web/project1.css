@@ -79,7 +79,7 @@ table.featureResults, table.patronResults {
 	margin-bottom: 1em;
 }
 
-.searchTypeOptions {
+.searchTypeOptions, .addFormatOptions, .addLocationOptions {
 	margin-left: 4em;
 }
 
