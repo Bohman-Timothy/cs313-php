@@ -232,7 +232,7 @@ function cleanInput($data) {
 <body>
 	<h1>Search the Feature Database</h1>
 	<ul id="navbar">
-		<p>Menu</p>
+		<h2>Menu</h2>
 		<li class="active"><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
 	</ul>

@@ -1,6 +1,18 @@
 /*document.forms["search"].elements["searchType"].addEventListener("click", showScope);
 document.forms["search"].elements["searchLoans"].addEventListener("click", showScope);*/
 
+function showFeatureIdInputField() {
+	var updateFeatureCheckbox = document.getElementById("updateFeatureCheckbox_id");
+	var enterFeatureIdArea = document.getElementById("enterFeatureIdArea_id");
+	
+	if (updateFeatureCheckbox.checked == true) {
+		enterFeatureIdArea.style.display = "block";
+	}
+	else {
+		enterFeatureIdArea.style.display = "none";
+	}
+}
+
 function showCurrentLoansOption() {
 	var searchLoansCheckbox = document.getElementById("searchLoans_id");
 	var currentLoans = document.getElementById("currentLoans_id");

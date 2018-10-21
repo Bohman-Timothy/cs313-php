@@ -8,6 +8,30 @@ body {
     height: 100%;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 1em;
+    overflow: hidden;
+}
+
+ul#navbar {
+    float: right;
+	border: 2px solid #282851;
+}
+
+#navbar li {
+	margin: 0.5em
+	/*margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-top: 1em;
+	margin-bottom: 1em;*/
+}
+
+#navbar li a {
+    display: block;
+}
+
 form input {
 	font-size: 1em;
 	font-family: "Times New Roman", Verdana, serif;
@@ -84,28 +108,8 @@ table.featureResults, table.patronResults {
 	font-style: italic;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 1em;
-    overflow: hidden;
-}
-
-ul#navbar {
-    float: right;
-	border: 2px solid #282851;
-}
-
-#navbar li {
-	margin: 0.5em
-	/*margin-left: 0.5em;
-	margin-right: 0.5em;
-	margin-top: 1em;
-	margin-bottom: 1em;*/
-}
-
-#navbar li a {
-    display: block;
+#enterFeatureId_id {
+	display: none;
 }
 
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
