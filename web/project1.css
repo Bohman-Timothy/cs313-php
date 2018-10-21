@@ -8,6 +8,10 @@ body {
     height: 100%;
 }
 
+#navbar h2 {
+	padding-top: 0em;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
