@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			}
 			
 			if (($searchType == 'featureYear') || ($searchType == 'format')) {
-				$orderBy = 'ORDER BY feature_title ASC';
+				$orderBy = 'ORDER BY feature_title ASC, feature_set_title ASC';
 			}
 			else if ($searchType == 'featureSetTitle') {
 				$orderBy = 'ORDER BY feature_set_title ASC, feature_title ASC';
@@ -78,9 +78,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			
 			switch ($searchLoans) {
 				case true:
-					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+					switch ($searchType) {
+						case 'featureYear':
+							$db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+							break;
+						default:
+							$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 
-					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
+							$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
+					}
 					break;
 				default:
 					switch ($searchType) {
