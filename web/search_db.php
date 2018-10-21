@@ -72,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			else if ($searchType == 'featureSetTitle') {
 				$orderBy = 'ORDER BY feature_set_title ASC, feature_title ASC';
 			}
-			else {
-				$orderBy = 'ORDER BY ' . $searchTargetColumn . ' ASC';
+			else ($searchType == 'featureTitle') {
+				$orderBy = 'ORDER BY feature_title ASC, feature_set_title ASC';
 			}
 			
 			switch ($searchLoans) {
