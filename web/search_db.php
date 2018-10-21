@@ -201,8 +201,8 @@ function showFullListOfLoans($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<tr><td class="id">' . $row['id'] . '</td>';
-		echo '<td class="loanDate">' . date_format($row['loan_date'], "Y/m/d H:i:s") . '</td>';
-		echo '<td class="returnDate">' . date_format($row['return_date'], "Y/m/d H:i:s") . '</td>';
+		echo '<td class="loanDate">' . date_format($row['loan_date'],'Y/m/d H:i:s') . '</td>';
+		echo '<td class="returnDate">' . date_format($row['return_date'],'Y/m/d H:i:s') . '</td>';
 		echo '<td class="username">' . $row['username'] . '</td>';
 		echo '<td class="fullName">' . $row['full_name'] . '</td>';
 		echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
@@ -305,6 +305,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.lifewire.com/display-none-vs-visibility-hidden-3466884</li>
 		<li>https://stackoverflow.com/questions/17630945/is-there-an-opposite-to-displaynone</li>
 		<li>https://stackoverflow.com/questions/1847460/how-can-i-make-a-float-top-with-css</li>
+		<li>https://www.w3schools.com/php/func_date_date_format.asp</li>
 	</ul>
 	</div>
 </body>
