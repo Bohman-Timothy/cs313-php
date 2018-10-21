@@ -230,11 +230,12 @@ function cleanInput($data) {
     <script src="project1.js" charset="UTF-8"></script>
 </head>
 <body>
+	<h1>Search the Feature Database</h1>
 	<ul id="navbar">
+		<p>Menu</p>
 		<li class="active"><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
 	</ul>
-	<h1>Search the Feature Database</h1>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="search">
 		<label for="searchInput">Search Value:</label>
 		<input type="text" name="searchInput" title="Enter text for exact match or matching part of a title or name" required value="<?php echo $searchInput ?>"><br />
