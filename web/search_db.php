@@ -69,6 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if (($searchType == 'featureYear') || ($searchType == 'format')) {
 				$orderBy = 'ORDER BY feature_title ASC';
 			}
+			else if ($searchType == 'featureSetTitle') {
+				$orderBy = 'ORDER BY featureSetTitle ASC, feature_title ASC';
+			}
 			else {
 				$orderBy = 'ORDER BY ' . $searchTargetColumn . ' ASC';
 			}
