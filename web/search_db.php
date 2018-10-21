@@ -37,14 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$orderBy = 'ORDER BY ' . $searchOrder . ' ASC';
 			switch ($searchLoans) {
 				case true:
-					$db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . ' ' $orderBy . '\';';
+					$db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 
-					$db_patron_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . ' ' $orderBy . '.*\';';
+					$db_patron_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 					break;
 				default:
-					$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . preg_quote($searchInput) . '\' OR full_name ~* \'' . preg_quote($searchInput) . ' ' $orderBy . '\';';
+					$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ~* \'' . preg_quote($searchInput) . '\' OR full_name ~* \'' . preg_quote($searchInput) . '\'. ' . $orderBy . ';';
 
-					$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . ' ' $orderBy . '.*\';';
+					$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 			}
 			$patron_statement_exact = $db->prepare($db_patron_query_exact);
 			$patron_statement_exact->execute();
