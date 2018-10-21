@@ -25,6 +25,7 @@ ul#navbar {
     float: right;
 	border: 2px solid #282851;
 	vertical-align: top;
+	display: inline-block;
 }
 
 #navbar li {
