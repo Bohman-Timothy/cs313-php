@@ -31,11 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchLoans = cleanInput($_POST["searchLoans"]);
 	$searchCurrentLoans = cleanInput($_POST["searchCurrentLoans"]);
 
-	/* Hidden feature to allow viewing all rows at once */
-	if ($searchInput == '_ALL') {
-		$searchInput = '';
-	}
-
 	switch ($searchType) {
 		case 'patron':
 			$searchOrder = 'full_name';
@@ -231,6 +226,7 @@ function cleanInput($data) {
 		<h2>Menu</h2>
 		<li class="active"><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
+		<li><a href="checkout_db.php">Update the database</a></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="search">
 		<label for="searchInput">Search Value:</label>

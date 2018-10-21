@@ -12,6 +12,7 @@
 		<h2>Menu</h2>
 		<li><a href="search_db.php">Search the database</a></li>
 		<li class="active"><a href="update_db.php">Update the database</a></li>
+		<li><a href="checkout_db.php">Update the database</a></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="update">
 		<h2>Enter data to insert a feature into the database</h2>
@@ -39,7 +40,7 @@
 		<label for="addFormatYear_id">FormatYear:</label>
 		<input type="text" name="addFormatYear" id="addFormatYear_id" title="Enter a four-digit number" required value=""><br />
 		<label for="addFeatureTitle_id">Feature Set Title:</label>
-		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter exact title of the feature" required value=""><br />
+		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set)" value=""><br />
 		<label for="addLocation">Location:</label>
 		<div class="addLocationOptions">
 			<input type="radio" name="addLocation" value="bedroom" id="bedroomOption_id" checked>
