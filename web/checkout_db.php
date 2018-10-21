@@ -11,7 +11,7 @@
 		<h2>Menu</h2>
 		<li><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
-		<li class="active"><a href="checkout_db.php">Update the database</a></li>
+		<li class="active"><a href="checkout_db.php">Checkout a Feature</a></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="update">
 		<h2>Enter data to select a feature to get on loan</h2>

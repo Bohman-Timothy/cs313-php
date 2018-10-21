@@ -226,7 +226,7 @@ function cleanInput($data) {
 		<h2>Menu</h2>
 		<li class="active"><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
-		<li><a href="checkout_db.php">Update the database</a></li>
+		<li><a href="checkout_db.php">Checkout a Feature</a></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="search">
 		<label for="searchInput">Search Value:</label>
@@ -288,6 +288,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://stackoverflow.com/questions/8922002/attach-event-listener-through-javascript-to-radio-button</li>
 		<li>https://www.lifewire.com/display-none-vs-visibility-hidden-3466884</li>
 		<li>https://stackoverflow.com/questions/17630945/is-there-an-opposite-to-displaynone</li>
+		<li>https://stackoverflow.com/questions/1847460/how-can-i-make-a-float-top-with-css</li>
 	</ul>
 	</div>
 </body>
