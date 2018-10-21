@@ -65,7 +65,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			else if ($searchType == 'format') {
 				$searchTargetColumn = 'format';
 			}
-			$orderBy = 'ORDER BY ' . $searchTargetColumn . ' ASC';
+			
+			if (($searchType == 'featureYear') || ($searchType == 'format')) {
+				$orderBy = 'ORDER BY feature_title ASC';
+			}
+			else {
+				$orderBy = 'ORDER BY ' . $searchTargetColumn . ' ASC';
+			}
+			
 			switch ($searchLoans) {
 				case true:
 					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
