@@ -68,19 +68,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$orderBy = 'ORDER BY ' . $searchTargetColumn . ' ASC';
 			switch ($searchLoans) {
 				case true:
-					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\'' . $orderBy . ';';
+					$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 
-					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\'' . $orderBy . ';';
+					$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 					break;
 				default:
 					switch ($searchType) {
 						case 'featureYear':
-							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
+							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 							break;
 						default:
-							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\';';
+							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 
-							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\';';
+							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 					}
 			}
 			$statement_exact = $db->prepare($db_query_exact);
@@ -226,7 +226,7 @@ function cleanInput($data) {
 		<h2>Menu</h2>
 		<li class="active"><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
-		<li><a href="checkout_db.php">Checkout a Feature</a></li>
+		<li><a href="checkout_db.php">Check Out a Feature</a></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="search">
 		<label for="searchInput">Search Value:</label>
