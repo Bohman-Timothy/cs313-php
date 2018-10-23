@@ -18,6 +18,7 @@
 		<div id="enterFeatureIdArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
 			<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
+		</div>
 		<input type="submit" value="Submit" class="submitButton">
 	</form>
 </body>
