@@ -3,13 +3,13 @@ document.forms["search"].elements["searchLoans"].addEventListener("click", showS
 
 function showFeatureIdInputField() {
 	var updateFeatureCheckbox = document.getElementById("updateFeatureCheckbox_id");
-	var enterFeatureIdArea = document.getElementById("enterFeatureIdArea_id");
+	var enterFeatureIdHiddenArea = document.getElementById("enterFeatureIdHiddenArea_id");
 	
 	if (updateFeatureCheckbox.checked == true) {
-		enterFeatureIdArea.style.visibility = "visible";
+		enterFeatureIdHiddenArea.style.visibility = "visible";
 	}
 	else {
-		enterFeatureIdArea.style.visibility = "hidden";
+		enterFeatureIdHiddenArea.style.visibility = "hidden";
 	}
 }
 
