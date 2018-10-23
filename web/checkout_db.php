@@ -15,10 +15,8 @@
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="checkout">
 		<h2>Enter data to select a feature to get on loan</h2>
-		<div id="enterFeatureIdArea_id">
-			<label for="enterFeatureId_id">Enter Feature ID:</label>
-			<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
-		</div>
+		<label for="enterFeatureId_id">Enter Feature ID:</label>
+		<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
 		<input type="submit" value="Submit" class="submitButton">
 	</form>
 </body>

@@ -116,7 +116,7 @@ table.featureResults, table.patronResults {
 	font-style: italic;
 }
 
-#enterFeatureIdArea_id {
+#enterFeatureIdHiddenArea_id {
 	visibility: hidden;
 }
 

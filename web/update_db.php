@@ -18,7 +18,7 @@
 		<h2>Enter data to insert a feature into the database</h2>
 		<input type="checkbox" name="updateFeature" id="updateFeatureCheckbox_id" onclick="showFeatureIdInputField()">
 		<label for="updateFeature_id">Update a feature instead of inserting a new one</label><br />
-		<div id="enterFeatureIdArea_id">
+		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
 			<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
 		</div>
