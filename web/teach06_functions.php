@@ -29,42 +29,34 @@ catch (PDOException $ex)
 }
 
 function showAllScriptures($db) {
-	$statement = $db->prepare('SELECT * FROM scripture');
+    $statement = $db->prepare('SELECT * FROM scripture');
     $statement->execute();
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-	{
-		echo '<strong>' . $row['book'] . ' ';
-		echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
-		echo '&quot;' . $row['content'] . '&quot;';
-		echo 'Topics: <br />';
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    {
+        echo '<strong>' . $row['book'] . ' ';
+        echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
+        echo '&quot;' . $row['content'] . '&quot;<br/>';
+        echo 'Topics:<br/>';
 
-$statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_topic_id = topic.id WHERE fk_scripture_id=:row');
-$statementScripTopic->bindValue(':row', $row['id'], PDO::PARAM_INT);
-$statementScripTopic->execute();
+        $statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_topic_id = topic.id WHERE fk_scripture_id=:row');
+        $statementScripTopic->bindValue(':row', $row['id'], PDO::PARAM_INT);
+        $statementScripTopic->execute();
 
-		while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
-{
-	//print topics
-	echo 'Topic: ' . $rowTopic['name'] . <br/>;
-}
-		echo '<br/>';
-	}
-}
-
-function showAllResultsScriptureReferences($statement) {
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-	{
-		echo '<a href ="scripture_details.php?id=' . $row['id'] . '"><strong>' . $row['book'] . ' ';
-		echo $row['chapter']. ':' . $row['verse'] . '</strong></a>';
-		echo '<br/>';
-	}
+        while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
+        {
+            //print topics
+            echo 'Topic: ' . $rowTopic['name'] . '<br/>';
+        }
+        echo '<br/>';
+    }
 }
 
 function cleanInput($data) {
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 
 ?>
+
