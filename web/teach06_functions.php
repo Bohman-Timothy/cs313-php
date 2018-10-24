@@ -28,9 +28,9 @@ catch (PDOException $ex)
     die();
 }
 
-/*function showAllScriptures($db) {
+function showAllScriptures($db) {
 	$statement = $db->prepare('SELECT * FROM scripture');
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+/*	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<strong>' . $row['book'] . ' ';
 		echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
@@ -47,8 +47,8 @@ $statementScripTopic.execute();
 	echo 'Topic: ' . $rowTopic['name'] . <br/>;
 }
 		echo '<br/>';
-	}
-}*/
+	}*/
+}
 
 function showAllResultsScriptureReferences($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
