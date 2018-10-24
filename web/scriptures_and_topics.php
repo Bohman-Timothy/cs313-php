@@ -16,6 +16,7 @@ include 'teach06_functions.php';
     <title>Scriptures and Topics</title>
 </head>
 <body>
+<h1>Scriptures and Topics</h1>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="book_id">Book:</label>
     <input type="text" name="book" id="book_id"><br/>
@@ -27,7 +28,6 @@ include 'teach06_functions.php';
     <textarea name="content" id="content_id"></textarea>
     <br/>
     <?php
-    include 'teach06_functions.php';
     //checkboxes
     foreach ($db->query('SELECT id, name FROM topic') as $row)
     {
