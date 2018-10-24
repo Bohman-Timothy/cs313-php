@@ -49,14 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $chapter = clean_input($_POST["chapter"]);
     $verse = clean_input($_POST["verse"]);
     $content = clean_input($_POST["content"]);
-    $topics = clean_input($_POST["topic"]);
+    $topics = $_POST["topic"];
 
 //insert scripture
     $statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
     $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
 
 
-	$scripture_id = $pdo->lastInsertId('scripture_id_seq');
+	$scripture_id = $db->lastInsertId('scripture_id_seq');
 
 foreach ($topics as $topic)
 {
