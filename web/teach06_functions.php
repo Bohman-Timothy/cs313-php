@@ -30,14 +30,15 @@ catch (PDOException $ex)
 
 function showAllScriptures($db) {
 	$statement = $db->prepare('SELECT * FROM scripture');
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        echo '<strong>' . $row['book'] . ' ';
-        echo $row['chapter'] . ':' . $row['verse'] . '</strong> - ';
-        echo '&quot;' . $row['content'] . '&quot;';
-        echo 'Topics: ';
-    }
-/*$statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_topic_id = topic.id WHERE fk_scripture_id=:row');
-$statementScripTopic.bindValue(:row, $row['id'], PDO::INT);
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<strong>' . $row['book'] . ' ';
+		echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
+		echo '&quot;' . $row['content'] . '&quot;';
+		echo 'Topics: ';
+
+$statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_topic_id = topic.id WHERE fk_scripture_id=:row');
+/*$statementScripTopic.bindValue(:row, $row['id'], PDO::INT);
 $statementScripTopic.execute();
 
 		while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
@@ -45,8 +46,8 @@ $statementScripTopic.execute();
 	//print topics
 	echo 'Topic: ' . $rowTopic['name'] . <br/>;
 }
-		echo '<br/>';
-	}*/
+		echo '<br/>';*/
+	}
 }
 
 function showAllResultsScriptureReferences($statement) {
