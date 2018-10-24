@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $chapter = clean_input($_POST["chapter"]);
     $verse = clean_input($_POST["verse"]);
     $content = clean_input($_POST["content"]);
-    $topics[] = clean_input($_POST["topic[]"]);
+    $topics = clean_input($_POST["topic"]);
 
 //insert scripture
     $statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
