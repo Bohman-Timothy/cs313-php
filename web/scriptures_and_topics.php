@@ -16,7 +16,8 @@
 <title>Scriptures and Topics</title>
 </head>
 <body>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<h1>Scriptures and Topics</h1>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="book_id">Book:</label>
     <input type="text" name="book" id="book_id"><br />
     <label for="chapter_id">Chapter:</label>
@@ -24,11 +25,12 @@
     <label for="verse_id">Verse:</label>
     <input type="text" name="verse" id="verse_id"><br />
     <label for="content_id">Content:</label>
-    <textarea name="content" id="content_id"><br />
+    <textarea name="content" id="content_id"></textarea><br />
 
 
 
-        <!-- checkboxes -->
+
+    <!-- checkboxes -->
 <?php
 foreach ($db->query('SELECT id, name FROM topic') as $row)
 {
