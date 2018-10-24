@@ -39,9 +39,9 @@ function showAllScriptures($db) {
 
 $statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_topic_id = topic.id WHERE fk_scripture_id=:row');
 $statementScripTopic.bindValue(':row', $row['id'], PDO::INT);
-/*$statementScripTopic.execute();
+$statementScripTopic.execute();
 
-		while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
+		/*while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
 {
 	//print topics
 	echo 'Topic: ' . $rowTopic['name'] . <br/>;
