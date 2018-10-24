@@ -48,7 +48,7 @@ $statementScripTopic.execute();
 }
 		echo '<br/>';
 	}
-}
+}*/
 
 function showAllResultsScriptureReferences($statement) {
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -57,7 +57,7 @@ function showAllResultsScriptureReferences($statement) {
 		echo $row['chapter']. ':' . $row['verse'] . '</strong></a>';
 		echo '<br/>';
 	}
-}*/
+}
 
 function cleanInput($data) {
    $data = trim($data);
