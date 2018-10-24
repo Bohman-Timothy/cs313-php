@@ -28,7 +28,7 @@ catch (PDOException $ex)
     die();
 }
 
-function showAllScriptures($db) {
+/*function showAllScriptures($db) {
 	$statement = $db->prepare('SELECT * FROM scripture');
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
@@ -57,7 +57,7 @@ function showAllResultsScriptureReferences($statement) {
 		echo $row['chapter']. ':' . $row['verse'] . '</strong></a>';
 		echo '<br/>';
 	}
-}
+}*/
 
 function cleanInput($data) {
    $data = trim($data);
