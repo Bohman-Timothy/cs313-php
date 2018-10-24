@@ -41,12 +41,12 @@ $statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN t
 $statementScripTopic.bindValue(':row', $row['id'], PDO::INT);
 $statementScripTopic.execute();
 
-		/*while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
+		while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
 {
 	//print topics
 	echo 'Topic: ' . $rowTopic['name'] . <br/>;
 }
-		echo '<br/>';*/
+		echo '<br/>';
 	}
 }
 
