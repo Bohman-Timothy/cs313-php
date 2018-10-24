@@ -30,16 +30,17 @@ catch (PDOException $ex)
 
 function showAllScriptures($db) {
 	$statement = $db->prepare('SELECT * FROM scripture');
+    $statement->execute();
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<strong>' . $row['book'] . ' ';
 		echo $row['chapter']. ':' . $row['verse'] . '</strong> - ';
 		echo '&quot;' . $row['content'] . '&quot;';
-		echo 'Topics: ';
+		echo 'Topics: <br />';
 
 $statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_topic_id = topic.id WHERE fk_scripture_id=:row');
-$statementScripTopic.bindValue(':row', $row['id'], PDO::INT);
-$statementScripTopic.execute();
+$statementScripTopic->bindValue(':row', $row['id'], PDO::INT);
+$statementScripTopic->execute();
 
 		while ($rowTopic = $statementScripTopic->fetch(PDO::FETCH_ASSOC))
 {
