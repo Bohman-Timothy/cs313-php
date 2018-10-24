@@ -6,7 +6,7 @@
  * Time: 10:28 PM
  */
 
-include 'teach06_functions.php';
+//include 'teach06_functions.php';
 
 ?>
 
