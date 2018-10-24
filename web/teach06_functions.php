@@ -27,7 +27,6 @@ catch (PDOException $ex)
     echo 'Error!: ' . $ex->getMessage();
     die();
 }
-?>
 
 function showAllScriptures($db) {
 	$statement = $db->prepare('SELECT * FROM scripture');
@@ -38,7 +37,7 @@ function showAllScriptures($db) {
 		echo '&quot;' . $row['content'] . '&quot;';
 		echo 'Topics: ';
 
-$statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_scripture_id=:row' AND fk_topic_id = topic.id);
+$statementScripTopic = $db->prepare('SELECT * FROM scriptures_topics LEFT JOIN topic on fk_topic_id = topic.id WHERE fk_scripture_id=:row');
 $statementScripTopic.bindValue(:row, $row['id'], PDO::INT);
 $statementScripTopic.execute();
 
