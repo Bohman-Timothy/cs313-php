@@ -17,7 +17,7 @@ include 'teach06_functions.php';
 </head>
 <body>
 <h1>Scriptures and Topics</h1>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="newScriptureEntry_id">
     <h2>New Scripture Entry:</h2>
     <label for="book_id">Book:</label>
     <input type="text" name="book" id="book_id"><br/>
@@ -42,6 +42,24 @@ include 'teach06_functions.php';
     <input type="submit" value="Submit" onclick="if(document.getElementById('newTopicCheckbox_id').checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}"><br/>
     <!--  onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}" -->
 </form>
+
+<script>
+    $("#newScriptureEntry_id").submit(function(e) {
+       var form = $(this);
+       var url = form.attr('action');
+
+       $.ajax({
+           type: "POST",
+           url: url,
+           data: form.serialize(),
+           success: function(data) {
+               alert(data);
+           }
+       });
+
+       e.preventDefault(); // Prevents form from submitting the normal way
+    });
+</script>
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST")
