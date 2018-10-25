@@ -18,6 +18,7 @@ include 'teach06_functions.php';
 <body>
 <h1>Scriptures and Topics</h1>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <h2>New Scripture Entry:</h2>
     <label for="book_id">Book:</label>
     <input type="text" name="book" id="book_id"><br/>
     <label for="chapter_id">Chapter:</label>
@@ -36,7 +37,8 @@ include 'teach06_functions.php';
         echo 'value="' . $row['id'] . '">' . $row['name'] . '<br/>';
     }
     ?>
-
+    <input type="checkbox" name="newTopicCheckbox" value="">
+    <input type="text" name="newTopic" id="newTopic_id"><br/>
     <input type="submit" value="Submit">
 </form>
 
@@ -48,6 +50,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $verse = cleanInput($_POST["verse"]);
     $content = cleanInput($_POST["content"]);
     $topics = $_POST["topic"];
+    $newTopicCheckbox = $_POST["newTopicCheckbox"];
+    $newTopic = cleanInput($_POST["newTopic"]);
+
+    //insert topic
+    if (($newTopicCheckbox == true) && ($newTopic != '')) {
+        $statement_newTopic = $db->prepare('INSERT INTO topic (name) VALUES (:newTopic)');
+        $statement_newTopic->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
+        $statement_newTopic->execute();
+
+        $statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
+        $statement_newTopicId->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
+        $statement_newTopicId->execute();
+
+        while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
+        {
+            $newTopicId =  $row['id'];
+        }
+        array_push($topics, $newTopicId);
 
     //insert scripture
     $statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
