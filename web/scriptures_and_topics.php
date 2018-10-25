@@ -37,10 +37,10 @@ include 'teach06_functions.php';
         echo 'value="' . $row['id'] . '">' . $row['name'] . '<br/>';
     }
     ?>
-    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="">
+    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="" onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}">
     <input type="text" name="newTopic" id="newTopic_id"><br/>
-    <input type="submit" value="Submit" onclick="if(document.getElementById('newTopicCheckbox_id').checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}"><br/>
-    <!--  onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}" -->
+    <input type="submit" value="Submit"><br/>
+    <!-- onclick="if(document.getElementById('newTopicCheckbox_id').checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}" -->
 </form>
 
 <?php
