@@ -37,7 +37,7 @@ include 'teach06_functions.php';
         echo 'value="' . $row['id'] . '">' . $row['name'] . '<br/>';
     }
     ?>
-    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="" onclick="if(this.checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}">
+    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="" onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}">
     <input type="text" name="newTopic" id="newTopic_id"><br/>
     <input type="submit" value="Submit"><br/>
 </form>
@@ -60,16 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $statement_newTopic->execute();
         echo 'Inserted new topic: ' . $newTopic. '<br/>';
 
-        /*$statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
+        $statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
         $statement_newTopicId->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
-        $statement_newTopicId->execute();*/
+        $statement_newTopicId->execute();
 
-        /*while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
+        while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
         {
             $newTopicId =  $row['id'];
         }
-        array_push($topics, $newTopicId);*/
-        array_push($topics, $newTopic);
+        array_push($topics, $newTopicId);
     }
 
     //insert scripture
