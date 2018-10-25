@@ -37,7 +37,7 @@ include 'teach06_functions.php';
         echo 'value="' . $row['id'] . '">' . $row['name'] . '<br/>';
     }
     ?>
-    <input type="checkbox" name="newTopicCheckbox" value="">
+    <input type="checkbox" name="newTopicCheckbox" value="" onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}">
     <input type="text" name="newTopic" id="newTopic_id"><br/>
     <input type="submit" value="Submit">
 </form>
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $newTopic = cleanInput($_POST["newTopic"]);
 
     //insert topic
-    if (($newTopicCheckbox == true) && ($newTopic != '')) {
+    if (($newTopicCheckbox != '') && ($newTopic != '')) {
         $statement_newTopic = $db->prepare('INSERT INTO topic (name) VALUES (:newTopic)');
         $statement_newTopic->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
         $statement_newTopic->execute();
