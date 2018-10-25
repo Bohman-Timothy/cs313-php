@@ -69,7 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
         array_push($topics, $newTopicId);*/
         array_push($topics, $newTopic);
-
+    }
+    
     //insert scripture
     $statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
     $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
