@@ -59,15 +59,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $statement_newTopic->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
         $statement_newTopic->execute();
 
-        $statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
+        /*$statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
         $statement_newTopicId->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
-        $statement_newTopicId->execute();
+        $statement_newTopicId->execute();*/
 
-        while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
+        /*while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
         {
             $newTopicId =  $row['id'];
         }
-        array_push($topics, $newTopicId);
+        array_push($topics, $newTopicId);*/
+        array_push($topics, $newTopic);
 
     //insert scripture
     $statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
