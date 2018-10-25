@@ -46,12 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $book = cleanInput($_POST["book"]);
     $chapter = cleanInput($_POST["chapter"]);
     $verse = cleanInput($_POST["verse"]);
-    $contents = cleanInput($_POST["contents"]);
+    $content = cleanInput($_POST["content"]);
     $topics = $_POST["topic"];
 
     //insert scripture
     $statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
     $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
+
+    echo 'Scripture entered in database';
 
     $scripture_id = $db->lastInsertId('scripture_id_seq');
 
@@ -62,8 +64,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $statement->execute(array(':scripture' => $scripture_id, ':topic' => $topic));
     }
 
+    echo 'Topics entered in database';
+
     //display all scriptures
     showAllScriptures($db);
+
+    echo 'Scriptures displayed';
 }
 
 ?>
