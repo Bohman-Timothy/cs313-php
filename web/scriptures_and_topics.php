@@ -37,9 +37,9 @@ include 'teach06_functions.php';
         echo 'value="' . $row['id'] . '">' . $row['name'] . '<br/>';
     }
     ?>
-    <input type="checkbox" name="newTopicCheckbox" value="" onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}">
+    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="" onclick="if(this.checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}">
     <input type="text" name="newTopic" id="newTopic_id"><br/>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit"><br/>
 </form>
 
 <?php
