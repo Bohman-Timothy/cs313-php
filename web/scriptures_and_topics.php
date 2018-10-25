@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="verse_id">Verse:</label>
     <input type="text" name="verse" id="verse_id"><br/>
     <label for="content_id">Content:</label>
-    <textarea name="content" id="content_id"></textarea>
+    <textarea name="content" id="content_id" rows="4" cols="50"></textarea>
     <br/>
     <?php
     //checkboxes
