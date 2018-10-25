@@ -37,10 +37,10 @@ include 'teach06_functions.php';
         echo 'value="' . $row['id'] . '">' . $row['name'] . '<br/>';
     }
     ?>
-    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="" onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}">
+    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="">
     <input type="text" name="newTopic" id="newTopic_id"><br/>
-    <input type="submit" value="Submit"><br/>
-    <!-- onclick="if(document.getElementById('newTopicCheckbox_id').checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}" -->
+    <input type="submit" value="Submit" onclick="if(document.getElementById('newTopicCheckbox_id').checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}"><br/>
+    <!--  onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}" -->
 </form>
 
 <?php
@@ -61,14 +61,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $statement_newTopic->execute();
         echo 'Inserted new topic: ' . $newTopic. '<br/>';
 
-        $statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
+        /*$statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
         $statement_newTopicId->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
         $statement_newTopicId->execute();
 
         while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
         {
             $newTopicId =  $row['id'];
-        }
+        }*/
+        $newTopicId = $db->lastInsertId('topic_id_seq');
         array_push($topics, $newTopicId);
     }
 
