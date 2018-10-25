@@ -28,6 +28,7 @@ include 'teach06_functions.php';
             data: form.serialize(),
             success: function(data) {
                 alert(data);
+                console.log('Form submitted by AJAX');
             }
         });
 
