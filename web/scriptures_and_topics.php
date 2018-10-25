@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $newTopicId = $db->lastInsertId('topic_id_seq');
         array_push($topics, $newTopicId);
         echo 'New topic ID:' . $newTopicId . '<br/>';
-        print_r($topic);
+        print_r($topics);
     }
 
 //insert scripture
