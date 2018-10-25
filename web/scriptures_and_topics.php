@@ -8,6 +8,47 @@
 
 include 'teach06_functions.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+$book = cleanInput($_POST["book"]);
+$chapter = cleanInput($_POST["chapter"]);
+$verse = cleanInput($_POST["verse"]);
+$content = cleanInput($_POST["content"]);
+$topics = $_POST["topic"];
+$newTopicCheckbox = $_POST["newTopicCheckbox"];
+$newTopic = cleanInput($_POST["newTopic"]);
+
+//insert topic
+if (($newTopicCheckbox != '') && ($newTopic != '')) {
+    $statement_newTopic = $db->prepare('INSERT INTO topic (name) VALUES (:newTopic)');
+    $statement_newTopic->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
+    $statement_newTopic->execute();
+    echo 'Inserted new topic: ' . $newTopic. '<br/>';
+
+    $statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
+    $statement_newTopicId->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
+    $statement_newTopicId->execute();
+
+    while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
+    {
+        $newTopicId =  $row['id'];
+    }
+    array_push($topics, $newTopicId);
+}
+
+//insert scripture
+$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
+$statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
+
+$scripture_id = $db->lastInsertId('scripture_id_seq');
+
+foreach ($topics as $topic)
+{
+    //insert scripture_topic
+    $statement = $db->prepare('INSERT INTO scriptures_topics (fk_scripture_id, fk_topic_id) VALUES (:scripture, :topic)');
+    $statement->execute(array(':scripture' => $scripture_id, ':topic' => $topic));
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,53 +78,13 @@ include 'teach06_functions.php';
         echo 'value="' . $row['id'] . '">' . $row['name'] . '<br/>';
     }
     ?>
-    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="" onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}">
+    <input type="checkbox" name="newTopicCheckbox" id="newTopicCheckbox_id" value="">
     <input type="text" name="newTopic" id="newTopic_id"><br/>
-    <input type="submit" value="Submit"><br/>
+    <input type="submit" value="Submit" onclick="if(document.getElementById('newTopicCheckbox_id').checked){document.getElementById('newTopicCheckbox_id').value = document.getElementById('newTopic_id').value;}"><br/>
+    <!--  onclick="if(this.checked){this.value = document.getElementById('newTopic_id').value;}" -->
 </form>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    $book = cleanInput($_POST["book"]);
-    $chapter = cleanInput($_POST["chapter"]);
-    $verse = cleanInput($_POST["verse"]);
-    $content = cleanInput($_POST["content"]);
-    $topics = $_POST["topic"];
-    $newTopicCheckbox = $_POST["newTopicCheckbox"];
-    $newTopic = cleanInput($_POST["newTopic"]);
-
-    //insert topic
-    if (($newTopicCheckbox != '') && ($newTopic != '')) {
-        $statement_newTopic = $db->prepare('INSERT INTO topic (name) VALUES (:newTopic)');
-        $statement_newTopic->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
-        $statement_newTopic->execute();
-        echo 'Inserted new topic: ' . $newTopic. '<br/>';
-
-        $statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
-        $statement_newTopicId->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
-        $statement_newTopicId->execute();
-
-        while ($row = $statement_newTopicId->fetch(PDO::FETCH_ASSOC))
-        {
-            $newTopicId =  $row['id'];
-        }
-        array_push($topics, $newTopicId);
-    }
-
-    //insert scripture
-    $statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
-    $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
-
-    $scripture_id = $db->lastInsertId('scripture_id_seq');
-
-    foreach ($topics as $topic)
-    {
-        //insert scripture_topic
-        $statement = $db->prepare('INSERT INTO scriptures_topics (fk_scripture_id, fk_topic_id) VALUES (:scripture, :topic)');
-        $statement->execute(array(':scripture' => $scripture_id, ':topic' => $topic));
-    }
-
     //display all scriptures
     showAllScriptures($db);
 }
