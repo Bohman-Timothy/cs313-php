@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statement_newTopic = $db->prepare('INSERT INTO topic (name) VALUES (:newTopic)');
         $statement_newTopic->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
         $statement_newTopic->execute();
-        echo 'Inserted new topic: ' . $newTopic . '<br/>';
+        /*echo 'Inserted new topic: ' . $newTopic . '<br/>';*/
 
         /*$statement_newTopicId = $db->prepare('SELECT id FROM topic where name = :newTopic');
         $statement_newTopicId->bindValue(':newTopic', $newTopic, PDO::PARAM_STR);
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }*/
         $newTopicId = $db->lastInsertId('topic_id_seq');
         array_push($topics, $newTopicId);
-        echo 'New topic ID:' . $newTopicId . '<br/>';
+        /* echo 'New topic ID:' . $newTopicId . '<br/>'; */
         print_r($topics);
     }
 
