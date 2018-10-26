@@ -1,4 +1,6 @@
 <?php
+include 'project1_functions.php';
+
 try
 {
 	$dbUrl = getenv('DATABASE_URL');
@@ -218,13 +220,6 @@ function showFullListOfLoans($statement) {
 	else {
 		echo '</table>';
 	}
-}
-
-function cleanInput($data) {
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
 }
 ?>
 
