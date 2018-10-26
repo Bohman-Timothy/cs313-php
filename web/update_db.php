@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $updateFeature = cleanInput($_POST["updateFeature"]);
+    $updateFeature = $_POST["updateFeature"];
 
     //insert topic
     if (($updateFeature != '') && ($enterFeatureId != '')) {
