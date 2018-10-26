@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
 
         echo '<table class="featureResults">';
-        echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+        echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
         showFullListOfFeatures($db_query_feature_id);
         /*while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
