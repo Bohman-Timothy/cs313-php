@@ -245,6 +245,7 @@ function cleanInput($data) {
 		<li><a href="checkout_db.php">Check Out a Feature</a></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="search" id="searchForm_id">
+        <h2>Enter data to search the database</h2>
 		<label for="searchInput">Search Value:</label>
 		<input type="text" name="searchInput" title="Enter text for exact match or matching part of a title or name" value="<?php echo $searchInput ?>"><br />
 		<label for="searchType">Search Type:</label><br />
