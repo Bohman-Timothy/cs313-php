@@ -91,6 +91,10 @@ table.featureResults, table.patronResults {
 	margin-left: 4em;
 }
 
+#searchForm_id {
+	margin-top: 1em;
+}
+
 #searchCurrentLoans_id {
 	margin-left: 1em;
 }
