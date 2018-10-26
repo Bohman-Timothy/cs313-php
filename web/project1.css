@@ -87,6 +87,10 @@ table.featureResults, table.patronResults {
 	margin-bottom: 1em;
 }
 
+#addOrSubmitButton_id {
+	margin-top: 1em;
+}
+
 .searchTypeOptions, .addFormatOptions, .addLocationOptions {
 	margin-left: 4em;
 }

@@ -1,3 +1,19 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $updateFeature = cleanInput($_POST["updateFeature"]);
+
+    //insert topic
+    if (($updateFeature != '') && ($enterFeatureId != '')) {
+        //insert scripture
+        echo 'Feature ID to update: ' . $updateFeature . '<br/>';
+        /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
+        $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
+
+        $scripture_id = $db->lastInsertId('scripture_id_seq');*/
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +32,8 @@
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="update">
 		<h2>Enter data to insert a feature into the database</h2>
-		<input type="checkbox" name="updateFeature" id="updateFeatureCheckbox_id" onclick="showFeatureIdInputField()">
-		<label for="updateFeature_id">Update a feature instead of inserting a new one</label><br />
+		<input type="checkbox" name="updateFeature" id="updateFeatureCheckbox_id" value="" onclick="showFeatureIdInputField()">
+		<label for="updateFeatureCheckbox_id">Update a feature instead of inserting a new one</label><br />
 		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
 			<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
@@ -39,7 +55,7 @@
 		</div>
 		<label for="addFormatYear_id">FormatYear:</label>
 		<input type="text" name="addFormatYear" id="addFormatYear_id" title="Enter a four-digit number" required value=""><br />
-		<label for="addFeatureTitle_id">Feature Set Title:</label>
+		<label for="addFeatureSetTitle_id">Feature Set Title:</label>
 		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set)" value=""><br />
 		<label for="addLocation">Location:</label>
 		<div class="addLocationOptions">
@@ -54,7 +70,7 @@
 			<input type="radio" name="addLocation" value="livingRoom" id="livingRoomOption_id">
 			<label for="livingRoomOption_id">Living Room</label><br />
 		</div>
-		<input type="submit" value="Add or Update" class="submitButton">
+		<input type="submit" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}">
 	</form>
 </body>
 </html>

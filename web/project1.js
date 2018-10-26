@@ -13,6 +13,24 @@ function showFeatureIdInputField() {
 	}
 }
 
+//AJAX Non-working example code
+/*$("#newScriptureEntry_id").submit(function(e) {
+    var form = $(this);
+    var url = form.attr('action');
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: form.serialize(),
+        success: function(data) {
+            alert(data);
+            console.log('Form submitted by AJAX');
+        }
+    });
+
+    e.preventDefault(); // Prevents form from submitting the normal way
+});*/
+
 function showCurrentLoansOption() {
 	var searchLoansCheckbox = document.getElementById("searchLoans_id");
 	var currentLoans = document.getElementById("currentLoans_id");
