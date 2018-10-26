@@ -7,8 +7,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //insert topic
     if (($updateFeature != '') && ($enterFeatureId != '')) {
-        //insert scripture
         echo 'Feature ID to update: ' . $updateFeature . '<br/>';
+
+        $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = \'' . preg_quote($updateFeature) . '\';';
+
+        echo '<table class="featureResults">';
+        echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+        showFullListOfFeatures($db_query_feature_id);
+        /*while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        {
+            echo '<tr><td class="id">' . $row['id'] . '</td>';
+            echo '<td class="featureTitle">' . $row['feature_title'] . '</td>';
+            echo '<td class="featureYear">' . $row['feature_year'] . '</td>';
+            echo '<td class="format">' . $row['format'] . '</td>';
+            echo '<td class="formatYear">' . $row['format_year'] . '</td>';
+            echo '<td class="featureSetTitle">' . $row['feature_set_title'] . '</td>';
+            echo '<td class="location">' . $row['location'] . '</td>';
+            echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
+        }
+        if ($counter == 0) {
+            echo '</table> <p class=\'noResults\'>No results</p>';
+        }
+        else {
+            echo '</table>';
+        */
+        //insert scripture
         /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
         $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
 
@@ -39,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<label for="updateFeatureCheckbox_id">Update a feature instead of inserting a new one</label><br />
 		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
-			<input type="text" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
+			<input type="number" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
 		</div>
 		<label for="addFeatureTitle_id">Feature Title:</label>
 		<input type="text" name="addFeatureTitle" id="addFeatureTitle_id" title="Enter exact title of the feature" required value=""><br />
