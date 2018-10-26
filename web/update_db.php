@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (($updateFeature != '') && ($enterFeatureId != '')) {
         echo 'Feature ID to update: ' . $updateFeature . '<br/>';
 
-        $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = \'' . preg_quote($updateFeature) . '\';';
+        $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
 
         echo '<table class="featureResults">';
         echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
