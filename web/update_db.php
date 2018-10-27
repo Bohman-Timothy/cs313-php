@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
-        $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', ' . $featureSetTitle . ', ' . $location . ');';
+        $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', ' . $location . ');';
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute();
