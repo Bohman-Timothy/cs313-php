@@ -22,6 +22,15 @@ function checkDefaultFormat() {
     selectedFormat.checked = true;
 }
 
+function checkDefaultLocation() {
+    var location = "location";
+    var locationId = "1"; //Bedroom is default
+    var idAppended = "_id";
+    var selectedLocationId = location.concat(locationId.concat(idAppended));
+    var selectedLocation = document.getElementById(selectedLocationId);
+    selectedLocation.checked = true;
+}
+
 //AJAX Non-working example code
 /*$("#newScriptureEntry_id").submit(function(e) {
     var form = $(this);

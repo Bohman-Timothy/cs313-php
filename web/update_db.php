@@ -184,7 +184,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<input type="text" name="featureSetTitle" id="featureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set); leave blank otherwise" value="<?php echo $featureSetTitle; ?>"><br />
 		<label for="location">Location:</label>
 		<div class="locationOptions">
-			<input type="radio" name="location" value="1" id="bedroomOption_id" checked>
+            <?php
+            //radio buttons for storage locations
+            foreach ($db->query('SELECT id, location FROM storage_location ORDER BY location ASC') as $row)
+            {
+                //add radio button
+                echo '<input type="radio" name="location" id="location' . $row['id'] . '_id" value="' . $row['id'] . '">';
+                echo '<label for="location' . $row['id'] . '_id">' . $row['location'] . '</label><br/>';
+            }
+            /*echo 'End location generated list<br/>';*/
+            ?>
+            <script>
+                checkDefaultLocation();
+            </script>
+			<!-- <input type="radio" name="location" value="1" id="bedroomOption_id" checked>
 			<label for="bedroomOption_id">Bedroom</label><br />
 			<input type="radio" name="location" value="2" id="diningRoomOption_id">
 			<label for="diningRoomOption_id">Dining Room</label><br />
@@ -193,7 +206,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<input type="radio" name="location" value="4" id="hallwayOption_id">
 			<label for="hallwayOption_id">Hallway</label><br />
 			<input type="radio" name="location" value="5" id="livingRoomOption_id">
-			<label for="livingRoomOption_id">Living Room</label><br />
+			<label for="livingRoomOption_id">Living Room</label><br /> -->
 		</div>
         <?php
         if ($updateFeature != '') {
