@@ -95,11 +95,7 @@ table.featureResults, table.patronResults {
     margin-left: 2em;
 }
 
-#featureHasBeenSelected_id {
-    margin-left: 4em;
-}
-
-.searchTypeOptions, .addFormatOptions, .addLocationOptions {
+.searchTypeOptions, .FormatOptions, .LocationOptions, #featureHasBeenSelected_id {
 	margin-left: 4em;
 }
 
