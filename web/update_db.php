@@ -64,8 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<label for="updateFeatureCheckbox_id">Update a feature instead of inserting a new one</label><br />
 		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
-			<input type="number" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
-		</div>
+            <input type="number" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="">
+            <input type="submit" name="action" value="Select ID" class="submitButton" id="selectIdButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"><br />
+        </div>
 		<label for="addFeatureTitle_id">Feature Title:</label>
 		<input type="text" name="addFeatureTitle" id="addFeatureTitle_id" title="Enter exact title of the feature" required value=""><br />
 		<label for="addFeatureYear_id">Feature Year:</label>
@@ -84,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<label for="addFormatYear_id">FormatYear:</label>
 		<input type="text" name="addFormatYear" id="addFormatYear_id" title="Enter a four-digit number" required value=""><br />
 		<label for="addFeatureSetTitle_id">Feature Set Title:</label>
-		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set)" value=""><br />
+		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set); leave blank otherwise" value=""><br />
 		<label for="addLocation">Location:</label>
 		<div class="addLocationOptions">
 			<input type="radio" name="addLocation" value="bedroom" id="bedroomOption_id" checked>
@@ -98,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<input type="radio" name="addLocation" value="livingRoom" id="livingRoomOption_id">
 			<label for="livingRoomOption_id">Living Room</label><br />
 		</div>
-		<input type="submit" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}">
+		<input type="submit" name="action" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}">
 	</form>
 </body>
 </html>
