@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
 	<title>Check Out a Feature Loan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="project1.css">
@@ -29,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
 		<li class="active"><a href="checkout_db.php">Check Out a Feature</a></li>
+        <li><a href="login_db.php">Sign In</a></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="checkout">
 		<h2>Enter data to select a feature to get on loan</h2>
@@ -44,7 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
         $matchExists = showFullListOfFeatures($db_statement_feature_id);
         if ($matchExists == false) {
-            echo '<p class="errorMessage">You must enter a valid feature ID before you can check it out.</p>';
+            echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
+        }
+        else {
+
         }
     }
     ?>

@@ -92,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
 	<title>Search the Feature Database</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="project1.css">
@@ -174,6 +175,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://www.w3schools.com/cssref/sel_focus.asp">W3Schools - CSS :focus Selector</a></li>
         <li><a href="https://www.w3schools.com/jsref/jsref_concat_string.asp">W3Schools - JavaScript String concat() Method</a></li>
         <li><a href-"https://www.w3schools.com/jsref/prop_radio_checked.asp">W3Schools - Input Radio checked Property</a></li>
+        <li><a href="https://www.w3schools.com/php/php_sessions.asp">W3Schools - PHP 5 Sessions</a></li>
+        <li><a href="https://www.johnmorrisonline.com/build-php-login-form-using-sessions/">How to Build a PHP Login Form Using Sessions</a></li>
+        <li><a href=""></a></li>
 	</ul>
 	</div>
 </body>
