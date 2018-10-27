@@ -14,16 +14,20 @@ $existingLoan = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateFeature = $_POST["updateFeature"];
     $featureId = $_POST["featureId"];
-    $action = $_POST["action"];
+    $action = cleanInput($_POST["action"]);
 
     if ($action == 'Add Feature') {
-        $featureTitle = $_POST["featureTitle"];
+        $featureTitle = cleanInput($_POST["featureTitle"]);
         $featureYear = $_POST["featureYear"];
-        $format = $_POST["format"];
+        $format = cleanInput($_POST["format"]);
         $formatYear = $_POST["formatYear"];
-        $featureSetTitle = $_POST["featureSetTitle"];
-        $location = $_POST["location"];
+        $featureSetTitle = cleanInput($_POST["featureSetTitle"]);
+        $location = cleanInput($_POST["location"]);
 
+        //Test code
+        $format = 3;
+        $location = 1;
+        
         //insert feature
         echo '<p>Inserting feature: ' . $featureTitle . '</p>';
         /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)';
