@@ -167,6 +167,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://stackoverflow.com/questions/17630945/is-there-an-opposite-to-displaynone</li>
 		<li>https://stackoverflow.com/questions/1847460/how-can-i-make-a-float-top-with-css</li>
 		<li>https://www.w3schools.com/php/func_date_date_format.asp</li>
+        <li><a href="https://stackoverflow.com/questions/547821/two-submit-buttons-in-one-form">Stack Overflow - Two submit buttons in one form</a></li>
+        <li><a href="https://stackoverflow.com/questions/18725078/bypass-html-required-attribute-when-submitting">Stack Overflow - Bypass HTML required attribute when submitting</a></li>
 	</ul>
 	</div>
 </body>

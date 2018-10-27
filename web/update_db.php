@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
             <input type="number" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="">
-            <input type="submit" name="action" value="Select ID" class="submitButton" id="selectIdButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"><br />
+            <input type="submit" name="action" value="Select ID" class="submitButton" id="selectIdButton_id" formnovalidate onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"><br />
         </div>
 		<label for="addFeatureTitle_id">Feature Title:</label>
 		<input type="text" name="addFeatureTitle" id="addFeatureTitle_id" title="Enter exact title of the feature" required value=""><br />
