@@ -160,8 +160,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             foreach ($db->query('SELECT id, format FROM physical_format') as $row)
             {
                 //add radio button
-                echo '<input type="radio" name="format" id="format' . $row['id'] . '_id"';
-                echo 'value="' . $row['id'] . '"><label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
+                echo '<input type="radio" name="format" id="format' . $row['id'] . '_id" value="' . $row['id'] . '">';
+                echo '<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
             }
             /*echo 'End format generated list<br/>';*/
             ?>
