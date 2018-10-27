@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //get values to populate input
         $counter = 0;
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        while ($row = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC))
         {
             $id = $row['id'];
             $featureTitle = $row['feature_title'];
