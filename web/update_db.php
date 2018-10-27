@@ -171,7 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
             }
             /*echo 'End format generated list<br/>';*/
-            if (!$featureLocationFormatFromDatabase) {
+            if ($featureLocationFormatFromDatabase == false) {
                 echo '<script>checkDefaultFormat();</script>';
             }
             ?>
@@ -205,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<label for="location' . $row['id'] . '_id">' . $row['location'] . '</label><br/>';
             }
             /*echo 'End location generated list<br/>';*/
-            if (!$featureLocationAppliedFromDatabase) {
+            if ($featureLocationAppliedFromDatabase == false) {
                 echo '<script>checkDefaultLocation();</script>';
             }
             ?>
