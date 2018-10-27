@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /*$result = $db_statement_username->get_result();*/
 
         $match = false;
-        /*while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        while ($row = $db_statement_username->fetch(PDO::FETCH_ASSOC))
         {
                 $match = true;
         }
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else {
             $errorMessage = '<p class="errorMessage">Incorrect username or password</p>';
-        }*/
+        }
     }
 }
 ?>
