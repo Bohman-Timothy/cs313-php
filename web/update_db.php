@@ -30,13 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //insert feature
         echo '<p>Inserting feature: ' . $featureTitle . '</p>';
-        /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)';
-        $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
-        $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', \'' . $featureSetTitle . '\', ' . $location . ');';
+        $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location) VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)';
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-        $db_insert_feature_statement->execute();
+        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));
+        /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', \'' . $featureSetTitle . '\', ' . $location . ');';
+        echo '<p>' . $db_insert_feature_query . '</p>';
+        $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
+        $db_insert_feature_statement->execute();*/
 
         //$featureId = $db->lastInsertId('feature_id_seq');
         echo '<p>Successfully inserted in row #' . $featureId . '</p>';
