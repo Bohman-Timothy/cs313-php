@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
             }
             /*echo 'End format generated list<br/>';*/
-            if ($featureLocationFormatFromDatabase == false) {
+            if ($featureFormatAppliedFromDatabase == false) {
                 echo '<script>checkDefaultFormat();</script>';
                 echo '<p>No format to apply. $format:' . $format . '</p>';
             }
