@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $location = $_POST["location"];
 
         //insert feature
-        $db_insert_feature_statement = $db->prepare('INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)');
-        /*$db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
+        $db_insert_feature_statement = $db->prepare('INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, TO_NUMBER(:feature_year), :format, TO_NUMBER(:format_year), :feature_set_title, :location)');
+        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
@@ -40,8 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     //select ID and display the feature
     else if (($action == 'Select ID') && ($updateFeature != '') && ($featureId != '')) {
-        echo 'Feature ID to update: ' . $updateFeature . '<br/>';
-
         $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
         $db_statement_feature_id = $db->prepare($db_query_feature_id);
         $db_statement_feature_id->execute();
@@ -114,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
         <?php
         if ($updateFeature != '') {
-            echo '<p id="featureHasBeenSelected_id">Feature <strong>' . $updateFeature . '</strong> has been selected.</p>';
+            echo '<p id="featureHasBeenSelected_id">Feature OD #<strong>' . $updateFeature . '</strong> has been selected for update. Modify the details below, then use the &quot;Update Feature&quot; button to submit.</p>';
         }
         ?>
 		<div id="enterFeatureIdHiddenArea_id">
