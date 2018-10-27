@@ -36,10 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $counter++;
         }
         if ($counter == 0) {
-            echo '</table> <p class=\'noResults\'>No results</p>';
+            echo 'No results';
         }
-        else {
-            echo '</table>';
 
         //insert scripture
         /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
