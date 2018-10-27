@@ -13,7 +13,7 @@ function showFeatureIdInputField() {
 	}
 }
 
-function checkDefaultFormat{
+function checkDefaultFormat() {
     var format = "format";
     var formatId = "1";
     var idAppended = "_id";
