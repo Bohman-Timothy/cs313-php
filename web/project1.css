@@ -133,7 +133,7 @@ input[type=text], input[type=number] {
 }
 
 input:focus {
-	border: 1px solid salmon;
+	border: 2px solid salmon;
 }
 
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
