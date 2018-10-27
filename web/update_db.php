@@ -2,14 +2,41 @@
 include 'project1_functions.php';
 
 $updateFeature = $enterFeatureId = $action = '';
+$featureId = '';
+$featureTitle = '';
+$featureYear = '';
+$format = '';
+$formatYear = '';
+$featureSetTitle = '';
+$location = '';
+$existingLoan = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateFeature = $_POST["updateFeature"];
     $enterFeatureId = $_POST["enterFeatureId"];
     $action = $_POST["action"];
 
+    if ($action == 'Add Feature') {
+        $featureTitle = $_POST["featureTitle"];
+        $featureYear = $_POST["featureYear"];
+        $format = $_POST["format"];
+        $formatYear = $_POST["formatYear"];
+        $featureSetTitle = $_POST["featureSetTitle"];
+        $location = $_POST["location"];
+        $existingLoan = $_POST["existingLoan"];
+    }
+    else if ($action == 'Clear Form') {
+        $featureId = '';
+        $featureTitle = '';
+        $featureYear = '';
+        $format = '';
+        $formatYear = '';
+        $featureSetTitle = '';
+        $location = '';
+        $existingLoan = '';
+    }
     //select ID and display the feature
-    if (($action == 'Select ID') && ($updateFeature != '') && ($enterFeatureId != '')) {
+    else if (($action == 'Select ID') && ($updateFeature != '') && ($enterFeatureId != '')) {
         echo 'Feature ID to update: ' . $updateFeature . '<br/>';
 
         $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
@@ -25,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $counter = 0;
         while ($row = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC))
         {
-            $id = $row['id'];
+            $featureId = $row['id'];
             $featureTitle = $row['feature_title'];
             $featureYear = $row['feature_year'];
             $format = $row['format'];
@@ -66,48 +93,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="update">
 		<h2>Enter data to insert a feature into the database</h2>
-		<input type="checkbox" name="updateFeature" id="updateFeatureCheckbox_id" value="" onclick="showFeatureIdInputField()">
+		<input type="checkbox" name="updateFeature" id="updateFeatureCheckbox_id" value="" onclick="showFeatureIdInputField()" <?php if ($updateFeature != '') {echo 'checked';} ?>>
 		<label for="updateFeatureCheckbox_id">Update a feature instead of inserting a new one</label><br />
 		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
-            <input type="number" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="">
-            <input type="submit" name="action" value="Select ID" class="submitButton" id="selectIdButton_id" formnovalidate onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"><br />
+            <input type="number" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="<?php echo $enterFeatureId; ?>">
+            <input type="submit" name="action" value="Select ID" id="selectIdButton_id" formnovalidate onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"><br />
             <?php
             if ($updateFeature != '') {
-                echo '<p>Feature ' . $updateFeature . ' has been selected.</p>';
+                echo '<p id="featureHasBeenSelected_id">Feature ' . $updateFeature . ' has been selected.</p>';
             }
             ?>
         </div>
-		<label for="addFeatureTitle_id">Feature Title:</label>
-		<input type="text" name="addFeatureTitle" id="addFeatureTitle_id" title="Enter exact title of the feature" required value=""><br />
-		<label for="addFeatureYear_id">Feature Year:</label>
-		<input type="text" name="addFeatureYear" id="addFeatureYear_id" title="Enter a four-digit number" required value=""><br />
-		<label for="addFormat">Format:</label>
-		<div class="addFormatOptions">
-			<input type="radio" name="addFormat" value="ultraHd" id="ultraHdOption_id">
+		<label for="featureTitle_id">Feature Title:</label>
+		<input type="text" name="featureTitle" id="featureTitle_id" title="Enter exact title of the feature" required value="<?php echo $featureTitle; ?>"><br />
+		<label for="featureYear_id">Feature Year:</label>
+		<input type="text" name="featureYear" id="featureYear_id" title="Enter a four-digit number" required value="<?php echo $featureYear; ?>"><br />
+		<label for="format">Format:</label>
+		<div class="formatOptions">
+			<input type="radio" name="format" value="ultraHd" id="ultraHdOption_id">
 			<label for="ultraHdOption_id">4K Ultra HD Blu-ray</label><br />
-			<input type="radio" name="addFormat" value="bluray" id="blurayOption_id">
+			<input type="radio" name="format" value="bluray" id="blurayOption_id">
 			<label for="blurayOption_id">Blu-ray</label><br />
-			<input type="radio" name="addFormat" value="dvd" id="dvdOption_id" checked>
+			<input type="radio" name="format" value="dvd" id="dvdOption_id" checked>
 			<label for="dvdOption_id">DVD</label><br />
-			<input type="radio" name="addFormat" value="vhs" id="vhsOption_id">
+			<input type="radio" name="format" value="vhs" id="vhsOption_id">
 			<label for="vhsOption_id">VHS</label><br />
 		</div>
-		<label for="addFormatYear_id">FormatYear:</label>
-		<input type="text" name="addFormatYear" id="addFormatYear_id" title="Enter a four-digit number" required value=""><br />
-		<label for="addFeatureSetTitle_id">Feature Set Title:</label>
-		<input type="text" name="addFeatureSetTitle" id="addFeatureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set); leave blank otherwise" value=""><br />
-		<label for="addLocation">Location:</label>
-		<div class="addLocationOptions">
-			<input type="radio" name="addLocation" value="bedroom" id="bedroomOption_id" checked>
+		<label for="formatYear_id">FormatYear:</label>
+		<input type="text" name="formatYear" id="formatYear_id" title="Enter a four-digit number" required value="<?php echo $formatYear; ?>"><br />
+		<label for="featureSetTitle_id">Feature Set Title:</label>
+		<input type="text" name="featureSetTitle" id="featureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set); leave blank otherwise" value="<?php echo $featureSetTitle; ?>"><br />
+		<label for="location">Location:</label>
+		<div class="locationOptions">
+			<input type="radio" name="location" value="bedroom" id="bedroomOption_id" checked>
 			<label for="bedroomOption_id">Bedroom</label><br />
-			<input type="radio" name="addLocation" value="diningRoom" id="diningRoomOption_id">
+			<input type="radio" name="location" value="diningRoom" id="diningRoomOption_id">
 			<label for="diningRoomOption_id">Dining Room</label><br />
-			<input type="radio" name="addLocation" value="familyRoom" id="familyRoomOption_id">
+			<input type="radio" name="location" value="familyRoom" id="familyRoomOption_id">
 			<label for="familyRoomOption_id">Family Room</label><br />
-			<input type="radio" name="addLocation" value="hallway" id="hallwayOption_id">
+			<input type="radio" name="location" value="hallway" id="hallwayOption_id">
 			<label for="hallwayOption_id">Hallway</label><br />
-			<input type="radio" name="addLocation" value="livingRoom" id="livingRoomOption_id">
+			<input type="radio" name="location" value="livingRoom" id="livingRoomOption_id">
 			<label for="livingRoomOption_id">Living Room</label><br />
 		</div>
         <?php
@@ -118,6 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<input type="submit" name="action" value="Add Feature" class="submitButton" id="addFeatureButton_id">';
         }
         ?>
+        <input type="submit" name="action" value="Clear Form" class="submitButton" id="clearFormButton_id">
 		<!-- <input type="submit" name="action" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"> -->
 	</form>
 </body>

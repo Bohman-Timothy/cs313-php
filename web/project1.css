@@ -87,8 +87,16 @@ table.featureResults, table.patronResults {
 	margin-bottom: 1em;
 }
 
-#addOrUpdateButton_id {
+#addFeatureButton_id, updateFeatureButton_id, #clearFormButton_id {
 	margin-top: 1em;
+}
+
+#clearFormButton_id {
+    margin-left: 2em;
+}
+
+#featureHasBeenSelected_id {
+    margin-left: 4em;
 }
 
 .searchTypeOptions, .addFormatOptions, .addLocationOptions {
