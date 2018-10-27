@@ -43,9 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_statement_feature_id->execute();
 
         //show selected feature
-        echo '<table class="featureResults">';
+        /*echo '<table class="featureResults">';
         echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
-        showFullListOfFeatures($db_statement_feature_id);
+        showFullListOfFeatures($db_statement_feature_id);*/
 
         //get values to populate input
         $counter = 0;
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
 		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
-            <input type="number" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="<?php echo $featureId; ?>">
+            <input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="<?php echo $featureId; ?>">
             <input type="submit" name="action" value="Select ID" id="selectIdButton_id" formnovalidate onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"><br />
         </div>
 		<label for="featureTitle_id">Feature Title:</label>
