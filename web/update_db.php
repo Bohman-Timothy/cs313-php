@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         /*$db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
 
-        $featureId = $db->lastInsertId('feature_id_seq')
+        $featureId = $db->lastInsertId('feature_id_seq');
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
