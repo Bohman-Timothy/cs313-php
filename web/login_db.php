@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (($match == true) && (($username == 'tester') || ($username == 'asquire'))) {
             $_SESSION["user"] = $username;
-            print_r($_SESSION);
+            $_SESSION["loggedIn"] = true;
             $successMessage = '<p class="successMessage">Successfully logged in as ' . $_SESSION["user"] . '</p>';
         }
         else {
@@ -48,7 +48,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <li><a href="search_db.php">Search the database</a></li>
     <li><a href="update_db.php">Update the database</a></li>
     <li><a href="checkout_db.php">Check Out a Feature</a></li>
-    <li class="active"><a href="login_db.php">Sign In</a></li>
+    <li class="active">
+        <?php
+            if ($_SESSION["loggedIn"] == true) {
+                echo '<a href="login_db.php">Sign Out</a>';
+            }
+            else {
+                echo '<a href="login_db.php">Sign In</a>';
+            }
+        ?></li>
 </ul>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="checkout">
     <h2>Enter username and password</h2>

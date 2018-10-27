@@ -30,7 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
 		<li class="active"><a href="checkout_db.php">Check Out a Feature</a></li>
-        <li><a href="login_db.php">Sign In</a></li>
+        <li><?php
+            if ($_SESSION["loggedIn"] == true) {
+                echo '<a href="login_db.php">Sign Out</a>';
+            }
+            else {
+                echo '<a href="login_db.php">Sign In</a>';
+            }
+            ?></li>
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="checkout">
 		<h2>Enter data to select a feature to get on loan</h2>

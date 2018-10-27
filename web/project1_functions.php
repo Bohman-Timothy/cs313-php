@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION["loggedIn"])) {
+    $_SESSION["loggedIn"] = false;
+}
+
 try
 {
     $dbUrl = getenv('DATABASE_URL');
