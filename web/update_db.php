@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /*echo 'End format generated list<br/>';*/
             if ($featureLocationFormatFromDatabase == false) {
                 echo '<script>checkDefaultFormat();</script>';
-                echo '<p>No format to apply</p>';
+                echo '<p>No format to apply. $format:' . $format . '</p>';
             }
             ?>
 			<!-- <input type="radio" name="format" value="4" id="ultraHdOption_id">
@@ -208,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /*echo 'End location generated list<br/>';*/
             if ($featureLocationAppliedFromDatabase == false) {
                 echo '<script>checkDefaultLocation();</script>';
-                echo '<p>No location to apply</p>';
+                echo '<p>No location to apply. $location:' . $location . '</p>';
             }
             ?>
 			<!-- <input type="radio" name="location" value="1" id="bedroomOption_id" checked>
