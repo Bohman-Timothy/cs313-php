@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $location = $_POST["location"];
 
         //insert feature
-        $db_insert_feature_statement = $db->prepare('INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, TO_NUMBER(:feature_year), :format, TO_NUMBER(:format_year), :feature_set_title, :location)');
-        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));
+        $db_insert_feature_statement = $db->prepare('INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)');
+        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => (int)($featureYear), ':format' => $format, ':format_year' => (int)($formatYear), ':feature_set_title' => $featureSetTitle, ':location' => $location));
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
