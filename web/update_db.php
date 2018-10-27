@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="formatOptions">
             <?php
             //radio buttons for formats
-            foreach ($db->query('SELECT id, format FROM physical_format') as $row)
+            foreach ($db->query('SELECT id, format FROM physical_format ORDER BY format ASC') as $row)
             {
                 //add radio button
                 echo '<input type="radio" name="format" id="format' . $row['id'] . '_id" value="' . $row['id'] . '">';

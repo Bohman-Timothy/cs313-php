@@ -15,7 +15,7 @@ function showFeatureIdInputField() {
 
 function checkDefaultFormat() {
     var format = "format";
-    var formatId = "1";
+    var formatId = "2"; //DVD is default
     var idAppended = "_id";
     var selectedFormatId = format.concat(formatId.concat(idAppended));
     var selectedFormat = document.getElementById(selectedFormatId);
