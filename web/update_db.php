@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_insert_feature_statement->execute();*/
 
         $featureId = $db->lastInsertId('feature_id_seq');
-        $successMessage = '<p class="successMessage">Successfully inserted in row #' . $featureId . '</p>';
+        $successMessage = '<p class="successMessage">Successfully inserted in row #' . $featureId  . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_update_feature_statement = $db->prepare($db_update_feature_query);
         $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location, ':featureId' => $featureId));
 
-        $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . '</p>';
+        $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
 
         //insert scripture
         /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
@@ -242,7 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</form>
     <?php
     if ($successMessage != '') {
-        echo $successMessage . ' - &quot;' . $featureTitle . '&quot;';
+        echo $successMessage;
     }
     ?>
 </body>
