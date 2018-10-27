@@ -242,7 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</form>
     <?php
     if ($successMessage != '') {
-        echo $successMessage;
+        echo $successMessage . ' - &quot;' . $featureTitle . '&quot;';
     }
     ?>
 </body>
