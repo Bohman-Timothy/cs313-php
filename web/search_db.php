@@ -171,6 +171,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://stackoverflow.com/questions/18725078/bypass-html-required-attribute-when-submitting">Stack Overflow - Bypass HTML required attribute when submitting</a></li>
         <li><a href="https://www.w3schools.com/css/css_form.asp">W3Schools - CSS Forms</a></li>
         <li><a href="https://www.w3schools.com/cssref/sel_focus.asp">W3Schools - CSS :focus Selector</a></li>
+        <li><a href="https://www.w3schools.com/jsref/jsref_concat_string.asp">W3Schools - JavaScript String concat() Method</a></li>
+        <li><a href-"https://www.w3schools.com/jsref/prop_radio_checked.asp">W3Schools - Input Radio checked Property</a></li>
 	</ul>
 	</div>
 </body>

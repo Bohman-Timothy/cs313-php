@@ -161,18 +161,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             {
                 //add radio button
                 echo '<input type="radio" name="format" id="format' . $row['id'] . '_id"';
-                echo 'value="' . $row['id'] . '">\n<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>\n';
+                echo 'value="' . $row['id'] . '"><label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
             }
-            echo 'End format generated list<br/>';
+            /*echo 'End format generated list<br/>';*/
             ?>
-			<input type="radio" name="format" value="4" id="ultraHdOption_id">
+            <script>
+                checkDefaultFormat();
+            </script>
+			<!-- <input type="radio" name="format" value="4" id="ultraHdOption_id">
 			<label for="ultraHdOption_id">4K Ultra HD Blu-ray</label><br />
 			<input type="radio" name="format" value="3" id="blurayOption_id">
 			<label for="blurayOption_id">Blu-ray</label><br />
 			<input type="radio" name="format" value="2" id="dvdOption_id" checked>
 			<label for="dvdOption_id">DVD</label><br />
 			<input type="radio" name="format" value="1" id="vhsOption_id">
-			<label for="vhsOption_id">VHS</label><br />
+			<label for="vhsOption_id">VHS</label><br /> -->
 		</div>
 		<label for="formatYear_id">Format Year:</label>
 		<input type="text" name="formatYear" id="formatYear_id" title="Enter a four-digit number" required value="<?php echo $formatYear; ?>"><br />

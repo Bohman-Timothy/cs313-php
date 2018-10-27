@@ -13,6 +13,15 @@ function showFeatureIdInputField() {
 	}
 }
 
+function checkDefaultFormat{
+    var format = "format";
+    var formatId = "1";
+    var idAppended = "_id";
+    var selectedFormatId = format.concat(formatId.concat(idAppended));
+    var selectedFormat = document.getElementById(selectedFormatId);
+    selectedFormat.checked = true;
+}
+
 //AJAX Non-working example code
 /*$("#newScriptureEntry_id").submit(function(e) {
     var form = $(this);
