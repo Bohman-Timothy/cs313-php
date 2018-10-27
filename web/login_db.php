@@ -7,9 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = cleanInput($_POST["password"]);
 
     if (($username != '') && ($password != '')) {
-        /*$db_query_username = 'SELECT id, username, full_name FROM patron WHERE username =:username;';
-        $db_statement_username = $db->prepare($db_query_feature_id);
-        $db_statement_username->execute(array(':username' => $username));*/
+        $db_query_username = 'SELECT id, username, full_name FROM patron WHERE username =:username;';
+        $db_statement_username = $db->prepare($db_query_username);
+        $db_statement_username->execute(array(':username' => $username));
         echo '<p>Successfully logged in as ' . $username . '</p>';
     }
 }
