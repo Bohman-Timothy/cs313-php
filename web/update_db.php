@@ -1,7 +1,7 @@
 <?php
 include 'project1_functions.php';
 
-$updateFeature = $enterFeatureId = $action = '';
+$updateFeature = $featureId = $action = '';
 $featureId = '';
 $featureTitle = '';
 $featureYear = '';
@@ -13,7 +13,7 @@ $existingLoan = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateFeature = $_POST["updateFeature"];
-    $enterFeatureId = $_POST["enterFeatureId"];
+    $featureId = $_POST["featureId"];
     $action = $_POST["action"];
 
     if ($action == 'Add Feature') {
@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $formatYear = $_POST["formatYear"];
         $featureSetTitle = $_POST["featureSetTitle"];
         $location = $_POST["location"];
-        $existingLoan = $_POST["existingLoan"];
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
@@ -36,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $existingLoan = '';
     }
     //select ID and display the feature
-    else if (($action == 'Select ID') && ($updateFeature != '') && ($enterFeatureId != '')) {
+    else if (($action == 'Select ID') && ($updateFeature != '') && ($featureId != '')) {
         echo 'Feature ID to update: ' . $updateFeature . '<br/>';
 
         $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
@@ -63,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $counter++;
         }
         if ($counter == 0) {
-            echo 'No results';
+            echo 'No match found for ID #' . $featureId;
         }
 
         //insert scripture
@@ -93,17 +92,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</ul>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="update">
 		<h2>Enter data to insert a feature into the database</h2>
-		<input type="checkbox" name="updateFeature" id="updateFeatureCheckbox_id" value="" onclick="showFeatureIdInputField()" <?php if ($updateFeature != '') {echo 'checked';} ?>>
+        <input type="checkbox" name="updateFeature" id="updateFeatureCheckbox_id" value="" onclick="showFeatureIdInputField();" <?php if ($updateFeature != '') {echo 'checked';} ?>>
 		<label for="updateFeatureCheckbox_id">Update a feature instead of inserting a new one</label><br />
+        <script>
+            showFeatureIdInputField();
+        </script>
+        <?php
+        if ($updateFeature != '') {
+            echo '<p id="featureHasBeenSelected_id">Feature ' . $updateFeature . ' has been selected.</p>';
+        }
+        ?>
 		<div id="enterFeatureIdHiddenArea_id">
 			<label for="enterFeatureId_id">Enter Feature ID:</label>
-            <input type="number" name="enterFeatureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="<?php echo $enterFeatureId; ?>">
+            <input type="number" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value="<?php echo $featureId; ?>">
             <input type="submit" name="action" value="Select ID" id="selectIdButton_id" formnovalidate onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"><br />
-            <?php
-            if ($updateFeature != '') {
-                echo '<p id="featureHasBeenSelected_id">Feature ' . $updateFeature . ' has been selected.</p>';
-            }
-            ?>
         </div>
 		<label for="featureTitle_id">Feature Title:</label>
 		<input type="text" name="featureTitle" id="featureTitle_id" title="Enter exact title of the feature" required value="<?php echo $featureTitle; ?>"><br />
