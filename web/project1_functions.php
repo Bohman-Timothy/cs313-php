@@ -92,9 +92,11 @@ function showFullListOfFeatures ($statement) {
     }
     if ($counter == 0) {
         echo '</table> <p class=\'noResults\'>No results</p>';
+        return false;
     }
     else {
         echo '</table>';
+        return true;
     }
 }
 

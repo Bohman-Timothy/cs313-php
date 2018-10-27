@@ -42,7 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //show selected feature
         echo '<table class="featureResults">';
         echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
-        showFullListOfFeatures($db_statement_feature_id);
+        $matchExists = showFullListOfFeatures($db_statement_feature_id);
+        if ($matchExists == false) {
+            echo '<p class="errorMessage">You must enter a valid feature ID before you can check it out.</p>'
+        }
     }
     ?>
 </body>

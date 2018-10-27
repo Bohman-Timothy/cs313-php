@@ -105,6 +105,13 @@ table.featureResults, table.patronResults {
 	color: forestgreen;
 }
 
+.errorMessage {
+	font-size: 2em;
+	font-weight: bold;
+	font-style: italic;
+	color: darkred;
+}
+
 #searchCurrentLoans_id {
 	margin-left: 1em;
 }
