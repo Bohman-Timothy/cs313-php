@@ -32,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute();
 
-        $featureId = $db->lastInsertId('feature_id_seq');
+        //$featureId = $db->lastInsertId('feature_id_seq');
+        echo '<p>Successfully inserted in row ' . $featureId . '</p>';
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
