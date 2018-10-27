@@ -161,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             {
                 //add radio button
                 echo '<input type="radio" name="format" id="format' . $row['id'] . '_id"';
-                echo 'value="' . $row['id'] . '"><label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
+                echo 'value="' . $row['id'] . '">\n<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>\n';
             }
             echo 'End format generated list<br/>';
             ?>
