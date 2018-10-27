@@ -30,10 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
+
+        //Working prepared insert statement, but does not include feature set title
         $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :location);';
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location));
+
+        //Working insert statement, but is not a real prepared statement
         /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', ' . $location . ');';
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
@@ -82,10 +86,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     else if ($action = 'Update Feature') {
+        $featureTitle = cleanInput($_POST["featureTitle"]);
+        $featureYear = $_POST["featureYear"];
+        $format = cleanInput($_POST["format"]);
+        $formatYear = $_POST["formatYear"];
+        $featureSetTitle = cleanInput($_POST["featureSetTitle"]);
+        $location = cleanInput($_POST["location"]);
 
         //update feature
-        /*$db_insert_feature_statement = $db->prepare('INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)');
-        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
+        echo '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';
+        $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_storage_location = :location WHERE id = :featureId;';
+        echo '<p>' . $db_update_feature_query . '</p>';
+        $db_update_feature_statement = $db->prepare($db_update_feature_query);
+        $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location, ':featureId' => $featureId));
+
+        echo '<p>Successfully updated row #' . $featureId . '</p>';
 
         //insert scripture
         /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
@@ -126,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
         <?php
         if ($updateFeature != '') {
-            echo '<p id="featureHasBeenSelected_id">Feature #<strong>' . $updateFeature . '</strong> has been selected for update. Modify the details below, then use the &quot;Update Feature&quot; button to submit.</p>';
+            echo '<p id="featureHasBeenSelected_id">ID #<strong>' . $updateFeature . '</strong> has been selected for update. Modify the feature\'s details below, then use the &quot;Update Feature&quot; button to submit the changes.</p>';
         }
         ?>
 		<div id="enterFeatureIdHiddenArea_id">
