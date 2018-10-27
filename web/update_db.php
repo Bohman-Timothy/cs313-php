@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', \'' . $featureSetTitle . '\', ' . $location . ');';
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-        $db_insert_feature_statement->execute();*/
+        $db_insert_feature_statement->execute();
 
         //$featureId = $db->lastInsertId('feature_id_seq');
         echo '<p>Successfully inserted in row #' . $featureId . '</p>';
