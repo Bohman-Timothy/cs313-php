@@ -128,6 +128,10 @@ table.featureResults, table.patronResults {
 	visibility: hidden;
 }
 
+input[type=text] {
+	background-color: skyblue;
+}
+
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
 }*/

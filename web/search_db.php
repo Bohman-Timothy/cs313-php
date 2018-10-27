@@ -169,6 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li>https://www.w3schools.com/php/func_date_date_format.asp</li>
         <li><a href="https://stackoverflow.com/questions/547821/two-submit-buttons-in-one-form">Stack Overflow - Two submit buttons in one form</a></li>
         <li><a href="https://stackoverflow.com/questions/18725078/bypass-html-required-attribute-when-submitting">Stack Overflow - Bypass HTML required attribute when submitting</a></li>
+        <li><a href="https://www.w3schools.com/css/css_form.asp">W3Schools - CSS Forms</a></li>
 	</ul>
 	</div>
 </body>
