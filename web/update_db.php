@@ -23,6 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $formatYear = $_POST["formatYear"];
         $featureSetTitle = $_POST["featureSetTitle"];
         $location = $_POST["location"];
+
+        //insert feature
+        $db_insert_feature_statement = $db->prepare('INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)');
+        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
@@ -64,12 +68,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($counter == 0) {
             echo 'No match found for ID #' . $featureId;
         }
+    }
+    else if ($action = 'Update Feature') {
+
+        //update feature
+        /*$db_insert_feature_statement = $db->prepare('INSERT INTO feature (feature_title, feature_year, format, format_year, feature_set_title, location VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location)');
+        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
 
         //insert scripture
         /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
         $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
 
         $scripture_id = $db->lastInsertId('scripture_id_seq');*/
+    }
+
+    //counteract the featureView representation of the feature set title
+    if ($featureSetTitle = '(N/A)') {
+        $featureSetTitle = '';
     }
 }
 ?>
@@ -99,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
         <?php
         if ($updateFeature != '') {
-            echo '<p id="featureHasBeenSelected_id">Feature ' . $updateFeature . ' has been selected.</p>';
+            echo '<p id="featureHasBeenSelected_id">Feature <strong>' . $updateFeature . '</strong> has been selected.</p>';
         }
         ?>
 		<div id="enterFeatureIdHiddenArea_id">
