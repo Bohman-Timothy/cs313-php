@@ -161,7 +161,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             foreach ($db->query('SELECT id, format FROM physical_format ORDER BY format ASC') as $row)
             {
                 //add radio button
-                echo '<input type="radio" name="format" id="format' . $row['id'] . '_id" value="' . $row['id'] . '">';
+                echo '<input type="radio" name="format" id="format' . $row['id'] . '_id" value="' . $row['id'] . '"';
+                if ($row['id'] == $format) {
+                    echo ' checked';
+                }
+                echo '>';
                 echo '<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
             }
             /*echo 'End format generated list<br/>';*/
@@ -189,7 +193,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             foreach ($db->query('SELECT id, location FROM storage_location ORDER BY location ASC') as $row)
             {
                 //add radio button
-                echo '<input type="radio" name="location" id="location' . $row['id'] . '_id" value="' . $row['id'] . '">';
+                echo '<input type="radio" name="location" id="location' . $row['id'] . '_id" value="' . $row['id'] . '"';
+                if ($row['id'] == $location) {
+                    echo ' checked';
+                }
+                echo '>';
                 echo '<label for="location' . $row['id'] . '_id">' . $row['location'] . '</label><br/>';
             }
             /*echo 'End location generated list<br/>';*/
