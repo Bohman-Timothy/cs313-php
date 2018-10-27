@@ -2,15 +2,32 @@
 session_start();
 include 'project1_functions.php';
 
+$successMessage = $errorMessage = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = cleanInput($_POST["username"]);
     $password = cleanInput($_POST["password"]);
 
     if (($username != '') && ($password != '')) {
-        $db_query_username = 'SELECT id, username, full_name FROM patron WHERE username =:username;';
+        $db_query_username = 'SELECT id, username, full_name FROM patron WHERE username =:username and password =:password;';
         $db_statement_username = $db->prepare($db_query_username);
-        $db_statement_username->execute(array(':username' => $username));
-        echo '<p>Successfully logged in as ' . $username . '</p>';
+        $db_statement_username->execute(array(':username' => $username, ':password' => $password));
+        /*$result = $db_statement_username->get_result();*/
+
+        $match = false;
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        {
+                $match = true;
+        }
+
+        if (($match == true) && (($username == 'tester') || ($username == 'asquire'))) {
+            $_SESSION["user"] = $username;
+            print_r($_SESSION);
+            $successMessage = '<p>Successfully logged in as ' . $_SESSION["user"] . '</p>';
+        }
+        else {
+            $errorMessage = '<p class="errorMessage">Incorrect username or password</p>';
+        }
     }
 }
 ?>
@@ -40,5 +57,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="password" name="password" id="password_id" required><br/>
     <input type="submit" value="Submit" class="submitButton">
 </form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($successMessage != '') {
+        echo $successMessage;
+    }
+    else {
+        echo $errorMessage;
+    }
+}
+?>
 </body>
 </html>
