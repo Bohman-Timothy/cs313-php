@@ -133,7 +133,7 @@ input[type=text], input[type=number] {
 }
 
 input.active {
-	border: khaki;
+	border-color: khaki;
 }
 
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
