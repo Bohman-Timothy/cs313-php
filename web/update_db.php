@@ -24,10 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $featureSetTitle = cleanInput($_POST["featureSetTitle"]);
         $location = cleanInput($_POST["location"]);
 
-        //Test code
-        $format = 3;
-        $location = 1;
-
         //insert feature
         echo '<p>Inserting feature: ' . $featureTitle . '</p>';
         /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location);';
@@ -39,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute();
 
-        //$featureId = $db->lastInsertId('feature_id_seq');
+        $featureId = $db->lastInsertId('feature_id_seq');
         echo '<p>Successfully inserted in row #' . $featureId . '</p>';
     }
     else if ($action == 'Clear Form') {
@@ -140,30 +136,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<input type="text" name="featureYear" id="featureYear_id" title="Enter a four-digit number" required value="<?php echo $featureYear; ?>"><br />
 		<label for="format">Format:</label>
 		<div class="formatOptions">
-			<input type="radio" name="format" value="ultraHd" id="ultraHdOption_id">
+			<input type="radio" name="format" value="4" id="ultraHdOption_id">
 			<label for="ultraHdOption_id">4K Ultra HD Blu-ray</label><br />
-			<input type="radio" name="format" value="bluray" id="blurayOption_id">
+			<input type="radio" name="format" value="3" id="blurayOption_id">
 			<label for="blurayOption_id">Blu-ray</label><br />
-			<input type="radio" name="format" value="dvd" id="dvdOption_id" checked>
+			<input type="radio" name="format" value="2" id="dvdOption_id" checked>
 			<label for="dvdOption_id">DVD</label><br />
-			<input type="radio" name="format" value="vhs" id="vhsOption_id">
+			<input type="radio" name="format" value="1" id="vhsOption_id">
 			<label for="vhsOption_id">VHS</label><br />
 		</div>
-		<label for="formatYear_id">FormatYear:</label>
+		<label for="formatYear_id">Format Year:</label>
 		<input type="text" name="formatYear" id="formatYear_id" title="Enter a four-digit number" required value="<?php echo $formatYear; ?>"><br />
 		<label for="featureSetTitle_id">Feature Set Title:</label>
 		<input type="text" name="featureSetTitle" id="featureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set); leave blank otherwise" value="<?php echo $featureSetTitle; ?>"><br />
 		<label for="location">Location:</label>
 		<div class="locationOptions">
-			<input type="radio" name="location" value="bedroom" id="bedroomOption_id" checked>
+			<input type="radio" name="location" value="1" id="bedroomOption_id" checked>
 			<label for="bedroomOption_id">Bedroom</label><br />
-			<input type="radio" name="location" value="diningRoom" id="diningRoomOption_id">
+			<input type="radio" name="location" value="2" id="diningRoomOption_id">
 			<label for="diningRoomOption_id">Dining Room</label><br />
-			<input type="radio" name="location" value="familyRoom" id="familyRoomOption_id">
+			<input type="radio" name="location" value="3" id="familyRoomOption_id">
 			<label for="familyRoomOption_id">Family Room</label><br />
-			<input type="radio" name="location" value="hallway" id="hallwayOption_id">
+			<input type="radio" name="location" value="4" id="hallwayOption_id">
 			<label for="hallwayOption_id">Hallway</label><br />
-			<input type="radio" name="location" value="livingRoom" id="livingRoomOption_id">
+			<input type="radio" name="location" value="5" id="livingRoomOption_id">
 			<label for="livingRoomOption_id">Living Room</label><br />
 		</div>
         <?php
