@@ -141,7 +141,7 @@ table.featureResults, table.patronResults {
 	visibility: hidden;
 }
 
-input[type=text], input[type=number] {
+input[type=text], input[type=number], input[type=password] {
 	background-color: skyblue;
 }
 

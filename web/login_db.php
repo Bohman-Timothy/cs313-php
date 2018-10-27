@@ -7,9 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = cleanInput($_POST["password"]);
 
     if (($username != '') && ($password != '')) {
-        $db_query_username = 'SELECT id, username, full_name FROM patron WHERE username =:username;';
+        /*$db_query_username = 'SELECT id, username, full_name FROM patron WHERE username =:username;';
         $db_statement_username = $db->prepare($db_query_feature_id);
-        $db_statement_username->execute(array(':username' => $username));
+        $db_statement_username->execute(array(':username' => $username));*/
         echo '<p>Successfully logged in as ' . $username . '</p>';
     }
 }
@@ -34,8 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </ul>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="checkout">
     <h2>Enter username and password</h2>
-    <input type="text" name="username" id="username_id" required value="">
-    <input type="password" name="password" id="password_id" required>
+    <label for="username_id">Enter Username:</label>
+    <input type="text" name="username" id="username_id" required value=""><br/>
+    <label for="password_id">Enter Password:</label>
+    <input type="password" name="password" id="password_id" required><br/>
     <input type="submit" value="Submit" class="submitButton">
 </form>
 </body>
