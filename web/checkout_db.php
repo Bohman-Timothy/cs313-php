@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'project1_functions.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

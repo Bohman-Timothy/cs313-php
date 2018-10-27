@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'project1_functions.php';
 
 $updateFeature = $featureId = $action = '';
