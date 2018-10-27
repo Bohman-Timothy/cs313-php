@@ -11,6 +11,7 @@ $formatYear = '';
 $featureSetTitle = '';
 $location = '';
 $existingLoan = '';
+$successMessage = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateFeature = $_POST["updateFeature"];
@@ -45,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_insert_feature_statement->execute();*/
 
         $featureId = $db->lastInsertId('feature_id_seq');
-        echo '<p>Successfully inserted in row #' . $featureId . '</p>';
+        $successMessage = '<p class="successMessage">Successfully inserted in row #' . $featureId . '</p>';
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
@@ -107,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_update_feature_statement = $db->prepare($db_update_feature_query);
         $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location, ':featureId' => $featureId));
 
-        echo '<p>Successfully updated row #' . $featureId . '</p>';
+        $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . '</p>';
 
         //insert scripture
         /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
@@ -239,5 +240,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" name="action" value="Clear Form" class="submitButton" id="clearFormButton_id">
 		<!-- <input type="submit" name="action" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"> -->
 	</form>
+    <?php
+    if ($successMessage != '') {
+        echo $successMessage;
+    }
+    ?>
 </body>
 </html>
