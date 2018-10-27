@@ -155,6 +155,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<input type="text" name="featureYear" id="featureYear_id" title="Enter a four-digit number" required value="<?php echo $featureYear; ?>"><br />
 		<label for="format">Format:</label>
 		<div class="formatOptions">
+            <?php
+            //radio buttons for formats
+            foreach ($db->query('SELECT id, format FROM physical_format') as $row)
+            {
+                //add radio button
+                echo '<input type="radio" name="format" id="format' . $row['id'] . '_id"';
+                echo 'value="' . $row['id'] . '"><label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
+            }
+            echo 'End format generated list<br/>';
+            ?>
 			<input type="radio" name="format" value="4" id="ultraHdOption_id">
 			<label for="ultraHdOption_id">4K Ultra HD Blu-ray</label><br />
 			<input type="radio" name="format" value="3" id="blurayOption_id">
