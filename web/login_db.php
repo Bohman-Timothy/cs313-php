@@ -3,6 +3,7 @@ session_start();
 include 'project1_functions.php';
 
 $successMessage = $errorMessage = '';
+$username = $password = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = cleanInput($_POST["username"]);
@@ -15,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /*$result = $db_statement_username->get_result();*/
 
         $match = false;
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        /*while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
                 $match = true;
         }
@@ -23,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (($match == true) && (($username == 'tester') || ($username == 'asquire'))) {
             $_SESSION["user"] = $username;
             print_r($_SESSION);
-            $successMessage = '<p>Successfully logged in as ' . $_SESSION["user"] . '</p>';
+            $successMessage = '<p class="successMessage">Successfully logged in as ' . $_SESSION["user"] . '</p>';
         }
         else {
             $errorMessage = '<p class="errorMessage">Incorrect username or password</p>';
-        }
+        }*/
     }
 }
 ?>
