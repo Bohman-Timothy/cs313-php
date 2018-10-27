@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     //counteract the featureView representation of the feature set title
-    if ($featureSetTitle = '(N/A)') {
+    if ($featureSetTitle == '(N/A)') {
         $featureSetTitle = '';
     }
 }
