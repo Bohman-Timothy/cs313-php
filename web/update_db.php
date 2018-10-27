@@ -158,21 +158,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="formatOptions">
             <?php
             //radio buttons for formats
+            $featureFormatAppliedFromDatabase = false;
             foreach ($db->query('SELECT id, format FROM physical_format ORDER BY format ASC') as $row)
             {
                 //add radio button
                 echo '<input type="radio" name="format" id="format' . $row['id'] . '_id" value="' . $row['id'] . '"';
                 if ($row['id'] == $format) {
                     echo ' checked';
+                    $featureFormatAppliedFromDatabase = true;
                 }
                 echo '>';
                 echo '<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
             }
             /*echo 'End format generated list<br/>';*/
+            if (!$featureLocationFormatFromDatabase) {
+                echo '<script>checkDefaultFormat();</script>';
+            }
             ?>
-            <script>
-                checkDefaultFormat();
-            </script>
 			<!-- <input type="radio" name="format" value="4" id="ultraHdOption_id">
 			<label for="ultraHdOption_id">4K Ultra HD Blu-ray</label><br />
 			<input type="radio" name="format" value="3" id="blurayOption_id">
@@ -190,21 +192,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="locationOptions">
             <?php
             //radio buttons for storage locations
+            $featureLocationAppliedFromDatabase = false;
             foreach ($db->query('SELECT id, location FROM storage_location ORDER BY location ASC') as $row)
             {
                 //add radio button
                 echo '<input type="radio" name="location" id="location' . $row['id'] . '_id" value="' . $row['id'] . '"';
                 if ($row['id'] == $location) {
                     echo ' checked';
+                    $featureLocationAppliedFromDatabase = true;
                 }
                 echo '>';
                 echo '<label for="location' . $row['id'] . '_id">' . $row['location'] . '</label><br/>';
             }
             /*echo 'End location generated list<br/>';*/
+            if (!$featureLocationAppliedFromDatabase) {
+                echo '<script>checkDefaultLocation();</script>';
+            }
             ?>
-            <script>
-                checkDefaultLocation();
-            </script>
 			<!-- <input type="radio" name="location" value="1" id="bedroomOption_id" checked>
 			<label for="bedroomOption_id">Bedroom</label><br />
 			<input type="radio" name="location" value="2" id="diningRoomOption_id">
