@@ -59,9 +59,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     //select ID and display the feature
     else if (($action == 'Select ID') && ($updateFeature != '') && ($featureId != '')) {
-        $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
+        $db_query_feature_id = 'SELECT fv.id, fv.feature_title, fv.feature_year, f.format, fv.format_year, fv.feature_set_title, f.location, fv.existing_loan FROM feature_view fv LEFT JOIN feature f on fv.id = f.id WHERE fv.id = ' . $updateFeature . ';';
         $db_statement_feature_id = $db->prepare($db_query_feature_id);
         $db_statement_feature_id->execute();
+
+        //Original working query, except format and location are received as text instead of their numerical foreign key id values
+        /*$db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
+        $db_statement_feature_id = $db->prepare($db_query_feature_id);
+        $db_statement_feature_id->execute();*/
 
         //show selected feature
         /*echo '<table class="featureResults">';
