@@ -170,6 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://stackoverflow.com/questions/547821/two-submit-buttons-in-one-form">Stack Overflow - Two submit buttons in one form</a></li>
         <li><a href="https://stackoverflow.com/questions/18725078/bypass-html-required-attribute-when-submitting">Stack Overflow - Bypass HTML required attribute when submitting</a></li>
         <li><a href="https://www.w3schools.com/css/css_form.asp">W3Schools - CSS Forms</a></li>
+        <li><a href="https://www.w3schools.com/cssref/sel_focus.asp">W3Schools - CSS :focus Selector</a></li>
 	</ul>
 	</div>
 </body>

@@ -132,8 +132,8 @@ input[type=text], input[type=number] {
 	background-color: skyblue;
 }
 
-input.active {
-	border-color: khaki;
+input:focus {
+	border: 1px solid khaki;
 }
 
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
