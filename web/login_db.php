@@ -42,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Check Out a Feature Loan</title>
+    <title>Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="project1.css">
 </head>
 <body>
-<h1>Check Out a Feature Loan</h1>
+<h1>Sign In</h1>
 <ul id="navbar">
     <h2>Menu</h2>
     <li><a href="search_db.php">Search the database</a></li>
