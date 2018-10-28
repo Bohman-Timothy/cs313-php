@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<h2>Enter data to select a feature to get on loan</h2>
 		<label for="enterFeatureId_id">Enter Feature ID:</label>
 		<input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" required value=""><br />
-		<input type="submit" name="search" value="Search" class="submitButton" id="searchIdButton_id">
+		<input type="submit" name="submit" value="Search" class="submitButton" id="searchIdButton_id">
 	</form>
     <?php
 
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($matchExists == false) {
                 echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
             } else { //Prompt user to add the selected feature to their checkout list
-                if ($_SESSION["existingLoan"] != true) {
+                if ($_SESSION["existingLoan"] != "Yes") {
                     ?>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id" onsubmit="return isValidForm();">
                         <h2>Add the feature listed above to your checkout list?</h2>
