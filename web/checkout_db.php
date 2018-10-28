@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     else if ($submitAction == 'Confirm') {
-        if ($_SESSION["existingLoan"] != true) {
+        if ($_SESSION["existingLoan"] != "Yes") {
             array_push($_SESSION["checkoutList"], $submittedFeature);
             echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
         } else {
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<h2>Enter data to select a feature to get on loan</h2>
 		<label for="enterFeatureId_id">Enter Feature ID:</label>
 		<input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" required value=""><br />
-		<input type="submit" name="submit" value="Search" class="submitButton">
+		<input type="submit" name="search" value="Search" class="submitButton" id="searchIdButton_id">
 	</form>
     <?php
 
