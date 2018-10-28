@@ -18,7 +18,7 @@ $formatYear = '';
 $featureSetTitle = '';
 $location = '';
 $existingLoan = '';
-$successMessage = '';
+$successMessage = $errorMessage = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateFeature = $_POST["updateFeature"];
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $counter++;
         }
         if ($counter == 0) {
-            echo 'No match found for ID #' . $featureId;
+            $errorMessage = 'No match found for ID #' . $featureId . '.';
         }
     }
     else if ($action = 'Update Feature') {
@@ -266,6 +266,9 @@ function clearForm() {
     <?php
     if ($successMessage != '') {
         echo $successMessage;
+    }
+    else if ($errorMessage != '') {
+        echo $errorMessage;
     }
     ?>
 </body>
