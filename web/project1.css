@@ -149,6 +149,10 @@ input:focus {
 	border: 2px solid salmon;
 }
 
+.loggedInAsUser {
+	font-weight: bold;
+}
+
 /*.featureTitle, .featureYear, .format, .formatYear, .featureSetTitle, .location, .existingLoan {
 	display: inline-block;
 }*/
