@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $submittedFeature = $_POST["selectedFeatureInputHidden"];
     $successMessage = $errorMessage = '';
 
+    print_r($_SESSION);
+
     if ($submitAction == 'Search') {
         if ($featureId != '') {
             $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id =:featureId;';
@@ -49,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         print_r($_SESSION);
     }
     else if ($submitAction == 'Clear Selection') {
-        print_r($_SESSION);
+        /*print_r($_SESSION);*/
     }
 }
 ?>
