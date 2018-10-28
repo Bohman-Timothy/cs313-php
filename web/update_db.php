@@ -183,7 +183,7 @@ function clearForm() {
 		<label for="featureTitle_id">Feature Title:</label>
 		<input type="text" name="featureTitle" id="featureTitle_id" title="Enter exact title of the feature" required value="<?php echo $featureTitle; ?>"><br />
 		<label for="featureYear_id">Feature Year:</label>
-		<input type="text" name="featureYear" id="featureYear_id" title="Enter a four-digit number" required value="<?php echo $featureYear; ?>"><br />
+		<input type="text" name="featureYear" id="featureYear_id" title="Enter the four-digit number of the year this feature was originally publicly released (e.g. in theaters, on television, or on home video)" required value="<?php echo $featureYear; ?>"><br />
 		<label for="format">Format:</label>
 		<div class="formatOptions">
             <?php
@@ -216,7 +216,7 @@ function clearForm() {
 			<label for="vhsOption_id">VHS</label><br /> -->
 		</div>
 		<label for="formatYear_id">Format Year:</label>
-		<input type="text" name="formatYear" id="formatYear_id" title="Enter a four-digit number" required value="<?php echo $formatYear; ?>"><br />
+		<input type="text" name="formatYear" id="formatYear_id" title="Enter the four-digit number of the year of this physical-format release of the feature" required value="<?php echo $formatYear; ?>"><br />
 		<label for="featureSetTitle_id">Feature Set Title:</label>
 		<input type="text" name="featureSetTitle" id="featureSetTitle_id" title="Enter exact title of the feature set (if the feature is part of a set); leave blank otherwise" value="<?php echo $featureSetTitle; ?>"><br />
 		<label for="location">Location:</label>
