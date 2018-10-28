@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_SESSION["existingLoan"] != "Yes") {
             array_push($_SESSION["checkoutList"], $submittedFeature);
             echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
-            setFeatureLoan($_SESSION["featureId"]);
+            setFeatureLoan($_SESSION["featureId"], $db);
         } else {
             echo '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
         }

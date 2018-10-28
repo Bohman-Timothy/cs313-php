@@ -150,7 +150,7 @@ function showFullListOfLoans($statement) {
     }
 }
 
-function setFeatureLoan($featureId) {
+function setFeatureLoan($featureId, $db) {
     //update feature loan status to "Yes"
     echo '<p>Updating ID: ' . $featureId . '</p>';
     $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan WHERE id = :featureId;';

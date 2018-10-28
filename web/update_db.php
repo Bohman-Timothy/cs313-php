@@ -56,14 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $successMessage = '<p class="successMessage">Successfully inserted in row #' . $featureId  . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
     }
     else if ($action == 'Clear Form') {
-        $featureId = '';
-        $featureTitle = '';
-        $featureYear = '';
-        $format = '';
-        $formatYear = '';
-        $featureSetTitle = '';
-        $location = '';
-        $existingLoan = '';
+        clearForm();
     }
     //select ID and display the feature
     else if (($action == 'Select ID') && ($updateFeature != '') && ($featureId != '')) {
@@ -117,6 +110,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
 
+        //clearForm();
+
         //insert scripture
         /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
         $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
@@ -128,6 +123,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($featureSetTitle == '(N/A)') {
         $featureSetTitle = '';
     }
+}
+
+function clearForm() {
+    $featureId = '';
+    $featureTitle = '';
+    $featureYear = '';
+    $format = '';
+    $formatYear = '';
+    $featureSetTitle = '';
+    $location = '';
+    $existingLoan = '';
 }
 ?>
 
