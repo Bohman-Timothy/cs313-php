@@ -263,6 +263,7 @@ function clearForm() {
         <input type="submit" name="action" value="Clear Form" class="submitButton" id="clearFormButton_id">
 		<!-- <input type="submit" name="action" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"> -->
 	</form>
+    <div id="statusMessage">
     <?php
     if ($successMessage != '') {
         echo $successMessage;
@@ -271,5 +272,6 @@ function clearForm() {
         echo $errorMessage;
     }
     ?>
+    </div>
 </body>
 </html>
