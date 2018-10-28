@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $submitAction = $_POST["submit"];
     $addToCheckout = $_POST["addToCheckout"];
     $submittedFeature = $_POST["selectedFeatureInputHidden"];
+    $successMessage = $errorMessage = '';
 
     if ($submitAction == 'Search') {
         if ($featureId != '') {
@@ -93,13 +94,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ?>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id">
                         <h2>Add the feature listed above to your checkout list?</h2>
-                        <input type="checkbox" name="addToCheckout" id="addToCheckout_id">
+                        <input type="checkbox" name="addToCheckout" id="addToCheckout_id" required>
                         <label for="addToCheckout_id">Yes, add to checkout list</label><br/>
-                        <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId; ?>"
+                        <input type="number" min="1" name="selectedFeatureInputHidden" required value="<?php echo $featureId; ?>"
                                id="selectedFeatureInputHidden_id">
                         <input type="submit" name="submit" value="Submit" class="submitButton">
                         <input type="submit" name="submit" value="Clear Selection" class="submitButton"
-                               id="clearSelectionButton_id">
+                               id="clearSelectionButton_id" onclick="confirmCheckboxIsSelected();">
                     </form>
                     <?php
                 }

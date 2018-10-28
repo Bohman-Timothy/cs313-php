@@ -31,6 +31,10 @@ function checkDefaultLocation() {
     selectedLocation.checked = true;
 }
 
+function confirmCheckboxIsSelected() {
+    //var updateFeatureCheckbox = document.getElementById("updateFeatureCheckbox_id");
+}
+
 //AJAX Non-working example code
 /*$("#newScriptureEntry_id").submit(function(e) {
     var form = $(this);
