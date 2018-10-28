@@ -12,11 +12,11 @@ if (!isset($_SESSION["existingLoan"])) {
     $_SESSION["existingLoan"] = NULL;
 }
 
-$searchId = '';
+$featureId = $searchId = '';
 $successMessage = $errorMessage = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $featureId = cleanInput($_POST["featureId"]);
+    $featureId = $_POST["featureId"];
     $submitAction = $_POST["submit"];
     $addToCheckout = $_POST["addToCheckout"];
     $submittedFeature = $_POST["selectedFeatureInputHidden"];
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <h2>Add the feature listed above to your checkout list?</h2>
                         <!-- <input type="checkbox" name="addToCheckout" id="addToCheckout_id">
                         <label for="addToCheckout_id">Yes, add to checkout list</label><br/> -->
-                        <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId; ?>"
+                        <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId ?>"
                                id="selectedFeatureInputHidden_id">
                         <input type="submit" name="submit" value="Confirm" class="submitButton" id="confirmAddToCheckoutButton_id">
                         <input type="submit" name="submit" value="Clear Selection" class="submitButton"
