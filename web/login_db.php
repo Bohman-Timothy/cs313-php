@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <li class="active">
         <?php
             if ($_SESSION["loggedIn"] == true) {
-                echo '<a href="login_db.php">Sign Out Or Switch User</a><br/><span class="loggedInAsUser">Logged in as ' . $_SESSION["user"] . '</span>';
+                echo '<a href="login_db.php">Sign Out or Switch User</a><br/><span class="loggedInAsUser">Logged in as ' . $_SESSION["user"] . '</span>';
             }
             else {
                 echo '<a href="login_db.php">Sign In</a>';

@@ -149,7 +149,7 @@ input:focus {
 	border: 2px solid salmon;
 }
 
-.loggedInAsUser {
+.loggedInAsUser, .active {
 	font-weight: bold;
 }
 

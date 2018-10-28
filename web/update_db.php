@@ -140,9 +140,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<li><a href="search_db.php">Search the database</a></li>
 		<li class="active"><a href="update_db.php">Update the database</a></li>
 		<li><a href="checkout_db.php">Check Out a Feature</a></li>
-        <li><?php
+        <li>
+            <?php
             if ($_SESSION["loggedIn"] == true) {
-                echo '<a href="login_db.php">Sign Out</a>';
+                echo '<a href="login_db.php">Sign Out or Switch User</a><br/><span class="loggedInAsUser">Logged in as ' . $_SESSION["user"] . '</span>';
             }
             else {
                 echo '<a href="login_db.php">Sign In</a>';
