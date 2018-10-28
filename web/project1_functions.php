@@ -149,4 +149,13 @@ function showFullListOfLoans($statement) {
         echo '</table>';
     }
 }
+
+function setFeatureLoan($featureId) {
+    //update feature loan status to "Yes"
+    echo '<p>Updating ID: ' . $featureId . '</p>';
+    $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan WHERE id = :featureId;';
+    echo '<p>' . $db_update_loan_status_query . '</p>';
+    $db_update_loan_status_statement = $db->prepare($db_update_loan_status_query);
+    $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => true));
+}
 ?>
