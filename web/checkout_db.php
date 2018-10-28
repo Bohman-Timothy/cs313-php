@@ -31,13 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else if ($submitAction == 'Confirm') {
         if ($_SESSION["existingLoan"] != true) {
-                array_push($_SESSION["checkoutList"], $submittedFeature);
-                echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
-            } else {
-                echo '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
-            }
-            //echo '<p class="errorMessage">You must check the box to confirm.</p>';
+            array_push($_SESSION["checkoutList"], $submittedFeature);
+            echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
+        } else {
+            echo '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
         }
+        //echo '<p class="errorMessage">You must check the box to confirm.</p>';
         print_r($_SESSION);
     }
     else if ($submitAction == 'Clear Selection') {
