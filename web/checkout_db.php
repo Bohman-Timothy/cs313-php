@@ -27,13 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id =:featureId;';
             $db_statement_feature_id = $db->prepare($db_query_feature_id);
             $db_statement_feature_id->execute(array(':featureId' => $featureId));
+            $_SESSION["featureId"] = $featureId;
         }
     }
     else if ($submitAction == 'Confirm') {
         if ($_SESSION["existingLoan"] != "Yes") {
             array_push($_SESSION["checkoutList"], $submittedFeature);
             echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
-            setFeatureLoan($featureId);
+            setFeatureLoan($_SESSION["featureId"]);
         } else {
             echo '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
         }
