@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $submittedFeature = $_POST["selectedFeatureInputHidden"];
     $successMessage = $errorMessage = '';
 
-    print_r($_SESSION);
+    /*print_r($_SESSION);*/
 
     if ($submitAction == 'Search') {
         if ($featureId != '') {
