@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //update feature
         echo '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';
-        $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_storage_location = :location WHERE id = :featureId;';
+        $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_storage_location = :location, updated_at = now() WHERE id = :featureId;';
         echo '<p>' . $db_update_feature_query . '</p>';
         $db_update_feature_statement = $db->prepare($db_update_feature_query);
         $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location, ':featureId' => $featureId));
