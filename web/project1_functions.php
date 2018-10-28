@@ -93,6 +93,9 @@ function showFullListOfFeatures ($statement) {
         echo '<td class="location">' . $row['location'] . '</td>';
         echo '<td class="existingLoan">' . $row['existing_loan'] . '</td></tr>';
         $counter++;
+        if ($_SESSION["checkingForExistingLoan"] == true) {
+            $_SESSION["existingLoan"] = $row['existing_loan'];
+        }
     }
     if ($counter == 0) {
         echo '</table> <p class=\'noResults\'>No results</p>';

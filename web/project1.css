@@ -91,7 +91,7 @@ table.featureResults, table.patronResults {
 	margin-top: 1em;
 }
 
-#clearFormButton_id {
+#clearFormButton_id, #clearSelectionButton_id {
     margin-left: 2em;
 }
 
@@ -129,7 +129,7 @@ table.featureResults, table.patronResults {
 	text-decoration: underline;
 }
 
-#referencesList_id {
+#referencesList_id, #selectedFeatureInputHidden_id {
 	display: none;
 }
 

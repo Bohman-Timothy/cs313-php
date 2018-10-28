@@ -2,15 +2,43 @@
 session_start();
 include 'project1_functions.php';
 
+if (!isset($_SESSION["checkoutList"])) {
+    $_SESSION["checkoutList"] = array();
+}
+if (!isset($_SESSION["checkingForExistingLoan"])) {
+    $_SESSION["checkingForExistingLoan"] = false;
+}
+if (!isset($_SESSION["existingLoan"])) {
+    $_SESSION["existingLoan"] = NULL;
+}
+
 $searchId = '';
+$successMessage = $errorMessage = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $featureId = cleanInput($_POST["featureId"]);
+    $submitAction = $_POST["submit"];
+    $submittedFeature = $_POST["selectedFeatureInputHidden"];
 
-    if ($featureId != '') {
-        $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id =:featureId;';
-        $db_statement_feature_id = $db->prepare($db_query_feature_id);
-        $db_statement_feature_id->execute(array(':featureId' => $featureId));
+    if ($submitAction == 'Search') {
+        if ($featureId != '') {
+            $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id =:featureId;';
+            $db_statement_feature_id = $db->prepare($db_query_feature_id);
+            $db_statement_feature_id->execute(array(':featureId' => $featureId));
+        }
+    }
+    else if ($submitAction == 'Submit') {
+        if ($_SESSION["existingLoan"] != true) {
+            array_push($_SESSION["checkoutList"], $submittedFeature);
+            print_r($_SESSION);
+            $successMessage = '<p class="successMessage">Feature successfully added to checkout list.</p>';
+        }
+        else {
+            $errorMessage = '<p class="errorMessage"></p>';
+        }
+    }
+    else if ($submitAction == 'Clear Selection') {
+
     }
 }
 ?>
@@ -40,24 +68,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             ?></li>
 	</ul>
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="checkout">
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="searchIdForCheckout_id">
 		<h2>Enter data to select a feature to get on loan</h2>
 		<label for="enterFeatureId_id">Enter Feature ID:</label>
 		<input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
-		<input type="submit" value="Submit" class="submitButton">
+		<input type="submit" name="submit" value="Search" class="submitButton">
 	</form>
     <?php
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        //show selected feature
-        echo '<table class="featureResults">';
-        echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
-        $matchExists = showFullListOfFeatures($db_statement_feature_id);
-        if ($matchExists == false) {
-            echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
-        }
-        else {
-
+        if ($submitAction == 'Search') {
+            //show selected feature
+            echo '<table class="featureResults">';
+            echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
+            $matchExists = showFullListOfFeatures($db_statement_feature_id);
+            if ($matchExists == false) {
+                echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
+            } else { //Prompt user to add the selected feature to their checkout list
+                if ($_SESSION["existingLoan"] != true) {
+                    ?>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id">
+                        <h2>Add the feature listed above to your checkout list?</h2>
+                        <input type="checkbox" name="addToCheckout" id="addToCheckout_id">
+                        <label for="addToCheckout_id">Yes, add to checkout list</label><br/>
+                        <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId; ?>"
+                               id="selectedFeatureInputHidden_id">
+                        <input type="submit" name="submit" value="Submit" class="submitButton">
+                        <input type="submit" name="submit" value="Clear Selection" class="submitButton"
+                               id="clearSelectionButton_id">
+                    </form>
+                    <?php
+                }
+                else {
+                    echo '<p class="errorMessage">This feature is already checked out. Please select another feature.</p>';
+                }
+            }
         }
     }
     ?>
