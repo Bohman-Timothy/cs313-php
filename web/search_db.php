@@ -187,6 +187,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://www.w3schools.com/php/php_sessions.asp">W3Schools - PHP 5 Sessions</a></li>
         <li><a href="https://www.johnmorrisonline.com/build-php-login-form-using-sessions/">How to Build a PHP Login Form Using Sessions</a></li>
         <li><a href="https://www.w3schools.com/sql/sql_alter.asp">W3Schools - SQL ALTER TABLE statement</a></li>
+        <li><a href="https://www.plus2net.com/php_tutorial/array-session.php">PHP session array variable push</a></li>
+        <li><a href="https://stackoverflow.com/questions/4227043/how-do-i-cancel-form-submission-in-submit-button-onclick-event">Stack Overflow - How do I cancel form submission in submit button onclick event?</a></li>
         <li><a href=""></a></li>
 	</ul>
 	</div>

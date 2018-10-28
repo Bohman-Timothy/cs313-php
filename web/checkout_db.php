@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $db_statement_feature_id->execute(array(':featureId' => $featureId));
         }
     }
-    else if ($submitAction == 'Submit') {
+    else if ($submitAction == 'Confirm') {
         if ($addToCheckout == 'checked') {
             if ($_SESSION["existingLoan"] != true) {
                 array_push($_SESSION["checkoutList"], $submittedFeature);
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="searchIdForCheckout_id">
 		<h2>Enter data to select a feature to get on loan</h2>
 		<label for="enterFeatureId_id">Enter Feature ID:</label>
-		<input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" value=""><br />
+		<input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" required value=""><br />
 		<input type="submit" name="submit" value="Search" class="submitButton">
 	</form>
     <?php
@@ -92,15 +92,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else { //Prompt user to add the selected feature to their checkout list
                 if ($_SESSION["existingLoan"] != true) {
                     ?>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id" onsubmit="return isValidForm();">
                         <h2>Add the feature listed above to your checkout list?</h2>
-                        <input type="checkbox" name="addToCheckout" id="addToCheckout_id" required>
+                        <input type="checkbox" name="addToCheckout" id="addToCheckout_id">
                         <label for="addToCheckout_id">Yes, add to checkout list</label><br/>
-                        <input type="number" min="1" name="selectedFeatureInputHidden" required value="<?php echo $featureId; ?>"
+                        <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId; ?>"
                                id="selectedFeatureInputHidden_id">
-                        <input type="submit" name="submit" value="Submit" class="submitButton">
+                        <input type="submit" name="submit" value="Confirm" class="submitButton" id="confirmAddToCheckoutButton_id">
                         <input type="submit" name="submit" value="Clear Selection" class="submitButton"
-                               id="clearSelectionButton_id" onclick="confirmCheckboxIsSelected();">
+                               id="clearSelectionButton_id" onclick="selectCheckbox();">
                     </form>
                     <?php
                 }

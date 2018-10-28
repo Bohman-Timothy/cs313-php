@@ -31,10 +31,20 @@ function checkDefaultLocation() {
     selectedLocation.checked = true;
 }
 
-function confirmCheckboxIsSelected() {
-    //var updateFeatureCheckbox = document.getElementById("updateFeatureCheckbox_id");
+function isValidForm() {
+    var addToCheckoutCheckbox = document.getElementById("addToCheckout_id");
+    if (addToCheckoutCheckbox.isChecked) {
+        return true;
+    }
+    else {
+    	return false;
+    }
 }
 
+function selectCheckbox() {
+    var addToCheckoutCheckbox = document.getElementById("addToCheckout_id");
+    addToCheckoutCheckbox.isChecked = true;
+}
 //AJAX Non-working example code
 /*$("#newScriptureEntry_id").submit(function(e) {
     var form = $(this);
