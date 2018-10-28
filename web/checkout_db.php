@@ -18,6 +18,7 @@ $successMessage = $errorMessage = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $featureId = cleanInput($_POST["featureId"]);
     $submitAction = $_POST["submit"];
+    $addToCheckout = $_POST["addToCheckout"];
     $submittedFeature = $_POST["selectedFeatureInputHidden"];
 
     if ($submitAction == 'Search') {
@@ -28,17 +29,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     else if ($submitAction == 'Submit') {
-        if ($_SESSION["existingLoan"] != true) {
-            array_push($_SESSION["checkoutList"], $submittedFeature);
-            print_r($_SESSION);
-            $successMessage = '<p class="successMessage">Feature successfully added to checkout list.</p>';
+        if ($addToCheckout == 'checked') {
+            if ($_SESSION["existingLoan"] != true) {
+                array_push($_SESSION["checkoutList"], $submittedFeature);
+                echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
+            } else {
+                echo '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
+            }
+        } else {
+            echo '<p class="errorMessage">You must check the box to confirm.</p>';
         }
-        else {
-            $errorMessage = '<p class="errorMessage"></p>';
-        }
+        print_r($_SESSION);
     }
     else if ($submitAction == 'Clear Selection') {
-
+        print_r($_SESSION);
     }
 }
 ?>
