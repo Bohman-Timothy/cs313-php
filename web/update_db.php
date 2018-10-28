@@ -2,6 +2,13 @@
 session_start();
 include 'project1_functions.php';
 
+if ($_SESSION["loggedIn"] == true) {
+    //Let the user continue on this page
+} else {
+    //Redirect to login page
+    header("Location: login_db.php");
+}
+
 $updateFeature = $featureId = $action = '';
 $featureId = '';
 $featureTitle = '';
