@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["featureId"] = $featureId;
         }
     }
-    else if ($submitAction == 'Confirm') {
+    else if ($submitAction == 'Confirm Checkout') {
         if ($_SESSION["existingLoan"] != "Yes") {
             array_push($_SESSION["checkoutList"], $submittedFeature);
             echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($matchExists == false) {
                 echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
             } else { //Prompt user to add the selected feature to their checkout list
-                if ($_SESSION["existingLoan"] != "Yes") {
+                if ($_SESSION["existingLoan"] != "true") {
                     ?>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id""> <!--  onsubmit="return isValidForm(); -->
                         <h2>Add the feature listed above to your checkout list?</h2>
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="addToCheckout_id">Yes, add to checkout list</label><br/> -->
                         <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId ?>"
                                id="selectedFeatureInputHidden_id">
-                        <input type="submit" name="submit" value="Confirm" class="submitButton" id="confirmAddToCheckoutButton_id">
+                        <input type="submit" name="submit" value="Confirm Checkout" class="submitButton" id="confirmAddToCheckoutButton_id">
                         <input type="submit" name="submit" value="Clear Selection" class="submitButton"
                                id="clearSelectionButton_id" onclick="selectCheckbox();">
                     </form>
