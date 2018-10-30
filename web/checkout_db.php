@@ -58,18 +58,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<p>' . $db_query_feature_id . '</p>';
             $db_statement_feature_id = $db->prepare($db_query_feature_id);
             $db_statement_feature_id->execute(array(':featureId' => $featureId));
-            while ($row = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC)) {
-                $loanId = $row['fk_current_loan'];
+            while ($row_feature_id = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC)) {
+                $loanId = $row_feature_id['fk_current_loan'];
             }
             //get user id associated with the loan
             $db_loan_borrower_query = 'SELECT fk_borrower FROM loan WHERE id = :loanId;';
             echo '<p>' . $db_loan_borrower_query . '</p>';
             $db_loan_borrower_statement = $db->prepare($db_loan_borrower_query);
             $db_loan_borrower_statement->execute(array(':loanId' => $loanId));
-            while ($row = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC)) {
-                $borrowerId = $row['fk_borrower'];
+            while ($row_loan_borrower = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC)) {
+                $borrowerId = $row_loan_borrower['fk_borrower'];
             }
-            echo '<p>Successfully retrieved borrower ID:' . $borrowerId . '</p>';
+            echo '<p>Successfully retrieved borrower ID: ' . $borrowerId . '</p>';
 
             if ($borrowerId == $_SESSION["userId"]) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
