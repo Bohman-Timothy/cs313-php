@@ -172,11 +172,19 @@ function setFeatureLoan($featureId, $db) {
 
 /* Note: change existing_loan from boolean to the id of the loan itself*/
 function returnFeatureLoan($featureId, $db) {
+    //get id of current loan for the selected feature
+    $db_query_feature_id = 'SELECT id, fk_current_loan FROM feature WHERE id =:featureId;';
+    $db_statement_feature_id = $db->prepare($db_query_feature_id);
+    $db_statement_feature_id->execute(array(':featureId' => $featureId));
+    while ($row = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC)) {
+        $loanId = $row['fk_current_loan'];
+    }
+
     //update loan to reflect return date
-    $db_update_loan_query = 'UPDATE loan (return_date) VALUES (now())';
+    $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate WHERE id = :loanId';
     echo '<p>' . $db_update_loan_query . '</p>';
     $db_update_loan_statement = $db->prepare($db_update_loan_query);
-    $db_update_loan_statement->execute();
+    $db_update_loan_statement->execute(array(':returnDate' => 'now()', ':loanId' => $loanId));
     echo '<p>Successfully updated loan to reflect return date</p>';
 
     //update feature loan status to "No" and set currentLoan to NULL
