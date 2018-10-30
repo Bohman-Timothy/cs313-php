@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<p>' . $db_loan_borrower_query . '</p>';
             $db_loan_borrower_statement = $db->prepare($db_loan_borrower_query);
             $db_loan_borrower_statement->execute(array(':loanId' => $loanId));
-            while ($row = $db_loan_borrower_statement_id->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC)) {
                 $borrowerId = $row['fk_borrower'];
             }
             echo '<p>Successfully retrieved borrower ID:' . $borrowerId . '</p>';
