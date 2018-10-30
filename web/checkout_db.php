@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             while ($row_loan_borrower = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC)) {
                 $borrowerId = $row_loan_borrower['fk_borrower'];
                 echo '<p>Counter: ' . counter . '</p>';
-                counter++;
+                $counter++;
             }
             echo '<p>Successfully retrieved borrower ID: ' . $borrowerId . '</p>';
 
