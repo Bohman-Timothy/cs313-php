@@ -53,7 +53,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else if ($submitAction == 'Confirm Return') {
         if ($_SESSION["existingLoan"] == "Yes") {
-            returnFeatureLoan($_SESSION["featureId"], $db);
+            //get id of current loan for the selected feature
+            $db_query_feature_id = 'SELECT id, fk_current_loan FROM feature WHERE id =:featureId;';
+            $db_statement_feature_id = $db->prepare($db_query_feature_id);
+            $db_statement_feature_id->execute(array(':featureId' => $featureId));
+            while ($row = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC)) {
+                $loanId = $row['fk_current_loan'];
+            }
+            //get user id associated with the loan
+            $db_loan_borrower_query = 'SELECT fk_borrower FROM loan WHERE id = :loanId;';
+            echo '<p>' . $db_update_loan_query . '</p>';
+            $db_loan_borrower_statement = $db->prepare($db_loan_borrower_query);
+            $db_loan_borrower_statement->execute(array(':loanId' => $loanId));
+            while ($row = $db_loan_borrower_statement_id->fetch(PDO::FETCH_ASSOC)) {
+                $borrowerId = $row['fk_borrower'];
+            }
+
+            if ($borrowerId == $_SESSION["userId"]) {
+                returnFeatureLoan($_SESSION["featureId"], $db);
+            }
+            else {
+                $errorMessage = '<p class="errorMessage">You are not authorized to return this feature. The original borrower must return the feature.</p>';
+            }
         } else {
             $errorMessage = '<p class="errorMessage">You can\'t return a feature that hasn\'t been loaned out.</p>';
         }

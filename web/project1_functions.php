@@ -154,7 +154,7 @@ function showFullListOfLoans($statement) {
 /* Note: change existing_loan from boolean to the id of the loan itself*/
 function setFeatureLoan($featureId, $db) {
     //insert new loan
-    $db_insert_new_loan_query = 'INSERT INTO loan (fk_feature_loaned, fk_borrower) VALUES (:featureId, :userLoggedIn)';
+    $db_insert_new_loan_query = 'INSERT INTO loan (fk_feature_loaned, fk_borrower) VALUES (:featureId, :userLoggedIn);';
     echo '<p>' . $db_insert_new_loan_query . '</p>';
     $db_insert_new_loan_statement = $db->prepare($db_insert_new_loan_query);
     $db_insert_new_loan_statement->execute(array(':featureId' => $featureId, ':userLoggedIn' => $_SESSION["userId"]));
@@ -163,10 +163,10 @@ function setFeatureLoan($featureId, $db) {
 
     //update feature loan status to "Yes" and set currentLoan to the ID of the new loan
     echo '<p>Updating ID: ' . $featureId . '</p>';
-    $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan, fk_current_loan = :currentLoan WHERE id = :featureId;';
+    $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan, fk_current_loan = :currentLoan, updated_at = :updatedAt WHERE id = :featureId;';
     echo '<p>' . $db_update_loan_status_query . '</p>';
     $db_update_loan_status_statement = $db->prepare($db_update_loan_status_query);
-    $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'true', ':currentLoan' => $currentLoanId));
+    $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'true', ':currentLoan' => $currentLoanId, ':updatedAt' => 'now()'));
     echo '<p>Successfully updated loan status to "Yes"</p>';
 }
 
@@ -181,18 +181,18 @@ function returnFeatureLoan($featureId, $db) {
     }
 
     //update loan to reflect return date
-    $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate WHERE id = :loanId';
+    $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate, updated_at = :updatedAt WHERE id = :loanId;';
     echo '<p>' . $db_update_loan_query . '</p>';
     $db_update_loan_statement = $db->prepare($db_update_loan_query);
-    $db_update_loan_statement->execute(array(':returnDate' => 'now()', ':loanId' => $loanId));
+    $db_update_loan_statement->execute(array(':returnDate' => 'now()', ':loanId' => $loanId, ':updatedAt' => 'now()'));
     echo '<p>Successfully updated loan to reflect return date</p>';
 
     //update feature loan status to "No" and set currentLoan to NULL
     echo '<p>Updating ID: ' . $featureId . '</p>';
-    $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan, fk_current_loan = :currentLoan WHERE id = :featureId;';
+    $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan, fk_current_loan = :currentLoan, updated_at = :updatedAt WHERE id = :featureId;';
     echo '<p>' . $db_update_loan_status_query . '</p>';
     $db_update_loan_status_statement = $db->prepare($db_update_loan_status_query);
-    $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'false', ':currentLoan' => NULL));
+    $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'false', ':currentLoan' => NULL, ':updatedAt' => 'now()'));
     echo '<p>Successfully updated loan status to "No"</p>';
 }
 ?>
