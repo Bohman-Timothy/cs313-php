@@ -76,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (true) { //($borrowerId == $_SESSION["userId"]) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
+                $successMessage = '<p>The feature has been marked as returned.</p>';
             }
             else {
                 $errorMessage = '<p class="errorMessage">You are not authorized to return this feature. The original borrower must return the feature.</p>';
