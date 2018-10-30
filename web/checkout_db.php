@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_SESSION["existingLoan"] == "Yes") {
             //get id of current loan for the selected feature
             $db_query_feature_id = 'SELECT id, fk_current_loan FROM feature WHERE id =:featureId;';
+            echo '<p>' . $db_query_feature_id . '</p>';
             $db_statement_feature_id = $db->prepare($db_query_feature_id);
             $db_statement_feature_id->execute(array(':featureId' => $featureId));
             while ($row = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC)) {
@@ -62,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             //get user id associated with the loan
             $db_loan_borrower_query = 'SELECT fk_borrower FROM loan WHERE id = :loanId;';
-            echo '<p>' . $db_update_loan_query . '</p>';
+            echo '<p>' . $db_loan_borrower_query . '</p>';
             $db_loan_borrower_statement = $db->prepare($db_loan_borrower_query);
             $db_loan_borrower_statement->execute(array(':loanId' => $loanId));
             while ($row = $db_loan_borrower_statement_id->fetch(PDO::FETCH_ASSOC)) {
