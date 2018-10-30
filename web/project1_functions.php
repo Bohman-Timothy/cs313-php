@@ -161,4 +161,15 @@ function setFeatureLoan($featureId, $db) {
     $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'true'));
     echo '<p>Successfully updated loan status to "Yes"</p>';
 }
+
+/* Note: change existing_loan from boolean to the id of the loan itself*/
+function returnFeatureLoan($featureId, $db) {
+    //update feature loan status to "No"
+    echo '<p>Updating ID: ' . $featureId . '</p>';
+    $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan WHERE id = :featureId;';
+    echo '<p>' . $db_update_loan_status_query . '</p>';
+    $db_update_loan_status_statement = $db->prepare($db_update_loan_status_query);
+    $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'false'));
+    echo '<p>Successfully updated loan status to "No"</p>';
+}
 ?>

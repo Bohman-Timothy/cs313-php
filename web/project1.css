@@ -87,7 +87,7 @@ table.featureResults, table.patronResults {
 	margin-bottom: 1em;
 }
 
-#addFeatureButton_id, #updateFeatureButton_id, #clearFormButton_id, #searchIdButton_id, #confirmAddToCheckoutButton_id, #clearSelectionButton_id {
+#addFeatureButton_id, #updateFeatureButton_id, #clearFormButton_id, #searchIdButton_id, #confirmAddToCheckoutButton_id, #confirmReturnFeatureButton_id, #clearSelectionButton_id {
 	margin-top: 1em;
 }
 
@@ -105,7 +105,7 @@ table.featureResults, table.patronResults {
 	color: forestgreen;
 }
 
-.errorMessage {
+.errorMessage, .statusMessage {
 	font-size: 2em;
 	font-weight: bold;
 	font-style: italic;

@@ -43,13 +43,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if ($submitAction == 'Confirm Checkout') {
         if ($_SESSION["existingLoan"] != "Yes") {
             array_push($_SESSION["checkoutList"], $submittedFeature);
-            echo '<p class="successMessage">Feature successfully added to checkout list.</p>';
+            $successMessage = '<p class="successMessage">Feature successfully added to checkout list.</p>';
             setFeatureLoan($_SESSION["featureId"], $db);
         } else {
-            echo '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
+            $errorMessage = '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
         }
         //echo '<p class="errorMessage">You must check the box to confirm.</p>';
         print_r($_SESSION);
+    }
+    else if ($submitAction == 'Confirm Return') {
+        if ($_SESSION["existingLoan"] == "Yes") {
+            returnFeatureLoan($_SESSION["featureId"], $db);
+        } else {
+            $errorMessage = '<p class="errorMessage">You can\'t return a feature that hasn\'t been loaned out.</p>';
+        }
     }
     else if ($submitAction == 'Clear Selection') {
         /*print_r($_SESSION);*/
@@ -101,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else { //Prompt user to add the selected feature to their checkout list
                 if ($_SESSION["existingLoan"] != true) {
                     ?>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id""> <!--  onsubmit="return isValidForm(); -->
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id"> <!--  onsubmit="return isValidForm();" -->
                         <h2>Add the feature listed above to your checkout list?</h2>
                         <!-- <input type="checkbox" name="addToCheckout" id="addToCheckout_id">
                         <label for="addToCheckout_id">Yes, add to checkout list</label><br/> -->
@@ -114,9 +121,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php
                 }
                 else {
-                    echo '<p class="errorMessage">This feature is already checked out. Please select another feature.</p>';
+                    /*echo '<p class="errorMessage">This feature is already checked out. Please select another feature.</p>';*/
+                    echo '<p class="statusMessage">This feature is already checked out.</p>';
+                    ?>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id">
+                        <h2>Return This Feature?</h2>
+                        <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId ?>"
+                               id="selectedFeatureInputHidden_id">
+                        <input type="submit" name="submit" value="Confirm Return" class="submitButton" id="confirmReturnFeatureButton_id">
+                        <input type="submit" name="submit" value="Clear Selection" class="submitButton"
+                               id="clearSelectionButton_id" onclick="selectCheckbox();">
+                    </form>
+                    <?php
                 }
             }
+        }
+        if ($successMessage != '') {
+            echo $successMessage;
+        }
+        else if ($errorMessage != '') {
+            echo $errorMessage;
+        }
+        else if ($statusMessage != '') {
+            echo $statusMessage;
         }
     }
     ?>
