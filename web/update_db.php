@@ -18,7 +18,7 @@ $formatYear = '';
 $featureSetTitle = '';
 $location = '';
 $existingLoan = '';
-$successMessage = $errorMessage = '';
+$successMessage = $errorMessage = $progressMessage = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateFeature = $_POST["updateFeature"];
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $location = cleanInput($_POST["location"]);
 
         //insert feature
-        echo '<p>Inserting feature: ' . $featureTitle . '</p>';
+        $progressMessage = $progressMessage . '<p>Inserting feature: ' . $featureTitle . '</p>';
         /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location);';
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //Working prepared insert statement, but does not include feature set title
         $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :location);';
-        echo '<p>' . $db_insert_feature_query . '</p>';
+         $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location));
 
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //update feature
         echo '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';
         $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_storage_location = :location, updated_at = now() WHERE id = :featureId;';
-        echo '<p>' . $db_update_feature_query . '</p>';
+        $progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';
         $db_update_feature_statement = $db->prepare($db_update_feature_query);
         $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location, ':featureId' => $featureId));
 
@@ -264,14 +264,17 @@ function clearForm() {
 		<!-- <input type="submit" name="action" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"> -->
 	</form>
     <div id="statusMessage">
-    <?php
-    if ($successMessage != '') {
-        echo $successMessage;
-    }
-    else if ($errorMessage != '') {
-        echo $errorMessage;
-    }
-    ?>
+        <?php
+        if ($successMessage != '') {
+            echo $successMessage;
+        }
+        else if ($errorMessage != '') {
+            echo $errorMessage;
+        }
+        if ($progressMessage != '') {
+            echo $progressMessage;
+        }
+        ?>
     </div>
 </body>
 </html>
