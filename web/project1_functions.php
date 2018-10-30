@@ -173,10 +173,10 @@ function setFeatureLoan($featureId, $db) {
 /* Note: change existing_loan from boolean to the id of the loan itself*/
 function returnFeatureLoan($featureId, $db) {
     //update loan to reflect return date
-    $db_update_loan_query = 'UPDATE loan (return_date) VALUES (:returnDate)';
+    $db_update_loan_query = 'UPDATE loan (return_date) VALUES (now())';
     echo '<p>' . $db_update_loan_query . '</p>';
     $db_update_loan_statement = $db->prepare($db_update_loan_query);
-    $db_update_loan_statement->execute(array(':returnDate' => 'now()'));
+    $db_update_loan_statement->execute();
     echo '<p>Successfully updated loan to reflect return date</p>';
 
     //update feature loan status to "No" and set currentLoan to NULL
