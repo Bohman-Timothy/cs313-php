@@ -95,6 +95,7 @@ function showFullListOfFeatures ($statement) {
         $counter++;
         if ($_SESSION["checkingForExistingLoan"] == true) {
             $_SESSION["existingLoan"] = $row['existing_loan'];
+            echo 'existingLoan: ' . $_SESSION["existingLoan"];
         }
     }
     if ($counter == 0) {
