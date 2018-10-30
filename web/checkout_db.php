@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $submittedFeature = $_POST["selectedFeatureInputHidden"];
     $successMessage = $errorMessage = '';
 
-    /*print_r($_SESSION);*/
+    print_r($_SESSION);
 
     if ($submitAction == 'Search') {
         if ($featureId != '') {
@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $errorMessage = '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
         }
+        $_SESSION["checkingForExistingLoan"] = false;
         //echo '<p class="errorMessage">You must check the box to confirm.</p>';
-        print_r($_SESSION);
     }
     else if ($submitAction == 'Confirm Return') {
         if ($_SESSION["existingLoan"] == "Yes") {
@@ -57,10 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $errorMessage = '<p class="errorMessage">You can\'t return a feature that hasn\'t been loaned out.</p>';
         }
+        $_SESSION["checkingForExistingLoan"] = false;
     }
     else if ($submitAction == 'Clear Selection') {
         /*print_r($_SESSION);*/
+        $_SESSION["checkingForExistingLoan"] = false;
     }
+
+    print_r($_SESSION);
 }
 ?>
 
@@ -106,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($matchExists == false) {
                 echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
             } else { //Prompt user to add the selected feature to their checkout list
-                if ($_SESSION["existingLoan"] != true) {
+                if ($_SESSION["existingLoan"] != 'Yes') {
                     ?>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id"> <!--  onsubmit="return isValidForm();" -->
                         <h2>Add the feature listed above to your checkout list?</h2>
