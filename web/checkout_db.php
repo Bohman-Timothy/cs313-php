@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($submitAction == 'Search') {
         if ($featureId != '') {
-            $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id =:featureId;';
+            $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = :featureId;';
             $db_statement_feature_id = $db->prepare($db_query_feature_id);
             $db_statement_feature_id->execute(array(':featureId' => $featureId));
             $_SESSION["featureId"] = $featureId;
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if ($submitAction == 'Confirm Return') {
         if ($_SESSION["existingLoan"] == "Yes") {
             //get id of current loan for the selected feature
-            $db_query_feature_id = 'SELECT id, fk_current_loan FROM feature WHERE id =:featureId;';
+            $db_query_feature_id = 'SELECT id, fk_current_loan FROM feature WHERE id = :featureId;';
             echo '<p>' . $db_query_feature_id . '</p>';
             $db_statement_feature_id = $db->prepare($db_query_feature_id);
             $db_statement_feature_id->execute(array(':featureId' => $featureId));
