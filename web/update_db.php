@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $featureSetTitle = cleanInput($_POST["featureSetTitle"]);
         $location = cleanInput($_POST["location"]);
 
-        //insert feature set title, if there is one
+        //insert feature with feature set title, if there is one
         if ($featureSetTitle != '') {
             $progressMessage = $progressMessage . '<p>Inserting feature set title: ' . $featureSetTitle . '</p>';
 
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $featureSetTitleId = $row_feature_set_id['id'];
             }
 
-            //insert feature
+            //insert feature with reference to pre-existing feature set title
             $progressMessage = $progressMessage . '<p>Inserting feature: ' . $featureTitle . '</p>';
             if ($featureSetTitleId != '') {
                 $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location);';
@@ -57,11 +57,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location));
             }
             else {
-                //Working prepared insert statement, but does not include feature set title
-                $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :location);';
+                //insert new feature set title
+                $db_insert_feature_set_query = 'INSERT INTO feature_set (feature_set_title) VALUES (:featureSetTitle);';
+                echo '<p>' . $db_insert_feature_set_query . '</p>';
+                $db_statement_insert_feature_set = $db->prepare($db_insert_feature_set_query);
+                $db_statement_insert_feature_set->execute(array(':featureSetTitle' => $featureSetTitle));
+                $featureSetTitleId = $db->lastInsertId('feature_set_id_seq');
+
+                //insert feature, including reference to new feature set title
+                $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location);';
                 $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
                 $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-                $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location));
+                $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location));
             }
         }
 
@@ -69,6 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<p>' . $db_insert_feature_query . '</p>';
         $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
         $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
+
+        //Working prepared insert statement, but does not include feature set title
+        /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :location);';
+        $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
+        $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
+        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location));*/
 
         //Working insert statement, but is not a real prepared statement
         /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', ' . $location . ');';
