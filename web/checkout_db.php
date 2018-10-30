@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             echo '<p>Successfully retrieved borrower ID: ' . $borrowerId . '</p>';
 
-            if ($borrowerId == $_SESSION["userId"]) {
+            if (true) { //($borrowerId == $_SESSION["userId"]) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
             }
             else {
