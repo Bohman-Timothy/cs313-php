@@ -69,6 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             while ($row = $db_loan_borrower_statement_id->fetch(PDO::FETCH_ASSOC)) {
                 $borrowerId = $row['fk_borrower'];
             }
+            echo '<p>Successfully retrieved borrower ID:' . $borrowerId . '</p>';
 
             if ($borrowerId == $_SESSION["userId"]) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
