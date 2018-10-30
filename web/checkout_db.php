@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($matchExists == false) {
                 echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
             } else { //Prompt user to add the selected feature to their checkout list
-                if ($_SESSION["existingLoan"] != true) {
+                if ($_SESSION["existingLoan"] != 1) {
                     ?>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id""> <!--  onsubmit="return isValidForm(); -->
                         <h2>Add the feature listed above to your checkout list?</h2>
