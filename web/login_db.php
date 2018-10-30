@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $match = false;
             while ($row = $db_statement_username->fetch(PDO::FETCH_ASSOC)) {
                 $match = true;
+                $_SESSION["userId"] = $row['id'];
             }
 
             if (($match == true) && (($username == 'tester') || ($username == 'asquire'))) {
