@@ -160,7 +160,7 @@ function setFeatureLoan($featureId, $db) {
     $currentLoanId = $db->lastInsertId('loan_id_seq');
 
     //insert new current_loan, or update a feature's entry in the table
-    $db_query_current_loan = 'SELECT id FROM current_feature WHERE fk_feature = :featureId;';
+    $db_query_current_loan = 'SELECT id FROM current_loan WHERE fk_feature = :featureId;';
     $db_statement_current_loan = $db->prepare($db_query_current_loan);
     $db_statement_current_loan->execute(array(':featureId' => $featureId));
     $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
