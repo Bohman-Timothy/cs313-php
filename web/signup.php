@@ -5,9 +5,9 @@ require 'teach07_functions.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     //Compare passwords
-    if ($passwordMatches == true) {
+    /*if ($passwordMatches == true) {
 
-    }
+    }*/
 
 // Get input from user
     $username = cleanInput($_POST["username"]);
