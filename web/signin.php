@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (password_verify($password, $userInfo['password']))
     {
         // Correct Password, save id to session
-
+        echo 'Logged in as' . $username;
     } else {
         // Wrong password
-
+        echo 'Username or password is incorrect';
     }
 }
 ?>
