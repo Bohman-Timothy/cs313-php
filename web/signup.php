@@ -62,9 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             for (var i = 0; i < errorMessages.length; ++i)
             {
-                errorMessages[i].style.display = 'block';
+                errorMessages[i].style.display = 'inline';
             }
-            document.getElementById('errorMessage').content = "Passwords don't match.";
+            document.getElementById('errorMessage').innerText += "Passwords don't match.\n";
         }
 
         if ((password.length > 6) && (password.search(/[0-9]/))) {
@@ -73,9 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         else {
             for (var i = 0; i < errorMessages.length; ++i)
             {
-                errorMessages[i].style.display = 'block';
+                errorMessages[i].style.display = 'inline';
             }
-            document.getElementById('errorMessage').content = "Password must be at least 7 characters long and contain at least one number.";
+            document.getElementById('errorMessage').innerText += "Password must be at least 7 characters long and contain at least one number.";
         }
     }
 </script>
