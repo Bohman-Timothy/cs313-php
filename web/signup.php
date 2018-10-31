@@ -58,7 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         var errorMessages = document.getElementsByClassName('error');
         document.getElementById('errorMessage').innerText = "";
-        
+
+        var success = true;
         if (password !== confirmPassword)
         {
             for (var i = 0; i < errorMessages.length; ++i)
@@ -66,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 errorMessages[i].style.display = 'inline';
             }
             document.getElementById('errorMessage').innerText += "Passwords don't match.\n";
+            success = false;
         }
 
         if ((password.length > 6) && (password.search(/[0-9]/))) {
@@ -77,7 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 errorMessages[i].style.display = 'inline';
             }
             document.getElementById('errorMessage').innerText += "Password must be at least 7 characters long and contain at least one number.";
+            success = false;
         }
+        return success;
     }
 </script>
 <body>
