@@ -179,9 +179,10 @@ function setFeatureLoan($featureId, $db) {
     }
     else { //update existing current_loan fields associated with the selected feature
         echo '<p>Updating current loan status for feature #' . $featureId . '</p>';
-        $db_query_update_current_loan = 'UPDATE current_loan SET fk_loan = :currentLoanId, updated_at = :updatedAt WHERE fk_feature = :featureId);';
+        $db_query_update_current_loan = 'UPDATE current_loan SET fk_loan = :loanId, updated_at = :updatedAt WHERE fk_feature = :featureId;';
+        echo '<p>' . $db_query_update_current_loan . '</p>';
         $db_statement_update_current_loan = $db->prepare($db_query_update_current_loan);
-        $db_statement_update_current_loan->execute(array(':featureId' => $featureId, ':currentLoanId' => $currentLoanId, ':updatedAt' => 'now()'));
+        $db_statement_update_current_loan->execute(array(':featureId' => $featureId, ':loanId' => $loanId, ':updatedAt' => 'now()'));
         echo '<p>Successfully updated current loan status for feature #' . $featureId . '</p>';
     }
 
