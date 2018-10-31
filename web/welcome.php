@@ -2,8 +2,13 @@
 session_start();
 include 'teach07_functions.php';
 
-if ($_SESSION["loggedIn"] == true) {
+if (isset($_SESSION["userId"])) {
+    $userId = $_SESSION["userId"];
     //continue on page
+    $statement = $db->prepare('SELECT username, password FROM user_info WHERE id=:id');
+    $statement->execute(array(':id' => $userId));
+    $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
+    $username = $userInfo['username'];
 }
 else {
     header("Location: signin.php");

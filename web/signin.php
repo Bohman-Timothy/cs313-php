@@ -17,10 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // Correct Password, save id to session
         echo 'Logged in as' . $username;
+        $_SESSION["loggedIn"] = true;
+        $_SESSION["userId"] = $userInfo['id'];
+        header('Location: welcome.php');
+        die();
     } else {
         // Wrong password
         echo 'Username or password is incorrect';
     }
+
 }
 ?>
 
