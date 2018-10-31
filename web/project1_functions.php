@@ -165,6 +165,7 @@ function setFeatureLoan($featureId, $db) {
     $db_statement_current_loan->execute(array(':featureId' => $featureId));
     $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
     $currentLoanId = $singleResult['fk_current_loan'];
+    echo '<p>Successfully checked for existing current loan field associated with selected feature</p>';
     if ($currentLoanId == '') { //insert new current_loan for the selected feature
         $db_query_insert_current_loan = 'INSERT INTO current_loan (fk_feature, fk_loan) VALUES (:featureId, ;currentLoanId);';
         $db_statement_insert_current_loan = $db->prepare($db_query_insert_current_loan);
