@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <style>
     .error {
         color: red;
+        display: none;
     }
 </style>
 <script>
