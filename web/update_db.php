@@ -242,7 +242,7 @@ function clearForm() {
 		<h2>Menu</h2>
 		<li><a href="search_db.php">Search the database</a></li>
 		<li class="active"><a href="update_db.php">Update the database</a></li>
-		<li><a href="checkout_db.php">Check Out a Feature</a></li>
+		<li><a href="checkout_db.php">Check Out or Return a Feature</a></li>
         <li>
             <?php
             if ($_SESSION["loggedIn"] == true) {

@@ -99,17 +99,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<title>Check Out a Feature Loan</title>
+	<title>Check Out Or Return a Feature Loan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="project1.css">
 </head>
 <body>
-	<h1>Check Out a Feature Loan</h1>
+	<h1>Check Out Or Return a Feature Loan</h1>
 	<ul id="navbar">
 		<h2>Menu</h2>
 		<li><a href="search_db.php">Search the database</a></li>
 		<li><a href="update_db.php">Update the database</a></li>
-		<li class="active"><a href="checkout_db.php">Check Out a Feature</a></li>
+		<li class="active"><a href="checkout_db.php">Check Out or Return a Feature</a></li>
         <li>
             <?php
             if ($_SESSION["loggedIn"] == true) {
