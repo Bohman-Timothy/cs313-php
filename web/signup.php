@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <script>
     function validateNewUser() {
         var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('confirmPassword');
+        var confirmPassword = document.getElementById('confirmPassword').value;
 
         var errorMessages = document.getElementsByClassName('error');
         document.getElementById('errorMessage').innerText = "";
