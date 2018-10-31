@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'teach07_functions.php';
+/*require 'teach07_functions.php';*/
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
