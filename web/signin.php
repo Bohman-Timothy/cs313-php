@@ -1,5 +1,5 @@
 <?php
-require 'teach07_functions.php';
+include 'teach07_functions.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -36,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="signInForm">
     <h2>Enter login information</h2>
     <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
+    <input type="text" name="username" id="username"><br/>
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-    <input type="submit" value="Submit">
+    <input type="password" name="password" id="password"><br/>
+    <input type="submit" value="Submit"><br/>
 </form>
 </body>
 </html>
