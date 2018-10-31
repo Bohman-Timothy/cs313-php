@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $password = cleanInput($_POST["password"]);
 
     // Hash the password
-    $passwordHash = password_hash('$password', PASSWORD_DEFAULT);
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
 // Insert password
     $statement = $db->prepare('INSERT INTO user_info (username, password) VALUES (:user, :pass)');
