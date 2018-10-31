@@ -157,7 +157,7 @@ function setFeatureLoan($featureId, $db) {
     $db_insert_new_loan_statement = $db->prepare($db_insert_new_loan_query);
     $db_insert_new_loan_statement->execute(array(':featureId' => $featureId, ':userLoggedIn' => $_SESSION["userId"]));
     echo '<p>Successfully inserted new loan</p>';
-    $currentLoanId = $db->lastInsertId('loan_id_seq');
+    $loanId = $db->lastInsertId('loan_id_seq');
 
     //insert new current_loan, or update a feature's entry in the table
     $db_query_current_loan = 'SELECT id FROM current_loan WHERE fk_feature = :featureId;';
@@ -168,9 +168,9 @@ function setFeatureLoan($featureId, $db) {
     echo '<p>Successfully checked for existing current loan field associated with selected feature</p>';
     if ($currentLoanId == '') { //insert new current_loan for the selected feature
         echo '<p>Inserting new current loan</p>';
-        $db_query_insert_current_loan = 'INSERT INTO current_loan (fk_feature, fk_loan) VALUES (:featureId, ;currentLoanId);';
+        $db_query_insert_current_loan = 'INSERT INTO current_loan (fk_feature, fk_loan) VALUES (:featureId, ;loanId);';
         $db_statement_insert_current_loan = $db->prepare($db_query_insert_current_loan);
-        $db_statement_insert_current_loan->execute(array(':featureId' => $featureId, ':currentLoanId' => $currentLoanId));
+        $db_statement_insert_current_loan->execute(array(':featureId' => $featureId, ':loanId' => $loanId));
         echo '<p>Successfully inserted new current loan</p>';
     }
     else { //update existing current_loan fields associated with the selected feature
@@ -198,7 +198,7 @@ function returnFeatureLoan($featureId, $db) {
     $db_statement_current_loan->execute(array(':featureId' => $featureId));
     $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
     $currentLoanId = $singleResult['id'];
-    $loanId = $singleResult['fk_loan'];
+    $loanId = $currentLoanId['fk_loan'];
 
     //update loan to reflect return date
     $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate, updated_at = :updatedAt WHERE id = :loanId;';
