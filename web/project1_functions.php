@@ -168,7 +168,7 @@ function setFeatureLoan($featureId, $db) {
     echo '<p>Successfully checked for existing current loan field associated with selected feature</p>';
     if ($currentLoanId == '') { //insert new current_loan for the selected feature
         echo '<p>Inserting new current loan</p>';
-        $db_query_insert_current_loan = 'INSERT INTO current_loan (fk_feature, fk_loan) VALUES (:featureId, ;loanId);';
+        $db_query_insert_current_loan = 'INSERT INTO current_loan (fk_feature, fk_loan) VALUES (:featureId, :loanId);';
         $db_statement_insert_current_loan = $db->prepare($db_query_insert_current_loan);
         $db_statement_insert_current_loan->execute(array(':featureId' => $featureId, ':loanId' => $loanId));
         echo '<p>Successfully inserted new current loan</p>';
