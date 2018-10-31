@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             success = false;
         }
 
-        if ((password.length > 6) && (password.search(/[0-9]/))) {
+        if ((password.length > 6) && (password.search(/[0-9]/)) > 0) {
 
         }
         else {
