@@ -57,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         var confirmPassword = document.getElementById('confirmPassword');
 
         var errorMessages = document.getElementsByClassName('error');
-
+        document.getElementById('errorMessage').innerText = "";
+        
         if (password !== confirmPassword)
         {
             for (var i = 0; i < errorMessages.length; ++i)
@@ -81,15 +82,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 </script>
 <body>
 <h1>Sign-Up</h1>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="signUpForm">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="signUpForm" onsubmit="return validateNewUser()">
     <h2>Enter login information</h2>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username"><br/>
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password"><?php if($passwordError == true){echo '<span class="error">*</span>';} ?><br/>
+    <input type="password" name="password" id="password"><span class="error">*</span><br/>
     <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" name="confirmPassword" id="confirmPassword"><?php if($passwordError == true){echo '<span class="error">*</span>';} ?><br/>
+    <input type="password" name="confirmPassword" id="confirmPassword"><span class="error">*</span><br/>
     <input type="submit" value="Submit"><br/>
+    <p class="error" id="errorMessage"></p>
 </form>
 <!-- <form method="post" action="<?php /*echo htmlspecialchars($_SERVER["PHP_SELF"]);*/ ?>" id="signUpForm">
     <h2>Enter login information</h2>
