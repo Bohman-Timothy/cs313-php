@@ -161,10 +161,14 @@ function setFeatureLoan($featureId, $db) {
 
     //insert new current_loan, or update a feature's entry in the table
     $db_query_current_loan = 'SELECT id FROM current_loan WHERE fk_feature = :featureId;';
+    echo '<p>' . $db_query_current_loan . '</p>';
     $db_statement_current_loan = $db->prepare($db_query_current_loan);
     $db_statement_current_loan->execute(array(':featureId' => $featureId));
-    $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
-    $currentLoanId = $singleResult['fk_current_loan'];
+    while ($row = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC)) {
+        $currentLoanId = $row['id'];
+    }
+    /*$singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
+    $currentLoanId = $singleResult['fk_current_loan'];*/
     echo '<p>Successfully checked for existing current loan field associated with selected feature</p>';
     if ($currentLoanId == '') { //insert new current_loan for the selected feature
         echo '<p>Inserting new current loan</p>';
@@ -196,9 +200,12 @@ function returnFeatureLoan($featureId, $db) {
     $db_query_current_loan = 'SELECT id, fk_loan FROM current_loan WHERE fk_feature = :featureId;';
     $db_statement_current_loan = $db->prepare($db_query_current_loan);
     $db_statement_current_loan->execute(array(':featureId' => $featureId));
-    $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
+    while ($row = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC)) {
+        $loanId = $row['fk_loan'];
+    }
+    /*$singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
     $currentLoanId = $singleResult['id'];
-    $loanId = $currentLoanId['fk_loan'];
+    $loanId = $currentLoanId['fk_loan'];*/
 
     //update loan to reflect return date
     $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate, updated_at = :updatedAt WHERE id = :loanId;';
