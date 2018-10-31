@@ -207,10 +207,11 @@ function returnFeatureLoan($featureId, $db) {
     $db_update_loan_statement->execute(array(':returnDate' => 'now()', ':loanId' => $loanId, ':updatedAt' => 'now()'));
     echo '<p>Successfully updated loan to reflect return date</p>';
 
+    $loanId = NULL;
     $db_query_update_current_loan = 'UPDATE current_loan SET fk_loan = :loanId, updated_at = :updatedAt WHERE fk_feature = :featureId;';
     echo '<p>' . $db_query_update_current_loan . '</p>';
     $db_statement_update_current_loan = $db->prepare($db_query_update_current_loan);
-    $db_statement_update_current_loan->execute(array(':featureId' => $featureId, ':loanId' => 'NULL', ':updatedAt' => 'now()'));
+    $db_statement_update_current_loan->execute(array(':featureId' => $featureId, ':loanId' => $loanId, ':updatedAt' => 'now()'));
     echo '<p>Successfully updated current loan status to NULL for feature #' . $featureId . '</p>';
 
     //update feature loan status to "No"
