@@ -11,21 +11,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     //Compare passwords
     if ($password === $confirmPassword) {
-        // Hash the password
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        if ((strlen($password) > 6) && (preg_match('/[0-9]/', $password)))
+        {
+            // Hash the password
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
 // Insert password
-        $statement = $db->prepare('INSERT INTO user_info (username, password) VALUES (:user, :pass)');
-        $statement->execute(array(':user' => $username, ':pass' => $passwordHash));
+            $statement = $db->prepare('INSERT INTO user_info (username, password) VALUES (:user, :pass)');
+            $statement->execute(array(':user' => $username, ':pass' => $passwordHash));
 
 // Go to sign in screen
-        header('Location: signin.php');
-        die();
+            header('Location: signin.php');
+            die();
+        }
+        else
+        {
+            $insufficientPassword = true;
+            $passwordError = true;
+        }
     }
     else
     {
 //Passwords don't match!
         $passwordsDontMatch = true;
+        $passwordError = true;
     }
 }
 ?>
@@ -49,14 +58,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <label for="username">Username:</label>
     <input type="text" name="username" id="username"><br/>
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password"><?php if($passwordsDontMatch == true){echo '<span class="error">*</span>';} ?><br/>
-    <label for="confirmPassword">Password:</label>
-    <input type="password" name="confirmPassword" id="confirmPassword"><?php if($passwordsDontMatch == true){echo '<span class="error">*</span>';} ?><br/>
+    <input type="password" name="password" id="password"><?php if($passwordError == true){echo '<span class="error">*</span>';} ?><br/>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" name="confirmPassword" id="confirmPassword"><?php if($passwordError == true){echo '<span class="error">*</span>';} ?><br/>
     <input type="submit" value="Submit"><br/>
 </form>
 <?php
 if($passwordsDontMatch == true) {
     echo '<span class="error">Passwords don\'t match.</span>';
+}
+if($insufficientPassword == true) {
+    echo '<span class="error">Password must be at least 7 characters long and contain at least one number.</span>';
 }
 ?>
 </body>
