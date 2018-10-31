@@ -54,13 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if ($submitAction == 'Confirm Return') {
         if ($_SESSION["existingLoan"] == "Yes") {
             //get id of current loan for the selected feature
-            $db_query_feature_id = 'SELECT id, fk_current_loan FROM feature WHERE id = :featureId;';
-            echo '<p>' . $db_query_feature_id . '</p>';
-            $db_statement_feature_id = $db->prepare($db_query_feature_id);
-            $db_statement_feature_id->execute(array(':featureId' => $featureId));
-            while ($row_feature_id = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC)) {
-                $loanId = $row_feature_id['fk_current_loan'];
-            }
+            $db_query_current_loan = 'SELECT id, fk_loan FROM current_loan WHERE fk_feature = :featureId;';
+            $db_statement_current_loan = $db->prepare($db_query_current_loan);
+            $db_statement_current_loan->execute(array(':featureId' => $featureId));
+            $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
+            $currentLoanId = $singleResult['id'];
+            $loanId = $currentLoanId['fk_loan'];
+            
             //get user id associated with the loan
             $db_loan_borrower_query = 'SELECT fk_borrower FROM loan WHERE id = :loanId;';
             echo '<p>' . $db_loan_borrower_query . '</p>';
