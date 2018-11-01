@@ -100,13 +100,13 @@ table.featureResults, table.patronResults {
 }
 
 .successMessage {
-	font-size: 2em;
+	font-size: 1.8em;
 	font-weight: bold;
 	color: forestgreen;
 }
 
 .errorMessage, .statusMessage {
-	font-size: 2em;
+	font-size: 1.8em;
 	font-weight: bold;
 	font-style: italic;
 	color: darkred;
