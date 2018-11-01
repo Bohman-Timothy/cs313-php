@@ -46,8 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			else if ($searchType == 'format') {
 				$searchTargetColumn = 'format';
 			}
+            else if ($searchType == 'formatYear') {
+                $searchTargetColumn = 'format_year';
+            }
 			
-			if (($searchType == 'featureYear') || ($searchType == 'format')) {
+			if (($searchType == 'featureYear') || ($searchType == 'format') || ($searchType == 'formatYear')) {
 				$orderBy = 'ORDER BY feature_title ASC, feature_set_title ASC';
 			}
 			else if ($searchType == 'featureSetTitle') {
@@ -61,9 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				case true:
 					switch ($searchType) {
 						case 'featureYear':
+                        case 'formatYear':
 							$db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 							break;
-						default:
+						default: //featureTitle, featureSetTitle, format
 							$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 
 							$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
@@ -72,9 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				default: //Search features in the feature table
 					switch ($searchType) {
 						case 'featureYear':
+                        case 'formatYear':
 							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 							break;
-						default:
+						default: //featureTitle, featureSetTitle, format
 							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 
 							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
@@ -129,6 +134,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<label for="featureYearOption_id">Feature Year</label><br />
 			<input type="radio" name="searchType" value="format" id="formatOption_id">
 			<label for="formatOption_id">Format</label><br />
+            <input type="radio" name="searchType" value="formatYear" id="formatYearOption_id">
+            <label for="formatYearOption_id">Format Year</label><br />
 			<input type="radio" name="searchType" value="patron" id="patronOption_id">
 			<label for="patronOption_id">Patron</label><br />
 		</div>
