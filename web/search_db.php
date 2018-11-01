@@ -64,6 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				case true:
 					switch ($searchType) {
 						case 'featureYear':
+                            $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
+                            break;
                         case 'formatYear':
 							$db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
 							break;
@@ -76,6 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				default: //Search features in the feature table
 					switch ($searchType) {
 						case 'featureYear':
+                            $db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+                            break;
                         case 'formatYear':
 							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 							break;
@@ -86,13 +90,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 			}
 
-            switch ($searchInput) {
-                case '':
-                    break;
-                default:
-                    $statement_exact = $db->prepare($db_query_exact);
-                    $statement_exact->execute();
-            }
+            $statement_exact = $db->prepare($db_query_exact);
+            $statement_exact->execute();
 
             $statement_regexp = $db->prepare($db_query_regexp);
             $statement_regexp->execute();
