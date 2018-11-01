@@ -65,8 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					switch ($searchType) {
 						case 'featureYear':
                         case 'formatYear':
-							$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
-                            $db_query_regexp = '';
+							$db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
 							break;
 						default: //featureTitle, featureSetTitle, format
 							$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
@@ -78,8 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					switch ($searchType) {
 						case 'featureYear':
                         case 'formatYear':
-							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
-                            $db_query_regexp = '';
+							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
 							break;
 						default: //featureTitle, featureSetTitle, format
 							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
@@ -96,14 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $statement_exact->execute();
             }
 
-            switch ($searchType) {
-                case 'featureYear':
-                case 'formatYear':
-                    break;
-                default: //not empty
-                    $statement_regexp = $db->prepare($db_query_regexp);
-                    $statement_regexp->execute();
-            }
+            $statement_regexp = $db->prepare($db_query_regexp);
+            $statement_regexp->execute();
 	}
 }
 ?>
@@ -178,13 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			break;
 		default:
 			showExactMatchResults($statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
-            switch ($searchType) {
-                case 'featureYear':
-                case 'formatYear':
-                    break;
-                default: //not empty
-                    showRegExpResults($statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
-            }
+            showRegExpResults($statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
 	}
 }
 ?>
