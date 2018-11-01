@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if ($submitAction == 'Log Out') {
         session_unset();
         session_destroy();
+        $successMessage = '<p class="successMessage">Successfully logged out</p>';
     }
 }
 ?>

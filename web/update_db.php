@@ -8,6 +8,7 @@ if ($_SESSION["loggedIn"] == true) {
     /*$_SESSION["returnToPage"] = "update_db.php";*/
     //Redirect to login page
     header("Location: login_db.php");
+    die();
 }
 
 $updateFeature = $featureId = $action = '';

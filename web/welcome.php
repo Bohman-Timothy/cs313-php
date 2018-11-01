@@ -12,6 +12,7 @@ if (isset($_SESSION["userId"])) {
 }
 else {
     header("Location: signin.php");
+    die(); //Always die() after a redirect
 }
 
 ?>

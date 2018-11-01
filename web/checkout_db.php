@@ -7,6 +7,7 @@ if ($_SESSION["loggedIn"] == true) {
 } else {
     //Redirect to login page
     header("Location: login_db.php");
+    die();
 }
 
 if (!isset($_SESSION["checkoutList"])) {

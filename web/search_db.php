@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 			}
 
-			switch ($searchInput) {
+			switch ($searchInput) { //Prevent error when matching empty string to an int for search by year
                 case '':
                     switch ($searchType) {
                         case 'featureYear':
@@ -185,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			showRegExpResults($patron_statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
 			break;
 		default:
-            switch ($searchInput) {
+            switch ($searchInput) { //Prevent error when matching empty string to an int for search by year
                 case '':
                     switch ($searchType) {
                         case 'featureYear':
