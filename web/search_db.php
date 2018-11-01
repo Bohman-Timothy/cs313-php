@@ -90,11 +90,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 			}
 
-            $statement_exact = $db->prepare($db_query_exact);
-            $statement_exact->execute();
+			switch ($searchInput) {
+                case '':
+                    switch ($searchType) {
+                        case 'featureYear':
+                            break;
+                        case 'formatYear':
+                            break;
+                        default:
+                            $statement_exact = $db->prepare($db_query_exact);
+                            $statement_exact->execute();
 
-            $statement_regexp = $db->prepare($db_query_regexp);
-            $statement_regexp->execute();
+                            $statement_regexp = $db->prepare($db_query_regexp);
+                            $statement_regexp->execute();
+                    }
+                    break;
+                default:
+                    $statement_exact = $db->prepare($db_query_exact);
+                    $statement_exact->execute();
+
+                    $statement_regexp = $db->prepare($db_query_regexp);
+                    $statement_regexp->execute();
+            }
 	}
 }
 ?>
@@ -156,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	echo '<p class="statusMessage">Searched for: ';
-	if ($searchInput == '') {
+	if (($searchInput == '') && ($searchType != 'featureYear') && ($searchType != 'formatYear')) {
         echo 'ALL DATABASE ENTRIES </p>';
     }
     else {
@@ -168,8 +185,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			showRegExpResults($patron_statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
 			break;
 		default:
-			showExactMatchResults($statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
-            showRegExpResults($statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
+            switch ($searchInput) {
+                case '':
+                    switch ($searchType) {
+                        case 'featureYear':
+                            break;
+                        case 'formatYear':
+                            break;
+                        default:
+                            showExactMatchResults($statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
+                            showRegExpResults($statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
+                    }
+                    break;
+                default:
+                    showExactMatchResults($statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
+                    showRegExpResults($statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
+            }
 	}
 }
 ?>
