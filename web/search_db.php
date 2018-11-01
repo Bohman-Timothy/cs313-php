@@ -178,8 +178,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			break;
 		default:
 			showExactMatchResults($statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
-            switch ($db_query_regexp) {
-                case '':
+            switch ($searchType) {
+                case 'featureYear':
+                case 'formatYear':
                     break;
                 default: //not empty
                     showRegExpResults($statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
