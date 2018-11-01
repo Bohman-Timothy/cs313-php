@@ -18,12 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$orderBy = 'ORDER BY ' . $searchOrder . ' ASC';
 			switch ($searchLoans) { //Search patrons in the loan table
 				case true:
-					$db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+					$db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username = \'' . $searchInput . '\' OR full_name = \'' . $searchInput . '\' ' . $orderBy . ';';
 
 					$db_patron_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 					break;
 				default: //Search patrons in the patron table
-					$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username = \'' . preg_quote($searchInput) . '\' OR full_name = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+					$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username = \'' . $searchInput . '\' OR full_name = \'' . $searchInput . '\' ' . $orderBy . ';';
 
 					$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE username ~* \'.*' . preg_quote($searchInput) . '.*\' OR full_name ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 			}
@@ -65,10 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					switch ($searchType) {
 						case 'featureYear':
                         case 'formatYear':
-							$db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+							$db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
 							break;
 						default: //featureTitle, featureSetTitle, format
-							$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+							$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
 
 							$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 					}
