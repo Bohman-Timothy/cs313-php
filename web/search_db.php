@@ -87,15 +87,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
 					}
 			}
-			$statement_exact = $db->prepare($db_query_exact);
-			$statement_exact->execute();
 
-            switch ($db_query_regexp) {
+            $statement_exact = $db->prepare($db_query_exact);
+            $statement_exact->execute();
+
+            switch ($searchInput) {
                 case '':
                     break;
-                default: //not empty
-                    $statement_regexp = $db->prepare($db_query_regexp);
-                    $statement_regexp->execute();
+                default:
+                    switch ($db_query_regexp) {
+                        case '':
+                            break;
+                        default: //not empty
+                            $statement_regexp = $db->prepare($db_query_regexp);
+                            $statement_regexp->execute();
+                    }
             }
 	}
 }
@@ -157,7 +163,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	echo '<p>Searched for: ' . $searchInput . '</p>';
+	echo '<p class="statusMessage">Searched for: ';
+	if ($searchInput == '') {
+        echo 'ALL DATABASE ENTRIES </p>';
+    }
+    else {
+        echo $searchInput . '</p>';
+    }
 	switch ($searchType) {
 		case 'patron':
 			showExactMatchResults($patron_statement_exact, $searchType, $searchLoans, $searchCurrentLoans);
