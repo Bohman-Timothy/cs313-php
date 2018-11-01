@@ -88,20 +88,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 			}
 
-            $statement_exact = $db->prepare($db_query_exact);
-            $statement_exact->execute();
-
             switch ($searchInput) {
                 case '':
                     break;
                 default:
-                    switch ($db_query_regexp) {
-                        case '':
-                            break;
-                        default: //not empty
-                            $statement_regexp = $db->prepare($db_query_regexp);
-                            $statement_regexp->execute();
-                    }
+                    $statement_exact = $db->prepare($db_query_exact);
+                    $statement_exact->execute();
+            }
+
+            switch ($db_query_regexp) {
+                case '':
+                    break;
+                default: //not empty
+                    $statement_regexp = $db->prepare($db_query_regexp);
+                    $statement_regexp->execute();
             }
 	}
 }
