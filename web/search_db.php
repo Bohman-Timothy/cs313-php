@@ -96,8 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $statement_exact->execute();
             }
 
-            switch ($db_query_regexp) {
-                case '':
+            switch ($searchType) {
+                case 'featureYear':
+                case 'formatYear':
                     break;
                 default: //not empty
                     $statement_regexp = $db->prepare($db_query_regexp);
