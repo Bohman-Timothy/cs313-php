@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						default: //featureTitle, featureSetTitle, format
 							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
 
-							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ';';
+							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' ' . $orderBy . ' AND NOT LIKE $searchInput;';
 					}
 			}
 
@@ -239,6 +239,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://www.plus2net.com/php_tutorial/array-session.php">PHP session array variable push</a></li>
         <li><a href="https://stackoverflow.com/questions/4227043/how-do-i-cancel-form-submission-in-submit-button-onclick-event">Stack Overflow - How do I cancel form submission in submit button onclick event?</a></li>
         <li><a href="https://www.postgresql.org/message-id/4717EA47.2080701%40att.net">PostgreSQL - Re: Drop Not Null</a></li>
+        <li><a href="https://stackoverflow.com/questions/512451/how-can-i-add-a-column-to-a-postgresql-database-that-doesnt-allow-nulls">Stack Overflow - How to add a not null column to a PostgreSQL database</a></li>
         <li><a href=""></a></li>
 	</ul>
 	</div>

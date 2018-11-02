@@ -5,7 +5,6 @@ include 'project1_functions.php';
 if ($_SESSION["loggedIn"] == true) {
     //Let the user continue on this page
 } else {
-    /*$_SESSION["returnToPage"] = "update_db.php";*/
     //Redirect to login page
     header("Location: login_db.php");
     die();
