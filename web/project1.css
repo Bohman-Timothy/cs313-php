@@ -70,7 +70,7 @@ span.featureResults, span.patronResults, span.loanResults {
 
 table caption.exactResultsTableCaption,
 table caption.regExpResultsTableCaption {
-	font-size: 1.2em;
+	font-size: 1.6em;
 	font-weight: bold;
 	font-style: italic;
 }
