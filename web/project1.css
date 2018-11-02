@@ -65,7 +65,7 @@ table.patronResults caption.resultsTableCaption*/
 
 span.featureResults, span.patronResults, span.loanResults {
     color: forestgreen;
-    font-decoration: underline;
+    text-decoration: underline;
 }
 
 table caption.exactResultsTableCaption,

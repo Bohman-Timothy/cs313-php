@@ -241,6 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://stackoverflow.com/questions/4227043/how-do-i-cancel-form-submission-in-submit-button-onclick-event">Stack Overflow - How do I cancel form submission in submit button onclick event?</a></li>
         <li><a href="https://www.postgresql.org/message-id/4717EA47.2080701%40att.net">PostgreSQL - Re: Drop Not Null</a></li>
         <li><a href="https://stackoverflow.com/questions/512451/how-can-i-add-a-column-to-a-postgresql-database-that-doesnt-allow-nulls">Stack Overflow - How to add a not null column to a PostgreSQL database</a></li>
+        <li><a href="https://www.postgresql.org/docs/10/static/functions-matching.html">PostgreSQL 10 Documentation - Pattern Matching</a></li>
         <li><a href=""></a></li>
 	</ul>
 	</div>
