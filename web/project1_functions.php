@@ -34,19 +34,19 @@ function showExactMatchResults($statement, $searchType, $searchLoans, $searchCur
     switch ($searchLoans) {
         case true:
             echo '<table class="loanResults">';
-            echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
+            echo '<thead><caption class="exactResultsTableCaption"><span class="loanResults">Loan</span> Results Matching Search Exactly</caption></thead>';
             showFullListOfLoans($statement);
             break;
         default:
             switch ($searchType) {
                 case 'patron':
                     echo '<table class="patronResults">';
-                    echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
+                    echo '<thead><caption class="exactResultsTableCaption"><span class="patronResults">Patron</span> Results Matching Search Exactly</caption></thead>';
                     showFullListOfPatrons($statement);
                     break;
                 default:
                     echo '<table class="featureResults">';
-                    echo '<thead><caption class="exactResultsTableCaption">Results Matching Search Exactly</caption></thead>';
+                    echo '<thead><caption class="exactResultsTableCaption"><span class="featureResults">Feature</span> Results Matching Search Exactly</caption></thead>';
                     showFullListOfFeatures($statement);
             }
     }
@@ -62,7 +62,7 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
                     break;
                 default:
                     echo '<table class="loanResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+                    echo '<thead><caption class="regExpResultsTableCaption"><span class="loanResults">Loan</span> Results Only Partially Matching Search</caption></thead>';
                     showFullListOfLoans($statement);
             }
             break;
@@ -70,7 +70,7 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
             switch ($searchType) {
                 case 'patron':
                     echo '<table class="patronResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+                    echo '<thead><caption class="regExpResultsTableCaption"><span class="patronResults">Patron</span> Results Only Partially Matching Search</caption></thead>';
                     showFullListOfPatrons($statement);
                     break;
                 case 'featureYear':
@@ -79,7 +79,7 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
                     break;
                 default:
                     echo '<table class="featureResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+                    echo '<thead><caption class="regExpResultsTableCaption"><span class="featureResults">Feature</span> Results Only Partially Matching Search</caption></thead>';
                     showFullListOfFeatures($statement);
             }
     }

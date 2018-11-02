@@ -62,6 +62,12 @@ table.featureResults, table.patronResults, table.loanResults {
 
 /*table.featureResults caption.resultsTableCaption,
 table.patronResults caption.resultsTableCaption*/
+
+span.featureResults, span.patronResults, span.loanResults {
+    color: forestgreen;
+    font-decoration: underline;
+}
+
 table caption.exactResultsTableCaption,
 table caption.regExpResultsTableCaption {
 	font-size: 1.2em;
