@@ -78,15 +78,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				default: //Search features in the feature table
 					switch ($searchType) {
 						case 'featureYear':
-                            $db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+                            $db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = ' . preg_quote($searchInput) . ' ' . $orderBy . ';';
                             break;
                         case 'formatYear':
-							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . preg_quote($searchInput) . '\' ' . $orderBy . ';';
+							$db_query_exact = $db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = ' . preg_quote($searchInput) . ' ' . $orderBy . ';';
 							break;
 						default: //featureTitle, featureSetTitle, format
-							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' = \'' . $searchInput . '\' ' . $orderBy . ';';
+							$db_query_exact = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' LIKE \'' . $searchInput . '\' ' . $orderBy . ';';
 
-							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' AND ' . $searchTargetColumn . ' NOT SIMILAR TO \'' . $searchInput . '\' ' . $orderBy . ';';
+							$db_query_regexp = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' AND ' . $searchTargetColumn . ' NOT LIKE \'' . $searchInput . '\' ' . $orderBy . ';';
 					}
 			}
 
