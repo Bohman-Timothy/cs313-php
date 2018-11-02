@@ -55,9 +55,16 @@ function showExactMatchResults($statement, $searchType, $searchLoans, $searchCur
 function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurrentLoans) {
     switch ($searchLoans) {
         case true:
-            echo '<table class="loanResults">';
-            echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
-            showFullListOfLoans($statement);
+            switch ($searchType) {
+                case 'featureYear':
+                    break;
+                case 'formatYear':
+                    break;
+                default:
+                    echo '<table class="loanResults">';
+                    echo '<thead><caption class="regExpResultsTableCaption">Results at Least Partially Matching Search</caption></thead>';
+                    showFullListOfLoans($statement);
+            }
             break;
         default:
             switch ($searchType) {
@@ -67,6 +74,8 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
                     showFullListOfPatrons($statement);
                     break;
                 case 'featureYear':
+                    break;
+                case 'formatYear':
                     break;
                 default:
                     echo '<table class="featureResults">';
