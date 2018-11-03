@@ -75,12 +75,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             echo '<p>Successfully retrieved borrower ID: ' . $borrowerId . '</p>';
 
-            if ($borrowerId == $_SESSION["userId"]) { //($borrowerId == $_SESSION["userId"]) {
+            //Restrict returns to the borrower or an admin
+            if (($borrowerId == $_SESSION["userId"]) || ($_SESSION["user"] == 'asquire')) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
                 $successMessage = '<p class="successMessage">The feature has been marked as returned.</p>';
             }
             else {
-                $errorMessage = '<p class="errorMessage">You are not authorized to return this feature. The original borrower must return the feature.</p>';
+                $errorMessage = '<p class="errorMessage">You are not authorized to mark this feature as returned. The original borrower or an administrator must mark it as returned.</p>';
             }
         } else {
             $errorMessage = '<p class="errorMessage">You can\'t return a feature that hasn\'t been loaned out.</p>';
