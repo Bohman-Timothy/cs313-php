@@ -5,6 +5,7 @@ include 'project1_functions.php';
 $searchInput = $searchType = $searchLoans = $searchCurrentLoans = '';
 $statement_exact = $statement_regexp = '';
 $searchTargetColumn = $searchOrder = $orderBy = '';
+$searchOrderStandardEnding = ', feature_year ASC, format_year ASC, format, ASC';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
@@ -14,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	switch ($searchType) {
 		case 'patron':
-			$searchOrder = 'full_name';
-			$orderBy = 'ORDER BY ' . $searchOrder . ' ASC';
 			switch ($searchLoans) { //Search patrons in the loan table
 				case true:
+                    $searchOrder = 'full_name ASC, username ASC, feature_title ASC, feature_set_title ASC';
+                    $orderBy = 'ORDER BY ' . $searchOrder . $searchOrderStandardEnding;
 				    switch ($searchCurrentLoans) {
                         case true: // Search patrons in current loans (using current_loan and loan tables)
                             $db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE username ILIKE \'' . $searchInput . '\' OR full_name ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
@@ -31,6 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
 					break;
 				default: //Search patrons in the patron table
+                    $searchOrder = 'full_name ASC, username ASC';
+                    $orderBy = 'ORDER BY ' . $searchOrder;
 					$db_patron_query_exact = 'SELECT id, username, full_name FROM patron WHERE username ILIKE \'' . $searchInput . '\' OR full_name ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
 
 					$db_patron_query_regexp = 'SELECT id, username, full_name FROM patron WHERE (username ~* \'.*' . preg_quote($searchInput) . '.*\' AND username NOT ILIKE \'' . $searchInput . '\') OR (full_name ~* \'.*' . preg_quote($searchInput) . '.*\' AND full_name NOT ILIKE \'' . $searchInput . '\') ' . $orderBy . ';';
@@ -59,15 +62,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 			
 			if (($searchType == 'featureYear') || ($searchType == 'format') || ($searchType == 'formatYear')) {
-				$orderBy = 'ORDER BY feature_title ASC, feature_set_title ASC';
+                $searchOrder = 'feature_title ASC, feature_set_title ASC';
 			}
 			else if ($searchType == 'featureSetTitle') {
-				$orderBy = 'ORDER BY feature_set_title ASC, feature_title ASC';
+                $searchOrder = 'feature_set_title ASC, feature_title ASC';
 			}
 			else if ($searchType == 'featureTitle') {
-				$orderBy = 'ORDER BY feature_title ASC, feature_set_title ASC';
+				$searchOrder = 'feature_title ASC, feature_set_title ASC';
 			}
-			
+            $orderBy = 'ORDER BY ' . $searchOrder . $searchOrderStandardEnding;
+
 			switch ($searchLoans) { //Search features in the loan table
 				case true:
                     switch ($searchCurrentLoans) {
