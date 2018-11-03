@@ -65,14 +65,16 @@ function selectCheckbox() {
 
 function showCurrentLoansOption() {
 	var searchLoansCheckbox = document.getElementById("searchLoansOnly_id");
-	var currentLoans = document.getElementById("currentLoans_id");
-	var searchCurrentLoansCheckbox = document.getElementById("searchCurrentLoansCheckbox_id");
+	var searchCurrentLoansHiddenArea = document.getElementById("searchCurrentLoansHiddenArea_id");
+	var searchCurrentLoansCheckbox = document.getElementById("searchCurrentLoans_id");
+
 	if (searchLoansCheckbox.checked == true) {
-		currentLoans.style.display = "block";
-		searchCurrentLoansCheckbox.checked = false;
+        searchCurrentLoansHiddenArea.style.display = "block";
+		searchCurrentLoansCheckbox.checked = true;
 	}
 	else {
 		currentLoans.style.display = "none";
+        searchCurrentLoansCheckbox.checked = false;
 	}
 }
 

@@ -163,9 +163,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		</div>
 		<input type="checkbox" name="searchLoans" id="searchLoansOnly_id" onclick="showCurrentLoansOption()">
 		<label for="searchLoansOnly_id">Search Loans Only</label><br />
-		<div id="currentLoans_id">
-			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoansCheckbox_id" checked>
-			<label for="searchCurrentLoansCheckbox_id">Current Loans Only</label><br />
+		<div id="searchCurrentLoansHiddenArea_id">
+			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoans_id">
+			<label for="searchCurrentLoans_id">Current Loans Only</label><br />
 		</div>
 		<p id="searchAllFeatures_id">Searches all features or all patrons or all loans</p>
         <p>To view all database entries for the chosen search type, submit an empty search value.</p>
@@ -242,6 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://www.postgresql.org/message-id/4717EA47.2080701%40att.net">PostgreSQL - Re: Drop Not Null</a></li>
         <li><a href="https://stackoverflow.com/questions/512451/how-can-i-add-a-column-to-a-postgresql-database-that-doesnt-allow-nulls">Stack Overflow - How to add a not null column to a PostgreSQL database</a></li>
         <li><a href="https://www.postgresql.org/docs/10/static/functions-matching.html">PostgreSQL 10 Documentation - Pattern Matching</a></li>
+        <li><a href="https://www.w3schools.com/jsref/prop_checkbox_checked.asp">W3Schools - JavaScript, Input Checkbox checked Property</a></li>
         <li><a href=""></a></li>
 	</ul>
 	</div>

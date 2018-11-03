@@ -122,7 +122,7 @@ table.featureResults, table.patronResults {
 	margin-left: 1em;
 }
 
-#currentLoans_id {
+#searchCurrentLoansHiddenArea_id {
 	display: none;
 }
 
