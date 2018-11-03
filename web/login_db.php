@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["userId"] = $row['id'];
             }
 
-            if (($match == true) && (($username == 'tester') || ($username == 'asquire'))) {
+            if (($match == true) && (($username == 'tester') || ($username == 'asquire') || ($username == 'Condorman'))) {
                 $_SESSION["user"] = $username;
                 $_SESSION["loggedIn"] = true;
                 $successMessage = '<p class="successMessage">Successfully logged in as ' . $_SESSION["user"] . '</p>';

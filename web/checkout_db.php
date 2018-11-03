@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             echo '<p>Successfully retrieved borrower ID: ' . $borrowerId . '</p>';
 
-            if (true) { //($borrowerId == $_SESSION["userId"]) {
+            if ($borrowerId == $_SESSION["userId"]) { //($borrowerId == $_SESSION["userId"]) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
                 $successMessage = '<p class="successMessage">The feature has been marked as returned.</p>';
             }
@@ -153,7 +153,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php
                 }
                 else {
-                    /*echo '<p class="errorMessage">This feature is already checked out. Please select another feature.</p>';*/
                     echo '<p class="statusMessage">This feature is already checked out.</p>';
                     ?>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id">
