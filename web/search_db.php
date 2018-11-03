@@ -84,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' AND ' . $searchTargetColumn . ' NOT ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
                             }
+                            break;
                         default:
                             switch ($searchType) {
                                 case 'featureYear':
