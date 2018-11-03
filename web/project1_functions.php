@@ -196,12 +196,12 @@ function setFeatureLoan($featureId, $db) {
     }
 
     //update feature loan status to "Yes"
-    echo '<p>Updating ID: ' . $featureId . '</p>';
+    /*echo '<p>Updating ID: ' . $featureId . '</p>';
     $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan, updated_at = :updatedAt WHERE id = :featureId;';
     echo '<p>' . $db_update_loan_status_query . '</p>';
     $db_update_loan_status_statement = $db->prepare($db_update_loan_status_query);
     $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'true', ':updatedAt' => 'now()'));
-    echo '<p>Successfully updated loan status to "Yes"</p>';
+    echo '<p>Successfully updated loan status to "Yes"</p>';*/
 }
 
 /* Note: remove existing_loan */
@@ -231,11 +231,11 @@ function returnFeatureLoan($featureId, $db) {
     echo '<p>Successfully updated current loan status to NULL for feature #' . $featureId . '</p>';
 
     //update feature loan status to "No"
-    echo '<p>Updating ID: ' . $featureId . '</p>';
+    /*echo '<p>Updating ID: ' . $featureId . '</p>';
     $db_update_loan_status_query = 'UPDATE feature SET existing_loan = :existingLoan, updated_at = :updatedAt WHERE id = :featureId;';
     echo '<p>' . $db_update_loan_status_query . '</p>';
     $db_update_loan_status_statement = $db->prepare($db_update_loan_status_query);
     $db_update_loan_status_statement->execute(array(':featureId' => $featureId, ':existingLoan' => 'false', ':updatedAt' => 'now()'));
-    echo '<p>Successfully updated loan status to "No"</p>';
+    echo '<p>Successfully updated loan status to "No"</p>';*/
 }
 ?>
