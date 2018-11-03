@@ -161,7 +161,7 @@ function showFullListOfLoans($statement) {
 /* Note: remove existing_loan */
 function setFeatureLoan($featureId, $db) {
     //insert new loan
-    $db_insert_new_loan_query = 'INSERT INTO loan (fk_feature_loaned, fk_borrower, updated_by) VALUES (:featureId, :userLoggedIn, :userLoggedIn);';
+    $db_insert_new_loan_query = 'INSERT INTO loan (fk_feature_loaned, fk_borrower, fk_updated_by) VALUES (:featureId, :userLoggedIn, :userLoggedIn);';
     echo '<p>' . $db_insert_new_loan_query . '</p>';
     $db_insert_new_loan_statement = $db->prepare($db_insert_new_loan_query);
     $db_insert_new_loan_statement->execute(array(':featureId' => $featureId, ':userLoggedIn' => $_SESSION["userId"]));
@@ -218,7 +218,7 @@ function returnFeatureLoan($featureId, $db) {
     $loanId = $currentLoanId['fk_loan'];*/
 
     //update loan to reflect return date
-    $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate, updated_at = :updatedAt, updated_by = :userLoggedIn WHERE id = :loanId;';
+    $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate, updated_at = :updatedAt, fk_updated_by = :userLoggedIn WHERE id = :loanId;';
     echo '<p>' . $db_update_loan_query . '</p>';
     $db_update_loan_statement = $db->prepare($db_update_loan_query);
     $db_update_loan_statement->execute(array(':returnDate' => 'now()', ':loanId' => $loanId, ':updatedAt' => 'now()', ':userLoggedIn' => $_SESSION["userId"]));
