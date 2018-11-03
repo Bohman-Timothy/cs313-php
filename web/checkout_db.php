@@ -72,7 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //Restrict returns to the borrower or an admin
             if (($borrowerId == $_SESSION["userId"]) || ($_SESSION["user"] == 'asquire')) {
-            //if (true) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
                 $successMessage = '<p class="successMessage">The feature has been marked as returned.</p>';
             }
