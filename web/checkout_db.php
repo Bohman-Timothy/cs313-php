@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //get id of current loan for the selected feature
             $db_query_current_loan = 'SELECT id, fk_loan FROM current_loan WHERE fk_feature = :featureId;';
             $db_statement_current_loan = $db->prepare($db_query_current_loan);
-            $db_statement_current_loan->execute(array(':featureId' => $featureId));
+            $db_statement_current_loan->execute(array(':featureId' => $submittedFeature));
             $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
             $currentLoanId = $singleResult['id'];
             $loanId = $singleResult['fk_loan'];
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="searchIdForCheckout_id">
 		<h2>Enter data to select a feature to get on loan</h2>
 		<label for="enterFeatureId_id">Enter Feature ID:</label>
-		<input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" required value="<?php echo $featureId; ?>"><br />
+		<input type="number" min="1" name="featureId" id="enterFeatureId_id" title="Enter the ID found by using the database's search feature" required value=""><br />
 		<input type="submit" name="submit" value="Search" class="submitButton" id="searchIdButton_id">
 	</form>
     <?php
