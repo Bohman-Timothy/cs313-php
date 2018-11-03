@@ -164,8 +164,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<input type="checkbox" name="searchLoans" id="searchLoansOnly_id" onclick="showCurrentLoansOption()">
 		<label for="searchLoansOnly_id">Search Loans Only</label><br />
 		<div id="currentLoans_id">
-			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoans_id" checked>
-			<label for="searchCurrentLoans_id">Current Loans Only</label><br />
+			<input type="checkbox" name="searchCurrentLoans" id="searchCurrentLoansCheckbox_id" checked>
+			<label for="searchCurrentLoansCheckbox_id">Current Loans Only</label><br />
 		</div>
 		<p id="searchAllFeatures_id">Searches all features or all patrons or all loans</p>
         <p>To view all database entries for the chosen search type, submit an empty search value.</p>
@@ -186,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			showRegExpResults($patron_statement_regexp, $searchType, $searchLoans, $searchCurrentLoans);
 			break;
 		default:
-            switch ($searchInput) { //Prevent error when matching empty string to an int for search by year
+            switch ($searchInput) { //Prevent error when matching empty string to a smallint for search by year
                 case '':
                     switch ($searchType) {
                         case 'featureYear':

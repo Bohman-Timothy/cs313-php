@@ -66,9 +66,10 @@ function selectCheckbox() {
 function showCurrentLoansOption() {
 	var searchLoansCheckbox = document.getElementById("searchLoansOnly_id");
 	var currentLoans = document.getElementById("currentLoans_id");
-	
+	var searchCurrentLoansCheckbox = document.getElementById("searchCurrentLoansCheckbox_id");
 	if (searchLoansCheckbox.checked == true) {
 		currentLoans.style.display = "block";
+		searchCurrentLoansCheckbox.checked = false;
 	}
 	else {
 		currentLoans.style.display = "none";
