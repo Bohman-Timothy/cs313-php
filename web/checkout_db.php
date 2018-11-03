@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<p>' . $db_loan_borrower_query . '</p>';
             $db_loan_borrower_statement = $db->prepare($db_loan_borrower_query);
             $db_loan_borrower_statement->execute(array(':loanId' => $loanId));
-            $row_loan_borrower = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC));
+            $row_loan_borrower = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC);
             $borrowerId = $row_loan_borrower['fk_borrower'];
 
             //Restrict returns to the borrower or an admin
