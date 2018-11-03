@@ -41,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     else if ($submitAction == 'Confirm Checkout') {
-        $_SESSION["checkingForExistingLoan"] = true;
         if ($_SESSION["existingLoan"] != "Yes") {
             array_push($_SESSION["checkoutList"], $submittedFeature);
             $successMessage = '<p class="successMessage">Feature successfully added to checkout list.</p>';
@@ -53,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //echo '<p class="errorMessage">You must check the box to confirm.</p>';
     }
     else if ($submitAction == 'Confirm Return') {
-        $_SESSION["checkingForExistingLoan"] = true;
         if ($_SESSION["existingLoan"] == "Yes") {
             //get id of current loan for the selected feature
             $db_query_current_loan = 'SELECT id, fk_loan FROM current_loan WHERE fk_feature = :featureId;';
@@ -85,10 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["checkingForExistingLoan"] = false;
     }
     else if ($submitAction == 'Clear Selection') {
-        echo '<p>Clear Selection (before):</p>';
-        print_r($_SESSION);
         $_SESSION["checkingForExistingLoan"] = false;
-        echo '<p>Clear Selection (after):</p>';
     }
 
     print_r($_SESSION);
@@ -133,7 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //show selected feature
             echo '<table class="featureResults">';
             echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
+            $_SESSION["checkingForExistingLoan"] = true;
             $matchExists = showFullListOfFeatures($db_statement_feature_id);
+            $_SESSION["checkingForExistingLoan"] = false;
             if ($matchExists == false) {
                 echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';
             } else { //Prompt user to add the selected feature to their checkout list
