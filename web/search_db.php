@@ -19,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			switch ($searchLoans) { //Search patrons in the loan table
 				case true:
 				    switch ($searchCurrentLoans) {
-                        case true:
+                        case true: // Search patrons in current loans (using current_loan and loan tables)
                             $db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE username ILIKE \'' . $searchInput . '\' OR full_name ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
 
                             $db_patron_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE (username ~* \'.*' . preg_quote($searchInput) . '.*\' AND username NOT ILIKE \'' . $searchInput . '\') OR (full_name ~* \'.*' . preg_quote($searchInput) . '.*\' AND full_name NOT ILIKE \'' . $searchInput . '\') ' . $orderBy . ';';
                             break;
-                        default:
+                        default: // Search patrons in all loans (using loan table)
                             $db_patron_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE username ILIKE \'' . $searchInput . '\' OR full_name ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
 
                             $db_patron_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE (username ~* \'.*' . preg_quote($searchInput) . '.*\' AND username NOT ILIKE \'' . $searchInput . '\') OR (full_name ~* \'.*' . preg_quote($searchInput) . '.*\' AND full_name NOT ILIKE \'' . $searchInput . '\') ' . $orderBy . ';';
@@ -70,18 +70,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			
 			switch ($searchLoans) { //Search features in the loan table
 				case true:
-					switch ($searchType) {
-						case 'featureYear':
-                            $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';
-                            break;
-                        case 'formatYear':
-							$db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';
-							break;
-						default: //featureTitle, featureSetTitle, format
-							$db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
+                    switch ($searchCurrentLoans) {
+                        case true:
+                            switch ($searchType) {
+                                case 'featureYear':
+                                    $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';
+                                    break;
+                                case 'formatYear':
+                                    $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';
+                                    break;
+                                default: //featureTitle, featureSetTitle, format
+                                    $db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE ' . $searchTargetColumn . ' ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
 
-							$db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' AND ' . $searchTargetColumn . ' NOT ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
-					}
+                                    $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' AND ' . $searchTargetColumn . ' NOT ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
+                            }
+                        default:
+                            switch ($searchType) {
+                                case 'featureYear':
+                                    $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';
+                                    break;
+                                case 'formatYear':
+                                    $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';
+                                    break;
+                                default: //featureTitle, featureSetTitle, format
+                                    $db_query_exact = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
+
+                                    $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' AND ' . $searchTargetColumn . ' NOT ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
+                            }
+                    }
 					break;
 				default: //Search features in the feature table
 					switch ($searchType) {
