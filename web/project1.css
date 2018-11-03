@@ -151,6 +151,10 @@ input[type=text], input[type=number], input[type=password] {
 	background-color: skyblue;
 }
 
+input[type=radio], input[type=checkbox] {
+	background-color: skyblue;
+}
+
 input:focus {
 	border: 2px solid salmon;
 }
