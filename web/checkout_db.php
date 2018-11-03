@@ -30,8 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $submittedFeature = $_POST["selectedFeatureInputHidden"];
     $successMessage = $errorMessage = '';
 
-    print_r($_SESSION);
-
     if ($submitAction == 'Search') {
         if ($featureId != '') {
             $db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = :featureId;';
@@ -48,8 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $errorMessage = '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
         }
-        $_SESSION["checkingForExistingLoan"] = false;
-        //echo '<p class="errorMessage">You must check the box to confirm.</p>';
     }
     else if ($submitAction == 'Confirm Return') {
         if ($_SESSION["existingLoan"] == "Yes") {
@@ -80,13 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $errorMessage = '<p class="errorMessage">You can\'t return a feature that hasn\'t been loaned out.</p>';
         }
-        $_SESSION["checkingForExistingLoan"] = false;
     }
     else if ($submitAction == 'Clear Selection') {
-        $_SESSION["checkingForExistingLoan"] = false;
+        //Variables emptied automatically
     }
-
-    print_r($_SESSION);
 }
 ?>
 
