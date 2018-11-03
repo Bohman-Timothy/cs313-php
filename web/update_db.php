@@ -52,10 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($featureSetTitleId != '') {
                 //insert feature with reference to pre-existing feature set title
-                $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location);';
+                $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location, fk_created_by) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location, :userId);';
                 $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
                 $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-                $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location));
+                $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location, ':userId' => $_SESSION["userId"]));
             }
             else {
                 //insert new feature set title
@@ -66,10 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $featureSetTitleId = $db->lastInsertId('feature_set_id_seq');
 
                 //insert feature, including reference to new feature set title
-                $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location);';
+                $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location, fk_created_by) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location, :userId);';
                 $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
                 $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-                $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location));
+                $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location, ':userId' => $_SESSION["userId"]));
             }
         }
 
