@@ -58,25 +58,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $db_query_current_loan = 'SELECT id, fk_loan FROM current_loan WHERE fk_feature = :featureId;';
             $db_statement_current_loan = $db->prepare($db_query_current_loan);
             $db_statement_current_loan->execute(array(':featureId' => $submittedFeature));
-            $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
-            $currentLoanId = $singleResult['id'];
-            $loanId = $singleResult['fk_loan'];
-            echo '<p>feature ID: ' . $featureId . '</p>';
-            echo '<p>current_loan ID: ' . $currentLoanId . '</p>';
-            echo '<p>loan ID: ' . $loanId . '</p>';
+            $row_current_loan = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
+            $currentLoanId = $row_current_loan['id'];
+            $loanId = $row_current_loan['fk_loan'];
 
             //get user id associated with the loan
             $db_loan_borrower_query = 'SELECT fk_borrower FROM loan WHERE id = :loanId;';
             echo '<p>' . $db_loan_borrower_query . '</p>';
             $db_loan_borrower_statement = $db->prepare($db_loan_borrower_query);
             $db_loan_borrower_statement->execute(array(':loanId' => $loanId));
-            $counter = 0;
-            while ($row_loan_borrower = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC)) {
-                $borrowerId = $row_loan_borrower['fk_borrower'];
-                echo '<p>Counter: ' . counter . '</p>';
-                $counter++;
-            }
-            echo '<p>Successfully retrieved borrower ID: ' . $borrowerId . '</p>';
+            $row_loan_borrower = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC));
+            $borrowerId = $row_loan_borrower['fk_borrower'];
 
             //Restrict returns to the borrower or an admin
             if (($borrowerId == $_SESSION["userId"]) || ($_SESSION["user"] == 'asquire')) {
