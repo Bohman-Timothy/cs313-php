@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $db_statement_current_loan->execute(array(':featureId' => $featureId));
             $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
             $currentLoanId = $singleResult['id'];
-            $loanId = $currentLoanId['fk_loan'];
+            $loanId = $singleResult['fk_loan'];
             echo '<p>Loan ID: ' . $loanId . '</p>';
 
             //get user id associated with the loan
