@@ -73,7 +73,7 @@ function showCurrentLoansOption() {
 		searchCurrentLoansCheckbox.checked = true;
 	}
 	else {
-		currentLoans.style.display = "none";
+        searchCurrentLoansHiddenArea.style.display = "none";
         searchCurrentLoansCheckbox.checked = false;
 	}
 }
