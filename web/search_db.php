@@ -5,7 +5,7 @@ include 'project1_functions.php';
 $searchInput = $searchType = $searchLoans = $searchCurrentLoans = '';
 $statement_exact = $statement_regexp = '';
 $searchTargetColumn = $searchOrder = $orderBy = '';
-$searchOrderStandardEnding = ', feature_year ASC, format_year ASC, format, ASC';
+$searchOrderStandardEnding = ', feature_year ASC, format_year ASC, format ASC';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$searchInput = cleanInput($_POST["searchInput"]);
