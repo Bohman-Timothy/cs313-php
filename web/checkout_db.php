@@ -61,7 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $singleResult = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
             $currentLoanId = $singleResult['id'];
             $loanId = $singleResult['fk_loan'];
-            echo '<p>current_loan ID: ' . $loanId . '</p>';
+            echo '<p>feature ID: ' . $featureId . '</p>';
+            echo '<p>current_loan ID: ' . $currentLoanId . '</p>';
             echo '<p>loan ID: ' . $loanId . '</p>';
 
             //get user id associated with the loan
@@ -78,7 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<p>Successfully retrieved borrower ID: ' . $borrowerId . '</p>';
 
             //Restrict returns to the borrower or an admin
-            if (($borrowerId == $_SESSION["userId"]) || ($_SESSION["user"] == 'asquire')) {
+            //if (($borrowerId == $_SESSION["userId"]) || ($_SESSION["user"] == 'asquire')) {
+            if (true) {
                 returnFeatureLoan($_SESSION["featureId"], $db);
                 $successMessage = '<p class="successMessage">The feature has been marked as returned.</p>';
             }
