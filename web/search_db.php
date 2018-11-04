@@ -272,6 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="https://stackoverflow.com/questions/512451/how-can-i-add-a-column-to-a-postgresql-database-that-doesnt-allow-nulls">Stack Overflow - How to add a not null column to a PostgreSQL database</a></li>
         <li><a href="https://www.postgresql.org/docs/10/static/functions-matching.html">PostgreSQL 10 Documentation - Pattern Matching</a></li>
         <li><a href="https://www.w3schools.com/jsref/prop_checkbox_checked.asp">W3Schools - JavaScript, Input Checkbox checked Property</a></li>
+        <li><a href="https://www.postgresql.org/docs/10/static/functions-formatting.html">PostgreSQL 10 Documentation - Data Type Formatting Functions (Date)</a></li>
         <li><a href=""></a></li>
 	</ul>
 	</div>
