@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $db_query_username = 'SELECT id, username, full_name FROM patron WHERE username =:username and password =:password;';
             $db_statement_username = $db->prepare($db_query_username);
             $db_statement_username->execute(array(':username' => $username, ':password' => $password));
-            /*$result = $db_statement_username->get_result();*/
 
             $match = false;
             while ($row = $db_statement_username->fetch(PDO::FETCH_ASSOC)) {
@@ -23,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["userId"] = $row['id'];
             }
 
-            if (($match == true) && ($password != '')) { //(($username == 'tester') || ($username == 'asquire') || ($username == 'Condorman'))) {
+            if (($match == true) && ($password != '')) {
                 $_SESSION["user"] = $username;
                 $_SESSION["loggedIn"] = true;
                 $successMessage = '<p class="successMessage">Successfully logged in as ' . $_SESSION["user"] . '</p>';

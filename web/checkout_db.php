@@ -10,9 +10,9 @@ if ($_SESSION["loggedIn"] == true) {
     die();
 }
 
-if (!isset($_SESSION["checkoutList"])) {
+/*if (!isset($_SESSION["checkoutList"])) {
     $_SESSION["checkoutList"] = array();
-}
+}*/
 if (!isset($_SESSION["checkingForExistingLoan"])) {
     $_SESSION["checkingForExistingLoan"] = false;
 }

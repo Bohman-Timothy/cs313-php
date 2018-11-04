@@ -163,7 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else {
             //update feature without a feature set title
-            /*$progressMessage = $progressMessage . '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';*/
             $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_storage_location = :location, updated_at = now() WHERE id = :featureId;';
             /*$progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';*/
             $db_update_feature_statement = $db->prepare($db_update_feature_query);

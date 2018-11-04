@@ -89,6 +89,10 @@ table.featureResults, table.patronResults {
 	margin-top: 1em;
 }
 
+.noResults {
+	font-style: italic;
+}
+
 .submitButton {
 	margin-bottom: 1em;
 }
