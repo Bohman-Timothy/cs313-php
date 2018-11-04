@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			switch ($searchLoans) { //Search features in the loan table
 				case true:
                     switch ($searchCurrentLoans) {
-                        case true:
+                        case true: //Search features with a current loan in the current_loan table
                             switch ($searchType) {
                                 case 'featureYear':
                                     $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM current_loan_view WHERE ' . $searchTargetColumn . ' ~* \'.*' . preg_quote($searchInput) . '.*\' AND ' . $searchTargetColumn . ' NOT ILIKE \'' . $searchInput . '\' ' . $orderBy . ';';
                             }
                             break;
-                        default:
+                        default://Search features in all loans (past, present) in the loan table
                             switch ($searchType) {
                                 case 'featureYear':
                                     $db_query_exact = $db_query_regexp = 'SELECT id, loan_date, return_date, username, full_name, feature_title, feature_year, format, format_year, feature_set_title FROM loan_view WHERE ' . $searchTargetColumn . ' = ' . $searchInput . ' ' . $orderBy . ';';

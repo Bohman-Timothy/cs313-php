@@ -33,9 +33,12 @@ function cleanInput($data) {
 function showExactMatchResults($statement, $searchType, $searchLoans, $searchCurrentLoans) {
     switch ($searchLoans) {
         case true:
-            echo '<table class="loanResults">';
-            echo '<thead><caption class="exactResultsTableCaption"><span class="loanResults">Loan</span> Results Matching Search Exactly</caption></thead>';
-            showFullListOfLoans($statement);
+            /*echo '<table class="loanResults">';
+            echo '<thead><caption class="exactResultsTableCaption"><span class="loanResults">Loan</span> Results Matching Search Exactly</caption></thead>';$resultsTableClass = 'loanResults';*/
+            $resultsTableClass = 'loanResults';
+            $resultsCaptionClass = "exactResultsTableCaption";
+            $tableCaption = '<span class="' . $resultsTableClass . '">Loan</span> Results Matching Search Exactly';
+            showFullListOfLoans($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
             break;
         default:
             switch ($searchType) {
@@ -61,9 +64,12 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
                 case 'formatYear':
                     break;
                 default:
-                    echo '<table class="loanResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption"><span class="loanResults">Loan</span> Results Only Partially Matching Search</caption></thead>';
-                    showFullListOfLoans($statement);
+                    /*echo '<table class="loanResults">';
+                    echo '<thead><caption class="regExpResultsTableCaption"><span class="loanResults">Loan</span> Results Only Partially Matching Search</caption></thead>';*/
+                    $resultsTableClass = 'loanResults';
+                    $resultsCaptionClass = "regExpResultsTableCaption";
+                    $tableCaption = '<span class="' . $resultsTableClass . '">Loan</span> Results Only Partially Matching Search';
+                    showFullListOfLoans($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
             }
             break;
         default:
@@ -115,7 +121,9 @@ function showFullListOfFeatures ($statement) {
     }
 }
 
-function showFullListOfPatrons($statement) {
+function showFullListOfPatrons($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass) {
+    /*echo '<table class="' . $resultsTableClass . '">';
+    echo '<thead><caption class="' . $resultsCaptionClass . '">' . $tableCaption . '</caption></thead>';*/
     echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Username</th><th>Full Name</th></tr>';
     $counter = 0;
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -133,7 +141,9 @@ function showFullListOfPatrons($statement) {
     }
 }
 
-function showFullListOfLoans($statement) {
+function showFullListOfLoans($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass) {
+    echo '<table class="' . $resultsTableClass . '">';
+    echo '<thead><caption class="' . $resultsCaptionClass . '">' . $tableCaption . '</caption></thead>';
     echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Loan Date</th><th>Return Date</th><th>Username</th><th>Full Name</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th><th>Feature Set Title</th></tr>';
     $counter = 0;
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
