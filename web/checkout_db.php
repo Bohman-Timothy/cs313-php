@@ -119,10 +119,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($submitAction == 'Search') {
             //show selected feature
-            echo '<table class="featureResults">';
-            echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
+            /*echo '<table class="featureResults">';
+            echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';*/
+            $resultsTableClass = 'featureResults';
+            $resultsCaptionClass = "exactResultsTableCaption";
+            $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Result Matching Search';
             $_SESSION["checkingForExistingLoan"] = true;
-            $matchExists = showFullListOfFeatures($db_statement_feature_id);
+            $matchExists = showFullListOfFeatures($db_statement_feature_id, $tableCaption, $resultsTableClass, $resultsCaptionClass);
             $_SESSION["checkingForExistingLoan"] = false;
             if ($matchExists == false) {
                 echo '<p class="errorMessage">You must enter a valid feature ID before you can check a feature out.</p>';

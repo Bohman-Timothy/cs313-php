@@ -51,9 +51,12 @@ function showExactMatchResults($statement, $searchType, $searchLoans, $searchCur
                     showFullListOfPatrons($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
                     break;
                 default:
-                    echo '<table class="featureResults">';
-                    echo '<thead><caption class="exactResultsTableCaption"><span class="featureResults">Feature</span> Results Matching Search Exactly</caption></thead>';
-                    showFullListOfFeatures($statement);
+                    /*echo '<table class="featureResults">';
+                    echo '<thead><caption class="exactResultsTableCaption"><span class="featureResults">Feature</span> Results Matching Search Exactly</caption></thead>';*/
+                    $resultsTableClass = 'featureResults';
+                    $resultsCaptionClass = "exactResultsTableCaption";
+                    $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Results Matching Search Exactly';
+                    showFullListOfFeatures($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
             }
     }
 }
@@ -90,14 +93,19 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
                 case 'formatYear':
                     break;
                 default:
-                    echo '<table class="featureResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption"><span class="featureResults">Feature</span> Results Only Partially Matching Search</caption></thead>';
-                    showFullListOfFeatures($statement);
+                    /*echo '<table class="featureResults">';
+                    echo '<thead><caption class="regExpResultsTableCaption"><span class="featureResults">Feature</span> Results Only Partially Matching Search</caption></thead>';*/
+                    $resultsTableClass = 'featureResults';
+                    $resultsCaptionClass = "regExpResultsTableCaption";
+                    $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Results Only Partially Matching Search';
+                    showFullListOfFeatures($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
             }
     }
 }
 
-function showFullListOfFeatures ($statement) {
+function showFullListOfFeatures ($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass) {
+    echo '<table class="' . $resultsTableClass . '">';
+    echo '<thead><caption class="' . $resultsCaptionClass . '">' . $tableCaption . '</caption></thead>';
     echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th>';
     echo '<th>Feature Set Title</th><th>Location</th><th>Existing Loan</th></tr>';
     $counter = 0;

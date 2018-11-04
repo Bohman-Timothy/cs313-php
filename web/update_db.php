@@ -108,7 +108,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_query_feature_id = 'SELECT fv.id as id, fv.feature_title, fv.feature_year, f.fk_physical_format as format, fv.format_year, fv.feature_set_title, f.fk_storage_location as location, fv.existing_loan FROM feature_view fv LEFT JOIN feature f on fv.id = f.id WHERE fv.id = ' . $updateFeature . ';';
         $db_statement_feature_id = $db->prepare($db_query_feature_id);
         $db_statement_feature_id->execute();
-        /*$db_statement_feature_id->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));*/
 
         //Original working query, except format and location are received as text instead of their numerical foreign key id values
         /*$db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
@@ -198,14 +197,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location, ':featureId' => $featureId));
 
             $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
-
-            //clearForm();
-
-            //insert scripture
-            /*$statement = $db->prepare('INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)');
-            $statement->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ':content' => $content));
-
-            $scripture_id = $db->lastInsertId('scripture_id_seq');*/
         }
     }
 
@@ -213,17 +204,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($featureSetTitle == '(N/A)') {
         $featureSetTitle = '';
     }
-}
-
-function clearForm() {
-    $featureId = '';
-    $featureTitle = '';
-    $featureYear = '';
-    $format = '';
-    $formatYear = '';
-    $featureSetTitle = '';
-    $location = '';
-    $existingLoan = '';
 }
 ?>
 
