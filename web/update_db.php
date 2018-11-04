@@ -36,11 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //insert feature with feature set title, if there is one
         if ($featureSetTitle != '') {
-            $progressMessage = $progressMessage . '<p>Checking for matching preexisting feature set title: ' . $featureSetTitle . '</p>';
+            /*$progressMessage = $progressMessage . '<p>Checking for matching preexisting feature set title: ' . $featureSetTitle . '</p>';*/
 
             //search for existing feature set title
             $db_query_feature_set_id = 'SELECT id FROM feature_set WHERE feature_set_title = :featureSetTitle;';
-            echo '<p>' . $db_query_feature_set_id . '</p>';
+            /*$progressMessage = $progressMessage . '<p>' . $db_query_feature_set_id . '</p>';*/
             $db_statement_feature_set_id = $db->prepare($db_query_feature_set_id);
             $db_statement_feature_set_id->execute(array(':featureSetTitle' => $featureSetTitle));
             $featureSetTitleId = '';
@@ -48,33 +48,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $featureSetTitleId = $row_feature_set_id['id'];
             }
 
-            $progressMessage = $progressMessage . '<p>Inserting feature: ' . $featureTitle . '</p>';
+            /*$progressMessage = $progressMessage . '<p>Inserting feature: ' . $featureTitle . '</p>';*/
 
             if ($featureSetTitleId != '') {
                 //insert feature with reference to pre-existing feature set title
                 $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location, fk_created_by, fk_updated_by) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location, :userId, :userId);';
-                $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
+                /*$progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';*/
                 $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
                 $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location, ':userId' => $_SESSION["userId"]));
             }
             else {
                 //insert new feature set title
                 $db_insert_feature_set_query = 'INSERT INTO feature_set (feature_set_title) VALUES (:featureSetTitle);';
-                echo '<p>' . $db_insert_feature_set_query . '</p>';
+                /*$progressMessage = $progressMessage . '<p>' . $db_insert_feature_set_query . '</p>';*/
                 $db_statement_insert_feature_set = $db->prepare($db_insert_feature_set_query);
                 $db_statement_insert_feature_set->execute(array(':featureSetTitle' => $featureSetTitle));
                 $featureSetTitleId = $db->lastInsertId('feature_set_id_seq');
 
                 //insert feature, including reference to new feature set title
                 $db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location, fk_created_by, fk_updated_by) VALUES (:feature_title, :feature_year, :format, :format_year, :featureSetTitleId, :location, :userId, :userId);';
-                $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
+                /*$progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';*/
                 $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
                 $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location, ':userId' => $_SESSION["userId"]));
             }
         }
 
         $featureId = $db->lastInsertId('feature_id_seq');
-        $successMessage = '<p class="successMessage">Successfully inserted in row #' . $featureId  . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
+        $successMessage = '<p class="successMessage">Successfully inserted as feature #' . $featureId  . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
     }
     else if ($action == 'Clear Form') {
         $featureId = '';
@@ -125,11 +125,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //update feature with feature set title, if there is one
         if ($featureSetTitle != '') {
-            $progressMessage = $progressMessage . '<p>Inserting feature set title: ' . $featureSetTitle . '</p>';
+            /*$progressMessage = $progressMessage . '<p>Inserting feature set title: ' . $featureSetTitle . '</p>';*/
 
             //search for existing feature set title
             $db_query_feature_set_id = 'SELECT id FROM feature_set WHERE feature_set_title = :featureSetTitle;';
-            echo '<p>' . $db_query_feature_set_id . '</p>';
+            /*$progressMessage = $progressMessage . '<p class="progressMessage">' . $db_query_feature_set_id . '</p>';*/
             $db_statement_feature_set_id = $db->prepare($db_query_feature_set_id);
             $db_statement_feature_set_id->execute(array(':featureSetTitle' => $featureSetTitle));
             $featureSetTitleId = '';
@@ -139,42 +139,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($featureSetTitleId != '') {
                 //update feature with a preexisting feature set title
-                echo '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';
+                /*$progressMessage = $progressMessage . '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';*/
                 $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_feature_set = :featureSetTitleId, fk_storage_location = :location, updated_at = now(), fk_updated_by = :userId WHERE id = :featureId;';
-                $progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';
+                /*$progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';*/
                 $db_update_feature_statement = $db->prepare($db_update_feature_query);
                 $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location, ':featureId' => $featureId, ':userId' => $_SESSION["userId"]));
-
-                $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
             }
             else {
                 //insert new feature set title
                 $db_insert_feature_set_query = 'INSERT INTO feature_set (feature_set_title) VALUES (:featureSetTitle);';
-                echo '<p>' . $db_insert_feature_set_query . '</p>';
+                /*$progressMessage = $progressMessage . '<p>' . $db_insert_feature_set_query . '</p>';*/
                 $db_statement_insert_feature_set = $db->prepare($db_insert_feature_set_query);
                 $db_statement_insert_feature_set->execute(array(':featureSetTitle' => $featureSetTitle));
                 $featureSetTitleId = $db->lastInsertId('feature_set_id_seq');
 
                 //update feature with reference to the newly inserted feature set title
-                echo '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';
+                /*$progressMessage = $progressMessage . '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';*/
                 $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_feature_set = :featureSetTitleId, fk_storage_location = :location, updated_at = now(), fk_updated_by = :userId WHERE id = :featureId;';
-                $progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';
+                /*$progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';*/
                 $db_update_feature_statement = $db->prepare($db_update_feature_query);
                 $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':featureSetTitleId' => $featureSetTitleId, ':location' => $location, ':featureId' => $featureId, ':userId' => $_SESSION["userId"]));
-
-                $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
             }
         }
         else {
             //update feature without a feature set title
-            echo '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';
+            /*$progressMessage = $progressMessage . '<p>Updating ID: ' . $featureId . '; feature: ' . $featureTitle . '</p>';*/
             $db_update_feature_query = 'UPDATE feature SET feature_title = :feature_title, feature_year = :feature_year, fk_physical_format = :format, format_year = :format_year, fk_storage_location = :location, updated_at = now() WHERE id = :featureId;';
-            $progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';
+            /*$progressMessage = $progressMessage . '<p>' . $db_update_feature_query . '</p>';*/
             $db_update_feature_statement = $db->prepare($db_update_feature_query);
             $db_update_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location, ':featureId' => $featureId));
-
-            $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
         }
+        $successMessage = '<p class="successMessage">Successfully updated feature #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
     }
 
     //counteract the featureView representation of the feature set title
