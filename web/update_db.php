@@ -98,11 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_statement_feature_id = $db->prepare($db_query_feature_id);
         $db_statement_feature_id->execute();
 
-        //show selected feature
-        /*echo '<table class="featureResults">';
-        echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
-        showFullListOfFeatures($db_statement_feature_id);*/
-
         //get values to populate input
         $counter = 0;
         while ($row = $db_statement_feature_id->fetch(PDO::FETCH_ASSOC))
