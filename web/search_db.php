@@ -197,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<label for="searchCurrentLoans_id">Current Loans Only</label><br />
 		</div>
 		<p id="searchAllFeatures_id">Searches all features or all patrons or all loans</p>
-        <p>To view all database entries for the chosen search type, submit an empty search value (Feature Year and Format Year won't work, but they would return the same results as the Feature Title search anyway).</p>
+        <p>To view all database entries for the chosen search type, submit an empty search value<br/> (Feature Year and Format Year won't work, but they would return the same results as the Feature Title search anyway).</p>
 		<input type="submit" value="Search" class="submitButton">
 	</form>
 <?php

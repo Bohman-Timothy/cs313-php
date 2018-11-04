@@ -145,7 +145,7 @@ function showFullListOfPatrons($statement, $tableCaption, $resultsTableClass, $r
 function showFullListOfLoans($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass) {
     echo '<table class="' . $resultsTableClass . '">';
     echo '<thead><caption class="' . $resultsCaptionClass . '">' . $tableCaption . '</caption></thead>';
-    echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Loan Date</th><th>Return Date</th><th>Username</th><th>Full Name</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th><th>Feature Set Title</th></tr>';
+    echo '<tr class="searchResultsHeaderRow"><th>Feature ID</th><th>Loan Date</th><th>Return Date</th><th>Username</th><th>Full Name</th><th>Feature Title</th><th>Feature Year</th><th>Format</th><th>Format Year</th><th>Feature Set Title</th></tr>';
     $counter = 0;
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
