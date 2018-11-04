@@ -33,8 +33,6 @@ function cleanInput($data) {
 function showExactMatchResults($statement, $searchType, $searchLoans, $searchCurrentLoans) {
     switch ($searchLoans) {
         case true:
-            /*echo '<table class="loanResults">';
-            echo '<thead><caption class="exactResultsTableCaption"><span class="loanResults">Loan</span> Results Matching Search Exactly</caption></thead>';$resultsTableClass = 'loanResults';*/
             $resultsTableClass = 'loanResults';
             $resultsCaptionClass = "exactResultsTableCaption";
             $tableCaption = '<span class="' . $resultsTableClass . '">Loan</span> Results Matching Search Exactly';
@@ -43,16 +41,12 @@ function showExactMatchResults($statement, $searchType, $searchLoans, $searchCur
         default:
             switch ($searchType) {
                 case 'patron':
-                    /*echo '<table class="patronResults">';
-                    echo '<thead><caption class="exactResultsTableCaption"><span class="patronResults">Patron</span> Results Matching Search Exactly</caption></thead>';*/
                     $resultsTableClass = 'patronResults';
                     $resultsCaptionClass = "exactResultsTableCaption";
                     $tableCaption = '<span class="' . $resultsTableClass . '">Patron</span> Results Matching Search Exactly';
                     showFullListOfPatrons($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
                     break;
                 default:
-                    /*echo '<table class="featureResults">';
-                    echo '<thead><caption class="exactResultsTableCaption"><span class="featureResults">Feature</span> Results Matching Search Exactly</caption></thead>';*/
                     $resultsTableClass = 'featureResults';
                     $resultsCaptionClass = "exactResultsTableCaption";
                     $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Results Matching Search Exactly';
@@ -70,8 +64,6 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
                 case 'formatYear':
                     break;
                 default:
-                    /*echo '<table class="loanResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption"><span class="loanResults">Loan</span> Results Only Partially Matching Search</caption></thead>';*/
                     $resultsTableClass = 'loanResults';
                     $resultsCaptionClass = "regExpResultsTableCaption";
                     $tableCaption = '<span class="' . $resultsTableClass . '">Loan</span> Results Only Partially Matching Search';
@@ -81,8 +73,6 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
         default:
             switch ($searchType) {
                 case 'patron':
-                    /*echo '<table class="patronResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption"><span class="patronResults">Patron</span> Results Only Partially Matching Search</caption></thead>';*/
                     $resultsTableClass = 'patronResults';
                     $resultsCaptionClass = "regExpResultsTableCaption";
                     $tableCaption = '<span class="' . $resultsTableClass . '">Patron</span> Results Only Partially Matching Search';
@@ -93,8 +83,6 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
                 case 'formatYear':
                     break;
                 default:
-                    /*echo '<table class="featureResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption"><span class="featureResults">Feature</span> Results Only Partially Matching Search</caption></thead>';*/
                     $resultsTableClass = 'featureResults';
                     $resultsCaptionClass = "regExpResultsTableCaption";
                     $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Results Only Partially Matching Search';
@@ -188,35 +176,24 @@ function setFeatureLoan($featureId, $db) {
     echo '<p>' . $db_insert_new_loan_query . '</p>';
     $db_insert_new_loan_statement = $db->prepare($db_insert_new_loan_query);
     $db_insert_new_loan_statement->execute(array(':featureId' => $featureId, ':userLoggedIn' => $_SESSION["userId"]));
-    echo '<p>Successfully inserted new loan</p>';
     $loanId = $db->lastInsertId('loan_id_seq');
 
     //insert new current_loan, or update a feature's entry in the current_loan table
     $db_query_current_loan = 'SELECT id FROM current_loan WHERE fk_feature = :featureId;';
-    echo '<p>' . $db_query_current_loan . '</p>';
     $db_statement_current_loan = $db->prepare($db_query_current_loan);
     $db_statement_current_loan->execute(array(':featureId' => $featureId));
-    /*while ($row = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC)) {
-        $currentLoanId = $row['id'];
-    }*/
     $row_single_result = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
     $currentLoanId = $row_single_result['id'];
-    echo '<p>Successfully checked for existing current loan field associated with selected feature</p>';
 
     if ($currentLoanId == '') { //insert new current_loan for the selected feature
-        echo '<p>Inserting new current loan</p>';
         $db_query_insert_current_loan = 'INSERT INTO current_loan (fk_feature, fk_loan, fk_created_by, fk_updated_by) VALUES (:featureId, :loanId, :userId, :userId);';
         $db_statement_insert_current_loan = $db->prepare($db_query_insert_current_loan);
         $db_statement_insert_current_loan->execute(array(':featureId' => $featureId, ':loanId' => $loanId, ':userId' => $_SESSION["userId"]));
-        echo '<p>Successfully inserted new current loan</p>';
     }
     else { //update existing current_loan fields associated with the selected feature
-        echo '<p>Updating current loan status for feature #' . $featureId . '</p>';
         $db_query_update_current_loan = 'UPDATE current_loan SET fk_loan = :loanId, updated_at = :updatedAt, fk_updated_by = :userId WHERE fk_feature = :featureId;';
-        echo '<p>' . $db_query_update_current_loan . '</p>';
         $db_statement_update_current_loan = $db->prepare($db_query_update_current_loan);
         $db_statement_update_current_loan->execute(array(':featureId' => $featureId, ':loanId' => $loanId, ':updatedAt' => 'now()', ':userId' => $_SESSION["userId"]));
-        echo '<p>Successfully updated current loan status for feature #' . $featureId . '</p>';
     }
 }
 
@@ -225,23 +202,16 @@ function returnFeatureLoan($featureId, $db) {
     $db_query_current_loan = 'SELECT id, fk_loan FROM current_loan WHERE fk_feature = :featureId;';
     $db_statement_current_loan = $db->prepare($db_query_current_loan);
     $db_statement_current_loan->execute(array(':featureId' => $featureId));
-    /*while ($row = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC)) {
-        $loanId = $row['fk_loan'];
-    }*/
     $row_single_result  = $db_statement_current_loan->fetch(PDO::FETCH_ASSOC);
     $loanId = $row_single_result['fk_loan'];
 
     //update loan to reflect return date
     $db_update_loan_query = 'UPDATE loan SET return_date = :returnDate, updated_at = :updatedAt, fk_updated_by = :userLoggedIn WHERE id = :loanId;';
-    echo '<p>' . $db_update_loan_query . '</p>';
     $db_update_loan_statement = $db->prepare($db_update_loan_query);
     $db_update_loan_statement->execute(array(':returnDate' => 'now()', ':loanId' => $loanId, ':updatedAt' => 'now()', ':userLoggedIn' => $_SESSION["userId"]));
-    echo '<p>Successfully updated loan to reflect return date</p>';
 
     $db_query_update_current_loan = 'UPDATE current_loan SET fk_loan = :loanId, updated_at = :updatedAt, fk_updated_by = :userLoggedIn WHERE fk_feature = :featureId;';
-    echo '<p>' . $db_query_update_current_loan . '</p>';
     $db_statement_update_current_loan = $db->prepare($db_query_update_current_loan);
     $db_statement_update_current_loan->execute(array(':featureId' => $featureId, ':loanId' => NULL, ':updatedAt' => 'now()', ':userLoggedIn' => $_SESSION["userId"]));
-    echo '<p>Successfully updated current loan status to NULL for feature #' . $featureId . '</p>';
 }
 ?>

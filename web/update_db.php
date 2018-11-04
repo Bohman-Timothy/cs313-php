@@ -73,23 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_feature_set, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :feature_set_title, :location);';
-        echo '<p>' . $db_insert_feature_query . '</p>';
-        $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':feature_set_title' => $featureSetTitle, ':location' => $location));*/
-
-        //Working prepared insert statement, but does not include feature set title
-        /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (:feature_title, :feature_year, :format, :format_year, :location);';
-        $progressMessage = $progressMessage . '<p>' . $db_insert_feature_query . '</p>';
-        $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-        $db_insert_feature_statement->execute(array(':feature_title' => $featureTitle, ':feature_year' => $featureYear, ':format' => $format, ':format_year' => $formatYear, ':location' => $location));*/
-
-        //Working insert statement, but is not a real prepared statement
-        /*$db_insert_feature_query = 'INSERT INTO feature (feature_title, feature_year, fk_physical_format, format_year, fk_storage_location) VALUES (\'' . $featureTitle . '\', ' . $featureYear . ', ' . $format . ', ' . $formatYear . ', ' . $location . ');';
-        echo '<p>' . $db_insert_feature_query . '</p>';
-        $db_insert_feature_statement = $db->prepare($db_insert_feature_query);
-        $db_insert_feature_statement->execute();*/
-
         $featureId = $db->lastInsertId('feature_id_seq');
         $successMessage = '<p class="successMessage">Successfully inserted in row #' . $featureId  . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
     }
@@ -186,7 +169,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $successMessage = '<p class="successMessage">Successfully updated row #' . $featureId . ' &mdash; &quot;' . $featureTitle . '&quot;</p>';
             }
-            //---------------------------------------------
         }
         else {
             //update feature without a feature set title
@@ -270,20 +252,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '>';
                 echo '<label for="format' . $row['id'] . '_id">' . $row['format'] . '</label><br/>';
             }
-            /*echo 'End format generated list<br/>';*/
             if ($featureFormatAppliedFromDatabase == false) {
                 echo '<script>checkDefaultFormat();</script>';
-                /*echo '<p>No format to apply. $format:' . $format . '</p>';*/
             }
             ?>
-			<!-- <input type="radio" name="format" value="4" id="ultraHdOption_id">
-			<label for="ultraHdOption_id">4K Ultra HD Blu-ray</label><br />
-			<input type="radio" name="format" value="3" id="blurayOption_id">
-			<label for="blurayOption_id">Blu-ray</label><br />
-			<input type="radio" name="format" value="2" id="dvdOption_id" checked>
-			<label for="dvdOption_id">DVD</label><br />
-			<input type="radio" name="format" value="1" id="vhsOption_id">
-			<label for="vhsOption_id">VHS</label><br /> -->
 		</div>
 		<label for="formatYear_id">Format Year:</label>
 		<input type="text" name="formatYear" id="formatYear_id" title="Enter the four-digit number of the year of this physical-format release of the feature" required value="<?php echo $formatYear; ?>"><br />
@@ -305,22 +277,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '>';
                 echo '<label for="location' . $row['id'] . '_id">' . $row['location'] . '</label><br/>';
             }
-            /*echo 'End location generated list<br/>';*/
             if ($featureLocationAppliedFromDatabase == false) {
                 echo '<script>checkDefaultLocation();</script>';
-                /*echo '<p>No location to apply. $location:' . $location . '</p>';*/
             }
             ?>
-			<!-- <input type="radio" name="location" value="1" id="bedroomOption_id" checked>
-			<label for="bedroomOption_id">Bedroom</label><br />
-			<input type="radio" name="location" value="2" id="diningRoomOption_id">
-			<label for="diningRoomOption_id">Dining Room</label><br />
-			<input type="radio" name="location" value="3" id="familyRoomOption_id">
-			<label for="familyRoomOption_id">Family Room</label><br />
-			<input type="radio" name="location" value="4" id="hallwayOption_id">
-			<label for="hallwayOption_id">Hallway</label><br />
-			<input type="radio" name="location" value="5" id="livingRoomOption_id">
-			<label for="livingRoomOption_id">Living Room</label><br /> -->
 		</div>
         <?php
         if ($updateFeature != '') {
@@ -331,7 +291,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         ?>
         <input type="submit" name="action" value="Clear Form" class="submitButton" id="clearFormButton_id">
-		<!-- <input type="submit" name="action" value="Add or Update" class="submitButton" id="addOrUpdateButton_id" onclick="if(document.getElementById('updateFeatureCheckbox_id').checked){document.getElementById('updateFeatureCheckbox_id').value = document.getElementById('enterFeatureId_id').value;}"> -->
 	</form>
     <div id="statusMessage">
         <?php

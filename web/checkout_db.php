@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else if ($submitAction == 'Confirm Checkout') {
         if ($_SESSION["existingLoan"] != "Yes") {
-            array_push($_SESSION["checkoutList"], $submittedFeature);
-            $successMessage = '<p class="successMessage">Feature successfully added to checkout list.</p>';
+            /*array_push($_SESSION["checkoutList"], $submittedFeature);
+            $successMessage = '<p class="successMessage">Feature successfully added to checkout list.</p>';*/
             setFeatureLoan($_SESSION["featureId"], $db);
         } else {
             $errorMessage = '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
@@ -118,9 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($submitAction == 'Search') {
-            //show selected feature
-            /*echo '<table class="featureResults">';
-            echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';*/
             $resultsTableClass = 'featureResults';
             $resultsCaptionClass = "exactResultsTableCaption";
             $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Result Matching Search';
