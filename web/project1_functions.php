@@ -110,7 +110,6 @@ function showFullListOfFeatures ($statement, $tableCaption, $resultsTableClass, 
         $counter++;
         if ($_SESSION["checkingForExistingLoan"] == true) {
             $_SESSION["existingLoan"] = $row['existing_loan'];
-            echo 'existingLoan: ' . $_SESSION["existingLoan"];
         }
     }
     if ($counter == 0) {
@@ -173,7 +172,6 @@ function showFullListOfLoans($statement, $tableCaption, $resultsTableClass, $res
 function setFeatureLoan($featureId, $db) {
     //insert new loan
     $db_insert_new_loan_query = 'INSERT INTO loan (fk_feature_loaned, fk_borrower, fk_updated_by) VALUES (:featureId, :userLoggedIn, :userLoggedIn);';
-    echo '<p>' . $db_insert_new_loan_query . '</p>';
     $db_insert_new_loan_statement = $db->prepare($db_insert_new_loan_query);
     $db_insert_new_loan_statement->execute(array(':featureId' => $featureId, ':userLoggedIn' => $_SESSION["userId"]));
     $loanId = $db->lastInsertId('loan_id_seq');

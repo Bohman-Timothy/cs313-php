@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /*array_push($_SESSION["checkoutList"], $submittedFeature);
             $successMessage = '<p class="successMessage">Feature successfully added to checkout list.</p>';*/
             setFeatureLoan($_SESSION["featureId"], $db);
+            $successMessage = '<p class="successMessage">Feature successfully checked out.</p>';
         } else {
             $errorMessage = '<p class="errorMessage">You must select a feature that isn\'t already loaned out.</p>';
         }
@@ -59,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //get user id associated with the loan
             $db_loan_borrower_query = 'SELECT fk_borrower FROM loan WHERE id = :loanId;';
-            echo '<p>' . $db_loan_borrower_query . '</p>';
             $db_loan_borrower_statement = $db->prepare($db_loan_borrower_query);
             $db_loan_borrower_statement->execute(array(':loanId' => $loanId));
             $row_loan_borrower = $db_loan_borrower_statement->fetch(PDO::FETCH_ASSOC);
@@ -129,10 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else { //Prompt user to add the selected feature to their checkout list
                 if ($_SESSION["existingLoan"] != 'Yes') {
                     ?>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id"> <!--  onsubmit="return isValidForm();" -->
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="checkout_id">
                         <h2>Add the feature listed above to your checkout list?</h2>
-                        <!-- <input type="checkbox" name="addToCheckout" id="addToCheckout_id">
-                        <label for="addToCheckout_id">Yes, add to checkout list</label><br/> -->
                         <input type="number" min="1" name="selectedFeatureInputHidden" value="<?php echo $featureId; ?>"
                                id="selectedFeatureInputHidden_id">
                         <input type="submit" name="submit" value="Confirm Checkout" class="submitButton" id="confirmAddToCheckoutButton_id">
