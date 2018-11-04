@@ -306,6 +306,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultsTableClass = 'featureResults';
             $resultsCaptionClass = "exactResultsTableCaption";
             $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Inserted';
+            $db_statement_feature_id = $db->prepare($db_query_feature_id);
+            $db_statement_feature_id->execute();
             showFullListOfFeatures($db_statement_feature_id, $tableCaption, $resultsTableClass, $resultsCaptionClass);
         }
         ?>
