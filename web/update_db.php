@@ -92,11 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db_statement_feature_id = $db->prepare($db_query_feature_id);
         $db_statement_feature_id->execute();
 
-        //Original working query, except format and location are received as text instead of their numerical foreign key id values
-        /*$db_query_feature_id = 'SELECT id, feature_title, feature_year, format, format_year, feature_set_title, location, existing_loan FROM feature_view WHERE id = ' . $updateFeature . ';';
-        $db_statement_feature_id = $db->prepare($db_query_feature_id);
-        $db_statement_feature_id->execute();*/
-
         //show selected feature
         /*echo '<table class="featureResults">';
         echo '<thead><caption class="exactResultsTableCaption">Result Matching Search</caption></thead>';
@@ -302,6 +297,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if ($progressMessage != '') {
             echo $progressMessage;
+        }
+        ?>
+    </div>
+    <div id="showUpdatedFeature">
+        <?php
+        if (($action == 'Add Feature') && ($successMessage != '')) {
+            $resultsTableClass = 'featureResults';
+            $resultsCaptionClass = "exactResultsTableCaption";
+            $tableCaption = '<span class="' . $resultsTableClass . '">Feature</span> Inserted';
+            showFullListOfFeatures($db_statement_feature_id, $tableCaption, $resultsTableClass, $resultsCaptionClass);
         }
         ?>
     </div>
