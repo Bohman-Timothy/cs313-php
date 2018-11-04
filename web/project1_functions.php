@@ -43,9 +43,12 @@ function showExactMatchResults($statement, $searchType, $searchLoans, $searchCur
         default:
             switch ($searchType) {
                 case 'patron':
-                    echo '<table class="patronResults">';
-                    echo '<thead><caption class="exactResultsTableCaption"><span class="patronResults">Patron</span> Results Matching Search Exactly</caption></thead>';
-                    showFullListOfPatrons($statement);
+                    /*echo '<table class="patronResults">';
+                    echo '<thead><caption class="exactResultsTableCaption"><span class="patronResults">Patron</span> Results Matching Search Exactly</caption></thead>';*/
+                    $resultsTableClass = 'patronResults';
+                    $resultsCaptionClass = "exactResultsTableCaption";
+                    $tableCaption = '<span class="' . $resultsTableClass . '">Patron</span> Results Matching Search Exactly';
+                    showFullListOfPatrons($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
                     break;
                 default:
                     echo '<table class="featureResults">';
@@ -75,9 +78,12 @@ function showRegExpResults ($statement, $searchType, $searchLoans, $searchCurren
         default:
             switch ($searchType) {
                 case 'patron':
-                    echo '<table class="patronResults">';
-                    echo '<thead><caption class="regExpResultsTableCaption"><span class="patronResults">Patron</span> Results Only Partially Matching Search</caption></thead>';
-                    showFullListOfPatrons($statement);
+                    /*echo '<table class="patronResults">';
+                    echo '<thead><caption class="regExpResultsTableCaption"><span class="patronResults">Patron</span> Results Only Partially Matching Search</caption></thead>';*/
+                    $resultsTableClass = 'patronResults';
+                    $resultsCaptionClass = "regExpResultsTableCaption";
+                    $tableCaption = '<span class="' . $resultsTableClass . '">Patron</span> Results Only Partially Matching Search';
+                    showFullListOfPatrons($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass);
                     break;
                 case 'featureYear':
                     break;
@@ -122,8 +128,8 @@ function showFullListOfFeatures ($statement) {
 }
 
 function showFullListOfPatrons($statement, $tableCaption, $resultsTableClass, $resultsCaptionClass) {
-    /*echo '<table class="' . $resultsTableClass . '">';
-    echo '<thead><caption class="' . $resultsCaptionClass . '">' . $tableCaption . '</caption></thead>';*/
+    echo '<table class="' . $resultsTableClass . '">';
+    echo '<thead><caption class="' . $resultsCaptionClass . '">' . $tableCaption . '</caption></thead>';
     echo '<tr class="searchResultsHeaderRow"><th>ID</th><th>Username</th><th>Full Name</th></tr>';
     $counter = 0;
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
